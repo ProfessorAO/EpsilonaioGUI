@@ -17,7 +17,7 @@ class EpsilonText extends StatelessWidget {
       child: const Text("EPSILON AIO",
           style: TextStyle(fontSize: 150,
             fontFamily: 'Audiowide',
-            color: Color.fromARGB(70, 26, 25, 25),
+            color: Color.fromARGB(70, 15, 237, 120),
           )
       ),
     );

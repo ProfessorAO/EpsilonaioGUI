@@ -5,7 +5,7 @@ import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
-
+import 'package:epsilon_gui/screens/components/TopBar_.dart';
 
 class AnalyticsScreen extends StatelessWidget {
   const AnalyticsScreen({Key? key}) : super(key: key);
@@ -27,6 +27,7 @@ class AnalyticsScreen extends StatelessWidget {
                     children: const [
                       background(),
                       EpsilonText(),
+                      TopBar(),
 
                     ],
                     //

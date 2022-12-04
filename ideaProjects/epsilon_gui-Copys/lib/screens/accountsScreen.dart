@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
@@ -26,6 +27,7 @@ class AccountScreen extends StatelessWidget {
                     children: const [
                       background(),
                       EpsilonText(),
+                      TopBar(),
 
                     ],
                     //

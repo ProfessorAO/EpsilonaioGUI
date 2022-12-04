@@ -18,6 +18,7 @@ void main() {
       appWindow.size = initialSize;
       appWindow.alignment = Alignment.center;
       appWindow.show();
+
     });
   }
   runApp(MyApp());

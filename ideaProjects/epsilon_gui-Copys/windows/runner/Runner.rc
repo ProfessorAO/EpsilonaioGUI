@@ -52,7 +52,7 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_APP_ICON            ICON                    "resources\\Original on Transparent - Without EpsilonAIO.ico"
+IDI_APP_ICON            ICON                    "resources\\App-Icon-Dark.ico"
 
 
 /////////////////////////////////////////////////////////////////////////////

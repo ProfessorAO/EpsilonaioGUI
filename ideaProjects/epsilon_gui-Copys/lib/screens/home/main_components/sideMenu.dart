@@ -25,15 +25,19 @@ class SideMenu extends StatelessWidget {
         child: Column(
           children: [
             DrawerHeader(
-                child: Image.asset("assets/images/Original on Transparent - Without EpsilonAIO.png",
+                child: Image.asset("assets/images/EpsilonAIO Logo_Color Favicon.png",
                     width: 100,
                     alignment: Alignment.center)
             ),
             DrawerListTile(title: "Home",
-              src: "assets/images/home.png",
+              src: "assets/images/home green.png",
               press: (){
                 Navigator.pop(context);
-                Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: MainScreen(),duration: const Duration(milliseconds: 10)));
+                Navigator.push(context,
+                    PageTransition(
+                        type: PageTransitionType.fade,
+                        child: MainScreen(),
+                        duration: const Duration(milliseconds: 10)));
 
               },
             ),
@@ -49,7 +53,7 @@ class SideMenu extends StatelessWidget {
               src: "assets/images/to-do-list.png",
               press: (){
                 Navigator.pop(context);
-                Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: tasksScreen(),duration: const Duration(milliseconds: 10)));
+                Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: tasks_screen(),duration: const Duration(milliseconds: 10)));
               },
             ),
             DrawerListTile(title: "Profiles",
@@ -101,10 +105,10 @@ class DrawerListTile extends StatelessWidget {
       horizontalTitleGap: .0,
       trailing: Image.asset(
         src,
-        color: Colors.white,
+        color: Color.fromARGB(255, 15, 237, 120),
         height:30,
       ),
-      leading: Text(title,style: TextStyle(fontSize: 11, fontFamily: 'Audiowide',color: Colors.white)),
+      leading: Text(title,style: TextStyle(fontSize: 11, fontFamily: 'Audiowide',color: Color.fromARGB(255, 15, 237, 120))),
     );
   }
 }

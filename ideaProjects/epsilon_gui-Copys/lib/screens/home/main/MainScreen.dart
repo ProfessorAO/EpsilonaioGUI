@@ -3,6 +3,7 @@
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverText.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
+import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
@@ -58,42 +59,6 @@ class MainScreen extends StatelessWidget{
   }
 }
 
-class TopBar extends StatelessWidget {
-  const TopBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 45,
-          child: WindowTitleBarBox(
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: MoveWindow(
-                  ),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: infoBar(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0,0 , 10),
-                  child: WindowsButtons(),
-                ),
-
-              ],
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
 class RecentCheckouts extends StatelessWidget {
   const RecentCheckouts({
     Key? key,
@@ -117,7 +82,7 @@ class RecentCheckouts extends StatelessWidget {
                 child: Text("Recent Checkouts",
                     style: TextStyle(fontSize: 25,
                         fontFamily: 'Audiowide',
-                        color: Color.fromARGB(125, 255, 255, 255)
+                        color: Color.fromARGB(255, 15, 237, 120),
                     )
                 ),
               ),
@@ -132,32 +97,32 @@ class RecentCheckouts extends StatelessWidget {
                         padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                         child: Text("Price",
                           style: TextStyle(
-                              color: Color.fromARGB(255, 210, 210, 210),
+                              color: Color.fromARGB(255, 15, 237, 120),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                     ),
                     Text("Shoe name",
                       style: TextStyle(
-                          color: Color.fromARGB(255, 210, 210, 210),
+                          color: Color.fromARGB(255, 15, 237, 120),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text("Date/Time",
                       style: TextStyle(
-                          color: Color.fromARGB(255, 210, 210, 210),
+                          color: Color.fromARGB(255, 15, 237, 120),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text("Store",
                       style: TextStyle(
-                          color: Color.fromARGB(255, 210, 210, 210),
+                          color: Color.fromARGB(255, 15, 237, 120),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text("Result",
                       style: TextStyle(
-                          color: Color.fromARGB(255, 210, 210, 210),
+                          color: Color.fromARGB(255, 15, 237, 120),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -264,7 +229,7 @@ class FailuresWiget extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: OnHoverChange(builder : (isHovered) {
-                final color = isHovered? Colors.orange : Color.fromARGB(255, 255, 255, 255);
+                final color = isHovered? Color.fromARGB(255, 15, 237, 120): Color.fromARGB(255, 255, 255, 255);
                 return Container(
                   child: Text("Failures",
                     style: TextStyle(fontSize: MediaQuery
@@ -322,7 +287,7 @@ class CheckoutsWiget extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: OnHoverChange(builder : (isHovered){
-                final color = isHovered? Colors.orange : Color.fromARGB(255, 255, 255, 255);
+                final color = isHovered? Color.fromARGB(255, 15, 237, 120) : Color.fromARGB(255, 255, 255, 255);
                 return Container(
                   child: Text("Checkouts",
                     style: TextStyle(fontSize: MediaQuery.of(context).size.width /90,
@@ -393,7 +358,7 @@ class TotalSpent extends StatelessWidget {
             child: Align(
                 alignment: Alignment.bottomCenter,
                 child: OnHoverChange(builder : (isHovered){
-                final color = isHovered? Colors.orange : Color.fromARGB(255, 255, 255, 255);
+                final color = isHovered? Color.fromARGB(255, 15, 237, 120) : Color.fromARGB(250, 255, 255, 255);
                 return Container(
                     child: Text("Total Spent",
                         style: TextStyle(fontSize: MediaQuery.of(context).size.width /90,
@@ -437,28 +402,36 @@ class Calendar extends State<_CalendarState> {
           availableCalendarFormats: {CalendarFormat.month : 'Month'},
           daysOfWeekStyle: DaysOfWeekStyle(
             weekdayStyle: TextStyle(
-              color: Colors.grey
+              color: Colors.white
             ),
                 weekendStyle: TextStyle(
               color: Colors.white
           )
           ),
           calendarStyle:  CalendarStyle(
+            selectedDecoration: BoxDecoration(color:Color.fromARGB(255, 15, 237, 120), shape: BoxShape.circle ),
+            todayDecoration:BoxDecoration(color:Color.fromARGB(255, 15, 237, 120), shape: BoxShape.circle ),
             defaultTextStyle: TextStyle(
                 fontSize: 14  ,
-                color: Color.fromARGB(255, 152, 148, 148)),
+                color: Colors.white),
             weekendTextStyle: TextStyle(
                 fontSize: 14  ,
-                color: Colors.white54),
+                color: Colors.white),
+            outsideTextStyle: TextStyle(
+                color : Colors.white,
+                fontSize: 14 ),
+            withinRangeTextStyle: TextStyle(
+                color : Colors.white,
+                fontSize: 14 ),
 
           ),
             headerStyle: const HeaderStyle(
-              //leftChevronIcon: ,
-              //rightChevronIcon: ,
+              leftChevronIcon: Icon(Icons.chevron_left,color: Color.fromARGB(255, 15, 237, 120)) ,
+              rightChevronIcon:Icon(Icons.chevron_right,color: Color.fromARGB(255, 15, 237, 120)) ,
               //titleTextFormatter: ,
               titleTextStyle: TextStyle(fontSize: 18  ,
                 fontFamily: 'Audiowide',
-                color: Color.fromARGB(255, 255, 255, 255))
+                color: Color.fromARGB(255, 15, 237, 120))
             ),
             rowHeight: (MediaQuery.of(context).size.width/40)  + (MediaQuery.of(context).size.height/40) / 50,
             focusedDay: DateTime.now() ,
@@ -508,7 +481,7 @@ class sneakerNews extends StatelessWidget {
           child: Text("Sneaker News",
                 style: TextStyle(fontSize: 25,
                     fontFamily: 'Audiowide',
-                    color: Color.fromARGB(125, 255, 255, 255),
+                    color: Color.fromARGB(255, 15, 237, 120),
                 ),
               ),
 
@@ -561,7 +534,7 @@ class Releases extends StatelessWidget {
                           child: Text("Releases",
                               style: TextStyle(fontSize: 25,
                                   fontFamily: 'Audiowide',
-                                  color: Color.fromARGB(125, 255, 255, 255)
+                                  color: Color.fromARGB(255, 15, 237, 120),
                               )
                           ),
                         ),
@@ -649,99 +622,7 @@ class Releases extends StatelessWidget {
     );
   }
 }
-class WindowsButtons extends StatelessWidget{
-  String currdate = (DateTime.now().day.toString())+"/" +DateTime.now().month.toString()+"/" + DateTime.now().year.toString();
-  @override
-  Widget build(BuildContext context){
-          return Row(
-            children: [
-              MinimizeWindowButton(colors: WindowButtonColors(iconNormal: Colors.white,iconMouseOver: Colors.blueAccent)),
-               MaximizeWindowButton(colors: WindowButtonColors(iconNormal: Colors.white,iconMouseOver: Colors.blueAccent)),
-               CloseWindowButton(colors: WindowButtonColors(iconNormal: Colors.white,iconMouseOver: Colors.red)),
-            ],
-    );
-  }
-}
-class infoBar extends StatelessWidget{
-  String currdate = (DateTime.now().year.toString())+"/" +DateTime.now().month.toString()+"/"  + DateTime.now().day.toString();
 
-  @override
-  Widget build(BuildContext context){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Align(
-          alignment:Alignment.bottomCenter ,
-          child: SizedBox(
-            width: 95,
-            height: 30,
-            child: Text(
-              currdate,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 14),
-            ),
-          ),
-        ),
-        OnHoverText(
-          child: Image.asset(
-            "assets/images/discord.png",
-            height : 35,
-            width:  35,
-          ),
-        ),
-
-        OnHoverText(
-          child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-            child: Image.asset(
-              "assets/images/bell.png",
-              height : 29,
-              width:  29,
-            ),
-          ),
-        ),
-        OnHoverText(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-            child: Image.asset(
-              "assets/images/settings.png",
-              height : 29,
-              width:  29,
-            ),
-          ),
-        ),
-        Align(
-          alignment:Alignment.bottomCenter ,
-          child: Container(
-            color: Colors.black26,
-            width: 85,
-            height: 40,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-              child: Text(
-                "User1",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 14),
-              ),
-            ),
-          ),
-        ),
-        OnHoverText(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-            child: CircleAvatar(
-              backgroundColor: Color(1692195289),
-              child: Text(
-                'U1',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18,color: Colors.white),),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
 
 
 
