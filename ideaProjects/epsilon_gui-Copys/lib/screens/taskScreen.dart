@@ -1,3 +1,9 @@
+
+
+import 'dart:math';
+
+import 'package:epsilon_gui/providers/console_logger_provider.dart';
+import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/background.dart';
@@ -6,6 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
+import 'package:epsilon_gui/providers/tasks_list_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:logger/logger.dart';
 
 const List<String> size_list = <String>['XS', 'S', 'M', 'L', 'XL'];
 const List<String> category_list = <String>['Sneakers', 'Jackets', 'Bottoms', 'Jumpers', 'T-Shirts'];
@@ -22,7 +31,7 @@ class tasks_screen extends StatefulWidget{
   tasksScreen createState()=> tasksScreen();
 }
 class tasksScreen extends State<tasks_screen> {
-  List<Widget> taskinputs = [];
+  List<Widget> tasks = [];
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +52,12 @@ class tasksScreen extends State<tasks_screen> {
                       EpsilonText(),
                       TopBar(),
                       Tasksbar(),
-                      create_button(taskinputs: taskinputs),
                       Console(),
-                      columnHeadings(),
-                      taskLists(taskinputs: taskinputs),
+                      //columnHeadings(),
+                      create_button(tasks: tasks),
+                      taskLists(taskinputs: tasks),
                       startAll_button(),
+                      remove_all_button(),
                     ],
                   ),
                 ),
@@ -85,8 +95,34 @@ class startAll_button extends StatelessWidget {
     );
   }
 }
+class remove_all_button extends StatelessWidget {
+  const remove_all_button({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: 55,
+      left: ((MediaQuery.of(context).size.width) * 0.3)+ (MediaQuery.of(context).size.width * 0.59) -383,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.red,
+          padding: const EdgeInsets.all(16.0),
+          textStyle: const TextStyle(fontSize: 20,fontFamily: 'Audiowide',
+            color: Colors.white,),
+        ),
+        onPressed: () {context.read<TasksLists>().removeAllTasks();
+          print("Remove all button Pressed");
+        },
+        child: const Text('Remove all'),
+      ),
+    );
+  }
+}
 class taskLists extends StatefulWidget {
-  const taskLists({
+  taskLists({
     super.key,
     required this.taskinputs,
   });
@@ -97,17 +133,73 @@ class taskLists extends StatefulWidget {
   State<taskLists> createState() => _taskListsState();
 }
 class _taskListsState extends State<taskLists> {
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 155,
+      top: 100,
       left: MediaQuery.of(context).size.width * 0.3+30,
       child: SizedBox(
-        width: (MediaQuery.of(context).size.width * 0.7) ,
+        width: (MediaQuery.of(context).size.width * 0.59) ,
         height: MediaQuery.of(context).size.height /1.27 ,
-        child: SingleChildScrollView(
-          child: Column(
-            children: widget.taskinputs,
+        child: RawScrollbar(
+          thumbColor: Colors.white,
+          radius: Radius.circular(16),
+          thickness: 7,
+          child: SingleChildScrollView(
+            primary: true,
+            child: DataTable(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              headingRowColor:  MaterialStateColor.resolveWith((states) {return Color.fromRGBO(26, 25, 25, 0.6);},),
+              //border: TableBorder.all(),
+              columns: [
+                DataColumn(label: Text('ID',style: TextStyle(
+                  color: Colors.white60,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Audiowide',
+                  fontSize: 18,
+                ),),
+                ),
+                DataColumn(label: Text('Store',style: TextStyle(
+                  color: Colors.white60,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Audiowide',
+                  fontSize: 18,
+                ),),
+                ),
+                DataColumn(label: Text('Product',style: TextStyle(
+                  color: Colors.white60,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Audiowide',
+                  fontSize: 18,
+                ),),
+                ),
+                DataColumn(label: Text('Profile',style: TextStyle(
+                  color: Colors.white60,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Audiowide',
+                  fontSize: 18,
+                ),),
+                ),
+                DataColumn(label: Text('Status',style: TextStyle(
+                  color: Colors.white60,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Audiowide',
+                  fontSize: 18,
+                ),),
+                ),
+                DataColumn(label: Text('Actions',style: TextStyle(
+                  color: Colors.white60,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Audiowide',
+                  fontSize: 18,
+                ),),
+                ),
+
+              ],
+              rows: context.watch<TasksLists>().tasks,
+              
+            ),
           ),
         ),
       ),
@@ -116,15 +208,46 @@ class _taskListsState extends State<taskLists> {
 }
 class a_task extends StatelessWidget {
   const a_task({
-    super.key,
-  });
+    Key? key,
+
+    required this.id_data,
+    required this.store_data,
+    required this.product_data,
+    required this.profile_data,
+
+  }) : super(key: key);
+
+  final int id_data;
+  final String store_data,product_data,profile_data;
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: (MediaQuery.of(context).size.width * 0.7) ,
+    //final id = Random().nextInt(100000);
+
+    return SizedBox(
+      width: (MediaQuery.of(context).size.width * 0.59) ,
       height: MediaQuery.of(context).size.height /15,
-      color: Colors.white60,
+      child: Wrap(
+        alignment: WrapAlignment.spaceAround,
+        children: [
+
+          Text(id_data.toString(),style: TextStyle(fontSize: 14,
+            color: Colors.white, fontWeight: FontWeight.w400),),
+          Text(store_data,style: TextStyle(fontSize: 14,
+              color: Colors.white, fontWeight: FontWeight.w400),),
+          Text(product_data,style: TextStyle(fontSize: 14,
+              color: Colors.white, fontWeight: FontWeight.w400),),
+          Text(profile_data,style: TextStyle(fontSize: 14,
+              color: Colors.white, fontWeight: FontWeight.w400),),
+          Text("Inactive",style: TextStyle(fontSize: 14,
+              color: Colors.white, fontWeight: FontWeight.w400),),
+          Text("actions_data",style: TextStyle(fontSize: 14,
+              color: Colors.white, fontWeight: FontWeight.w400),),
+
+        ],
+
+      ),
     );
   }
 }
@@ -227,10 +350,19 @@ class Console extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.3,
         height: 210,
         color: Color.fromRGBO(26, 25, 25, 0.7),
-        child: Text("CONSOLE",style: TextStyle(fontSize: 15,
-          fontFamily: 'Audiowide',
-          color: Colors.white,
-        ),),
+        child: Align(
+          alignment: Alignment.topLeft,
+          child: ScrollConfiguration(
+              behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: SingleChildScrollView(
+              reverse: true,
+              child: Column(
+                children:
+                [for (var text in context.watch<ConsoleLogger>().log) Text(text,style: TextStyle(color: Colors.white))],
+              ),
+            ),
+          ),
+        ),
 
       ),
     );
@@ -238,14 +370,16 @@ class Console extends StatelessWidget {
 }
 class create_button extends StatefulWidget {
   const create_button({
-    super.key, required this.taskinputs,
+    super.key, required this.tasks,
   });
-  final List<Widget> taskinputs;
+  final List<Widget> tasks;
 
   @override
   State<create_button> createState() => _create_buttonState();
 }
 class _create_buttonState extends State<create_button> {
+
+  String currdate = (DateTime.now().year.toString())+"/" +DateTime.now().month.toString()+"/"  + DateTime.now().day.toString() + "   " + DateTime.now().hour.toString()+"-"+ DateTime.now().minute.toString()+"-"+  DateTime.now().second.toString();
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -260,22 +394,26 @@ class _create_buttonState extends State<create_button> {
             color: Colors.white,),
         ),
         onPressed: () {
-          setState(() {
-            widget.taskinputs.add(const a_task());
-          });
-          print("Create button Pressed");},
+          context.read<TasksLists>().addTask(context.read<TasksInputs>().tasks_num,
+              context.read<TasksInputs>().task_store,
+              context.read<TasksInputs>().product,
+              context.read<TasksInputs>().task_profile);
+          context.read<ConsoleLogger>().logOuput_createTask("User 1");},
         child: const Text('Create'),
       ),
     );
   }
 }
 class Tasksbar extends StatefulWidget{
+  const Tasksbar({super.key});
+
+  @override
   Task_inputs createState()=> Task_inputs();
 
 
 }
 class Task_inputs extends State<Tasksbar> {
-  String dropdownsize = size_list.first;
+  String dropdownsize = size_list.first ;
   String dropdowncategory = category_list.first;
   String dropdownregion = region_list.first;
   String dropdownprofile = profile_list.first;
@@ -283,7 +421,9 @@ class Task_inputs extends State<Tasksbar> {
   String dropdownTG = taskGroup_list.first;
   String dropdownstore = store_list.first;
 
+
   final myController = TextEditingController();
+  final numController = TextEditingController();
 
   @override
   void dispose() {
@@ -294,6 +434,8 @@ class Task_inputs extends State<Tasksbar> {
 
   @override
   Widget build(BuildContext context) {
+    context.read<TasksInputs>().setstore(dropdownstore);
+    context.read<TasksInputs>().setprofile(dropdownprofile);
     return Positioned(
       left: 10,
       top: 50,
@@ -501,6 +643,8 @@ class Task_inputs extends State<Tasksbar> {
                         color: Color.fromRGBO(26, 25, 25, 0.6),
                         child: TextField(style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 17) ,
                             controller: myController,
+                            onChanged: (String value){context.read<TasksInputs>().setproduct(value!);}
+                            ,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               isDense: true,
@@ -533,6 +677,8 @@ class Task_inputs extends State<Tasksbar> {
                         DropdownMenuItem(child: Text("Palace-Clothing"),value: "Palace-Clothing",),
                       ], onChanged: (String? value) {setState(() {
                       dropdownstore = value!;
+                      context.read<TasksInputs>().setstore(dropdownstore);
+                      print(value!);
                     });  },
 
 
@@ -620,6 +766,9 @@ class Task_inputs extends State<Tasksbar> {
                     child: Container(
                       color: Color.fromRGBO(26, 25, 25, 0.6),
                       child: TextField(style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 17) ,
+                          controller: numController,
+                          onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));}
+                          ,
                           decoration: InputDecoration(
                               border: InputBorder.none,
                             isDense: true,
@@ -678,6 +827,7 @@ class Task_inputs extends State<Tasksbar> {
                         DropdownMenuItem(child: Text("profile1"),value: "profile1",),
                       ], onChanged: (String? value) {setState(() {
                       dropdownprofile = value!;
+                      context.read<TasksInputs>().setprofile(dropdownprofile);
                     });  },
 
 
