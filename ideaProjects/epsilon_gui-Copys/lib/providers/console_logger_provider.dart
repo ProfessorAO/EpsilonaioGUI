@@ -11,13 +11,13 @@ class ConsoleLogger with ChangeNotifier{
 
 
   void logOuput_createTask(String username){
-    String time = (DateTime.now().year.toString())+"-" +DateTime.now().month.toString()+"-"  + DateTime.now().day.toString() + "  " + DateTime.now().hour.toString()+":"+ DateTime.now().minute.toString()+":"+  DateTime.now().second.toString() + "," +DateTime.now().millisecond.toString() ;
+    String time = "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}  ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second},${DateTime.now().millisecond}" ;
     output = "$time INFO [$username] Task Created -  ";
     logger.add(output);
     notifyListeners();
   }
   String task_log(){
-    String time = (DateTime.now().year.toString())+"-" +DateTime.now().month.toString()+"-"  + DateTime.now().day.toString() + "  " + DateTime.now().hour.toString()+":"+ DateTime.now().minute.toString()+":"+  DateTime.now().second.toString() + "," +DateTime.now().millisecond.toString() ;
+    String time = "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}  ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second},${DateTime.now().millisecond}" ;
 
     return "$time Task Created at ";
 

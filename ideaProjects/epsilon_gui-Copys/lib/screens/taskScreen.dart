@@ -1,20 +1,16 @@
 
 
-import 'dart:math';
-
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:flutter_js/flutter_js.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:logger/logger.dart';
+
 
 const List<String> size_list = <String>['XS', 'S', 'M', 'L', 'XL'];
 const List<String> category_list = <String>['Sneakers', 'Jackets', 'Bottoms', 'Jumpers', 'T-Shirts'];
@@ -206,136 +202,6 @@ class _taskListsState extends State<taskLists> {
     );
   }
 }
-class a_task extends StatelessWidget {
-  const a_task({
-    Key? key,
-
-    required this.id_data,
-    required this.store_data,
-    required this.product_data,
-    required this.profile_data,
-
-  }) : super(key: key);
-
-  final int id_data;
-  final String store_data,product_data,profile_data;
-
-
-  @override
-  Widget build(BuildContext context) {
-    //final id = Random().nextInt(100000);
-
-    return SizedBox(
-      width: (MediaQuery.of(context).size.width * 0.59) ,
-      height: MediaQuery.of(context).size.height /15,
-      child: Wrap(
-        alignment: WrapAlignment.spaceAround,
-        children: [
-
-          Text(id_data.toString(),style: TextStyle(fontSize: 14,
-            color: Colors.white, fontWeight: FontWeight.w400),),
-          Text(store_data,style: TextStyle(fontSize: 14,
-              color: Colors.white, fontWeight: FontWeight.w400),),
-          Text(product_data,style: TextStyle(fontSize: 14,
-              color: Colors.white, fontWeight: FontWeight.w400),),
-          Text(profile_data,style: TextStyle(fontSize: 14,
-              color: Colors.white, fontWeight: FontWeight.w400),),
-          Text("Inactive",style: TextStyle(fontSize: 14,
-              color: Colors.white, fontWeight: FontWeight.w400),),
-          Text("actions_data",style: TextStyle(fontSize: 14,
-              color: Colors.white, fontWeight: FontWeight.w400),),
-
-        ],
-
-      ),
-    );
-  }
-}
-class columnHeadings extends StatelessWidget {
-  const columnHeadings({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: 100,
-        left: MediaQuery.of(context).size.width * 0.3+30,
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.59,
-          height: 50,
-          color: Color.fromRGBO(26, 25, 25, 0.6),
-          child: Column(
-            children: [
-          Expanded(
-            flex: 8,
-            child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    child: Text("ID",
-                      style: TextStyle(
-                        color: Colors.white60,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'Audiowide',
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                  Text("Website",
-                    style: TextStyle(
-                      color: Colors.white60,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Audiowide',
-                      fontSize: 18,
-                    ),
-                  ),
-                  Text("Item",
-                    style: TextStyle(
-                      color: Colors.white60,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Audiowide',
-                      fontSize: 18,
-                    ),
-                  ),
-                  Text("Profile",
-                    style: TextStyle(
-                      color: Colors.white60,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Audiowide',
-                      fontSize: 18,
-                    ),
-                  ),
-                  Text("Status",
-                    style: TextStyle(
-                      color: Colors.white60,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Audiowide',
-                      fontSize: 18,
-                    ),
-                  ),
-                  Text("Actions",
-                    style: TextStyle(
-                      color: Colors.white60,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'Audiowide',
-                      fontSize: 18,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          ],
-
-        ),
-    ),
-                    );
-  }
-}
 class Console extends StatelessWidget {
   const Console({
     super.key,
@@ -373,13 +239,14 @@ class create_button extends StatefulWidget {
     super.key, required this.tasks,
   });
   final List<Widget> tasks;
-
   @override
   State<create_button> createState() => _create_buttonState();
 }
 class _create_buttonState extends State<create_button> {
+  final JavascriptRuntime _javascriptRuntime = getJavascriptRuntime();
 
-  String currdate = (DateTime.now().year.toString())+"/" +DateTime.now().month.toString()+"/"  + DateTime.now().day.toString() + "   " + DateTime.now().hour.toString()+"-"+ DateTime.now().minute.toString()+"-"+  DateTime.now().second.toString();
+   
+  
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -393,17 +260,22 @@ class _create_buttonState extends State<create_button> {
           textStyle: const TextStyle(fontSize: 20,fontFamily: 'Audiowide',
             color: Colors.white,),
         ),
-        onPressed: () {
+        onPressed: () async{
           context.read<TasksLists>().addTask(context.read<TasksInputs>().tasks_num,
               context.read<TasksInputs>().task_store,
               context.read<TasksInputs>().product,
               context.read<TasksInputs>().task_profile);
-          context.read<ConsoleLogger>().logOuput_createTask("User 1");},
+
+          context.read<ConsoleLogger>().logOuput_createTask("User 1");
+          },
+          
         child: const Text('Create'),
       ),
     );
   }
 }
+
+
 class Tasksbar extends StatefulWidget{
   const Tasksbar({super.key});
 
