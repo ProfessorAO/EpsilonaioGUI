@@ -1,4 +1,4 @@
-import 'package:sprung/sprung.dart';
+
 import 'package:flutter/material.dart';
 
 class OnHoverChange extends StatefulWidget{
@@ -28,8 +28,8 @@ class _OnHoverChangeState extends State<OnHoverChange>{
       onExit: (event)=> OnEntered(false) ,
       child:AnimatedContainer(
         transform: transform,
+        duration: const Duration(milliseconds: 100),
         child: widget.builder(isHovered),
-        duration: Duration(milliseconds: 100),
       ),
     );
 

@@ -11,6 +11,7 @@ class TasksInputs with ChangeNotifier{
   String taskprofile = "";
   String tasktype = "";
   String taskgroup = "";
+  
 
 
   String get product => taskproduct;
@@ -35,6 +36,7 @@ class TasksInputs with ChangeNotifier{
   void setstore(String store){taskstore = store;}
   void setproduct(String product){taskproduct = product;}
   void setNum_of_tasks(int num){num_of_tasks = num;}
+
 
 
 

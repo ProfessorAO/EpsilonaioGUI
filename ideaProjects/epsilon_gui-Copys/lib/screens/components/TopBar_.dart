@@ -1,10 +1,5 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverText.dart';
 
 class TopBar extends StatelessWidget {
@@ -44,7 +39,7 @@ class TopBar extends StatelessWidget {
   }
 }
 class WindowsButtons extends StatelessWidget{
-  String currdate = (DateTime.now().day.toString())+"/" +DateTime.now().month.toString()+"/" + DateTime.now().year.toString();
+  String currdate = "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
   @override
   Widget build(BuildContext context){
     return Row(
@@ -57,7 +52,7 @@ class WindowsButtons extends StatelessWidget{
   }
 }
 class infoBar extends StatelessWidget{
-  String currdate = (DateTime.now().year.toString())+"/" +DateTime.now().month.toString()+"/"  + DateTime.now().day.toString();
+  String currdate = "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
 
   @override
   Widget build(BuildContext context){
@@ -67,7 +62,7 @@ class infoBar extends StatelessWidget{
         Container(
           height : 29,
           width:  MediaQuery.of(context).size.width * 0.6/2,
-          color: Color.fromRGBO(26, 25, 25, 0.6),
+          color: const Color.fromRGBO(26, 25, 25, 0.6),
           child: const TextField(
             style:TextStyle(fontFamily: 'Audiowide',color: Colors.white70,fontSize: 20) ,
             decoration: InputDecoration( labelStyle: TextStyle(fontFamily: 'Audiowide',color: Colors.white30,fontSize: 20),
@@ -84,12 +79,12 @@ class infoBar extends StatelessWidget{
             child: Text(
               currdate,
               textAlign: TextAlign.center,
-              style: TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 13),
+              style: const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 13),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+          padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
           child: OnHoverText(
             child: Image.asset(
               "assets/images/discord.png",

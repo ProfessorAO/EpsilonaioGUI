@@ -38,7 +38,6 @@ class SideMenu extends StatelessWidget {
                         type: PageTransitionType.fade,
                         child: MainScreen(),
                         duration: const Duration(milliseconds: 10)));
-
               },
             ),
             DrawerListTile(title: "Proxies",

@@ -6,19 +6,20 @@ import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_js/flutter_js.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:provider/provider.dart';
 
 
-const List<String> size_list = <String>['XS', 'S', 'M', 'L', 'XL'];
-const List<String> category_list = <String>['Sneakers', 'Jackets', 'Bottoms', 'Jumpers', 'T-Shirts'];
-const List<String> region_list = <String>['UK', 'US', 'EU'];
-const List<String> profile_list = <String>['profile1'];
-const List<String> taskType_list = <String>['Browser', 'Requests'];
-const List<String> taskGroup_list = <String>['group1'];
-const List<String> store_list = <String>['Trapstar','Palace-Clothing'];
+
+List<String> size_list = <String>['XS', 'S', 'M', 'L', 'XL'];
+List<String> category_list = <String>['Sneakers', 'Jackets', 'Bottoms', 'Jumpers', 'T-Shirts'];
+List<String> region_list = <String>['UK', 'US', 'EU'];
+List<String> profile_list = <String>['profile1'];
+List<String> taskType_list = <String>['Browser', 'Requests'];
+List<String> taskGroup_list = <String>['group1'];
+List<String> store_list = <String>['Trapstar','Palace-Clothing'];
+typedef StringVoidCallback = void Function(String?);
 
 class tasks_screen extends StatefulWidget{
   const tasks_screen({super.key});
@@ -28,7 +29,7 @@ class tasks_screen extends StatefulWidget{
 }
 class tasksScreen extends State<tasks_screen> {
   List<Widget> tasks = [];
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +50,6 @@ class tasksScreen extends State<tasks_screen> {
                       TopBar(),
                       Tasksbar(),
                       Console(),
-                      //columnHeadings(),
                       create_button(tasks: tasks),
                       taskLists(taskinputs: tasks),
                       startAll_button(),
@@ -84,7 +84,7 @@ class startAll_button extends StatelessWidget {
             color: Colors.white,),
         ),
         onPressed: () {
-          print("Start all button Pressed");
+          context.read<TasksLists>().startAllTasks();
           },
         child: const Text('Start All'),
       ),
@@ -110,7 +110,6 @@ class remove_all_button extends StatelessWidget {
             color: Colors.white,),
         ),
         onPressed: () {context.read<TasksLists>().removeAllTasks();
-          print("Remove all button Pressed");
         },
         child: const Text('Remove all'),
       ),
@@ -131,7 +130,9 @@ class taskLists extends StatefulWidget {
 class _taskListsState extends State<taskLists> {
 
   @override
+  
   Widget build(BuildContext context) {
+
     return Positioned(
       top: 100,
       left: MediaQuery.of(context).size.width * 0.3+30,
@@ -144,62 +145,52 @@ class _taskListsState extends State<taskLists> {
           thickness: 7,
           child: SingleChildScrollView(
             primary: true,
-            child: DataTable(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              headingRowColor:  MaterialStateColor.resolveWith((states) {return Color.fromRGBO(26, 25, 25, 0.6);},),
-              //border: TableBorder.all(),
-              columns: [
-                DataColumn(label: Text('ID',style: TextStyle(
-                  color: Colors.white60,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Audiowide',
-                  fontSize: 18,
-                ),),
-                ),
-                DataColumn(label: Text('Store',style: TextStyle(
-                  color: Colors.white60,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Audiowide',
-                  fontSize: 18,
-                ),),
-                ),
-                DataColumn(label: Text('Product',style: TextStyle(
-                  color: Colors.white60,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Audiowide',
-                  fontSize: 18,
-                ),),
-                ),
-                DataColumn(label: Text('Profile',style: TextStyle(
-                  color: Colors.white60,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Audiowide',
-                  fontSize: 18,
-                ),),
-                ),
-                DataColumn(label: Text('Status',style: TextStyle(
-                  color: Colors.white60,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Audiowide',
-                  fontSize: 18,
-                ),),
-                ),
-                DataColumn(label: Text('Actions',style: TextStyle(
-                  color: Colors.white60,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'Audiowide',
-                  fontSize: 18,
-                ),),
-                ),
-
-              ],
-              rows: context.watch<TasksLists>().tasks,
-              
+            child: Theme(
+              data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+              child: DataTable(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                headingRowColor:  MaterialStateColor.resolveWith((states) {return const Color.fromRGBO(26, 25, 25, 0.6);},),
+                //border: TableBorder.all(),
+                columns: const [
+                  DataColumn(label: taskColumn(name:"ID"),
+                  ),
+                  DataColumn(label: taskColumn(name:"Store")
+                  ),
+                  DataColumn(label: taskColumn(name:"Product")
+                  ),
+                  DataColumn(label: taskColumn(name:"Profile")
+                  ),
+                  DataColumn(label:taskColumn(name:"Status")
+                  ),
+                  DataColumn(label:taskColumn(name:"Actions")
+                  ),
+                ],
+                rows: context.watch<TasksLists>().tasks_data,
+                
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+class taskColumn extends StatelessWidget {
+  const taskColumn({
+    super.key,
+    required this.name,
+  });
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(name,style: const TextStyle(
+      color: Colors.white60,
+      fontWeight: FontWeight.normal,
+      fontFamily: 'Audiowide',
+      fontSize: 18,
+    ),);
   }
 }
 class Console extends StatelessWidget {
@@ -224,7 +215,7 @@ class Console extends StatelessWidget {
               reverse: true,
               child: Column(
                 children:
-                [for (var text in context.watch<ConsoleLogger>().log) Text(text,style: TextStyle(color: Colors.white))],
+                [for (var text in context.watch<ConsoleLogger>().log) Text(text,style: const TextStyle(color: Colors.white))],
               ),
             ),
           ),
@@ -243,7 +234,6 @@ class create_button extends StatefulWidget {
   State<create_button> createState() => _create_buttonState();
 }
 class _create_buttonState extends State<create_button> {
-  final JavascriptRuntime _javascriptRuntime = getJavascriptRuntime();
 
    
   
@@ -264,11 +254,11 @@ class _create_buttonState extends State<create_button> {
           context.read<TasksLists>().addTask(context.read<TasksInputs>().tasks_num,
               context.read<TasksInputs>().task_store,
               context.read<TasksInputs>().product,
-              context.read<TasksInputs>().task_profile);
-
+              context.read<TasksInputs>().task_profile,
+              context.read<TasksInputs>().task_size,
+              );
           context.read<ConsoleLogger>().logOuput_createTask("User 1");
           },
-          
         child: const Text('Create'),
       ),
     );
@@ -308,6 +298,7 @@ class Task_inputs extends State<Tasksbar> {
   Widget build(BuildContext context) {
     context.read<TasksInputs>().setstore(dropdownstore);
     context.read<TasksInputs>().setprofile(dropdownprofile);
+    context.read<TasksInputs>().setsize(dropdownsize);
     return Positioned(
       left: 10,
       top: 50,
@@ -320,7 +311,7 @@ class Task_inputs extends State<Tasksbar> {
           Expanded(
             flex: 2,
             child: Column(
-              children: [
+              children: const [
                Align(
                  alignment: Alignment.centerLeft,
                   child: Baseline(
@@ -336,166 +327,52 @@ class Task_inputs extends State<Tasksbar> {
             ),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("Product",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-
-                    )
+                    child: taskInputData(name: "Product")
                 ),
                 Spacer(),
                 Expanded(
                   flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("Website",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-
-                )
+                     child: taskInputData(name: "Website")
                 ),
                 Spacer(),
                 Expanded(
                   flex: 2,
-                  child: Container(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("Size",
-                          style: TextStyle(fontSize: 20,
-                            fontFamily: 'Audiowide',
-                            color: Color.fromARGB(255, 15, 237, 120),
-                          )
-                      ),
-                    ),
-
-
-                  ),
+                   child: taskInputData(name: "Size")
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment:Alignment.center ,
-                        child: Text("Category",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-
-
-                    )
+                    child: taskInputData(name: "Category")
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("Keywords",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-                    )
+                     child: taskInputData(name: "Keywords")
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("No. Of Tasks",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-
-
-                    )
+                     child: taskInputData(name: "No. Of Tasks")
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("Region",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-                    )
+                     child: taskInputData(name: "Region")
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("Profile",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-
-
-                    )
+                     child: taskInputData(name: "Profile")
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("Task Type",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-
-
-                    )
+                    child: taskInputData(name: "Task Type")
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text("Proxy Group",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: 'Audiowide',
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            )
-                        ),
-                      ),
-
-
-                    )
+                     child: taskInputData(name: "Proxy Group")
                 ),
                           ],
                         ),
@@ -509,15 +386,15 @@ class Task_inputs extends State<Tasksbar> {
                     flex: 2,
                     child: SizedBox(
                       child: Container(
-                        constraints:BoxConstraints(
+                        constraints:const BoxConstraints(
                           maxHeight: 5,
                         ) ,
-                        color: Color.fromRGBO(26, 25, 25, 0.6),
-                        child: TextField(style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 17) ,
+                        color: const Color.fromRGBO(26, 25, 25, 0.6),
+                        child: TextField(style:const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 17) ,
                             controller: myController,
-                            onChanged: (String value){context.read<TasksInputs>().setproduct(value!);}
+                            onChanged: (String value){context.read<TasksInputs>().setproduct(value);}
                             ,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               isDense: true,
                               contentPadding: EdgeInsets.all(8),
@@ -531,92 +408,55 @@ class Task_inputs extends State<Tasksbar> {
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
-                        border: InputBorder.none,
-                        isDense: true,
-                        contentPadding: EdgeInsets.all(8),
-                      ),
-                      dropdownColor: Color.fromRGBO(26, 25, 25, 1),
+                    child: 
+                    columnInput_Menu(Menuitems:const [
+                        DropdownMenuItem(value: "Trapstar",child: Text("Trapstar"),),
+                        DropdownMenuItem(value: "Palace-Clothing",child: Text("Palace-Clothing"),),
+                      ] ,
                       value: dropdownstore,
-                      icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
-                      style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
-
-                      items: const [
-                        DropdownMenuItem(child: Text("Trapstar"),value: "Trapstar",),
-                        DropdownMenuItem(child: Text("Palace-Clothing"),value: "Palace-Clothing",),
-                      ], onChanged: (String? value) {setState(() {
+                      onChanged: (String? value) {setState(() {
                       dropdownstore = value!;
                       context.read<TasksInputs>().setstore(dropdownstore);
-                      print(value!);
+                      
                     });  },
-
-
                     )
                 ),
                 Spacer(),
                 Expanded(
                     flex: 2,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
-                        border: InputBorder.none,
-                        isDense: true,
-                        contentPadding: EdgeInsets.all(8),
-                      ),
-                      dropdownColor: Color.fromRGBO(26, 25, 25, 1),
-                      value: dropdownsize,
-                        icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
-                      style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
-
-                      items: const [
-                      DropdownMenuItem(child: Text("XS"),value: "XS",),
-                      DropdownMenuItem(child: Text("S"),value: "S",),
-                        DropdownMenuItem(child: Text("M"),value: "M",),
-                        DropdownMenuItem(child: Text("L"),value: "L",),
-                        DropdownMenuItem(child: Text("XL"),value: "XL",),
-                      ], onChanged: (String? value) {setState(() {
+                    child: columnInput_Menu(value: dropdownsize,
+                    Menuitems: const [
+                            DropdownMenuItem(value: "XS",child: Text("XS"),),
+                            DropdownMenuItem(value: "S",child: Text("S"),),
+                            DropdownMenuItem(value: "M",child: Text("M"),),
+                            DropdownMenuItem(value: "L",child: Text("L"),),
+                            DropdownMenuItem(value: "XL",child: Text("XL"),),
+                            ],
+                     onChanged:(String? value) {setState(() {
                       dropdownsize = value!;
-                    });  },
-
-
-                    )
+                      context.read<TasksInputs>().setsize(dropdownsize);
+                    });  }, )
                 ),
                 Spacer(),
                 //CATEGORY
                 Expanded(
                     flex: 2,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
-                        border: InputBorder.none,
-                        isDense: true,
-                        contentPadding: EdgeInsets.all(8),
-                      ),
-                      dropdownColor: Color.fromRGBO(26, 25, 25, 1),
-                      value: dropdowncategory,
-                      icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
-                      style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
-
-                      items: const [
-                        DropdownMenuItem(child: Text("Sneakers"),value: "Sneakers",),
-                        DropdownMenuItem(child: Text("Jackets"),value: "Jackets",),
-                        DropdownMenuItem(child: Text("Bottoms"),value: "Bottoms",),
-                        DropdownMenuItem(child: Text("Jumpers"),value: "Jumpers",),
-                        DropdownMenuItem(child: Text("T-Shirts"),value: "Shirts",),
-                      ], onChanged: (String? value) {setState(() {
+                    child: columnInput_Menu(value:dropdowncategory,
+                    Menuitems:const [
+                        DropdownMenuItem(value: "Sneakers",child: Text("Sneakers"),),
+                        DropdownMenuItem(value: "Jackets",child: Text("Jackets"),),
+                        DropdownMenuItem(value: "Bottoms",child: Text("Bottoms"),),
+                        DropdownMenuItem(value: "Jumpers",child: Text("Jumpers"),),
+                        DropdownMenuItem(value: "Shirts",child: Text("T-Shirts"),),
+                      ], 
+                      onChanged:  (String? value) {setState(() {
                       dropdowncategory = value!;
                     });  },
-
-
                     )
+                  
                 ),
                 //COLOR
-                Spacer(),
+                const Spacer(),
                 Expanded(
                     flex: 2,
                     child: Container(
@@ -631,7 +471,7 @@ class Task_inputs extends State<Tasksbar> {
 
                     )
                 ),
-                Spacer(),
+                const Spacer(),
                 // TASK NUMBER
                 Expanded(
                     flex: 2,
@@ -650,111 +490,63 @@ class Task_inputs extends State<Tasksbar> {
 
                     )
                 ),
-                Spacer(),
+                const Spacer(),
                 // REGION
                 Expanded(
                     flex: 2,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
-                        border: InputBorder.none,
-                        isDense: true,
-                        contentPadding: EdgeInsets.all(8),
-                      ),
-                      dropdownColor: Color.fromRGBO(26, 25, 25, 1),
-                      value: dropdownregion,
-                      icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
-                      style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
-
-                      items: const [
-                        DropdownMenuItem(child: Text("UK"),value: "UK",),
-                        DropdownMenuItem(child: Text("US"),value: "US",),
-                        DropdownMenuItem(child: Text("EU"),value: "EU",),
-                      ], onChanged: (String? value) {setState(() {
+                    child: columnInput_Menu(value:dropdownregion,
+                    Menuitems:const [
+                        DropdownMenuItem(value: "UK",child: Text("UK"),),
+                        DropdownMenuItem(value: "US",child: Text("US"),),
+                        DropdownMenuItem(value: "EU",child: Text("EU"),),
+                      ], 
+                      onChanged:  (String? value) {setState(() {
                       dropdownregion = value!;
                     });  },
-
-
                     )
+
+
                 ),
-                Spacer(),
+                const Spacer(),
                 //PROFILE
                 Expanded(
                     flex: 2,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
-                        border: InputBorder.none,
-                        isDense: true,
-                        contentPadding: EdgeInsets.all(8),
-                      ),
-                      dropdownColor: Color.fromRGBO(26, 25, 25, 1),
-                      value: dropdownprofile,
-                      icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
-                      style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
-
-                      items: const [
-                        DropdownMenuItem(child: Text("profile1"),value: "profile1",),
-                      ], onChanged: (String? value) {setState(() {
+                    child: columnInput_Menu(value:dropdownprofile,
+                    Menuitems:const [
+                        DropdownMenuItem(value: "profile1",child: Text("profile1"),),
+                      ],
+                      onChanged:  (String? value) {setState(() {
                       dropdownprofile = value!;
                       context.read<TasksInputs>().setprofile(dropdownprofile);
                     });  },
-
-
                     )
                 ),
                 Spacer(),
                 //TASK TYPE
                 Expanded(
                     flex: 2,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
-                        border: InputBorder.none,
-                        isDense: true,
-                        contentPadding: EdgeInsets.all(8),
-                      ),
-                      dropdownColor: Color.fromRGBO(26, 25, 25, 1),
-                      value: dropdownTT,
-                      icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
-                      style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
-
-                      items: const [
-                        DropdownMenuItem(child: Text("Browser"),value: "Browser",),
-                        DropdownMenuItem(child: Text("Requests"),value: "Requests",),
-                      ], onChanged: (String? value) {setState(() {
+                    child: columnInput_Menu(value:dropdownTT,
+                    Menuitems:const [
+                        DropdownMenuItem(value: "Browser",child: Text("Browser"),),
+                        DropdownMenuItem(value: "Requests",child: Text("Requests"),),
+                      ],
+                      onChanged:  (String? value) {setState(() {
                       dropdownTT = value!;
                     });  },
-
-
                     )
+                    
                 ),
                 Spacer(),
                 //TASK GROUP
                 Expanded(
                     flex: 2,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
-                        border: InputBorder.none,
-                        isDense: true,
-                        contentPadding: EdgeInsets.all(8),
-                      ),
-                      dropdownColor: Color.fromRGBO(26, 25, 25, 1),
-                      value: dropdownTG,
-                      icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
-                      style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
-                      items: const [
-                        DropdownMenuItem(child: Text("group1"),value: "group1",),
-                      ], onChanged: (String? value) {setState(() {
+                    child:columnInput_Menu(value:dropdownTG,
+                    Menuitems:const [
+                       DropdownMenuItem(value: "group1",child: Text("group1"),),
+                      ],
+                      onChanged:  (String? value) {setState(() {
                       dropdownTG = value!;
                     });  },
-
-
                     )
                 ),
 
@@ -773,5 +565,64 @@ class Task_inputs extends State<Tasksbar> {
   State<StatefulWidget> createState() {
     // TODO: implement createState
     throw UnimplementedError();
+  }
+}
+
+class columnInput_Menu extends StatelessWidget {
+  const columnInput_Menu({
+    super.key,
+    required this.value,
+    required this.onChanged,
+    required this.Menuitems,
+  });
+
+  final String value;
+  final StringVoidCallback onChanged;
+  final List<DropdownMenuItem<String>>? Menuitems;
+  
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField(
+      decoration: const InputDecoration(
+        filled: true,
+        fillColor:  Color.fromRGBO(26, 25, 25, 0.6),
+        border: InputBorder.none,
+        isDense: true,
+        contentPadding: EdgeInsets.all(8),
+      ),
+      dropdownColor: const Color.fromRGBO(26, 25, 25, 1),
+      value: value,
+        icon: const Icon(Icons.arrow_drop_down,color: Colors.white,),
+      style:const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 15) ,
+
+      items: Menuitems,
+      onChanged: onChanged
+      
+
+
+    );
+  }
+}
+
+class taskInputData extends StatelessWidget {
+  const taskInputData({
+    super.key,
+    required this.name
+  });
+  final String name;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(name,
+            style: const TextStyle(fontSize: 20,
+              fontFamily: 'Audiowide',
+              color: Color.fromARGB(255, 15, 237, 120),
+            )
+        ),
+      ),
+
+    );
   }
 }

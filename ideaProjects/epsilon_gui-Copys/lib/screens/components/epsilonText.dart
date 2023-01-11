@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:page_transition/page_transition.dart';
 
 class EpsilonText extends StatelessWidget {
   const EpsilonText({

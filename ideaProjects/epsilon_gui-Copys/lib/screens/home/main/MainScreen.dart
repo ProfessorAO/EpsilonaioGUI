@@ -1,12 +1,9 @@
 
-
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
-import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverText.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import '../../components/background.dart';
 import '../../components/epsilonText.dart';
 
@@ -22,15 +19,9 @@ class MainScreen extends StatelessWidget{
             Container(
               alignment: Alignment.centerLeft,
               width: 140,
-              child: SideMenu(color: Color.fromARGB(255, 49, 47, 47)),
+              child: const SideMenu(color: Color.fromARGB(255, 49, 47, 47)),
               ),
-              Expanded(
-                  child: dashboard(context),
-              ),
-            // Container(
-            //     child: DashboardScreen()
-            //
-            // ),
+              Expanded(child: dashboard(context),),
           ],
         ),
       )
@@ -38,8 +29,6 @@ class MainScreen extends StatelessWidget{
   }
   Container dashboard(BuildContext context) {
     return Container(
-
-
       child: Stack(
         children: [
           const background(),
@@ -58,7 +47,6 @@ class MainScreen extends StatelessWidget{
     );
   }
 }
-
 class RecentCheckouts extends StatelessWidget {
   const RecentCheckouts({
     Key? key,
@@ -95,112 +83,84 @@ class RecentCheckouts extends StatelessWidget {
                   children: const [
                     Padding(
                         padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        child: Text("Price",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 15, 237, 120),
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                        child: checkoutTitle(name: "Price"),
                     ),
-                    Text("Shoe name",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 15, 237, 120),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text("Date/Time",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 15, 237, 120),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text("Store",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 15, 237, 120),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text("Result",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 15, 237, 120),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                     checkoutTitle(name: "Shoe Name"),
+                     checkoutTitle(name: "Date/Time"),
+                     checkoutTitle(name: "Store"),
+                     checkoutTitle(name: "Result"),
                   ],
                 ),
               ),
             ),
             Expanded(
               flex: 8,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                  ),
-                )
+                child: checkoutRow(),
             ),
             Spacer(),
             Expanded(
                 flex: 8,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                  ),
-                )
+                child: checkoutRow(),
             ),
             Spacer(),
             Expanded(
                 flex: 8,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                  ),
-                )
+                child: checkoutRow(),
             ),
             Spacer(),
             Expanded(
                 flex: 8,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                  ),
-                )
+                child: checkoutRow(),
             ),
             Spacer(),
             Expanded(
                 flex: 8,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                  ),
-                )
+                child: checkoutRow(),
             ),
             Spacer(),
             Expanded(
                 flex: 8,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                  ),
-                )
+                child: checkoutRow(),
             ),
             Spacer(),
             Expanded(
                 flex: 8,
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                  ),
-                ),
+                child: checkoutRow(),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+class checkoutRow extends StatelessWidget {
+  const checkoutRow({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+          color: Color.fromRGBO(26, 25, 25, 0.6),
+          borderRadius: BorderRadius.all(Radius.circular(15))
+      ),
+    );
+  }
+}
+class checkoutTitle extends StatelessWidget {
+  const checkoutTitle({
+    super.key,
+    required this.name
+  });
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(name,
+      style: const TextStyle(
+          color: Color.fromARGB(255, 15, 237, 120),
+        fontWeight: FontWeight.w600,
       ),
     );
   }
@@ -475,7 +435,7 @@ class sneakerNews extends StatelessWidget {
             color: Color.fromRGBO(26, 25, 25, 0.6),
             borderRadius: BorderRadius.all(Radius.circular(15))
         ),
-        child: Baseline(
+        child: const Baseline(
           baselineType: TextBaseline.alphabetic,
           baseline: -7,
           child: Text("Sneaker News",
@@ -545,57 +505,27 @@ class Releases extends StatelessWidget {
                 Spacer(),
                 Expanded(
                   flex: 6,
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.5,
-                      child: Container(
-                        color: Color.fromARGB(255, 30, 30, 30),
-
-                      ),
-                    )
+                    child: releaseData()
                 ),
                 Spacer(),
                 Expanded(
                     flex: 6,
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.5,
-                      child: Container(
-                          color: Color.fromARGB(255, 30, 30, 30),
-
-                      ),
-                    )
+                    child: releaseData()
                 ),
                 Spacer(),
                 Expanded(
                     flex: 6,
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.5,
-                      child: Container(
-                          color: Color.fromARGB(255, 30, 30, 30),
-
-                      ),
-                    )
+                   child: releaseData()
                 ),
                 Spacer(),
                 Expanded(
                     flex: 6,
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.5,
-                      child: Container(
-                          color: Color.fromARGB(255, 30, 30, 30),
-
-                      ),
-                    )
+                   child: releaseData()
                 ),
                 Spacer(),
                 Expanded(
                     flex: 6,
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height / 4.5,
-                      child: Container(
-                          color: Color.fromARGB(255, 30, 30, 30),
-
-                      ),
-                    )
+                   child: releaseData()
                 ),
                 Spacer(),
                 Expanded(
@@ -619,6 +549,22 @@ class Releases extends StatelessWidget {
 
           ),
     ),
+    );
+  }
+}
+class releaseData extends StatelessWidget {
+  const releaseData({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 4.5,
+      child: Container(
+        color: const Color.fromARGB(255, 30, 30, 30),
+
+      ),
     );
   }
 }
