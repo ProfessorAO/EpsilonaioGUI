@@ -52,7 +52,7 @@ class WindowsButtons extends StatelessWidget{
   }
 }
 class infoBar extends StatelessWidget{
-  String currdate = "${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}";
+  String currdate = "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
 
   @override
   Widget build(BuildContext context){
@@ -88,8 +88,8 @@ class infoBar extends StatelessWidget{
           child: OnHoverText(
             child: Image.asset(
               "assets/images/discord.png",
-              height : 35,
-              width:  35,
+              height : 28,
+              width:  28,
             ),
           ),
         ),
@@ -99,8 +99,8 @@ class infoBar extends StatelessWidget{
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Image.asset(
               "assets/images/bell.png",
-              height : 29,
-              width:  29,
+              height : 25,
+              width:  25,
             ),
           ),
         ),
@@ -109,8 +109,8 @@ class infoBar extends StatelessWidget{
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Image.asset(
               "assets/images/settings.png",
-              height : 29,
-              width:  29,
+              height : 25,
+              width:  25,
             ),
           ),
         ),
@@ -119,9 +119,9 @@ class infoBar extends StatelessWidget{
           child: Container(
             color: Colors.black26,
             width: 85,
-            height: 40,
+            height: 35,
             child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Text(
                 "User1",
                 textAlign: TextAlign.center,
@@ -132,7 +132,7 @@ class infoBar extends StatelessWidget{
         ),
         OnHoverText(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+            padding: EdgeInsets.fromLTRB(0, 6, 10, 0),
             child: CircleAvatar(
               backgroundColor: Color(1692195289),
               child: Text(

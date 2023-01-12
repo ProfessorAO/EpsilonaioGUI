@@ -20,7 +20,7 @@ class OnHoverText extends StatefulWidget{
   @override
   Widget build(BuildContext context){
     // use 3d matrix to move it instead of scaling it
-    final hoveredTransform = Matrix4.identity()..scale(1.2);
+    final hoveredTransform = Matrix4.identity()..scale(1.1);
     final transform = isHovered? hoveredTransform: Matrix4.identity();
   return MouseRegion(
     cursor: SystemMouseCursors.click ,
@@ -28,8 +28,8 @@ class OnHoverText extends StatefulWidget{
     onExit: (event)=> OnEntered(false) ,
     child:AnimatedContainer(
       transform: transform,
+      duration: const Duration(milliseconds: 100),
       child: widget.child,
-      duration: Duration(milliseconds: 100),
     ),
   );
 

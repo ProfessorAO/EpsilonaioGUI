@@ -2,7 +2,6 @@ import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
-
 import '../../accountsScreen.dart';
 import '../../analyticsScreen.dart';
 import '../../profilesScreen.dart';
@@ -16,7 +15,6 @@ class SideMenu extends StatelessWidget {
   }) : super(key: key);
 
   final Color color;
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -26,7 +24,7 @@ class SideMenu extends StatelessWidget {
           children: [
             DrawerHeader(
                 child: Image.asset("assets/images/EpsilonAIO Logo_Color Favicon.png",
-                    width: 100,
+                    width: 70,
                     alignment: Alignment.center)
             ),
             DrawerListTile(title: "Home",
@@ -45,7 +43,6 @@ class SideMenu extends StatelessWidget {
               press: (){
                 Navigator.pop(context);
                 Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: ProxiesScreen(),duration: const Duration(milliseconds: 10)));
-
               },
             ),
             DrawerListTile(title: "Tasks",
@@ -72,7 +69,6 @@ class SideMenu extends StatelessWidget {
             DrawerListTile(title: "Account",
               src: "assets/images/account.png",
               press: (){
-
                 Navigator.pop(context);
                 Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: AccountScreen(),duration: const Duration(milliseconds: 10)));
               },
@@ -104,10 +100,10 @@ class DrawerListTile extends StatelessWidget {
       horizontalTitleGap: .0,
       trailing: Image.asset(
         src,
-        color: Color.fromARGB(255, 15, 237, 120),
+        color: const Color.fromARGB(255, 15, 237, 120),
         height:30,
       ),
-      leading: Text(title,style: TextStyle(fontSize: 11, fontFamily: 'Audiowide',color: Color.fromARGB(255, 15, 237, 120))),
+      leading: Text(title,style: const TextStyle(fontSize: 11, fontFamily: 'Audiowide',color: Color.fromARGB(255, 15, 237, 120))),
     );
   }
 }

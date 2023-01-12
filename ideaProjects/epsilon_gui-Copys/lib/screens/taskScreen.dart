@@ -1,5 +1,3 @@
-
-
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
@@ -20,6 +18,7 @@ List<String> taskType_list = <String>['Browser', 'Requests'];
 List<String> taskGroup_list = <String>['group1'];
 List<String> store_list = <String>['Trapstar','Palace-Clothing'];
 typedef StringVoidCallback = void Function(String?);
+typedef StringCallback = void Function(String);
 
 class tasks_screen extends StatefulWidget{
   const tasks_screen({super.key});
@@ -39,14 +38,14 @@ class tasksScreen extends State<tasks_screen> {
               Container(
                 alignment: Alignment.centerLeft,
                 width: 140,
-                child: SideMenu(color: Color.fromARGB(255, 49, 47, 47)),
+                child: const SideMenu(color: Color.fromARGB(255, 49, 47, 47)),
               ),
               Expanded(
                 child: Container(
                   child: Stack(
                     children:[
-                      background(),
-                      EpsilonText(),
+                      const background(),
+                      const EpsilonText(),
                       TopBar(),
                       Tasksbar(),
                       Console(),
@@ -64,7 +63,6 @@ class tasksScreen extends State<tasks_screen> {
     );
   }
 }
-
 class startAll_button extends StatelessWidget {
   const startAll_button({
     super.key,
@@ -128,11 +126,8 @@ class taskLists extends StatefulWidget {
   State<taskLists> createState() => _taskListsState();
 }
 class _taskListsState extends State<taskLists> {
-
   @override
-  
   Widget build(BuildContext context) {
-
     return Positioned(
       top: 100,
       left: MediaQuery.of(context).size.width * 0.3+30,
@@ -141,7 +136,7 @@ class _taskListsState extends State<taskLists> {
         height: MediaQuery.of(context).size.height /1.27 ,
         child: RawScrollbar(
           thumbColor: Colors.white,
-          radius: Radius.circular(16),
+          radius: const Radius.circular(16),
           thickness: 7,
           child: SingleChildScrollView(
             primary: true,
@@ -150,7 +145,6 @@ class _taskListsState extends State<taskLists> {
               child: DataTable(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 headingRowColor:  MaterialStateColor.resolveWith((states) {return const Color.fromRGBO(26, 25, 25, 0.6);},),
-                //border: TableBorder.all(),
                 columns: const [
                   DataColumn(label: taskColumn(name:"ID"),
                   ),
@@ -175,7 +169,6 @@ class _taskListsState extends State<taskLists> {
     );
   }
 }
-
 class taskColumn extends StatelessWidget {
   const taskColumn({
     super.key,
@@ -189,7 +182,7 @@ class taskColumn extends StatelessWidget {
       color: Colors.white60,
       fontWeight: FontWeight.normal,
       fontFamily: 'Audiowide',
-      fontSize: 18,
+      fontSize: 15,
     ),);
   }
 }
@@ -202,11 +195,11 @@ class Console extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       left:10,
-      top: MediaQuery.of(context).size.height /1.6 + 95,
+      top: MediaQuery.of(context).size.height /1.6 + 60,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.3,
-        height: 210,
-        color: Color.fromRGBO(26, 25, 25, 0.7),
+        height: 240,
+        color: const Color.fromRGBO(26, 25, 25, 0.7),
         child: Align(
           alignment: Alignment.topLeft,
           child: ScrollConfiguration(
@@ -264,8 +257,6 @@ class _create_buttonState extends State<create_button> {
     );
   }
 }
-
-
 class Tasksbar extends StatefulWidget{
   const Tasksbar({super.key});
 
@@ -286,6 +277,7 @@ class Task_inputs extends State<Tasksbar> {
 
   final myController = TextEditingController();
   final numController = TextEditingController();
+  final keywordsController = TextEditingController();
 
   @override
   void dispose() {
@@ -302,7 +294,7 @@ class Task_inputs extends State<Tasksbar> {
     return Positioned(
       left: 10,
       top: 50,
-    child: Container(
+    child: SizedBox(
       width: MediaQuery.of(context).size.width * 0.3,
       height: MediaQuery.of(context).size.height /1.6 ,
       child: Row(
@@ -318,7 +310,7 @@ class Task_inputs extends State<Tasksbar> {
                     baselineType: TextBaseline.alphabetic,
                     baseline: -10,
                     child: Text("Tasks",
-                        style: TextStyle(fontSize: 25,
+                        style: TextStyle(fontSize: 20,
                           fontFamily: 'Audiowide',
                           color: Color.fromARGB(255, 15, 237, 120),
                     )
@@ -381,35 +373,17 @@ class Task_inputs extends State<Tasksbar> {
             flex: 2,
             child: Column(
               children: [
-                // anything directly underneath a expaneded widget must take the whole size but if it is another widget that comes it with its own size it may work
                 Expanded(
                     flex: 2,
-                    child: SizedBox(
-                      child: Container(
-                        constraints:const BoxConstraints(
-                          maxHeight: 5,
-                        ) ,
-                        color: const Color.fromRGBO(26, 25, 25, 0.6),
-                        child: TextField(style:const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 17) ,
-                            controller: myController,
-                            onChanged: (String value){context.read<TasksInputs>().setproduct(value);}
-                            ,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
-                              isDense: true,
-                              contentPadding: EdgeInsets.all(8),
-
-                              )
-                        ),
-
-                      ),
-                    )
+                    child: columInputer_text(
+                      controller: myController,
+                      onChanged: (String value){context.read<TasksInputs>().setproduct(value);},
+                     )
                 ),
-                Spacer(),
+                const Spacer(),
                 Expanded(
                     flex: 2,
-                    child: 
-                    columnInput_Menu(Menuitems:const [
+                    child: columnInput_Menu(Menuitems:const [
                         DropdownMenuItem(value: "Trapstar",child: Text("Trapstar"),),
                         DropdownMenuItem(value: "Palace-Clothing",child: Text("Palace-Clothing"),),
                       ] ,
@@ -421,7 +395,7 @@ class Task_inputs extends State<Tasksbar> {
                     });  },
                     )
                 ),
-                Spacer(),
+                const Spacer(),
                 Expanded(
                     flex: 2,
                     child: columnInput_Menu(value: dropdownsize,
@@ -437,7 +411,7 @@ class Task_inputs extends State<Tasksbar> {
                       context.read<TasksInputs>().setsize(dropdownsize);
                     });  }, )
                 ),
-                Spacer(),
+                const Spacer(),
                 //CATEGORY
                 Expanded(
                     flex: 2,
@@ -452,43 +426,23 @@ class Task_inputs extends State<Tasksbar> {
                       onChanged:  (String? value) {setState(() {
                       dropdowncategory = value!;
                     });  },
-                    )
-                  
+                    )                 
                 ),
                 //COLOR
                 const Spacer(),
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      child: TextField(style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 17) ,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            isDense: true,
-                            contentPadding: EdgeInsets.all(8),
-                          )
-                      ),
-
-                    )
+                    child: columInputer_text(controller: keywordsController,
+                     onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));},
+                     )
                 ),
                 const Spacer(),
                 // TASK NUMBER
                 Expanded(
                     flex: 2,
-                    child: Container(
-                      color: Color.fromRGBO(26, 25, 25, 0.6),
-                      child: TextField(style:TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 17) ,
-                          controller: numController,
-                          onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));}
-                          ,
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                            isDense: true,
-                            contentPadding: EdgeInsets.all(8),
-                          )
-                      ),
-
-                    )
+                    child: columInputer_text(controller: numController,
+                     onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));},
+                     )
                 ),
                 const Spacer(),
                 // REGION
@@ -504,8 +458,6 @@ class Task_inputs extends State<Tasksbar> {
                       dropdownregion = value!;
                     });  },
                     )
-
-
                 ),
                 const Spacer(),
                 //PROFILE
@@ -521,7 +473,7 @@ class Task_inputs extends State<Tasksbar> {
                     });  },
                     )
                 ),
-                Spacer(),
+                const Spacer(),
                 //TASK TYPE
                 Expanded(
                     flex: 2,
@@ -533,10 +485,9 @@ class Task_inputs extends State<Tasksbar> {
                       onChanged:  (String? value) {setState(() {
                       dropdownTT = value!;
                     });  },
-                    )
-                    
+                    )                    
                 ),
-                Spacer(),
+                const Spacer(),
                 //TASK GROUP
                 Expanded(
                     flex: 2,
@@ -549,8 +500,6 @@ class Task_inputs extends State<Tasksbar> {
                     });  },
                     )
                 ),
-
-
               ],
 
             ),
@@ -560,14 +509,39 @@ class Task_inputs extends State<Tasksbar> {
     ),
               );
   }
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     throw UnimplementedError();
   }
 }
+class columInputer_text extends StatelessWidget {
+  const columInputer_text({
+    super.key,
+    required this.controller,
+    required this.onChanged,
+  });
 
+  final TextEditingController controller;
+  final StringCallback onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color.fromRGBO(26, 25, 25, 0.6),
+      child: TextField(style:const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 16) ,
+          controller: controller,
+          onChanged: onChanged ,
+          decoration: const InputDecoration(
+            border: InputBorder.none,
+            isDense: true,
+            contentPadding: EdgeInsets.all(8),
+          )
+      ),
+
+    );
+  }
+}
 class columnInput_Menu extends StatelessWidget {
   const columnInput_Menu({
     super.key,
@@ -603,7 +577,6 @@ class columnInput_Menu extends StatelessWidget {
     );
   }
 }
-
 class taskInputData extends StatelessWidget {
   const taskInputData({
     super.key,
@@ -616,7 +589,7 @@ class taskInputData extends StatelessWidget {
       child: Align(
         alignment: Alignment.center,
         child: Text(name,
-            style: const TextStyle(fontSize: 20,
+            style: const TextStyle(fontSize: 15,
               fontFamily: 'Audiowide',
               color: Color.fromARGB(255, 15, 237, 120),
             )

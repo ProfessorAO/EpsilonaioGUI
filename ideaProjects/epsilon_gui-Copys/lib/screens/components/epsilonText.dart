@@ -12,9 +12,9 @@ class EpsilonText extends StatelessWidget {
       baseline: MediaQuery.of(context).size.height -5,
       baselineType: TextBaseline.alphabetic,
       child: const Text("EPSILON AIO",
-          style: TextStyle(fontSize: 150,
+          style: TextStyle(fontSize: 125,
             fontFamily: 'Audiowide',
-            color: Color.fromARGB(70, 15, 237, 120),
+            color: Color.fromARGB(49, 184, 184, 184),
           )
       ),
     );

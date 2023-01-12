@@ -1,4 +1,3 @@
-
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
@@ -7,9 +6,7 @@ import 'package:table_calendar/table_calendar.dart';
 import '../../components/background.dart';
 import '../../components/epsilonText.dart';
 
-
 class MainScreen extends StatelessWidget{
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +67,7 @@ class RecentCheckouts extends StatelessWidget {
                 child: Text("Recent Checkouts",
                     style: TextStyle(fontSize: 25,
                         fontFamily: 'Audiowide',
-                        color: Color.fromARGB(255, 15, 237, 120),
+                        color: Color.fromARGB(188, 255, 255, 255),
                     )
                 ),
               ),
@@ -97,32 +94,32 @@ class RecentCheckouts extends StatelessWidget {
               flex: 8,
                 child: checkoutRow(),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
                 flex: 8,
                 child: checkoutRow(),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
                 flex: 8,
                 child: checkoutRow(),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
                 flex: 8,
                 child: checkoutRow(),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
                 flex: 8,
                 child: checkoutRow(),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
                 flex: 8,
                 child: checkoutRow(),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
                 flex: 8,
                 child: checkoutRow(),
@@ -159,7 +156,7 @@ class checkoutTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(name,
       style: const TextStyle(
-          color: Color.fromARGB(255, 15, 237, 120),
+          color: Color.fromARGB(188, 255, 255, 255),
         fontWeight: FontWeight.w600,
       ),
     );
@@ -369,8 +366,8 @@ class Calendar extends State<_CalendarState> {
           )
           ),
           calendarStyle:  CalendarStyle(
-            selectedDecoration: BoxDecoration(color:Color.fromARGB(255, 15, 237, 120), shape: BoxShape.circle ),
-            todayDecoration:BoxDecoration(color:Color.fromARGB(255, 15, 237, 120), shape: BoxShape.circle ),
+            selectedDecoration: BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle ),
+            todayDecoration:BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle ),
             defaultTextStyle: TextStyle(
                 fontSize: 14  ,
                 color: Colors.white),
@@ -386,12 +383,12 @@ class Calendar extends State<_CalendarState> {
 
           ),
             headerStyle: const HeaderStyle(
-              leftChevronIcon: Icon(Icons.chevron_left,color: Color.fromARGB(255, 15, 237, 120)) ,
-              rightChevronIcon:Icon(Icons.chevron_right,color: Color.fromARGB(255, 15, 237, 120)) ,
+              leftChevronIcon: Icon(Icons.chevron_left,color: Color.fromARGB(188, 255, 255, 255)) ,
+              rightChevronIcon:Icon(Icons.chevron_right,color: Color.fromARGB(188, 255, 255, 255)) ,
               //titleTextFormatter: ,
               titleTextStyle: TextStyle(fontSize: 18  ,
                 fontFamily: 'Audiowide',
-                color: Color.fromARGB(255, 15, 237, 120))
+                color: Color.fromARGB(188, 255, 255, 255))
             ),
             rowHeight: (MediaQuery.of(context).size.width/40)  + (MediaQuery.of(context).size.height/40) / 50,
             focusedDay: DateTime.now() ,
@@ -441,7 +438,7 @@ class sneakerNews extends StatelessWidget {
           child: Text("Sneaker News",
                 style: TextStyle(fontSize: 25,
                     fontFamily: 'Audiowide',
-                    color: Color.fromARGB(255, 15, 237, 120),
+                    color: Color.fromARGB(188, 255, 255, 255),
                 ),
               ),
 
@@ -494,7 +491,7 @@ class Releases extends StatelessWidget {
                           child: Text("Releases",
                               style: TextStyle(fontSize: 25,
                                   fontFamily: 'Audiowide',
-                                  color: Color.fromARGB(255, 15, 237, 120),
+                                  color: Color.fromARGB(188, 255, 255, 255),
                               )
                           ),
                         ),

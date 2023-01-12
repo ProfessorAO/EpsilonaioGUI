@@ -1,4 +1,3 @@
-
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
@@ -26,9 +25,7 @@ class ProxiesScreen extends StatelessWidget {
                       background(),
                       EpsilonText(),
                       TopBar(),
-
                     ],
-                    //
                   ),
                 ),
               ),
