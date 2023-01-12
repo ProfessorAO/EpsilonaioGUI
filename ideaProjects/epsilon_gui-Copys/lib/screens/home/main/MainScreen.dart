@@ -13,11 +13,7 @@ class MainScreen extends StatelessWidget{
       body: SafeArea(
         child:  Row(
           children: [
-            Container(
-              alignment: Alignment.centerLeft,
-              width: 140,
-              child: const SideMenu(color: Color.fromARGB(255, 49, 47, 47)),
-              ),
+           
               Expanded(child: dashboard(context),),
           ],
         ),
@@ -30,9 +26,7 @@ class MainScreen extends StatelessWidget{
         children: [
           const background(),
           const EpsilonText(),
-          TotalSpent(),
-          CheckoutsWiget(),
-          FailuresWiget(),
+          Stats(),
           TopBar(),
           Releases(),
           sneakerNews(),
@@ -52,17 +46,17 @@ class RecentCheckouts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 10,
-      bottom: MediaQuery.of(context).size.height/5 -120,
+      left: MediaQuery.of(context).size.height * 0.7,
+      bottom: MediaQuery.of(context).size.height * 0.3 ,
       child: SizedBox(
-        width: (MediaQuery.of(context).size.width * 0.7) - (MediaQuery.of(context).size.width * 0.22) - 20,
+        width: (MediaQuery.of(context).size.width * 0.65) - (MediaQuery.of(context).size.width * 0.22) - 20,
         height: MediaQuery.of(context).size.height /1.6 ,
         child: Column(
           children: [
             const Align(
               alignment: Alignment.centerLeft,
               child: Baseline(
-                  baseline: 1 ,
+                  baseline: -4 ,
                   baselineType: TextBaseline.alphabetic,
                 child: Text("Recent Checkouts",
                     style: TextStyle(fontSize: 25,
@@ -162,150 +156,84 @@ class checkoutTitle extends StatelessWidget {
     );
   }
 }
-class FailuresWiget extends StatelessWidget {
-  const FailuresWiget({
+class Stats extends StatelessWidget {
+  const Stats({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: (MediaQuery.of(context).size.width * 0.7 + 20),
-      top:  (MediaQuery.of(context).size.width /4.7 + 50) + ((MediaQuery.of(context).size.width /4.7) / 3) + ((MediaQuery.of(context).size.width /4.7) / 3)+ 20,
-      right: 10,
-      child: InkWell(
-        onTap: (){
-          print("Clicked on Failures");
-        },
-        hoverColor: Colors.white,
-        child: Container(
-          width: MediaQuery.of(context).size.width /4.8 ,
-          height: (MediaQuery.of(context).size.width /4.7) / 3,
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 70, 20),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: OnHoverChange(builder : (isHovered) {
-                final color = isHovered? Color.fromARGB(255, 15, 237, 120): Color.fromARGB(255, 255, 255, 255);
-                return Container(
-                  child: Text("Failures",
-                    style: TextStyle(fontSize: MediaQuery
-                        .of(context)
-                        .size
-                        .width / 90,
-                      fontFamily: 'Audiowide',
-                      color: color,
+    return Stack(
+      children: [
+          StatsWidget(
+                          top:(MediaQuery.of(context).size.width /4.7 + 60),
+                          right: 10,
+                          text: "Total Spent",
+                          firstcolor:const Color.fromRGBO(1, 44, 105, 0.7137254901960784),
+                          secondcolor: const Color.fromRGBO(0, 102, 255, 1.0),
+                          image:const AssetImage("assets/images/money.png"),),
 
-                    ),
-                  ),
-                );
-              }),
-            ),
-          ),
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                alignment: Alignment(0.9,0.1),
-                image: AssetImage("assets/images/declined.png"),
-                scale: MediaQuery.of(context).size.width / 400,
-              ),
-              color: Color.fromRGBO(114, 3, 3, 0.7137254901960784),
-              border: Border.all(
-                width: 3,
-                color: Color.fromRGBO(255, 0, 0, 1.0),
+          StatsWidget(
+                          top:(MediaQuery.of(context).size.width /4.7 + 50) + ((MediaQuery.of(context).size.width /4.7) / 3) + 15,
+                          right: 10,
+                          text: "Checkouts",
+                          firstcolor:const Color.fromRGBO(0, 89, 25, 0.7137254901960784),
+                          secondcolor: const Color.fromRGBO(0, 255, 71, 1.0),
+                          image:const AssetImage("assets/images/checkout.png"),),
 
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(15))
-          ),
-        ),
-      ),
+          StatsWidget(
+                          top:(MediaQuery.of(context).size.width /4.7 + 50) + ((MediaQuery.of(context).size.width /4.7) / 3) + ((MediaQuery.of(context).size.width /4.7) / 3)+ 20,
+                          right: 10,
+                          text: "Failures",
+                          firstcolor:const Color.fromRGBO(114, 3, 3, 0.7137254901960784),
+                          secondcolor: const Color.fromRGBO(255, 0, 0, 1.0),
+                          image:const AssetImage("assets/images/declined.png"),),
+          
+      ]
     );
   }
 }
-class CheckoutsWiget extends StatelessWidget {
-  const CheckoutsWiget({
-    Key? key,
-  }) : super(key: key);
+class StatsWidget extends StatelessWidget {
+  const StatsWidget({
+    super.key,
+    required this.top,
+    required this.right,
+    required this.text,
+    required this.firstcolor,
+    required this.secondcolor,
+    required this.image,
+
+  });
+  final double top;
+  final double right;
+  final String text;
+  final Color? firstcolor;
+  final Color secondcolor;
+  final ImageProvider<Object> image;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: (MediaQuery.of(context).size.width * 0.7 + 20),
-      top:  (MediaQuery.of(context).size.width /4.7 + 50) + ((MediaQuery.of(context).size.width /4.7) / 3) + 15,
-      right: 10,
-      child: InkWell(
-        onTap: (){
-          print("Clicked on Checkouts");
-          },
-        child: Container(
-          width: MediaQuery.of(context).size.width /4.8 ,
-          height: (MediaQuery.of(context).size.width /4.7) / 3,
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 70, 20),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: OnHoverChange(builder : (isHovered){
-                final color = isHovered? Color.fromARGB(255, 15, 237, 120) : Color.fromARGB(255, 255, 255, 255);
-                return Container(
-                  child: Text("Checkouts",
-                    style: TextStyle(fontSize: MediaQuery.of(context).size.width /90,
-                      fontFamily: 'Audiowide',
-                      color: color,
-
-                    ),
-                  ),
-                );
-              }),
-            ),
-          ),
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                alignment: Alignment(0.9,0.1),
-                image: AssetImage("assets/images/checkout.png"),
-                scale: MediaQuery.of(context).size.height / 170,
-              ),
-              color: Color.fromRGBO(0, 89, 25, 0.7137254901960784),
-              border: Border.all(
-                width: 3,
-                color: Color.fromRGBO(0, 255, 71, 1.0),
-
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(15))
-
-          ),
-        ),
-      ),
-    );
-  }
-}
-class TotalSpent extends StatelessWidget {
-  const TotalSpent({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      left: (MediaQuery.of(context).size.width * 0.7 + 20),
-      top:  (MediaQuery.of(context).size.width /4.7 + 60),
-      right: 10,
+      left: (MediaQuery.of(context).size.width * 0.8),
+      top:  top,
+      right: right,
       child: InkWell(
         onTap: (){
           print("Clicked on TotalSpent");
           },
         child: Container(
-          width: MediaQuery.of(context).size.width /4.8 ,
           height: (MediaQuery.of(context).size.width /4.7) / 3,
           decoration: BoxDecoration(
             image: DecorationImage(
               alignment: Alignment(0.85,1),
-              image: AssetImage("assets/images/money.png"),
+              image: image,
               scale: MediaQuery.of(context).size.width /400 ,
             ),
 
-            color: Color.fromRGBO(1, 44, 105, 0.7137254901960784),
+            color: firstcolor,
               border: Border.all(
                 width: 3,
-                color: Color.fromRGBO(0, 102, 255, 1.0),
+                color: secondcolor,
 
               ),
             borderRadius: BorderRadius.all(Radius.circular(15))
@@ -317,7 +245,7 @@ class TotalSpent extends StatelessWidget {
                 child: OnHoverChange(builder : (isHovered){
                 final color = isHovered? Color.fromARGB(255, 15, 237, 120) : Color.fromARGB(250, 255, 255, 255);
                 return Container(
-                    child: Text("Total Spent",
+                    child: Text(text,
                         style: TextStyle(fontSize: MediaQuery.of(context).size.width /90,
                         fontFamily: 'Audiowide',
                           color: color,
@@ -345,19 +273,18 @@ class Calendar extends State<_CalendarState> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left :   (MediaQuery.of(context).size.width * 0.7 + 20) ,
+      left : (MediaQuery.of(context).size.width * 0.8) ,
       top: 50,
       right: 10,
       child: Container(
-        width: MediaQuery.of(context).size.width /4.8 ,
-        height: MediaQuery.of(context).size.width /4.7 ,
+        height: MediaQuery.of(context).size.height * 0.38 ,
         decoration: const BoxDecoration(
             color: Color.fromRGBO(26, 25, 25, 0.6),
             borderRadius: BorderRadius.all(Radius.circular(15))
         ),
         child: TableCalendar(
-          availableCalendarFormats: {CalendarFormat.month : 'Month'},
-          daysOfWeekStyle: DaysOfWeekStyle(
+          availableCalendarFormats: const {CalendarFormat.month : 'Month'},
+          daysOfWeekStyle: const DaysOfWeekStyle(
             weekdayStyle: TextStyle(
               color: Colors.white
             ),
@@ -365,7 +292,7 @@ class Calendar extends State<_CalendarState> {
               color: Colors.white
           )
           ),
-          calendarStyle:  CalendarStyle(
+          calendarStyle:  const CalendarStyle(
             selectedDecoration: BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle ),
             todayDecoration:BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle ),
             defaultTextStyle: TextStyle(
@@ -390,8 +317,8 @@ class Calendar extends State<_CalendarState> {
                 fontFamily: 'Audiowide',
                 color: Color.fromARGB(188, 255, 255, 255))
             ),
-            rowHeight: (MediaQuery.of(context).size.width/40)  + (MediaQuery.of(context).size.height/40) / 50,
-            focusedDay: DateTime.now() ,
+            rowHeight: (MediaQuery.of(context).size.width/40)  + (MediaQuery.of(context).size.height/40) / 50 , 
+            focusedDay: _focusedDay ,
             firstDay: DateTime.utc(2010,10,16),
             lastDay: DateTime.utc(2030,3,14),
           selectedDayPredicate: (day) {
@@ -423,8 +350,8 @@ class sneakerNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right :  MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.7 + 150) ,
-      bottom: MediaQuery.of(context).size.height/5 -130,
+      right :  MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.23 + 10) ,
+      bottom: MediaQuery.of(context).size.height/4 ,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.22,
         height: MediaQuery.of(context).size.height /1.6,
@@ -457,8 +384,8 @@ class Releases extends StatelessWidget {
     return Container(
         child :Positioned(
           left: 10,
-          top: 50,
-          right: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.7 + 150) ,
+          top: MediaQuery.of(context).size.height * 0.98 - MediaQuery.of(context).size.height / 4.5 ,
+
           child : Container(
             width: MediaQuery.of(context).size.width * 0.7,
             height: MediaQuery.of(context).size.height / 4.5,
