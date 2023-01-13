@@ -5,15 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../components/background.dart';
 import '../../components/epsilonText.dart';
+import 'package:side_navigation/side_navigation.dart';
 
 class MainScreen extends StatelessWidget{
   @override
+  int selectedIndex = 0;
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 22, 33, 71),
       body: SafeArea(
         child:  Row(
           children: [
-           
               Expanded(child: dashboard(context),),
           ],
         ),
@@ -24,14 +26,33 @@ class MainScreen extends StatelessWidget{
     return Container(
       child: Stack(
         children: [
-          const background(),
-          const EpsilonText(),
+          //const background(),
+          //const EpsilonText(),
+          SideNavigationBar(
+            selectedIndex: selectedIndex,
+            items: const [
+              SideNavigationBarItem(
+                icon: Icons.dashboard,
+                label: 'Dashboard',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.person,
+                label: 'Account',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.settings,
+                label: 'Settings',
+              ),
+            ],
+            onTap: (selectedIndex) {},
+          ),
+          
           Stats(),
           TopBar(),
-          Releases(),
-          sneakerNews(),
+          //Releases(),
+          //sneakerNews(),
           _CalendarState(),
-          RecentCheckouts(),
+          //RecentCheckouts(),
         ],
 
       )
@@ -46,8 +67,8 @@ class RecentCheckouts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: MediaQuery.of(context).size.height * 0.7,
-      bottom: MediaQuery.of(context).size.height * 0.3 ,
+      left: MediaQuery.of(context).size.width * 0.33,
+      bottom: MediaQuery.of(context).size.height * 0.27 ,
       child: SizedBox(
         width: (MediaQuery.of(context).size.width * 0.65) - (MediaQuery.of(context).size.width * 0.22) - 20,
         height: MediaQuery.of(context).size.height /1.6 ,
@@ -67,8 +88,10 @@ class RecentCheckouts extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 8,
+              flex: 5,
               child: Container(
+                //color: Color.fromRGBO(26, 25, 25, 0.6),
+                //height: MediaQuery.of(context).size.height * 1,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
@@ -166,7 +189,7 @@ class Stats extends StatelessWidget {
     return Stack(
       children: [
           StatsWidget(
-                          top:(MediaQuery.of(context).size.width /4.7 + 60),
+                          top:MediaQuery.of(context).size.height * 0.42,
                           right: 10,
                           text: "Total Spent",
                           firstcolor:const Color.fromRGBO(1, 44, 105, 0.7137254901960784),
@@ -174,15 +197,16 @@ class Stats extends StatelessWidget {
                           image:const AssetImage("assets/images/money.png"),),
 
           StatsWidget(
-                          top:(MediaQuery.of(context).size.width /4.7 + 50) + ((MediaQuery.of(context).size.width /4.7) / 3) + 15,
+                          top:(MediaQuery.of(context).size.height * 0.52 ),
                           right: 10,
                           text: "Checkouts",
                           firstcolor:const Color.fromRGBO(0, 89, 25, 0.7137254901960784),
                           secondcolor: const Color.fromRGBO(0, 255, 71, 1.0),
                           image:const AssetImage("assets/images/checkout.png"),),
+                          
 
           StatsWidget(
-                          top:(MediaQuery.of(context).size.width /4.7 + 50) + ((MediaQuery.of(context).size.width /4.7) / 3) + ((MediaQuery.of(context).size.width /4.7) / 3)+ 20,
+                          top:(MediaQuery.of(context).size.height * 0.62 ),
                           right: 10,
                           text: "Failures",
                           firstcolor:const Color.fromRGBO(114, 3, 3, 0.7137254901960784),
@@ -218,23 +242,19 @@ class StatsWidget extends StatelessWidget {
       top:  top,
       right: right,
       child: InkWell(
-        onTap: (){
-          print("Clicked on TotalSpent");
-          },
+        onTap: (){},
         child: Container(
-          height: (MediaQuery.of(context).size.width /4.7) / 3,
+          height: MediaQuery.of(context).size.height * 0.1,
           decoration: BoxDecoration(
             image: DecorationImage(
               alignment: Alignment(0.85,1),
               image: image,
               scale: MediaQuery.of(context).size.width /400 ,
             ),
-
             color: firstcolor,
               border: Border.all(
                 width: 3,
                 color: secondcolor,
-
               ),
             borderRadius: BorderRadius.all(Radius.circular(15))
           ),
@@ -274,10 +294,10 @@ class Calendar extends State<_CalendarState> {
   Widget build(BuildContext context) {
     return Positioned(
       left : (MediaQuery.of(context).size.width * 0.8) ,
-      top: 50,
+      top: 40,
       right: 10,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.38 ,
+        height: MediaQuery.of(context).size.height * 0.35 ,
         decoration: const BoxDecoration(
             color: Color.fromRGBO(26, 25, 25, 0.6),
             borderRadius: BorderRadius.all(Radius.circular(15))
@@ -313,11 +333,11 @@ class Calendar extends State<_CalendarState> {
               leftChevronIcon: Icon(Icons.chevron_left,color: Color.fromARGB(188, 255, 255, 255)) ,
               rightChevronIcon:Icon(Icons.chevron_right,color: Color.fromARGB(188, 255, 255, 255)) ,
               //titleTextFormatter: ,
-              titleTextStyle: TextStyle(fontSize: 18  ,
+              titleTextStyle: TextStyle(fontSize: 16 ,
                 fontFamily: 'Audiowide',
                 color: Color.fromARGB(188, 255, 255, 255))
             ),
-            rowHeight: (MediaQuery.of(context).size.width/40)  + (MediaQuery.of(context).size.height/40) / 50 , 
+            rowHeight: (MediaQuery.of(context).size.height * 0.04) , 
             focusedDay: _focusedDay ,
             firstDay: DateTime.utc(2010,10,16),
             lastDay: DateTime.utc(2030,3,14),
@@ -350,18 +370,18 @@ class sneakerNews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right :  MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.23 + 10) ,
-      bottom: MediaQuery.of(context).size.height/4 ,
+      left :  MediaQuery.of(context).size.width * 0.02 ,
+      bottom: MediaQuery.of(context).size.height *0.3 ,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.22,
-        height: MediaQuery.of(context).size.height /1.6,
+        width: MediaQuery.of(context).size.width * 0.27,
+        height: MediaQuery.of(context).size.height * 0.55,
         decoration: const BoxDecoration(
             color: Color.fromRGBO(26, 25, 25, 0.6),
             borderRadius: BorderRadius.all(Radius.circular(15))
         ),
         child: const Baseline(
           baselineType: TextBaseline.alphabetic,
-          baseline: -7,
+          baseline: -22,
           child: Text("Sneaker News",
                 style: TextStyle(fontSize: 25,
                     fontFamily: 'Audiowide',
@@ -383,12 +403,12 @@ class Releases extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child :Positioned(
-          left: 10,
+          left: MediaQuery.of(context).size.width *0.02,
           top: MediaQuery.of(context).size.height * 0.98 - MediaQuery.of(context).size.height / 4.5 ,
 
           child : Container(
-            width: MediaQuery.of(context).size.width * 0.7,
-            height: MediaQuery.of(context).size.height / 4.5,
+            width: MediaQuery.of(context).size.width * 0.62,
+            height: MediaQuery.of(context).size.height * 0.15,
             decoration: const BoxDecoration(
                 color: Color.fromRGBO(26, 25, 25, 0.6),
                 borderRadius: BorderRadius.all(Radius.circular(15))

@@ -113,6 +113,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  easy_dashboard:
+    dependency: "direct main"
+    description:
+      name: easy_dashboard
+      sha256: "753b924941b131ba14ed0634b255eac3c2a5ef653081fe76b0dbfc596175b8f6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   fake_async:
     dependency: transitive
     description:
@@ -427,6 +435,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.20.0"
+  side_navigation:
+    dependency: "direct main"
+    description:
+      name: side_navigation
+      sha256: "32da9920e604ff38bbaef8a083845a62561bf882c98c6eedd5b5860899091bb2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   simple_gesture_detector:
     dependency: transitive
     description:

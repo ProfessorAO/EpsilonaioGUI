@@ -1,4 +1,5 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/providers/task_instance_provider.dart';
@@ -25,7 +26,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setWindowTitle('Epsilon AIO');
   setWindowMaxSize(Size.infinite);
-  setWindowMinSize(const Size(1600, 830));
+  setWindowMinSize(const Size(1366, 768));
 }
 
 class MyApp extends StatelessWidget{

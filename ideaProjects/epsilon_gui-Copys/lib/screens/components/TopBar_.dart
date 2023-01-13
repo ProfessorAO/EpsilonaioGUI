@@ -12,17 +12,18 @@ class TopBar extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 45,
+          height: 34,
           child: WindowTitleBarBox(
             child: Row(
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 5,
                   child: MoveWindow(
                   ),
                 ),
+              
                 Expanded(
-                  flex: 4,
+                  flex: 2,
                   child: infoBar(),
                 ),
                 Padding(
@@ -59,27 +60,30 @@ class infoBar extends StatelessWidget{
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          height : 29,
-          width:  MediaQuery.of(context).size.width * 0.6/2,
-          color: const Color.fromRGBO(26, 25, 25, 0.6),
-          child: const TextField(
-            style:TextStyle(fontFamily: 'Audiowide',color: Colors.white70,fontSize: 20) ,
-            decoration: InputDecoration( labelStyle: TextStyle(fontFamily: 'Audiowide',color: Colors.white30,fontSize: 20),
-              border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-              labelText: 'Search',),
+        // Container(
+        //   height : 29,
+        //   width:  MediaQuery.of(context).size.width * 0.6/2,
+        //   color: const Color.fromRGBO(26, 25, 25, 0.6),
+        //   child: const TextField(
+        //     style:TextStyle(fontFamily: 'Audiowide',color: Colors.white70,fontSize: 20) ,
+        //     decoration: InputDecoration( labelStyle: TextStyle(fontFamily: 'Audiowide',color: Colors.white30,fontSize: 20),
+        //       border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+        //       labelText: 'Search',),
 
-          ),
-        ),
+        //   ),
+        // ),
         Align(
           alignment:Alignment.bottomCenter ,
           child: SizedBox(
             width: 95,
             height: 30,
-            child: Text(
-              currdate,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 13),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
+              child: Text(
+                currdate,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 13),
+              ),
             ),
           ),
         ),
@@ -116,29 +120,32 @@ class infoBar extends StatelessWidget{
         ),
         Align(
           alignment:Alignment.bottomCenter ,
-          child: Container(
-            color: Colors.black26,
-            width: 85,
-            height: 35,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child: Text(
-                "User1",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 14),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(4, 4, 0, 0),
+            child: Container(
+              color: Colors.black26,
+              width: 85,
+              height: 30,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Text(
+                  "User1",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 14),
+                ),
               ),
             ),
           ),
         ),
         OnHoverText(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(0, 6, 10, 0),
+            padding: EdgeInsets.fromLTRB(0,5, 0, 0),
             child: CircleAvatar(
               backgroundColor: Color(1692195289),
               child: Text(
                 'U1',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18,color: Colors.white),),
+                style: TextStyle(fontSize: 15,color: Colors.white),),
             ),
           ),
         ),
