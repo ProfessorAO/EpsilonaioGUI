@@ -19,6 +19,7 @@ class SideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: color,
+      width: MediaQuery.of(context).size.width * 0.09,
       child: SingleChildScrollView(
         child: Column(
           children: [

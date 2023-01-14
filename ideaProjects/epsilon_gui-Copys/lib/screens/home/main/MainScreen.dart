@@ -1,15 +1,17 @@
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
-import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
+//import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../components/background.dart';
 import '../../components/epsilonText.dart';
-import 'package:side_navigation/side_navigation.dart';
+//import 'package:easy_sidemenu/easy_sidemenu.dart';
+
 
 class MainScreen extends StatelessWidget{
   @override
   int selectedIndex = 0;
+  PageController page = PageController();
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 22, 33, 71),
@@ -28,28 +30,11 @@ class MainScreen extends StatelessWidget{
         children: [
           //const background(),
           //const EpsilonText(),
-          SideNavigationBar(
-            selectedIndex: selectedIndex,
-            items: const [
-              SideNavigationBarItem(
-                icon: Icons.dashboard,
-                label: 'Dashboard',
-              ),
-              SideNavigationBarItem(
-                icon: Icons.person,
-                label: 'Account',
-              ),
-              SideNavigationBarItem(
-                icon: Icons.settings,
-                label: 'Settings',
-              ),
-            ],
-            onTap: (selectedIndex) {},
-          ),
+        
           
           Stats(),
           TopBar(),
-          //Releases(),
+          Releases(),
           //sneakerNews(),
           _CalendarState(),
           //RecentCheckouts(),
@@ -436,7 +421,7 @@ class Releases extends StatelessWidget {
                           baseline: -10 ,
                           baselineType: TextBaseline.alphabetic,
                           child: Text("Releases",
-                              style: TextStyle(fontSize: 25,
+                              style: TextStyle(fontSize: 20,
                                   fontFamily: 'Audiowide',
                                   color: Color.fromARGB(188, 255, 255, 255),
                               )

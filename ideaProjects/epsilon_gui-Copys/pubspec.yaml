@@ -53,6 +53,7 @@ dependencies:
   puppeteer: ^2.20.0
   easy_dashboard: ^0.0.2
   side_navigation: ^1.0.4
+  easy_sidemenu: ^0.4.1
 
 dev_dependencies:
   flutter_test:
