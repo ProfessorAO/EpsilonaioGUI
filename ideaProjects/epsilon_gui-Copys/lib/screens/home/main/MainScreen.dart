@@ -1,23 +1,30 @@
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
 //import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
+//import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
+import 'package:epsilon_gui/screens/taskScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../components/background.dart';
 import '../../components/epsilonText.dart';
-//import 'package:easy_sidemenu/easy_sidemenu.dart';
+import 'package:easy_sidemenu/easy_sidemenu.dart';
+import 'package:badges/src/badge.dart' hide Badge;
 
 
 class MainScreen extends StatelessWidget{
+  PageController page = PageController();
   @override
   int selectedIndex = 0;
-  PageController page = PageController();
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 22, 33, 71),
+      backgroundColor: Color.fromARGB(255, 17, 26, 59),
       body: SafeArea(
         child:  Row(
           children: [
+           //SideMenu(color: Color.fromARGB(255, 22, 33, 71),
+            //),
+            
+            
               Expanded(child: dashboard(context),),
           ],
         ),
@@ -30,11 +37,13 @@ class MainScreen extends StatelessWidget{
         children: [
           //const background(),
           //const EpsilonText(),
+          
+
         
           
           Stats(),
           TopBar(),
-          Releases(),
+          //Releases(),
           //sneakerNews(),
           _CalendarState(),
           //RecentCheckouts(),
@@ -174,7 +183,7 @@ class Stats extends StatelessWidget {
     return Stack(
       children: [
           StatsWidget(
-                          top:MediaQuery.of(context).size.height * 0.42,
+                          top:MediaQuery.of(context).size.height * 0.45,
                           right: 10,
                           text: "Total Spent",
                           firstcolor:const Color.fromRGBO(1, 44, 105, 0.7137254901960784),
@@ -182,7 +191,7 @@ class Stats extends StatelessWidget {
                           image:const AssetImage("assets/images/money.png"),),
 
           StatsWidget(
-                          top:(MediaQuery.of(context).size.height * 0.52 ),
+                          top:(MediaQuery.of(context).size.height * 0.55 ),
                           right: 10,
                           text: "Checkouts",
                           firstcolor:const Color.fromRGBO(0, 89, 25, 0.7137254901960784),
@@ -191,7 +200,7 @@ class Stats extends StatelessWidget {
                           
 
           StatsWidget(
-                          top:(MediaQuery.of(context).size.height * 0.62 ),
+                          top:(MediaQuery.of(context).size.height * 0.65 ),
                           right: 10,
                           text: "Failures",
                           firstcolor:const Color.fromRGBO(114, 3, 3, 0.7137254901960784),
@@ -223,7 +232,7 @@ class StatsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: (MediaQuery.of(context).size.width * 0.8),
+      left: (MediaQuery.of(context).size.width * 0.75),
       top:  top,
       right: right,
       child: InkWell(
@@ -278,13 +287,13 @@ class Calendar extends State<_CalendarState> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left : (MediaQuery.of(context).size.width * 0.8) ,
-      top: 40,
+      left : (MediaQuery.of(context).size.width * 0.75) ,
+      top: MediaQuery.of(context).size.height * 0.08,
       right: 10,
       child: Container(
         height: MediaQuery.of(context).size.height * 0.35 ,
         decoration: const BoxDecoration(
-            color: Color.fromRGBO(26, 25, 25, 0.6),
+            color: Color.fromARGB(255, 25, 36, 78),
             borderRadius: BorderRadius.all(Radius.circular(15))
         ),
         child: TableCalendar(

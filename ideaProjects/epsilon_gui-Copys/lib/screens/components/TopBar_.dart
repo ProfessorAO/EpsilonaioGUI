@@ -1,29 +1,123 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverText.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({
     Key? key,
   }) : super(key: key);
-
+ 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 34,
+        Container(
+          color:Color.fromARGB(255, 25, 36, 78) ,
+          height: 48,
           child: WindowTitleBarBox(
             child: Row(
               children: [
                 Expanded(
+                  flex: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
+                    child: Row(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: new SvgPicture.asset('assets/images/result-min 1.svg',height: 30,color: Color.fromARGB(255, 15, 237, 120),)
+                          
+                          ),
+                        Container(width: 30,),
+                      ],
+                    ),
+                  ),
+                  ),
+                
+                Expanded(
                   flex: 5,
+                  child:  DefaultTabController(
+                    initialIndex: 0,
+                    length: 5,
+                    child: Scaffold(
+                      backgroundColor: Color.fromARGB(255, 25, 36, 78),
+                      appBar: AppBar(
+                        elevation: 0,
+                        shadowColor: Color.fromARGB(255, 25, 36, 78),
+                        backgroundColor:Color.fromARGB(255, 25, 36, 78) ,
+                        toolbarHeight: 0,
+                        bottom: TabBar(
+                          indicator: BoxDecoration(color: Color.fromARGB(255, 17, 26, 59),),
+                          labelColor: Colors.white,
+                          unselectedLabelColor: Colors.white60,
+                          indicatorColor: Color.fromARGB(255, 17, 26, 59),
+                          tabs: <Widget>[
+                            Tab(child:Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('Home'),
+                                Text(" "),
+                                Icon(Icons.home),
+                              
+                                
+                            ],
+                           ),),
+                           Tab(child:Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('Proxies'),
+                                Text(" "),
+                                Icon(Icons.computer),
+                                
+                                
+                            ],
+                           ),),
+                            Tab(child:Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('Tasks'),
+                                Text(" "),
+                                Icon(Icons.checklist),
+                            
+                                
+                            ],
+                           ),),
+                            Tab(child:Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('Billing'),
+                                Text(" "),
+                                Icon(Icons.credit_card),
+                                
+                            ],
+                           ),),
+                            Tab(child:Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('Analytics'),
+                                Text(" "),
+                                Icon(Icons.show_chart),
+                                
+                                
+                            ],
+                           ),),
+                           //SizedBox(width: MediaQuery.of(context).size.width * 0.05,),
+                            
+
+                            ]
+                            ),
+                            ),
+                  ),
+                ),),
+                Expanded(
+                  flex: 1,
                   child: MoveWindow(
                   ),
                 ),
               
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: infoBar(),
                 ),
                 Padding(
@@ -72,13 +166,13 @@ class infoBar extends StatelessWidget{
 
         //   ),
         // ),
-        Align(
-          alignment:Alignment.bottomCenter ,
+        Padding (
+          padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: SizedBox(
             width: 95,
-            height: 30,
+            height: 27,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 6, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Text(
                 currdate,
                 textAlign: TextAlign.center,
@@ -88,40 +182,29 @@ class infoBar extends StatelessWidget{
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: OnHoverText(
-            child: Image.asset(
-              "assets/images/discord.png",
-              height : 28,
-              width:  28,
-            ),
+            child: Icon(Icons.discord,color: Color.fromRGBO(88,101,242,1.0),size: 30,),
           ),
         ),
 
         OnHoverText(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-            child: Image.asset(
-              "assets/images/bell.png",
-              height : 25,
-              width:  25,
-            ),
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child:Icon(Icons.notifications_active,color: Colors.white,size: 28,)
+             
           ),
         ),
         OnHoverText(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-            child: Image.asset(
-              "assets/images/settings.png",
-              height : 25,
-              width:  25,
-            ),
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Icon(Icons.settings,color: Colors.white,size: 28,),
           ),
         ),
         Align(
-          alignment:Alignment.bottomCenter ,
+          alignment:Alignment.center ,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(4, 4, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Container(
               color: Colors.black26,
               width: 85,
@@ -139,7 +222,7 @@ class infoBar extends StatelessWidget{
         ),
         OnHoverText(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(0,5, 0, 0),
+            padding: EdgeInsets.fromLTRB(0,2, 0, 0),
             child: CircleAvatar(
               backgroundColor: Color(1692195289),
               child: Text(

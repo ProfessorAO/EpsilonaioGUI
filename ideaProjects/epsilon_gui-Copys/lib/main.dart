@@ -8,10 +8,15 @@ import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
+import 'package:flutter/services.dart';
+import 'package:epsilon_gui/screens/splash_screen.dart';
 
 
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent
+  ));
   runApp(
   MultiProvider(
     providers: [
@@ -39,7 +44,7 @@ class MyApp extends StatelessWidget{
         primaryColor: Colors.grey,
         primarySwatch: Colors.grey
       ),
-    home: MainScreen(),
+    home: SplashScreen(),
     );
   }
 }

@@ -104,7 +104,7 @@ class DrawerListTile extends StatelessWidget {
         color: const Color.fromARGB(255, 15, 237, 120),
         height:30,
       ),
-      leading: Text(title,style: const TextStyle(fontSize: 11, fontFamily: 'Audiowide',color: Color.fromARGB(255, 15, 237, 120))),
+      leading: Text(title,style: const TextStyle(fontSize: 8, fontFamily: 'Audiowide',color: Color.fromARGB(255, 15, 237, 120))),
     );
   }
 }
