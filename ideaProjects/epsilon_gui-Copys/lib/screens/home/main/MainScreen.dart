@@ -43,10 +43,10 @@ class MainScreen extends StatelessWidget{
           
           Stats(),
           TopBar(),
-          //Releases(),
+          Releases(),
           //sneakerNews(),
           _CalendarState(),
-          //RecentCheckouts(),
+          RecentCheckouts(),
         ],
 
       )
@@ -61,23 +61,32 @@ class RecentCheckouts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: MediaQuery.of(context).size.width * 0.33,
-      bottom: MediaQuery.of(context).size.height * 0.27 ,
-      child: SizedBox(
-        width: (MediaQuery.of(context).size.width * 0.65) - (MediaQuery.of(context).size.width * 0.22) - 20,
-        height: MediaQuery.of(context).size.height /1.6 ,
+      left: MediaQuery.of(context).size.width * 0.01,
+      top: MediaQuery.of(context).size.height * 0.08,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          color: Color.fromARGB(255, 17, 26, 59),
+          border:  Border.all(color: Color.fromARGB(255, 25, 36, 78),width: 3)
+          ),
+        
+        width: MediaQuery.of(context).size.width * 0.72,
+        height: MediaQuery.of(context).size.height * 0.67 ,
         child: Column(
           children: [
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Baseline(
-                  baseline: -4 ,
-                  baselineType: TextBaseline.alphabetic,
-                child: Text("Recent Checkouts",
-                    style: TextStyle(fontSize: 25,
-                        fontFamily: 'Audiowide',
-                        color: Color.fromARGB(188, 255, 255, 255),
-                    )
+            Padding(
+              padding: EdgeInsets.fromLTRB((MediaQuery.of(context).size.width *0.01), 0, 0, 0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Baseline(
+                    baseline: (MediaQuery.of(context).size.height *0.04) ,
+                    baselineType: TextBaseline.alphabetic,
+                  child: Text("Recent Checkouts",
+                      style: TextStyle(fontSize: 25,
+                          fontFamily: 'Audiowide',
+                          color: Color.fromARGB(188, 255, 255, 255),
+                      )
+                  ),
                 ),
               ),
             ),
@@ -86,18 +95,18 @@ class RecentCheckouts extends StatelessWidget {
               child: Container(
                 //color: Color.fromRGBO(26, 25, 25, 0.6),
                 //height: MediaQuery.of(context).size.height * 1,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    Padding(
-                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        child: checkoutTitle(name: "Price"),
-                    ),
-                     checkoutTitle(name: "Shoe Name"),
-                     checkoutTitle(name: "Date/Time"),
-                     checkoutTitle(name: "Store"),
-                     checkoutTitle(name: "Result"),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, (MediaQuery.of(context).size.height * 0.01), 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                     checkoutTitle(name: "Price"),
+                       checkoutTitle(name: "Shoe Name"),
+                       checkoutTitle(name: "Date/Time"),
+                       checkoutTitle(name: "Store"),
+                       checkoutTitle(name: "Result"),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -150,7 +159,6 @@ class checkoutRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          color: Color.fromRGBO(26, 25, 25, 0.6),
           borderRadius: BorderRadius.all(Radius.circular(15))
       ),
     );
@@ -186,24 +194,24 @@ class Stats extends StatelessWidget {
                           top:MediaQuery.of(context).size.height * 0.45,
                           right: 10,
                           text: "Total Spent",
-                          firstcolor:const Color.fromRGBO(1, 44, 105, 0.7137254901960784),
+                          firstcolor:Color.fromARGB(255, 0, 85, 204),
                           secondcolor: const Color.fromRGBO(0, 102, 255, 1.0),
                           image:const AssetImage("assets/images/money.png"),),
 
           StatsWidget(
-                          top:(MediaQuery.of(context).size.height * 0.55 ),
+                          top:(MediaQuery.of(context).size.height * 0.585 ),
                           right: 10,
                           text: "Checkouts",
-                          firstcolor:const Color.fromRGBO(0, 89, 25, 0.7137254901960784),
+                          firstcolor:Color.fromARGB(255, 0, 156, 44),
                           secondcolor: const Color.fromRGBO(0, 255, 71, 1.0),
                           image:const AssetImage("assets/images/checkout.png"),),
                           
 
           StatsWidget(
-                          top:(MediaQuery.of(context).size.height * 0.65 ),
+                          top:(MediaQuery.of(context).size.height * 0.72 ),
                           right: 10,
                           text: "Failures",
-                          firstcolor:const Color.fromRGBO(114, 3, 3, 0.7137254901960784),
+                          firstcolor:Color.fromARGB(255, 199, 3, 3),
                           secondcolor: const Color.fromRGBO(255, 0, 0, 1.0),
                           image:const AssetImage("assets/images/declined.png"),),
           
@@ -238,7 +246,7 @@ class StatsWidget extends StatelessWidget {
       child: InkWell(
         onTap: (){},
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.1,
+          height: MediaQuery.of(context).size.height * 0.13,
           decoration: BoxDecoration(
             image: DecorationImage(
               alignment: Alignment(0.85,1),
@@ -246,11 +254,7 @@ class StatsWidget extends StatelessWidget {
               scale: MediaQuery.of(context).size.width /400 ,
             ),
             color: firstcolor,
-              border: Border.all(
-                width: 3,
-                color: secondcolor,
-              ),
-            borderRadius: BorderRadius.all(Radius.circular(15))
+            borderRadius: BorderRadius.all(Radius.circular(8))
           ),
           child: Padding(
             padding: EdgeInsets.fromLTRB(0, 0, 90, 20),
@@ -306,9 +310,9 @@ class Calendar extends State<_CalendarState> {
               color: Colors.white
           )
           ),
-          calendarStyle:  const CalendarStyle(
-            selectedDecoration: BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle ),
-            todayDecoration:BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle ),
+          calendarStyle:  CalendarStyle(
+            selectedDecoration: BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle,border: Border.all(width: 5.0, color: Color.fromARGB(188, 255, 255, 255)),),
+            todayDecoration:BoxDecoration(color:Color.fromARGB(188, 255, 255, 255), shape: BoxShape.circle,border: Border.all(width: 5.0, color: Color.fromARGB(188, 255, 255, 255)),),
             defaultTextStyle: TextStyle(
                 fontSize: 14  ,
                 color: Colors.white),
@@ -397,90 +401,20 @@ class Releases extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child :Positioned(
-          left: MediaQuery.of(context).size.width *0.02,
-          top: MediaQuery.of(context).size.height * 0.98 - MediaQuery.of(context).size.height / 4.5 ,
+          left: MediaQuery.of(context).size.width *0.01,
+          bottom: MediaQuery.of(context).size.height * 0.03,
 
           child : Container(
-            width: MediaQuery.of(context).size.width * 0.62,
-            height: MediaQuery.of(context).size.height * 0.15,
-            decoration: const BoxDecoration(
-                color: Color.fromRGBO(26, 25, 25, 0.6),
-                borderRadius: BorderRadius.all(Radius.circular(15))
+            width: MediaQuery.of(context).size.width * 0.72,
+            height: MediaQuery.of(context).size.height * 0.2,
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 17, 26, 59),
+                borderRadius: BorderRadius.all(Radius.circular(7)),
+                border: Border.all(color:Color.fromARGB(255, 25, 36, 78),width: 3),
             ),
-
-
             child: Row(
               children: [
-                Expanded(
-                  flex: 6,
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height / 4.5,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          bottomLeft:   Radius.circular(15),
-                        ),
-                          color:Color.fromARGB(255, 30, 30, 30),
-                      ),
-
-                      child: const Align(
-                        alignment: Alignment.topLeft,
-                        child: Baseline(
-                          baseline: -10 ,
-                          baselineType: TextBaseline.alphabetic,
-                          child: Text("Releases",
-                              style: TextStyle(fontSize: 20,
-                                  fontFamily: 'Audiowide',
-                                  color: Color.fromARGB(188, 255, 255, 255),
-                              )
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Spacer(),
-                Expanded(
-                  flex: 6,
-                    child: releaseData()
-                ),
-                Spacer(),
-                Expanded(
-                    flex: 6,
-                    child: releaseData()
-                ),
-                Spacer(),
-                Expanded(
-                    flex: 6,
-                   child: releaseData()
-                ),
-                Spacer(),
-                Expanded(
-                    flex: 6,
-                   child: releaseData()
-                ),
-                Spacer(),
-                Expanded(
-                    flex: 6,
-                   child: releaseData()
-                ),
-                Spacer(),
-                Expanded(
-                    flex: 6,
-                    child: SizedBox(
-                      height:MediaQuery.of(context).size.height / 4.5,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(15),
-                                bottomRight:   Radius.circular(15),
-                            ),
-                            color: Color.fromARGB(255, 30, 30, 30),
-                        ),
-                      ),
-                    )
-                ),
+               
               ],
             )
 

@@ -38,7 +38,7 @@ class tasksScreen extends State<tasks_screen> {
               Container(
                 alignment: Alignment.centerLeft,
                 width: 140,
-                child: const SideMenu(color: Color.fromARGB(255, 49, 47, 47)),
+                //child: const SideMenu(color: Color.fromARGB(255, 49, 47, 47)),
               ),
               Expanded(
                 child: Container(
