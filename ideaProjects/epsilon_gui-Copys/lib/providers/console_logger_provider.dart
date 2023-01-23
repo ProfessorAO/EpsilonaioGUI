@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 
 class ConsoleLogger with ChangeNotifier{
   List<String> logger = [];

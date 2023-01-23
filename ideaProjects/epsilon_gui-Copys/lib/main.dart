@@ -1,6 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
+import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/providers/task_instance_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
@@ -24,6 +25,7 @@ void main() {
       ChangeNotifierProvider(create: (_)=> ConsoleLogger()),
       ChangeNotifierProvider(create: (_)=> TasksInputs()),
       ChangeNotifierProvider(create: (_)=> Taskinstance(0,"","","","")),
+      ChangeNotifierProvider(create: (_)=> TabbarIndex()),
   ],
     child:MyApp() ,
     ),

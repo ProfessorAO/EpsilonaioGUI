@@ -32,7 +32,12 @@ class Taskinstance with ChangeNotifier{
     taskprofile =profile;
     tasksize =size ;
     taskstore = store;
-    taskRow = DataRow(cells: [
+    late bool check ;
+    taskRow = DataRow(onSelectChanged:((value) {
+      check = value!;
+
+      
+    }) ,selected: check, cells: [
       DataCell(Text(taskID.toString(),style: const TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.normal,

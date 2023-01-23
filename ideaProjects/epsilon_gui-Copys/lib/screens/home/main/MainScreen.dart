@@ -1,9 +1,11 @@
+import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
 //import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 //import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/taskScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../components/background.dart';
 import '../../components/epsilonText.dart';
@@ -40,9 +42,8 @@ class MainScreen extends StatelessWidget{
           
 
         
-          
+          context.watch<TabbarIndex>().this_TopBar,
           Stats(),
-          TopBar(),
           Releases(),
           //sneakerNews(),
           _CalendarState(),
@@ -71,7 +72,7 @@ class RecentCheckouts extends StatelessWidget {
           ),
         
         width: MediaQuery.of(context).size.width * 0.72,
-        height: MediaQuery.of(context).size.height * 0.67 ,
+        height: MediaQuery.of(context).size.height * 0.64 ,
         child: Column(
           children: [
             Padding(
@@ -264,9 +265,9 @@ class StatsWidget extends StatelessWidget {
                 final color = isHovered? Color.fromARGB(255, 15, 237, 120) : Color.fromARGB(250, 255, 255, 255);
                 return Container(
                     child: Text(text,
-                        style: TextStyle(fontSize: MediaQuery.of(context).size.width /90,
-                        fontFamily: 'Audiowide',
+                        style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.015,
                           color: color,
+                          fontWeight: FontWeight.w600
 
                       ),
                     ),
@@ -327,13 +328,15 @@ class Calendar extends State<_CalendarState> {
                 fontSize: 14 ),
 
           ),
-            headerStyle: const HeaderStyle(
+            headerStyle: HeaderStyle(
+              titleCentered: true,
               leftChevronIcon: Icon(Icons.chevron_left,color: Color.fromARGB(188, 255, 255, 255)) ,
               rightChevronIcon:Icon(Icons.chevron_right,color: Color.fromARGB(188, 255, 255, 255)) ,
               //titleTextFormatter: ,
-              titleTextStyle: TextStyle(fontSize: 16 ,
-                fontFamily: 'Audiowide',
-                color: Color.fromARGB(188, 255, 255, 255))
+              titleTextStyle: TextStyle(fontSize: 20 ,
+                fontWeight: FontWeight.w600,
+                color: Color.fromARGB(188, 255, 255, 255),
+                )
             ),
             rowHeight: (MediaQuery.of(context).size.height * 0.04) , 
             focusedDay: _focusedDay ,
@@ -402,19 +405,40 @@ class Releases extends StatelessWidget {
     return Container(
         child :Positioned(
           left: MediaQuery.of(context).size.width *0.01,
-          bottom: MediaQuery.of(context).size.height * 0.03,
-
+          bottom: MediaQuery.of(context).size.height * 0.02,
           child : Container(
             width: MediaQuery.of(context).size.width * 0.72,
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.25,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 17, 26, 59),
                 borderRadius: BorderRadius.all(Radius.circular(7)),
                 border: Border.all(color:Color.fromARGB(255, 25, 36, 78),width: 3),
             ),
-            child: Row(
+            child: Column(
               children: [
-               
+                Padding(
+                  padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width *0.01, 0, 0, 0),
+                  child: Align(
+                    alignment:Alignment.topLeft ,
+                    child: Baseline(
+                      baseline: MediaQuery.of(context).size.height *0.035 ,
+                      baselineType: TextBaseline.alphabetic,
+                      child: Text("Releases",
+                            style: TextStyle(fontSize: 25,
+                                fontFamily: 'Audiowide',
+                                color: Color.fromARGB(188, 255, 255, 255),
+                            )
+                        ),
+                    ),
+                  ),
+                ),
+      
+                Row(
+                  children: [
+                    
+                   
+                  ],
+                ),
               ],
             )
 

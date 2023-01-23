@@ -9,16 +9,36 @@ import 'package:flutter/material.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverText.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
+import 'package:provider/provider.dart';
 
-class TopBar extends StatelessWidget {
-  const TopBar({
-    Key? key,
-    
-  }) : super(key: key);
+class TopBar extends StatefulWidget{
+   const TopBar({super.key});
 
   @override
+  TopBar_ createState()=> TopBar_();
+}
+
+class TopBar_ extends State<TopBar> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin<TopBar>{
+  late TabController _tabController;
+  Map<int,Widget> page_map = {0:MainScreen(),1:ProxiesScreen(),2:tasks_screen(),3:ProfilesScreen(),4:AnalyticsScreen()};
+
+  @override
+ bool get wantKeepAlive => true;   
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length:5,initialIndex: context.read<TabbarIndex>().current_index );
+  }
+  @override
+ void dispose() {
+   _tabController.dispose();
+   super.dispose();
+ }
+  @override
   Widget build(BuildContext context) {
-     int current_index = 0;
+     int previous_index = 0;
     return Column(
       children: [
         Container(
@@ -36,7 +56,6 @@ class TopBar extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: new SvgPicture.asset('assets/images/result-min 1.svg',height: 30,color: Color.fromARGB(255, 15, 237, 120),)
-                          
                           ),
                         Container(width: 30,),
                       ],
@@ -46,95 +65,91 @@ class TopBar extends StatelessWidget {
                 
                 Expanded(
                   flex: 5,
-                  child:  DefaultTabController(
-                    initialIndex: current_index,
-                    length: 5,
-                    child: Scaffold(
-                      backgroundColor: Color.fromARGB(255, 25, 36, 78),
-                      appBar: AppBar(
-                        elevation: 0,
-                        shadowColor: Color.fromARGB(255, 25, 36, 78),
-                        backgroundColor:Color.fromARGB(255, 25, 36, 78) ,
-                        toolbarHeight: 0,
-                        bottom: TabBar(
-                          indicator: BoxDecoration(color: Color.fromARGB(255, 17, 26, 59),),
-                          labelColor: Colors.white,
-                          unselectedLabelColor: Colors.white60,
-                          indicatorColor: Color.fromARGB(255, 17, 26, 59),
-                          tabs: <Widget>[
-                            Tab(child:GestureDetector(
-                              onTap: (){Navigator.pop(context);
-                                Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: MainScreen(),duration: const Duration(milliseconds: 10)));current_index = 0;},
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text('Home'),
-                                  Text(" "),
-                                  Icon(Icons.home),
-                                
-                                  
-                              ],
-                                                       ),
-                            ),),
-                           Tab(child:GestureDetector(
-                            onTap: (){Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: ProxiesScreen(),duration: const Duration(milliseconds: 10))); current_index =1;},
-                             child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text('Proxies'),
-                                  Text(" "),
-                                  Icon(Icons.computer),
-                                  
-                                  
-                              ],
-                             ),
-                           ),),
-                            Tab(child:GestureDetector(
-                               onTap: (){Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: tasks_screen(),duration: const Duration(milliseconds: 10)));current_index =2;},
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text('Tasks'),
-                                  Text(" "),
-                                  Icon(Icons.checklist),
-                              
-                                  
-                              ],
-                                                       ),
-                            ),),
-                            Tab(child:GestureDetector(
-                               onTap: (){Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: ProfilesScreen(),duration: const Duration(milliseconds: 10)));current_index =3;},
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text('Billing'),
-                                  Text(" "),
-                                  Icon(Icons.credit_card),
-                                  
-                              ],
-                                                       ),
-                            ),),
-                            Tab(child:GestureDetector(
-                               onTap: (){Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: AnalyticsScreen(),duration: const Duration(milliseconds: 10)));current_index =4;},
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text('Analytics'),
-                                  Text(" "),
-                                  Icon(Icons.show_chart),
-                                  
-                                  
-                              ],
-                                                       ),
-                            ),),
-                           //SizedBox(width: MediaQuery.of(context).size.width * 0.05,),
-                            
+                  child:  Scaffold(
+                    backgroundColor: Color.fromARGB(255, 25, 36, 78),
+                    appBar: AppBar(
+                      elevation: 0,
+                      shadowColor: Color.fromARGB(255, 25, 36, 78),
+                      backgroundColor:Color.fromARGB(255, 25, 36, 78) ,
+                      toolbarHeight: 0,
+                      bottom: TabBar(
+                      controller: _tabController,
 
-                            ]
-                            ),
-                            ),
-                  ),
-                ),),
+                  
+                        onTap: (value) {
+                          previous_index = _tabController.previousIndex;
+                          context.read<TabbarIndex>().setIndex(_tabController.index);
+                          _tabController.animateTo(value);
+                        
+
+                          
+                               
+                                  Navigator.pushReplacement(context,  PageTransition(type: PageTransitionType.fade, child: page_map[value]!,duration: const Duration(milliseconds: 1000)));
+                                  
+                                _tabController.index = value;
+      
+                                
+                                } ,
+                        indicator: BoxDecoration(color: Color.fromARGB(255, 17, 26, 59),),
+                        labelColor: Colors.white,
+                        unselectedLabelColor: Colors.white60,
+                        tabs: <Widget>[
+
+                          Tab(child:Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text('Home'),
+                              Text(" "),
+                              Icon(Icons.home),
+                          ],
+                                                   ),),
+                         Tab(child:Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text('Proxies'),
+                              Text(" "),
+                              Icon(Icons.computer),
+                              
+                              
+                          ],
+                         ),),
+                          Tab(child:Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text('Tasks'),
+                              Text(" "),
+                              Icon(Icons.checklist),
+                          
+                              
+                          ],
+                                                   ),),
+                          Tab(child:Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text('Billing'),
+                              Text(" "),
+                              Icon(Icons.credit_card),
+                              
+                          ],
+                                                   ),),
+                          Tab(child:Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text('Analytics'),
+                              Text(" "),
+                              Icon(Icons.show_chart),
+                              
+                              
+                          ],
+                                                   ),),
+                         //SizedBox(width: MediaQuery.of(context).size.width * 0.05,),
+                          
+                  
+                          ]
+                          ),
+                          ),
+                  
+                  ),),
                 Expanded(
                   flex: 1,
                   child: MoveWindow(
