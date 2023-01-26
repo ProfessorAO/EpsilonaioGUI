@@ -3,12 +3,14 @@ import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
+import 'dart:io';
 
 
 
@@ -47,14 +49,21 @@ class tasksScreen extends State<tasks_screen> {
                       context.watch<TabbarIndex>().this_TopBar,
                       //Tasksbar(),
                       //Console(),
-                      create_button(tasks: tasks),
+                      //create_button(tasks: tasks),
                       taskLists(taskinputs: tasks),
+                      createTaskGroup(),
+                      bottomBar(),
                       startAll_button(),
                       remove_all_button(),
+                      Positioned(
+                        bottom: MediaQuery.of(context).size.height * 0.006,
+                        right: MediaQuery.of(context).size.width *0.006,
+                        child: Container(
+                          child: Text("Version 1.0",style: TextStyle(color: Colors.white, fontFamily: "Audiowide",fontSize: 13),))),
 
                       Positioned(
-                        top: 55,
-                        left: MediaQuery.of(context).size.width * 0.5,
+                        bottom: MediaQuery.of(context).size.height * 0.01,
+                        left: MediaQuery.of(context).size.width * 0.17,
                         child: TextButton(onPressed: (){
                             String product = "";
                             String dropdownsize = size_list.first ;
@@ -246,19 +255,28 @@ class tasksScreen extends State<tasks_screen> {
           ),
            Expanded(child:TextButton(
             onPressed: (){
-              context.read<TasksInputs>().setstore(dropdownstore);
-              context.read<TasksInputs>().setprofile(dropdownprofile);
-              context.read<TasksInputs>().setsize(dropdownsize);
-              context.read<TasksInputs>().setproduct(product);
               final snackBar = SnackBar(
                     backgroundColor: Colors.green,
-                    content: const Text('Task Saved'),
+                    content: const Text('Task Created'),
                     action: SnackBarAction(
                     label: '',
               onPressed: () {},
             ),
               );
+
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              
+              context.read<TasksInputs>().setstore(dropdownstore);
+              context.read<TasksInputs>().setprofile(dropdownprofile);
+              context.read<TasksInputs>().setsize(dropdownsize);
+              context.read<TasksInputs>().setproduct(product);
+              context.read<TasksLists>().addTask(context.read<TasksInputs>().tasks_num,
+              context.read<TasksInputs>().task_store,
+              context.read<TasksInputs>().product,
+              context.read<TasksInputs>().task_profile,
+              context.read<TasksInputs>().task_size,
+              );
+              
             },
             style:TextButton.styleFrom(
                           foregroundColor: Colors.white,
@@ -266,7 +284,7 @@ class tasksScreen extends State<tasks_screen> {
                         
                           textStyle: const TextStyle(fontSize: 20,
                           color: Colors.white,),),
-            child: Text("Save Task"))
+            child: Text("Save"))
       )
       ]
       )
@@ -280,18 +298,73 @@ class tasksScreen extends State<tasks_screen> {
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.blue,
                           padding: const EdgeInsets.all(16.0),
-                          textStyle: const TextStyle(fontSize: 20,
+                          textStyle: const TextStyle(
                           color: Colors.white,),),
                            child: const Text("Create task") ),
-                      )
+                      ),
+                     
                     ],
                   ),
                 ),
               ),
+              
               ],
+              
           ),
         )
     );
+  }
+}
+
+class createTaskGroup extends StatelessWidget {
+  const createTaskGroup({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: MediaQuery.of(context).size.width * 0.72,
+      top: MediaQuery.of(context).size.height * 0.15,
+      child: Row(
+        children: [
+          Container(color: Colors.white, height: MediaQuery.of(context).size.height * 0.1,),
+          Container(
+            decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          color: Color.fromARGB(255, 17, 26, 59),
+                          border:  Border.all(color: Color.fromARGB(255, 25, 36, 78),width: 3.5)
+            ),
+            
+            width: MediaQuery.of(context).size.width * 0.265,
+            height: MediaQuery.of(context).size.height * 0.77,
+            
+    
+          ),
+        ]
+      ),
+    );
+  }
+}
+
+class bottomBar extends StatelessWidget {
+  const bottomBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+     bottom: MediaQuery.of(context).size.height * 0.0001,
+     child: Container(
+                   color: Color.fromARGB(255, 25, 36, 78),
+                   width: MediaQuery.of(context).size.width * 1,
+                   height: MediaQuery.of(context).size.height * 0.065,
+                   
+                   
+                      
+                 ),
+                      );
   }
 }
 class startAll_button extends StatelessWidget {
@@ -302,15 +375,14 @@ class startAll_button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 55,
-      left: ((MediaQuery.of(context).size.width) * 0.3)+ (MediaQuery.of(context).size.width * 0.59) -100,
+      bottom: MediaQuery.of(context).size.height * 0.01,
+      left: MediaQuery.of(context).size.width * 0.1 ,
       child: TextButton(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: Colors.green,
           padding: const EdgeInsets.all(16.0),
-          textStyle: const TextStyle(fontSize: 20,fontFamily: 'Audiowide',
-            color: Colors.white,),
+          
         ),
         onPressed: () {
           context.read<TasksLists>().startAllTasks();
@@ -328,15 +400,13 @@ class remove_all_button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 55,
-      left: ((MediaQuery.of(context).size.width) * 0.3)+ (MediaQuery.of(context).size.width * 0.59) -383,
+      bottom: MediaQuery.of(context).size.height * 0.01,
+      left: MediaQuery.of(context).size.height * 0.03,
       child: TextButton(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: Colors.red,
           padding: const EdgeInsets.all(16.0),
-          textStyle: const TextStyle(fontSize: 20,fontFamily: 'Audiowide',
-            color: Colors.white,),
         ),
         onPressed: () {context.read<TasksLists>().removeAllTasks();
         },
@@ -360,27 +430,29 @@ class _taskListsState extends State<taskLists> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: MediaQuery.of(context).size.height *0.13,
-      left: MediaQuery.of(context).size.width * 0.07,
+      top: MediaQuery.of(context).size.height *0.08,
+      left: MediaQuery.of(context).size.width * 0,
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.85 ,
-        height: MediaQuery.of(context).size.height /1.27 ,
+        width: MediaQuery.of(context).size.width * 0.7 ,
+        height: MediaQuery.of(context).size.height * 0.84 ,
         child: RawScrollbar(
           thumbColor: Colors.white,
           radius: const Radius.circular(16),
           thickness: 3,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
+            dragStartBehavior: DragStartBehavior.down,
             primary: true,
             child: Theme(
-              data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+              data: ThemeData(
+                primarySwatch: Colors.blue,
+                  unselectedWidgetColor: Colors.white,
+              ),
+
               child: DataTable(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  color: Color.fromARGB(255, 17, 26, 59),
-                  border:  Border.all(color: Color.fromARGB(255, 25, 36, 78),width: 4)
-                ),
+                decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
+                
                 headingRowColor:  MaterialStateColor.resolveWith((states) {return const Color.fromARGB(255, 25, 36, 78) ;},),
                 columns: const [
                   DataColumn(label: taskColumn(name:"ID"),
@@ -481,12 +553,7 @@ class _create_buttonState extends State<create_button> {
             color: Colors.white,),
         ),
         onPressed: () async{
-          context.read<TasksLists>().addTask(context.read<TasksInputs>().tasks_num,
-              context.read<TasksInputs>().task_store,
-              context.read<TasksInputs>().product,
-              context.read<TasksInputs>().task_profile,
-              context.read<TasksInputs>().task_size,
-              );
+          
           context.read<ConsoleLogger>().logOuput_createTask("User 1");
           },
         child: const Text('Create'),

@@ -1,3 +1,6 @@
+import 'dart:io';
+
+
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/io.dart';
@@ -19,6 +22,7 @@ class Taskinstance with ChangeNotifier{
   String tasktype = "";
   String taskgroup = "";
   String taskstatus = "Ready";
+  bool check = false;
   bool isactive = false;
   DataRow taskRow = DataRow(cells: []);
   TasksLists tasksList = TasksLists();
@@ -32,11 +36,15 @@ class Taskinstance with ChangeNotifier{
     taskprofile =profile;
     tasksize =size ;
     taskstore = store;
-    late bool check ;
-    taskRow = DataRow(onSelectChanged:((value) {
-      check = value!;
-
+    check = false;
+    taskRow = DataRow(
+      onSelectChanged:((value) {
       
+      check = (value!);
+      RedrawDataRow(getColor(taskstatus),check);
+      tasksList.refreshData(getSelf());
+      notifyListeners();
+
     }) ,selected: check, cells: [
       DataCell(Text(taskID.toString(),style: const TextStyle(
         color: Colors.white,
@@ -67,7 +75,7 @@ class Taskinstance with ChangeNotifier{
             children: [
               IconButton(icon:const Icon(Icons.play_arrow),color: Colors.white,onPressed: () {startTask();},splashRadius: 15,),
               IconButton(icon:const Icon(Icons.pause),color: Colors.white,onPressed: () {},splashRadius: 15,),
-              IconButton(icon:const Icon(Icons.stop),color: Colors.white,onPressed: () {} ,splashRadius: 15,),
+              IconButton(icon:const Icon(Icons.delete),color: Colors.white,onPressed: () {deleteTask();} ,splashRadius: 15,),
             ],
           ),),
     ]
@@ -86,8 +94,6 @@ class Taskinstance with ChangeNotifier{
       'website': taskstore,
       };
       return taskMap;
-      
-    
    }
 
   void setParent(TasksLists TL){
@@ -97,30 +103,40 @@ class Taskinstance with ChangeNotifier{
    void startTask() async{
     try{
      IOWebSocketChannel? channel;
+     if (channel == null){
+       updateTask("Failed");
+       throw const SocketException("");
+     }
     try{
       channel = IOWebSocketChannel.connect('ws://localhost:679');
-    }catch (e){
+    } catch (e){
       print("Error on Connecting to server$e");
     }
     var map = jsonEncode(createTaskMap());
     channel?.sink.add(map);
     //channel?.sink.add(taskkeywords);
-
+  
 
     
-    this.isactive = true;
+    isactive = true;
     channel?.stream.listen((event){
       print(event);
-      updateStatus(event);
+      updateTask(event);
     });
 
+  } on SocketException catch (e){
+      print("Error on Connecting to server$e");
   }on PlatformException catch(e){
     print('error: ${e.details}');
   }
+  
 
    }
    void stopTask(){
 
+   }
+   void deleteTask(){
+      tasksList.deleteTask(getSelf());
    }
   
    Color getColor(status){
@@ -133,20 +149,28 @@ class Taskinstance with ChangeNotifier{
       col = Colors.blue;
     }else if (status == 'Completed'){
       col = Colors.green;
+    }else if (status == 'Ready'){
+      col = Colors.white;
     }else{
       col = Colors.red;
     }
     return col ;
 
    }
-   void updateStatus(newstatus){
+   void updateTask(newstatus){
     taskstatus = newstatus;
-    RedrawDataRow(getColor(newstatus));
-    tasksList.RefreshData(getSelf());
+    RedrawDataRow(getColor(newstatus),check);
+    tasksList.refreshData(getSelf());
     notifyListeners();
    }
-   void RedrawDataRow(Color col){
-    taskRow = DataRow(cells: [
+   void RedrawDataRow(Color col,bool check){
+    taskRow = DataRow(onSelectChanged:((value) {
+      check = (value!);
+      RedrawDataRow(getColor(taskstatus),check);
+      tasksList.refreshData(getSelf());
+      notifyListeners();
+
+    }) ,selected: check,cells: [
       DataCell(Text(taskID.toString(),style: const TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.normal,
@@ -176,13 +200,14 @@ class Taskinstance with ChangeNotifier{
             children: [
               IconButton(icon:const Icon(Icons.play_arrow),color: Colors.white,onPressed: () {startTask();},splashRadius: 15,),
               IconButton(icon:const Icon(Icons.pause),color: Colors.white,onPressed: () {},splashRadius: 15,),
-              IconButton(icon:const Icon(Icons.stop),color: Colors.white,onPressed: () {} ,splashRadius: 15,),
+              IconButton(icon:const Icon(Icons.delete),color: Colors.white,onPressed: () {deleteTask();} ,splashRadius: 15,),
             ],
           ),),
     ]
     );
 
    }
+   
    Taskinstance getSelf(){
     return this;
   }
@@ -193,3 +218,4 @@ class Taskinstance with ChangeNotifier{
   
 
 }
+

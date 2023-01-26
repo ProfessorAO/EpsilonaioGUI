@@ -26,8 +26,20 @@ class TasksLists with ChangeNotifier{
 
   //SETTERS
 
-  void RefreshData(Taskinstance task_){
-    current_tasks_list[task_.taskID-1] = task_.taskRow;
+  void refreshData(Taskinstance task_){
+    var index = tasks_instances.indexWhere((element) => 
+    element.taskID == task_.taskID);
+    current_tasks_list[index] = task_.taskRow;
+    tasks_instances[index] = task_;
+    print(task_.taskID);
+    notifyListeners();
+  }
+  void deleteTask(Taskinstance task_){
+    var index = tasks_instances.indexWhere((element) => 
+    element.taskID == task_.taskID);
+    current_tasks_list.removeAt(index);
+    tasks_instances.removeWhere((element) => element.taskID == task_.taskID);
+    //print(task_.taskID);
     notifyListeners();
   }
   
