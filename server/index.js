@@ -16,9 +16,7 @@ async function connection_websockets(){
         task_data = await waitForData(ws);
         openTrapstar(task_data,ws);
     })
-    wss.on('error',(ws)=>{
-        ws.send('Connection failed');
-    })
+
     wss.on('close',(ws)=>{
         console.log("connection closed");
     })
@@ -47,9 +45,16 @@ function openTrapstar(task_data,socket){
     if (typeof Product === 'string' & typeof Size === 'string') {
         (async () => {
                     try {
-                        const browser = await puppeteer.launch({headless: true,args: ['--start-maximized', 'disable-gpu', '--disable-infobars', '--disable-extensions', '--ignore-certificate-errors'],});
+                        const browser = await puppeteer.launch({headless: false,ignoreDefaultArgs: ["--enable-automation"],args: ['--start-maximized', 'disable-gpu', '--disable-infobars', '--disable-extensions', '--ignore-certificate-errors','--disable-notifications','--enable-popup-blocking'],});
                         const page = await browser.newPage();
+                        await page.setDefaultNavigationTimeout(80000); 
+                        page.on('popup', async popup=> {
+                            console.log("popup registered");
+                            await page.click('soundest-form-image-left-close');
+                          });
+                        
                         await page.goto('https://uk.trapstarlondon.com/products.json?limit=1000');
+                    
                         await page.content(); 
                         var innertxt = await page.evaluate(()=>{
                             return JSON.parse(document.querySelector("body").textContent);
@@ -58,10 +63,11 @@ function openTrapstar(task_data,socket){
                         let size_id = getsizeid(innertxt,Product,Size);
     
                         await page.goto('https://uk.trapstarlondon.com/products/'+handle +'?variant='+size_id );
-                        await page.waitForSelector('#AddToCart-product-template');
+                        await sleep(1000);
+                        //await page.waitForSelector('#AddToCart-product-template');
                         await page.click('#AddToCart-product-template');
                         console.log("Added to cart");
-                        socket.send('Adding To Cart');
+                        socket.send('Added To Cart');
                         await sleep(1000);
                         await page.goto('https://uk.trapstarlondon.com/cart');
                         //await Websocket.send("Checking out");
@@ -71,6 +77,7 @@ function openTrapstar(task_data,socket){
                         await page.waitForSelector('#checkout_shipping_address_first_name');
                         //region
                         await page.select("#checkout_shipping_address_country","United Kingdom");
+                        await sleep(2000);
                         await page.evaluate(() =>{
                             const first_name = document.querySelector('#checkout_shipping_address_first_name');
                             const last_name = document.querySelector("#checkout_shipping_address_last_name");
@@ -78,9 +85,7 @@ function openTrapstar(task_data,socket){
                             const city = document.querySelector("#checkout_shipping_address_city");
                             const postcode = document.querySelector('#checkout_shipping_address_zip');
                             const p_number = document.querySelector("#checkout_shipping_address_phone");
-                            const email = document.querySelector("#checkout_email");
-    
-                            email.value ="davidodunlade@hotmail.co.uk"
+                         
                             first_name.value ="david";
                             last_name.value = "ade-odunlade";
                             address.value = "42 Oakwood Avenue";
@@ -89,10 +94,11 @@ function openTrapstar(task_data,socket){
                             postcode.value = "BR3 6PJ";
     
                         });
+                        await page.focus("#checkout_email_or_phone");
+                        await page.keyboard.type("davidodunlade@hotmail.co.uk")
                         await sleep(5000);
                         console.log("Checking out");
                         socket.send('Checking out');
-                        await page.click("#continue_button");
                         await page.waitForSelector("#continue_button");
                         await page.click("#continue_button");
                         console.log("completed");
@@ -104,7 +110,7 @@ function openTrapstar(task_data,socket){
                     } catch (error) {
                         console.error("Failed");
                         socket.send('Failed');
-                        console.log(error.details);
+                        console.log(error.message);
                         
                     }
                    

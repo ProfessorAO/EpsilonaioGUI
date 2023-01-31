@@ -8,9 +8,8 @@ class EpsilonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Baseline(
-      baseline: MediaQuery.of(context).size.height -5,
-      baselineType: TextBaseline.alphabetic,
+    return Positioned(
+      bottom: MediaQuery.of(context).size.height * 0.03,
       child: const Text("EPSILON AIO",
           style: TextStyle(fontSize: 125,
             fontFamily: 'Audiowide',

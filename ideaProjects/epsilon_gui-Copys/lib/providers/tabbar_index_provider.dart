@@ -13,5 +13,6 @@ class TabbarIndex with ChangeNotifier{
 
 
 
-  void setIndex(int newIndex){index = current_index;}
+  void setIndex(int newIndex){index = newIndex;}
+  void setTopBar(TopBar newtopbar){topbar = newtopbar;}
 }

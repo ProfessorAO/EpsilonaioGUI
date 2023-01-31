@@ -78,13 +78,10 @@ class TopBar_ extends State<TopBar> with SingleTickerProviderStateMixin, Automat
                   
                         onTap: (value) {
                           previous_index = _tabController.previousIndex;
-                          context.read<TabbarIndex>().setIndex(_tabController.index);
+                          context.read<TabbarIndex>().setIndex(value);
+                          context.read<TabbarIndex>().setTopBar(TopBar());
                           _tabController.animateTo(value);
-                        
-
-                          
-                               
-                                  Navigator.pushReplacement(context,  PageTransition(type: PageTransitionType.fade, child: page_map[value]!,duration: const Duration(milliseconds: 1000)));
+                                  Navigator.pushReplacement(context,  PageTransition(type: PageTransitionType.fade, child: page_map[value]!,duration: const Duration(milliseconds: 400)));
                                   
                                 _tabController.index = value;
       

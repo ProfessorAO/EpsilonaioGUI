@@ -103,12 +103,14 @@ class Taskinstance with ChangeNotifier{
    void startTask() async{
     try{
      IOWebSocketChannel? channel;
-     if (channel == null){
-       updateTask("Failed");
-       throw const SocketException("");
-     }
+     
     try{
       channel = IOWebSocketChannel.connect('ws://localhost:679');
+      if (channel==null){
+        updateTask("Error");
+        throw const SocketException("");
+      }
+
     } catch (e){
       print("Error on Connecting to server$e");
     }
@@ -143,7 +145,7 @@ class Taskinstance with ChangeNotifier{
      Color col;
     if (status == 'Entering Site'){
       col = Colors.blue;
-    }else if(status == 'Adding To Cart'){
+    }else if(status == 'Added To Cart'){
       col = Colors.blue;
     }else if (status == 'Checking out'){
       col = Colors.blue;

@@ -4,6 +4,7 @@ import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
+import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'package:provider/provider.dart';
 
 class ProfilesScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class ProfilesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 17, 26, 59),
         body: SafeArea(
           child: Row(
             children: [
@@ -30,9 +32,9 @@ class ProfilesScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                    
-                    background(),
                     EpsilonText(),
                      context.watch<TabbarIndex>().this_TopBar,
+                     bottomBar(),
                      
                     
                   ],
