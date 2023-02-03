@@ -41,6 +41,9 @@ function sleep(ms) {
 function openTrapstar(task_data,socket){
    var Product = task_data["product"];
    var Size = task_data["size"];
+   var ID = task_data['ID'];
+   var today = new Date();
+   var dateString = today.toLocaleString().replace(/[/,:]/g, ' ');
 
     if (typeof Product === 'string' & typeof Size === 'string') {
         (async () => {
@@ -95,7 +98,7 @@ function openTrapstar(task_data,socket){
     
                         });
                         await page.focus("#checkout_email_or_phone");
-                        await page.keyboard.type("davidodunlade@hotmail.co.uk")
+                        await page.keyboard.type("davidodunlade@hotmail.co.uk");
                         await sleep(5000);
                         console.log("Checking out");
                         socket.send('Checking out');
@@ -103,7 +106,7 @@ function openTrapstar(task_data,socket){
                         await page.click("#continue_button");
                         console.log("completed");
                         socket.send('Completed');
-                        await page.screenshot({path: 'C:/Users/david/OneDrive/Documents/GitHub/EpsilonaioGUI/server/success_pics/test.png'});
+                        await page.screenshot({path: 'C:/Users/david/OneDrive/Documents/GitHub/EpsilonaioGUI/server/success_pics/'+ID+' '+dateString+ '.png'});
                         await sleep(5000);
                         await browser.close();
                         
@@ -162,7 +165,6 @@ function connection_express(){
 
 
 }
-
 connection_websockets();
 
 

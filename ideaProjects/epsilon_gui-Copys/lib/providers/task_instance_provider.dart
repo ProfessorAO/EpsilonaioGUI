@@ -38,6 +38,9 @@ class Taskinstance with ChangeNotifier{
     taskstore = store;
     check = false;
     taskRow = DataRow(
+      onLongPress: () {
+        
+      },
       onSelectChanged:((value) {
       
       check = (value!);
@@ -57,6 +60,11 @@ class Taskinstance with ChangeNotifier{
         fontSize: 13,
       ),)),
       DataCell(Text(taskproduct,style: const TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+        fontSize: 13,
+      ),)),
+      DataCell(Text(tasksize,style: const TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.normal,
         fontSize: 13,
@@ -92,6 +100,7 @@ class Taskinstance with ChangeNotifier{
       'product': taskproduct,
       'size': tasksize,
       'website': taskstore,
+      'ID': taskID.toString(),
       };
       return taskMap;
    }
@@ -184,6 +193,11 @@ class Taskinstance with ChangeNotifier{
         fontSize: 13,
       ),)),
       DataCell(Text(taskproduct,style: const TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.normal,
+        fontSize: 13,
+      ),)),
+      DataCell(Text(tasksize,style: const TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.normal,
         fontSize: 13,

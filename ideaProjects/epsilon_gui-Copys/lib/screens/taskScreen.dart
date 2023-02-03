@@ -22,7 +22,7 @@ List<String> region_list = <String>['UK', 'US', 'EU'];
 List<String> profile_list = <String>['profile1'];
 List<String> taskType_list = <String>['Browser', 'Requests'];
 List<String> taskGroup_list = <String>['group1'];
-List<String> store_list = <String>['Trapstar','Palace-Clothing'];
+List<String> store_list = <String>['Trapstar','Palace-Clothing','End-Clothing'];
 typedef StringVoidCallback = void Function(String?);
 typedef StringCallback = void Function(String);
 
@@ -304,10 +304,10 @@ class tasksScreen extends State<tasks_screen> {
                         padding: const EdgeInsets.all(16.0),
                         textStyle: const TextStyle(
                         color: Colors.white,),),
-                         child: const Text("Create task") ),
+                         child: const Text('Create task') ),
                     );
   }
-   Positioned create_taskgroup_btn(BuildContext context) {
+  Positioned create_taskgroup_btn(BuildContext context) {
     return Positioned(
       left: MediaQuery.of(context).size.width * 0.72,
       top: MediaQuery.of(context).size.height * 0.08,
@@ -584,8 +584,6 @@ class tasksScreen extends State<tasks_screen> {
     );
   }
 }
-
-
 class startAll_button extends StatelessWidget {
   const startAll_button({
     super.key,
@@ -680,6 +678,8 @@ class _taskListsState extends State<taskLists> {
                   DataColumn(label: table_Column(name:"Store")
                   ),
                   DataColumn(label: table_Column(name:"Product")
+                  ),
+                  DataColumn(label: table_Column(name:"Size")
                   ),
                   DataColumn(label: table_Column(name:"Profile")
                   ),
