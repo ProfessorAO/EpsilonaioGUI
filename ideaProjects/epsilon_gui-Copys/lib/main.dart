@@ -5,6 +5,7 @@ import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/providers/task_instance_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
+import 'package:epsilon_gui/providers/task_group_provider.dart';
 import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +27,7 @@ void main() {
       ChangeNotifierProvider(create: (_)=> TasksInputs()),
       ChangeNotifierProvider(create: (_)=> Taskinstance(0,"","","","")),
       ChangeNotifierProvider(create: (_)=> TabbarIndex()),
+      ChangeNotifierProvider(create: (_)=> TaskGroupList()),
   ],
     child:MyApp() ,
     ),

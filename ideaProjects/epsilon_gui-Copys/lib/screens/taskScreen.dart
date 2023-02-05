@@ -3,6 +3,7 @@ import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
+import 'package:epsilon_gui/providers/task_group_provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
@@ -21,7 +22,7 @@ List<String> category_list = <String>['Sneakers', 'Jackets', 'Bottoms', 'Jumpers
 List<String> region_list = <String>['UK', 'US', 'EU'];
 List<String> profile_list = <String>['profile1'];
 List<String> taskType_list = <String>['Browser', 'Requests'];
-List<String> taskGroup_list = <String>['group1'];
+List<String> proxyGroup_list = <String>['group1'];
 List<String> store_list = <String>['Trapstar','Palace-Clothing','End-Clothing'];
 typedef StringVoidCallback = void Function(String?);
 typedef StringCallback = void Function(String);
@@ -37,6 +38,7 @@ class tasksScreen extends State<tasks_screen> {
   
   @override
   Widget build(BuildContext context) {
+    context.read<TaskGroupList>().setContext(context);
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 17, 26, 59),
         body: SafeArea(
@@ -75,7 +77,7 @@ class tasksScreen extends State<tasks_screen> {
                           String dropdownregion = region_list.first;
                           String dropdownprofile = profile_list.first;
                           String dropdownTT = taskType_list.first;
-                          String dropdownTG = taskGroup_list.first;
+                          String dropdownTG = proxyGroup_list.first;
                           String dropdownstore = store_list.first;
                           final myController = TextEditingController();
                           final numController = TextEditingController();
@@ -258,6 +260,7 @@ class tasksScreen extends State<tasks_screen> {
                                 ),
                                 Expanded(child:TextButton(
                                   onPressed: (){
+                                   
                                     final snackBar = SnackBar(
                                           backgroundColor: Colors.green,
                                           content: const Text('Task Created'),
@@ -268,17 +271,18 @@ class tasksScreen extends State<tasks_screen> {
                                     );
                               
                                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                                    
-                                    context.read<TasksInputs>().setstore(dropdownstore);
-                                    context.read<TasksInputs>().setprofile(dropdownprofile);
-                                    context.read<TasksInputs>().setsize(dropdownsize);
                                     context.read<TasksInputs>().setproduct(product);
+                                    context.read<TasksInputs>().setsize(dropdownsize);
+                                    context.read<TasksInputs>().setprofile(dropdownprofile);
+                                    context.read<TasksInputs>().setstore(dropdownstore);
                                     context.read<TasksLists>().addTask(context.read<TasksInputs>().tasks_num,
                                     context.read<TasksInputs>().task_store,
                                     context.read<TasksInputs>().product,
                                     context.read<TasksInputs>().task_profile,
                                     context.read<TasksInputs>().task_size,
                                     );
+                                    
+                                   
                                     
                                   },
                                   style:TextButton.styleFrom(
@@ -326,15 +330,17 @@ class tasksScreen extends State<tasks_screen> {
                  //padding: const EdgeInsets.all(16.0),
         ),
         onPressed: () {
+          
           String product = "";
                           String dropdownsize = size_list.first ;
                           String dropdowncategory = category_list.first;
                           String dropdownregion = region_list.first;
                           String dropdownprofile = profile_list.first;
                           String dropdownTT = taskType_list.first;
-                          String dropdownTG = taskGroup_list.first;
+                          String dropdownPG = proxyGroup_list.first;
                           String dropdownstore = store_list.first;
-                          final myController = TextEditingController();
+                          final productController = TextEditingController();
+                          final taskGroupController = TextEditingController();
                           final numController = TextEditingController();
                           final keywordsController = TextEditingController();
                           showPopupWindow(context,
@@ -368,10 +374,20 @@ class tasksScreen extends State<tasks_screen> {
                                       flex: 2,
                                       child: Column(
                                         children: [
+                                           Expanded(
+                                              flex: 2,
+                                              child: columInputer_text(
+                                                controller: taskGroupController,
+                                                onChanged: (String value){product = value;},
+                                                label: "Task Group Name",
+                                                  
+                                               )
+                                          ),
+                                          const Spacer(),
                                           Expanded(
                                               flex: 2,
                                               child: columInputer_text(
-                                                controller: myController,
+                                                controller: productController,
                                                 onChanged: (String value){product = value;},
                                                 label: "Product",
                                                   
@@ -499,13 +515,13 @@ class tasksScreen extends State<tasks_screen> {
                                       //TASK GROUP
                                       Expanded(
                                           flex: 2,
-                                          child:columnInput_Menu(value:dropdownTG,
+                                          child:columnInput_Menu(value:dropdownPG,
                                           label: "Proxy Group",
                                           Menuitems:const [
                                             DropdownMenuItem(value: "group1",child: Text("group1"),),
                                             ],
                                             onChanged:  (String? value) {setState(() {
-                                            dropdownTG = value!;
+                                            dropdownPG = value!;
                                           });  },
                                           )
                                       ),
@@ -517,7 +533,7 @@ class tasksScreen extends State<tasks_screen> {
                                   onPressed: (){
                                     final snackBar = SnackBar(
                                           backgroundColor: Colors.green,
-                                          content: const Text('Task Created'),
+                                          content: const Text('Task Group Created'),
                                           action: SnackBarAction(
                                           label: '',
                                     onPressed: () {},
@@ -525,18 +541,16 @@ class tasksScreen extends State<tasks_screen> {
                                     );
                               
                                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                    context.read<TaskGroupList>().setTaskProduct(product);
+                                    context.read<TaskGroupList>().setTaskSize(dropdownsize);
+                                    context.read<TaskGroupList>().setTaskProfile(dropdownprofile);
+                                    context.read<TaskGroupList>().setTaskStore(dropdownstore);
+                                    context.read<TaskGroupList>().addToGroupList(context);
+                                    setState(() {
+            
+                                         });
                                     
-                                    context.read<TasksInputs>().setstore(dropdownstore);
-                                    context.read<TasksInputs>().setprofile(dropdownprofile);
-                                    context.read<TasksInputs>().setsize(dropdownsize);
-                                    context.read<TasksInputs>().setproduct(product);
-                                    context.read<TasksLists>().addTask(context.read<TasksInputs>().tasks_num,
-                                    context.read<TasksInputs>().task_store,
-                                    context.read<TasksInputs>().product,
-                                    context.read<TasksInputs>().task_profile,
-                                    context.read<TasksInputs>().task_size,
-                                    );
-                                    
+  
                                   },
                                   style:TextButton.styleFrom(
                                                 foregroundColor: Colors.white,
@@ -554,11 +568,14 @@ class tasksScreen extends State<tasks_screen> {
            );
         },
         child: Row(
-          children: const [
-            Spacer(),
-            Text('Create Task Group',style: TextStyle(fontSize: 20),),
-            Spacer(),
-            Icon(Icons.add)
+          children:  [
+            const Spacer(),
+            const Text('New Task Group',style: TextStyle(fontSize: 17),),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, MediaQuery.of(context).size.height * 0.006, 0, 0),
+              child: Icon(Icons.add,size:MediaQuery.of(context).size.height * 0.027  ,),
+            ),
+            const Spacer(),
           ],
         ),
       ),
@@ -566,11 +583,13 @@ class tasksScreen extends State<tasks_screen> {
             Expanded(
               flex:9,
               child: Container(
+                width: double.maxFinite,
                 decoration: BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(5)),
                               color: Color.fromARGB(255, 17, 26, 59),
                               border:  Border.all(color: Color.fromARGB(255, 25, 36, 78),width: 3.5)
                 ),
+                child: taskGroupColumn()
                 
                 //width: MediaQuery.of(context).size.width * 0.265,
 
@@ -583,6 +602,26 @@ class tasksScreen extends State<tasks_screen> {
       ),
     );
   }
+}
+class taskGroupColumn extends StatefulWidget{
+    const taskGroupColumn({
+    super.key, 
+  });
+  @override
+  State<taskGroupColumn> createState() => taskGroupColumn_state();
+  
+}
+class taskGroupColumn_state extends State<taskGroupColumn>{
+  @override
+  Widget build(BuildContext context){
+    return  Column(
+        children:context.watch<TaskGroupList>().group_list     
+             
+    );
+    
+   
+  }
+
 }
 class startAll_button extends StatelessWidget {
   const startAll_button({
@@ -740,8 +779,6 @@ class create_button extends StatefulWidget {
 }
 class _create_buttonState extends State<create_button> {
 
-   
-  
   @override
   Widget build(BuildContext context) {
     return Positioned(

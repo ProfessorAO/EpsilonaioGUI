@@ -191,18 +191,6 @@ class infoBar extends StatelessWidget{
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // Container(
-        //   height : 29,
-        //   width:  MediaQuery.of(context).size.width * 0.6/2,
-        //   color: const Color.fromRGBO(26, 25, 25, 0.6),
-        //   child: const TextField(
-        //     style:TextStyle(fontFamily: 'Audiowide',color: Colors.white70,fontSize: 20) ,
-        //     decoration: InputDecoration( labelStyle: TextStyle(fontFamily: 'Audiowide',color: Colors.white30,fontSize: 20),
-        //       border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-        //       labelText: 'Search',),
-
-        //   ),
-        // ),
         Padding (
           padding:EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: SizedBox(
@@ -213,7 +201,7 @@ class infoBar extends StatelessWidget{
               child: Text(
                 currdate,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 13),
+                style: const TextStyle(color: Colors.white,fontSize: 13,fontWeight: FontWeight.w600),
               ),
             ),
           ),
@@ -251,7 +239,7 @@ class infoBar extends StatelessWidget{
                 child: Text(
                   "User1",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 14),
+                  style: TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w600),
                 ),
               ),
             ),

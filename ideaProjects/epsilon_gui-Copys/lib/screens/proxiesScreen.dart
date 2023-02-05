@@ -79,7 +79,7 @@ class ProxiesScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(Radius.circular(5)),
                                   
-                                  border:  Border.all(color: Color.fromARGB(255, 0, 192, 29),width: 3)
+                                  border:  Border.all(color: Colors.white,width: 3)
                                   ),
                                 child: TextField(
                                   style: TextStyle(color: Colors.white),
@@ -114,9 +114,9 @@ class ProxiesColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: MediaQuery.of(context).size.height *0.08,
-      left:    MediaQuery.of(context).size.width * 0.15,
+      left:    MediaQuery.of(context).size.width * 0.05,
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.7 ,
+        width: MediaQuery.of(context).size.width * 0.9 ,
         height: MediaQuery.of(context).size.height * 0.84 ,
         child: RawScrollbar(
           thumbColor: Colors.white,

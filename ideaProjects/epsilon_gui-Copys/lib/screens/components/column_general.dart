@@ -11,8 +11,7 @@ class table_Column extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(name,style: const TextStyle(
       color: Colors.white,
-      fontWeight: FontWeight.normal,
-      fontFamily: 'Audiowide',
+      fontWeight: FontWeight.w500,
       fontSize: 15,
     ),);
   }

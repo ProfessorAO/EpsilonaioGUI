@@ -20,7 +20,6 @@ class Taskinstance with ChangeNotifier{
   String taskregion = "";
   String taskprofile = "";
   String tasktype = "";
-  String taskgroup = "";
   String taskstatus = "Ready";
   bool check = false;
   bool isactive = false;
