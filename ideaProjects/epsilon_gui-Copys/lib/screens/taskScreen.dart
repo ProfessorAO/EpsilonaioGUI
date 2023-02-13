@@ -14,6 +14,7 @@ import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'dart:io';
+import 'package:number_inc_dec/number_inc_dec.dart';
 
 
 
@@ -55,6 +56,112 @@ class tasksScreen extends State<tasks_screen> {
                       bottomBar(),
                       startAll_button(),
                       remove_all_button(),
+                      Positioned(
+                        left: MediaQuery.of(context).size.width * 0.4,
+                        bottom: MediaQuery.of(context).size.height * 0.001,
+                        child: Row(
+                          children: [
+                            Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.04,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height * 0.045,
+                                      decoration: BoxDecoration(
+                                        color: Colors.green,
+                                      borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
+
+                                    ),),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height * 0.045,
+                                      decoration: BoxDecoration(
+                                        color: Color.fromARGB(255, 21, 48, 22),
+                                      
+                                      borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
+
+                                    ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width:  MediaQuery.of(context).size.width *0.01,),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.04,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height * 0.045,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
+
+                                    ),),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height * 0.045,
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                      
+                                      borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
+
+                                    ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width:  MediaQuery.of(context).size.width *0.01,),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.04,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height * 0.045,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
+
+                                    ),),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height * 0.045,
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                      
+                                      borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
+
+                                    ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          ]
+                        ),
+                      ),
                       popUpMenu(context),
                     ],
                   ),
@@ -116,6 +223,7 @@ class tasksScreen extends State<tasks_screen> {
                                           Expanded(
                                               flex: 2,
                                               child: columInputer_text(
+                                                length: 50,
                                                 controller: myController,
                                                 onChanged: (String value){product = value;},
                                                 label: "Product",
@@ -181,6 +289,7 @@ class tasksScreen extends State<tasks_screen> {
                                       Expanded(
                                           flex: 2,
                                           child: columInputer_text(controller: keywordsController,
+                                          length: 20,
                                           label:"Color" ,
                                           onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));},
                                           )
@@ -190,6 +299,7 @@ class tasksScreen extends State<tasks_screen> {
                                       Expanded(
                                           flex: 2,
                                           child: columInputer_text(controller: numController,
+                                          length: 2,
                                           label: "Number of Tasks",
                                           onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));},
                                           )
@@ -331,7 +441,8 @@ class tasksScreen extends State<tasks_screen> {
         ),
         onPressed: () {
           
-          String product = "";
+                          String product = "";
+                          String group_name = "";
                           String dropdownsize = size_list.first ;
                           String dropdowncategory = category_list.first;
                           String dropdownregion = region_list.first;
@@ -339,6 +450,7 @@ class tasksScreen extends State<tasks_screen> {
                           String dropdownTT = taskType_list.first;
                           String dropdownPG = proxyGroup_list.first;
                           String dropdownstore = store_list.first;
+                          int taskNumber = 0 ;
                           final productController = TextEditingController();
                           final taskGroupController = TextEditingController();
                           final numController = TextEditingController();
@@ -377,8 +489,9 @@ class tasksScreen extends State<tasks_screen> {
                                            Expanded(
                                               flex: 2,
                                               child: columInputer_text(
+                                                length: 20,
                                                 controller: taskGroupController,
-                                                onChanged: (String value){product = value;},
+                                                onChanged: (String value){group_name = value;},
                                                 label: "Task Group Name",
                                                   
                                                )
@@ -387,6 +500,7 @@ class tasksScreen extends State<tasks_screen> {
                                           Expanded(
                                               flex: 2,
                                               child: columInputer_text(
+                                                length: 50,
                                                 controller: productController,
                                                 onChanged: (String value){product = value;},
                                                 label: "Product",
@@ -453,7 +567,8 @@ class tasksScreen extends State<tasks_screen> {
                                           flex: 2,
                                           child: columInputer_text(controller: keywordsController,
                                           label:"Color" ,
-                                          onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));},
+                                          length: 20,
+                                          onChanged: (String value){},
                                           )
                                       ),
                                       const Spacer(),
@@ -462,7 +577,8 @@ class tasksScreen extends State<tasks_screen> {
                                           flex: 2,
                                           child: columInputer_text(controller: numController,
                                           label: "Number of Tasks",
-                                          onChanged: (String value){context.read<TasksInputs>().setNum_of_tasks(int.parse(value));},
+                                          length: 2,
+                                          onChanged: (String value){taskNumber = int.parse(value);},
                                           )
                                       ),
                                       const Spacer(),
@@ -486,7 +602,7 @@ class tasksScreen extends State<tasks_screen> {
                                       Expanded(
                                           flex: 2,
                                           child: columnInput_Menu(value:dropdownprofile,
-                                          label: "Profile",
+                                          label: "Profile Group",
                                           Menuitems:const [
                                               DropdownMenuItem(value: "profile1",child: Text("profile1"),),
                                             ],
@@ -541,11 +657,14 @@ class tasksScreen extends State<tasks_screen> {
                                     );
                               
                                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                    context.read<TaskGroupList>().setGroupName(group_name);
                                     context.read<TaskGroupList>().setTaskProduct(product);
                                     context.read<TaskGroupList>().setTaskSize(dropdownsize);
                                     context.read<TaskGroupList>().setTaskProfile(dropdownprofile);
                                     context.read<TaskGroupList>().setTaskStore(dropdownstore);
+                                    context.read<TaskGroupList>().setTaskNum(taskNumber);
                                     context.read<TaskGroupList>().addToGroupList(context);
+                                    
                                     setState(() {
             
                                          });
@@ -583,13 +702,18 @@ class tasksScreen extends State<tasks_screen> {
             Expanded(
               flex:9,
               child: Container(
-                width: double.maxFinite,
+                width: MediaQuery.of(context).size.width * 0.4,
                 decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(5)),
-                              color: Color.fromARGB(255, 17, 26, 59),
-                              border:  Border.all(color: Color.fromARGB(255, 25, 36, 78),width: 3.5)
+                  
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+        
+          border:  Border.all(color: Color.fromARGB(255, 25, 36, 78),width: 3)
                 ),
-                child: taskGroupColumn()
+                child: RawScrollbar(
+                  child: SingleChildScrollView(
+                    child: taskGroupColumn()
+                    )
+                    )
                 
                 //width: MediaQuery.of(context).size.width * 0.265,
 
@@ -642,6 +766,16 @@ class startAll_button extends StatelessWidget {
         ),
         onPressed: () {
           context.read<TasksLists>().startAllTasks();
+          final snackBar = SnackBar(
+                                          backgroundColor: Colors.green,
+                                          content: const Text('Tasks Started'),
+                                          action: SnackBarAction(
+                                          label: '',
+                                    onPressed: () {},
+                                  ),
+                                    );
+                              
+                                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
           },
         child: const Text('Start All'),
       ),
@@ -664,7 +798,18 @@ class remove_all_button extends StatelessWidget {
           backgroundColor: Colors.red,
           padding: const EdgeInsets.all(16.0),
         ),
-        onPressed: () {context.read<TasksLists>().removeAllTasks();
+        onPressed: () {
+          context.read<TasksLists>().removeAllTasks();
+          final snackBar = SnackBar(
+                                          backgroundColor: Colors.red,
+                                          content: const Text('Tasks Removed'),
+                                          action: SnackBarAction(
+                                          label: '',
+                                    onPressed: () {},
+                                  ),
+                                    );
+                              
+                                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
         },
         child: const Text('Remove all'),
       ),
@@ -807,11 +952,13 @@ class columInputer_text extends StatelessWidget {
     required this.controller,
     required this.onChanged,
     required this.label,
+    required this.length,
   });
 
   final TextEditingController controller;
   final StringCallback onChanged;
   final String label;
+  final int length;
 
   @override
   Widget build(BuildContext context) {
@@ -819,8 +966,10 @@ class columInputer_text extends StatelessWidget {
       color: const Color.fromARGB(255, 25, 36, 78) ,
       child: TextField(style:const TextStyle(fontFamily: 'Audiowide',color: Colors.white,fontSize: 16) ,
           controller: controller,
+          maxLength: length,
           onChanged: onChanged ,
           decoration: InputDecoration(
+            counterText: '',
             label: Text(label,style: TextStyle(color: Colors.white70,fontSize: 15),),
             border: InputBorder.none,
             isDense: true,

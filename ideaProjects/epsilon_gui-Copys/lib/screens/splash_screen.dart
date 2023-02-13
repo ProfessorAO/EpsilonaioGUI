@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
 
     super.initState();
-    Timer(Duration(seconds: 5),
+    Timer(Duration(seconds: 8),
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
 
-            colors: [Color.fromARGB(255, 17, 26, 59),Color.fromARGB(255, 25, 36, 78)]
+            colors: [Color.fromARGB(255, 25, 36, 78),Color.fromARGB(255, 25, 36, 78)]
           ),
         ),
         child: Column(
@@ -46,10 +46,10 @@ class _SplashScreenState extends State<SplashScreen> {
             Column(
               children: [
                 SizedBox(
-                  width: 250,
-                  height: 250,
+                  width: 800,
+                  height: 300,
                   child: IconButton(
-                    icon: new SvgPicture.asset('assets/images/result-min 1.svg',color: Color.fromARGB(255, 15, 237, 120),height: 200,),
+                    icon: Image.asset('assets/images/Logo-Animation (1).gif'),
                     onPressed: (){},
                   ),
                 ),
