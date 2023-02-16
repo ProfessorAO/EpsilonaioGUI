@@ -66,6 +66,7 @@ class TaskGroupList with ChangeNotifier{
                                     context.read<TasksInputs>().product,
                                     context.read<TasksInputs>().task_profile,
                                     context.read<TasksInputs>().task_size,
+                                    context
                                     );
         },
         onLongPress: () {

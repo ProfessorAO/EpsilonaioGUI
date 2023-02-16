@@ -6,7 +6,8 @@ import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/providers/task_instance_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/providers/task_group_provider.dart';
-import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
+import 'package:epsilon_gui/providers/stats_provider.dart';
+import 'package:epsilon_gui/providers/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
@@ -25,9 +26,11 @@ void main() {
       ChangeNotifierProvider(create: (_)=> TasksLists()),
       ChangeNotifierProvider(create: (_)=> ConsoleLogger()),
       ChangeNotifierProvider(create: (_)=> TasksInputs()),
-      ChangeNotifierProvider(create: (_)=> Taskinstance(0,"","","","")),
+      ChangeNotifierProvider(create: (_)=> Taskinstance(0,"","","","","")),
       ChangeNotifierProvider(create: (_)=> TabbarIndex()),
       ChangeNotifierProvider(create: (_)=> TaskGroupList()),
+      ChangeNotifierProvider(create: (_)=> StatsProvider()),
+      ChangeNotifierProvider(create: (_)=> ProfileProvider()),
   ],
     child:MyApp() ,
     ),

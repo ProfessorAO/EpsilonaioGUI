@@ -38,6 +38,8 @@ class ProxiesScreen extends StatelessWidget {
                     bottomBar(),
                     ProxiesColumn(),
                     addProxy(context),
+                    ProxiesGroup(),
+                    Proxies_number()
                   ],
                 ),
               );
@@ -105,6 +107,92 @@ class ProxiesScreen extends StatelessWidget {
   }
 }
 
+class Proxies_number extends StatelessWidget {
+  const Proxies_number({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: MediaQuery.of(context).size.height * 0.0001,
+      left:  MediaQuery.of(context).size.width * 0.43,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.1,
+        height: MediaQuery.of(context).size.height * 0.03,
+        child: Text(
+          "Proxies",
+           style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),
+           ),
+      ),
+    );
+  }
+}
+class ProxiesGroup extends StatelessWidget {
+  const ProxiesGroup({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: MediaQuery.of(context).size.width * 0.72,
+      top: MediaQuery.of(context).size.height * 0.08,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.27,
+        height: MediaQuery.of(context).size.height * 0.82,
+        child: Column(
+          children: [
+            Expanded(
+              flex: 1,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
+                minimumSize: Size(MediaQuery.of(context).size.width * 0.28,MediaQuery.of(context).size.height* 0.1)
+                //padding: const EdgeInsets.all(16.0),
+        ),
+        onPressed: () {},
+        child:  Row(
+                children:  [
+                  const Spacer(),
+                  const Text('New Proxies Group',style: TextStyle(fontSize: 17),),
+                  Padding(
+    padding: EdgeInsets.fromLTRB(0, MediaQuery.of(context).size.height * 0.001, 0, 0),
+    child: Icon(Icons.add,size:MediaQuery.of(context).size.height * 0.027  ,),
+                  ),
+                  const Spacer(),
+                ],
+              ),
+              )
+            ),
+            Expanded(
+              flex:9,
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.4,
+                decoration: BoxDecoration(
+                  
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+        
+          border:  Border.all(color: Color.fromARGB(255, 25, 36, 78),width: 3)
+                ),
+                child: RawScrollbar(
+                  child: SingleChildScrollView(
+    )
+    )
+                
+                //width: MediaQuery.of(context).size.width * 0.265,
+
+                
+                
+              )
+            ),
+          ]
+        )
+      )
+    );
+  }
+}
 class ProxiesColumn extends StatelessWidget {
   const ProxiesColumn({
     super.key,
@@ -114,9 +202,9 @@ class ProxiesColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: MediaQuery.of(context).size.height *0.08,
-      left:    MediaQuery.of(context).size.width * 0.05,
+      left: -MediaQuery.of(context).size.width * 0.005,
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.9 ,
+        width: MediaQuery.of(context).size.width * 0.7 ,
         height: MediaQuery.of(context).size.height * 0.84 ,
         child: RawScrollbar(
           thumbColor: Colors.white,

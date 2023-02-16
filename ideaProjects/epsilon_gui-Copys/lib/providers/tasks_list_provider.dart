@@ -44,18 +44,18 @@ class TasksLists with ChangeNotifier{
   }
   
 // ADDS TASKS TO THE TABLE
-  void addTask(int numOfTasks,String storeData, String productData, String profileData,String sizeData){
+  void addTask(int numOfTasks,String storeData, String productData, String profileData,String sizeData,BuildContext context){
     
     for(var i = 0;i<numOfTasks;i++){
       if(id_list.isEmpty == true){
         id_list.add(1);
-         Taskinstance task = Taskinstance(1, productData, storeData, profileData,sizeData);
+         Taskinstance task = Taskinstance(1, productData, storeData, profileData,sizeData,context);
          tasks_instances.add(task);
          current_tasks_list.add(task.taskRow);
         }
       else{
         id_list.add(id_list.last + 1);
-        Taskinstance task = Taskinstance(id_list.last, productData, storeData, profileData,sizeData);
+        Taskinstance task = Taskinstance(id_list.last, productData, storeData, profileData,sizeData,context);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
         

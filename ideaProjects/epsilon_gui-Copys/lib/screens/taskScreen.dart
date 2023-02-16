@@ -1,20 +1,16 @@
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
-import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
-import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:epsilon_gui/providers/task_group_provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/screens/components/column_general.dart';
+import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 import 'package:epsilon_gui/screens/components/bottombar.dart';
-import 'dart:io';
-import 'package:number_inc_dec/number_inc_dec.dart';
 
 
 
@@ -56,112 +52,7 @@ class tasksScreen extends State<tasks_screen> {
                       bottomBar(),
                       startAll_button(),
                       remove_all_button(),
-                      Positioned(
-                        left: MediaQuery.of(context).size.width * 0.4,
-                        bottom: MediaQuery.of(context).size.height * 0.001,
-                        child: Row(
-                          children: [
-                            Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.04,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 2,
-                                    child: Container(
-                                      height: MediaQuery.of(context).size.height * 0.045,
-                                      decoration: BoxDecoration(
-                                        color: Colors.green,
-                                      borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
-
-                                    ),),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Container(
-                                      height: MediaQuery.of(context).size.height * 0.045,
-                                      decoration: BoxDecoration(
-                                        color: Color.fromARGB(255, 21, 48, 22),
-                                      
-                                      borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
-
-                                    ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(width:  MediaQuery.of(context).size.width *0.01,),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.04,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 2,
-                                    child: Container(
-                                      height: MediaQuery.of(context).size.height * 0.045,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                      borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
-
-                                    ),),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Container(
-                                      height: MediaQuery.of(context).size.height * 0.045,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                      
-                                      borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
-
-                                    ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(width:  MediaQuery.of(context).size.width *0.01,),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.04,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 2,
-                                    child: Container(
-                                      height: MediaQuery.of(context).size.height * 0.045,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                      borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
-
-                                    ),),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Container(
-                                      height: MediaQuery.of(context).size.height * 0.045,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                      
-                                      borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
-
-                                    ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          ]
-                        ),
-                      ),
+                      Tasks_Stats(),
                       popUpMenu(context),
                     ],
                   ),
@@ -390,6 +281,7 @@ class tasksScreen extends State<tasks_screen> {
                                     context.read<TasksInputs>().product,
                                     context.read<TasksInputs>().task_profile,
                                     context.read<TasksInputs>().task_size,
+                                    context
                                     );
                                     
                                    
@@ -723,6 +615,106 @@ class tasksScreen extends State<tasks_screen> {
             ),
           ]
         ),
+      ),
+    );
+  }
+}
+class Tasks_Stats extends StatelessWidget {
+  const Tasks_Stats({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: MediaQuery.of(context).size.width * 0.43,
+      bottom: MediaQuery.of(context).size.height * 0.001,
+      child: Row(
+        children: [
+          Padding(
+          padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.04,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.045,
+                    child: Align(
+                      alignment:Alignment.center,
+                    child: Icon(Icons.check,color: Colors.white,),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                    borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5)),
+                   
+                  ),),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.045,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(context.watch<StatsProvider>().successes.toString(),style: TextStyle(color: Colors.green,fontWeight: FontWeight.w600),),
+                      ),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 21, 48, 22),
+                    
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
+
+                  ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        SizedBox(width:  MediaQuery.of(context).size.width *0.01,),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 0, 0, MediaQuery.of(context).size.height * 0.01,),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.04,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.045,
+                    child: Align(
+                      alignment:Alignment.center,
+                    child: Icon(Icons.close,color: Colors.white,),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                    borderRadius:  BorderRadius.only(topLeft: Radius.circular(5),bottomLeft: Radius.circular(5))
+
+                  ),),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.045,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(context.watch<StatsProvider>().fails.toString(),style: TextStyle(color: Colors.red,fontWeight: FontWeight.w600),),
+                      ),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 63, 18, 14),
+                    
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(5),bottomRight: Radius.circular(5))
+
+                  ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        SizedBox(width:  MediaQuery.of(context).size.width *0.01,),
+                  
+        ]
       ),
     );
   }

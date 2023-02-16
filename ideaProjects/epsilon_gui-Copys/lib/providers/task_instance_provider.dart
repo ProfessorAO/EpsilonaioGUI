@@ -1,8 +1,11 @@
 import 'dart:io';
 
 
+import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
+import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
@@ -25,16 +28,18 @@ class Taskinstance with ChangeNotifier{
   bool isactive = false;
   DataRow taskRow = DataRow(cells: []);
   TasksLists tasksList = TasksLists();
+  late BuildContext context;
 
   
 
 
-   Taskinstance(id,product,store,profile,size){
+   Taskinstance(id,product,store,profile,size, newcontext){
     taskID = id;
     taskproduct = product;
     taskprofile =profile;
     tasksize =size ;
     taskstore = store;
+    context = newcontext;
     check = false;
     taskRow = DataRow(
       onLongPress: () {
@@ -159,10 +164,12 @@ class Taskinstance with ChangeNotifier{
       col = Colors.blue;
     }else if (status == 'Completed'){
       col = Colors.green;
+      context.read<StatsProvider>().incrementSuccesses();
     }else if (status == 'Ready'){
       col = Colors.white;
     }else{
       col = Colors.red;
+      context.read<StatsProvider>().incrementFails();
     }
     return col ;
 
