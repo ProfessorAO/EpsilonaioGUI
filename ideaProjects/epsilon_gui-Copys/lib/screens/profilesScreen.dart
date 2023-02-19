@@ -105,6 +105,16 @@ class Add_Profile_btn extends State<Profile_btn_State> {
           padding: const EdgeInsets.all(16.0),
         ),
         onPressed: () {
+           final snackBar = SnackBar(
+                                          backgroundColor: Colors.green,
+                                          content: const Text('Profile Created'),
+                                          action: SnackBarAction(
+                                          label: '',
+                                    onPressed: () {},
+                                  ),
+                                    );
+                              
+                                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
           context.read<ProfileProvider>().addProfile(Profile_card());
           setState((){});
         

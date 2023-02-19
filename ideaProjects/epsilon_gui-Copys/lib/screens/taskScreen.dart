@@ -33,9 +33,11 @@ class tasks_screen extends StatefulWidget{
 class tasksScreen extends State<tasks_screen> {
   List<Widget> tasks = [];
   
+  
   @override
   Widget build(BuildContext context) {
     context.read<TaskGroupList>().setContext(context);
+    int task_list_number  =  context.watch<TasksLists>().count;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 17, 26, 59),
         body: SafeArea(
@@ -54,6 +56,18 @@ class tasksScreen extends State<tasks_screen> {
                       remove_all_button(),
                       Tasks_Stats(),
                       popUpMenu(context),
+                      Positioned(
+                        left: MediaQuery.of(context).size.width * 0.5,
+                        bottom: MediaQuery.of(context).size.height * 0.001,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          child: Text(
+                            "$task_list_number Tasks",
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600,fontSize: 20),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -627,7 +641,7 @@ class Tasks_Stats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: MediaQuery.of(context).size.width * 0.43,
+      left: MediaQuery.of(context).size.width * 0.27,
       bottom: MediaQuery.of(context).size.height * 0.001,
       child: Row(
         children: [

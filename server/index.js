@@ -9,23 +9,34 @@ const wrongTypeError = TypeError("Wrong type found, expected ");
 
 async function connection_websockets(){
     const obj = new Object;
-    const wss = new WebSocketServer({ port:679 });
+    const task_wss = new WebSocketServer({port:679 });
+    const releases_wss = new WebSocketServer({port: 6969})
     var task_data ;
-    wss.on('connection',async (ws)=>{
-        console.log('New Websocket connection');
+    var release_data;
+    task_wss.on('connection',async (ws)=>{
+        console.log('New Websocket connection - Task Creation');
         task_data = await waitForData(ws);
         openTrapstar(task_data,ws);
     })
 
-    wss.on('close',(ws)=>{
-        console.log("connection closed");
+    task_wss.on('close',(ws)=>{
+        console.log("connection closed - Task Creation");
+    })
+    releases_wss.on('connection',async (ws)=>{
+        console.log('New Websocket connection - Release Data Request');
+        release_data = await waitForData(ws);
+        openTrapstar(task_data,ws);
+    })
+
+    releases_wss.on('close',(ws)=>{
+        console.log("connection closed - Release Data Request");
     })
     async function waitForData(ws){
         return new Promise((resolve, reject) => {
             ws.on('message', function message(data){
                 console.log('data: %s',data);
-                task_data =  JSON.parse(data);
-                resolve(task_data);
+                res_data =  JSON.parse(data);
+                resolve(res_data);
             });
         });
     }

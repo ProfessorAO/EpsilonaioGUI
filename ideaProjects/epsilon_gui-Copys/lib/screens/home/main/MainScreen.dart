@@ -7,6 +7,7 @@ import 'package:epsilon_gui/screens/taskScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../components/background.dart';
 import '../../components/epsilonText.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
@@ -410,8 +411,8 @@ class Releases extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.25,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 17, 26, 59),
-                borderRadius: BorderRadius.all(Radius.circular(7)),
-                border: Border.all(color:Color.fromARGB(255, 25, 36, 78),width: 3),
+                //borderRadius: BorderRadius.all(Radius.circular(7)),
+                //border: Border.all(color:Color.fromARGB(255, 25, 36, 78),width: 3),
             ),
             child: Column(
               children: [
@@ -434,6 +435,29 @@ class Releases extends StatelessWidget {
       
                 Row(
                   children: [
+                    Expanded(
+                      flex: 6,
+                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      SizedBox(width:MediaQuery.of(context).size.height * 0.01 ,),
+                      Expanded(
+                      flex: 6,
+                      child: releaseData(col: Colors.blue,)),
+                      SizedBox(width:MediaQuery.of(context).size.height *  0.01 ,),
+                      Expanded(
+                      flex: 6,
+                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      SizedBox(width:MediaQuery.of(context).size.height * 0.01,),
+                      Expanded(
+                      flex: 6,
+                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      SizedBox(width:MediaQuery.of(context).size.height * 0.01 ,),
+                      Expanded(
+                      flex: 6,
+                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      SizedBox(width:MediaQuery.of(context).size.height *  0.01 ,),
+                      Expanded(
+                      flex: 6,
+                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),))
                     
                    
                   ],
@@ -450,14 +474,37 @@ class Releases extends StatelessWidget {
 class releaseData extends StatelessWidget {
   const releaseData({
     super.key,
+    required this.col,
   });
-
+  final Color col ;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 4.5,
+      height: MediaQuery.of(context).size.height * 0.1975,
       child: Container(
-        color: const Color.fromARGB(255, 30, 30, 30),
+         decoration: BoxDecoration(
+          color:const Color.fromARGB(255, 25, 36, 78) ,
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          ),
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                 borderRadius: BorderRadius.only(topLeft: Radius.circular(5),topRight: Radius.circular(5)),
+                  ),
+              width: double.infinity,
+              child: SvgPicture.asset('assets/images/result-min 1.svg',
+                height: 90,
+                color: Color.fromARGB(255, 15, 237, 120)),
+              
+              ) ,
+            Text("Name",style: TextStyle(color: Colors.white),),
+            Spacer(),
+            Text("Date",style: TextStyle(color: Colors.white),),
+            Spacer(),
+            Text("Price",style: TextStyle(color: Colors.white),)
+            ],)
 
       ),
     );

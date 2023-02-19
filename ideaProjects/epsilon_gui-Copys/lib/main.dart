@@ -8,6 +8,7 @@ import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/providers/task_group_provider.dart';
 import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:epsilon_gui/providers/profile_provider.dart';
+import 'package:epsilon_gui/providers/release_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
@@ -31,6 +32,7 @@ void main() {
       ChangeNotifierProvider(create: (_)=> TaskGroupList()),
       ChangeNotifierProvider(create: (_)=> StatsProvider()),
       ChangeNotifierProvider(create: (_)=> ProfileProvider()),
+      ChangeNotifierProvider(create: (_)=> ReleasesData()),
   ],
     child:MyApp() ,
     ),
