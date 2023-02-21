@@ -3,21 +3,27 @@ import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart
 //import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 //import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
-import 'package:epsilon_gui/screens/taskScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../components/background.dart';
-import '../../components/epsilonText.dart';
-import 'package:easy_sidemenu/easy_sidemenu.dart';
-import 'package:badges/src/badge.dart' hide Badge;
+import 'package:epsilon_gui/providers/release_data_provider.dart';
 
 
-class MainScreen extends StatelessWidget{
+class MainScreen extends StatefulWidget{
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   PageController page = PageController();
+ initState(){
+    context.read<ReleasesData>().getData();
+    
+    }
   @override
   int selectedIndex = 0;
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 17, 26, 59),
@@ -34,6 +40,7 @@ class MainScreen extends StatelessWidget{
       )
     );
   }
+
   Container dashboard(BuildContext context) {
     return Container(
       child: Stack(
@@ -402,6 +409,7 @@ class Releases extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
         child :Positioned(
           left: MediaQuery.of(context).size.width *0.01,
@@ -437,27 +445,27 @@ class Releases extends StatelessWidget {
                   children: [
                     Expanded(
                       flex: 6,
-                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      child: releaseData(index: 0,)),
                       SizedBox(width:MediaQuery.of(context).size.height * 0.01 ,),
                       Expanded(
                       flex: 6,
-                      child: releaseData(col: Colors.blue,)),
+                      child: releaseData(index: 1,)),
                       SizedBox(width:MediaQuery.of(context).size.height *  0.01 ,),
                       Expanded(
                       flex: 6,
-                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      child: releaseData(index: 2,)),
                       SizedBox(width:MediaQuery.of(context).size.height * 0.01,),
                       Expanded(
                       flex: 6,
-                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      child: releaseData(index: 3,)),
                       SizedBox(width:MediaQuery.of(context).size.height * 0.01 ,),
                       Expanded(
                       flex: 6,
-                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),)),
+                      child: releaseData(index: 4,)),
                       SizedBox(width:MediaQuery.of(context).size.height *  0.01 ,),
                       Expanded(
                       flex: 6,
-                      child: releaseData(col: const Color.fromARGB(255, 30, 30, 30),))
+                      child: releaseData(index: 5,))
                     
                    
                   ],
@@ -474,11 +482,12 @@ class Releases extends StatelessWidget {
 class releaseData extends StatelessWidget {
   const releaseData({
     super.key,
-    required this.col,
+    required this.index,
   });
-  final Color col ;
+  final int index ;
   @override
   Widget build(BuildContext context) {
+    //List<Map<String,String>> data  = context.read<ReleasesData>().releasesData;
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.1975,
       child: Container(
@@ -499,11 +508,11 @@ class releaseData extends StatelessWidget {
                 color: Color.fromARGB(255, 15, 237, 120)),
               
               ) ,
-            Text("Name",style: TextStyle(color: Colors.white),),
+            Text(context.read<ReleasesData>().releasesData[index]['name']!,style: TextStyle(color: Colors.white),),
             Spacer(),
-            Text("Date",style: TextStyle(color: Colors.white),),
+            Text(context.read<ReleasesData>().releasesData[index]['date']!,style: TextStyle(color: Colors.white),),
             Spacer(),
-            Text("Price",style: TextStyle(color: Colors.white),)
+            Text(context.read<ReleasesData>().releasesData[index]['price']!,style: TextStyle(color: Colors.white),)
             ],)
 
       ),

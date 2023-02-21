@@ -30,3 +30,29 @@ await sleep(1000);
 await page.click('.gNO89b');
 await sleep(5000);
 await page.click('#rso > div:nth-child(1) > div > div > div > div > div > div > div.yuRUbf > a');
+
+
+
+
+
+
+
+
+
+
+
+let json = async () => {
+  console.log('Scraping');
+  const browser = await puppeteer.launch({headless: false,ignoreDefaultArgs: ["--enable-automation"],args: ['--start-maximized', 'disable-gpu', '--disable-infobars', '--disable-extensions', '--ignore-certificate-errors','--disable-notifications','--enable-popup-blocking'],});
+  const page = await browser.newPage();
+  await page.goto('https://jsoneditoronline.org/');
+  await sleep(3000);
+  await page.click('.fc-button-label');
+  await sleep(2000);
+  await page.click("button[class='menu-button']");
+  await sleep(5000);
+  await page.evaluate((docutext) =>{
+      const input = document.querySelector('.cm-activeLine cm-line');
+},docutext);
+}
+json(docutext);

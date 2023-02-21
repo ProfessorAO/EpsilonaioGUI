@@ -1,0 +1,2485 @@
+[
+  {
+    id: '37019da4-72cf-48cc-9c85-e02dd4370944',
+    brand: 'Jordan',
+    colorway: 'White/Total Orange/Black',
+    estimatedMarketValue: 83,
+    gender: 'youth',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/466/412/original/DQ6513_108.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/466/412/original/DQ6513_108.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/466/412/original/DQ6513_108.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/jordan-luka-1-gs-safari-dq6513-108',
+      flightClub: 'https://flightclub.com/jordan-luka-1-gs-safari-dq6513-108',
+      stadiumGoods: ''
+    },
+    name: "Jordan Luka 1 GS 'The Pitch'",
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 80,
+    silhouette: 'Jordan Luka 1',
+    sku: 'DQ6513-108',
+    story: ''
+  },
+  {
+    id: '79196fdd-985a-402e-add4-cbacd353e0eb',
+    brand: 'Saucony',
+    colorway: 'Grey/Black',
+    estimatedMarketValue: 750,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/019/980/original/S70737_1.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/019/980/original/S70737_1.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/019/980/original/S70737_1.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/raised-by-wolves-x-jazz-81-feral-child-s70737-1',
+      flightClub: 'https://flightclub.com/raised-by-wolves-x-jazz-81-feral-child-s70737-1',
+      stadiumGoods: ''
+    },
+    name: "Raised by Wolves x Jazz 81 'Feral Child'",
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 0,
+    silhouette: 'Jazz',
+    sku: 'S70737-1',
+    story: ''
+  },
+  {
+    id: 'd4d0abfc-1e0d-46bd-ab56-cd3c141e062b',
+    brand: 'New Balance',
+    colorway: 'Multi-Color/Multi-Color',
+    estimatedMarketValue: 176,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/893/959/original/BBFRSHU1.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/893/959/original/BBFRSHU1.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/893/959/original/BBFRSHU1.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/fresh-foam-bb-all-star-bbfrshu1',
+      flightClub: 'https://flightclub.com/fresh-foam-bb-all-star-bbfrshu1',
+      stadiumGoods: ''
+    },
+    name: "Fresh Foam BB 'All-Star'",
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Fresh Foam BB',
+    sku: 'BBFRSHU1',
+    story: ''
+  },
+  {
+    id: 'df4388b6-a5a6-47b0-a747-b5957d513b04',
+    brand: 'Jordan',
+    colorway: 'White/Total Orange/Black',
+    estimatedMarketValue: 148,
+    gender: 'infant',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/893/995/original/DR6085_108.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/893/995/original/DR6085_108.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/893/995/original/DR6085_108.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/jordan-luka-1-td-safari-dr6085-108',
+      flightClub: 'https://flightclub.com/jordan-luka-1-td-safari-dr6085-108',
+      stadiumGoods: ''
+    },
+    name: "Jordan Luka 1 TD 'The Pitch'",
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 50,
+    silhouette: 'Jordan Luka 1',
+    sku: 'DR6085-108',
+    story: ''
+  },
+  {
+    id: 'ed42bbee-c297-495c-8c8e-181f87848ac2',
+    brand: 'Jordan',
+    colorway: 'White/Total Orange/Black',
+    estimatedMarketValue: 125,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/893/987/original/DN1772_108.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/893/987/original/DN1772_108.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/893/987/original/DN1772_108.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-luka-1-safari',
+      goat: 'https://goat.com/sneakers/jordan-luka-1-safari-dn1772-108',
+      flightClub: 'https://flightclub.com/jordan-luka-1-safari-dn1772-108',
+      stadiumGoods: ''
+    },
+    name: 'Jordan Luka 1 Safari',
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Jordan Luka 1',
+    sku: 'DN1772-108',
+    story: ''
+  },
+  {
+    id: 'f0842662-2b4f-4178-a27d-bff18bc5bfd2',
+    brand: 'Jordan',
+    colorway: 'Blue/Aqua/Rasengan',
+    estimatedMarketValue: 356,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/667/976/original/DX1690_400.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/667/976/original/DX1690_400.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/667/976/original/DX1690_400.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-37-zion-williamson-naruto-rasengan',
+      goat: 'https://goat.com/sneakers/naruto-x-zion-williamson-x-air-jordan-37-rasengan-dx1690-400',
+      flightClub: 'https://flightclub.com/naruto-x-zion-williamson-x-air-jordan-37-rasengan-dx1690-400',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 37 Zion Williamson Naruto Rasengan',
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 170,
+    silhouette: 'Air Jordan 37',
+    sku: 'DX1690-400',
+    story: ''
+  },
+  {
+    id: 'f10fc1aa-b2e4-4afc-85ae-74e605bdd793',
+    brand: 'Jordan',
+    colorway: 'Black/Laser Blue/Yellow Strike/Dark Purple Dust/Metallic Silver',
+    estimatedMarketValue: 120,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/894/014/original/FB1628_087.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/894/014/original/FB1628_087.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/894/014/original/FB1628_087.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/naruto-x-jordan-zion-2-naruto-vs-sasuke-fb1628-087',
+      flightClub: 'https://flightclub.com/naruto-x-jordan-zion-2-naruto-vs-sasuke-fb1628-087',
+      stadiumGoods: ''
+    },
+    name: "Naruto x Jordan Zion 2 'Naruto vs. Sasuke'",
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: 'Jordan Zion 2',
+    sku: 'FB1628-087',
+    story: ''
+  },
+  {
+    id: 'fc5398a8-b146-40e8-b89f-77701e9c0408',
+    brand: 'Jordan',
+    colorway: 'White/Total Orange/Black',
+    estimatedMarketValue: 70,
+    gender: 'youth',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/893/996/original/DR6086_108.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/893/996/original/DR6086_108.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/893/996/original/DR6086_108.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/jordan-luka-1-ps-safari-dr6086-108',
+      flightClub: 'https://flightclub.com/jordan-luka-1-ps-safari-dr6086-108',
+      stadiumGoods: ''
+    },
+    name: "Jordan Luka 1 PS 'The Pitch'",
+    releaseDate: '2023-02-20',
+    releaseYear: '2023',
+    retailPrice: 70,
+    silhouette: 'Jordan Luka 1',
+    sku: 'DR6086-108',
+    story: ''
+  },
+  {
+    id: '4d8cb23a-957d-4a96-9fec-c7c242558dba',
+    brand: 'Reebok',
+    colorway: 'Footwear White/Footwear White/Pure Grey',
+    estimatedMarketValue: 90,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/668/167/original/IE6679.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/668/167/original/IE6679.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/668/167/original/IE6679.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-club-c-extra-white-ie6679',
+      flightClub: 'https://flightclub.com/wmns-club-c-extra-white-ie6679',
+      stadiumGoods: ''
+    },
+    name: "Wmns Club C Extra 'White'",
+    releaseDate: '2023-02-21',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Club C',
+    sku: 'IE6679',
+    story: ''
+  },
+  {
+    id: '9b85fa9a-fd01-4ed4-b46e-d4b87b5b67aa',
+    brand: 'Reebok',
+    colorway: 'Footwear White/Light Solid Grey/Lucid Lilac',
+    estimatedMarketValue: 84,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/668/142/original/HQ7196.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/668/142/original/HQ7196.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/668/142/original/HQ7196.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-classic-leather-sp-extra-white-light-grey-hq7196',
+      flightClub: 'https://flightclub.com/wmns-classic-leather-sp-extra-white-light-grey-hq7196',
+      stadiumGoods: ''
+    },
+    name: "Wmns Classic Leather SP Extra 'White Light Grey'",
+    releaseDate: '2023-02-21',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Reebok Classic',
+    sku: 'HQ7196',
+    story: ''
+  },
+  {
+    id: 'ccf14d16-088d-45d5-88f7-d184dfb0eaab',
+    brand: 'Jordan',
+    colorway: 'White/Infrared 23/Black',
+    estimatedMarketValue: 350,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/893/998/original/DV1376_106.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/893/998/original/DV1376_106.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/893/998/original/DV1376_106.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-low-golf-white-infrared-dv1376-106',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-low-golf-white-infrared-dv1376-106',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 6 Retro Low Golf 'White Infrared'",
+    releaseDate: '2023-02-21',
+    releaseYear: '2023',
+    retailPrice: 220,
+    silhouette: 'Air Jordan 6',
+    sku: 'DV1376-106',
+    story: ''
+  },
+  {
+    id: 'ed89425d-7b40-4b38-bf4c-9bd841d72723',
+    brand: 'Puma',
+    colorway: 'Black/White/Gum-Gold',
+    estimatedMarketValue: 70,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://images.stockx.com/images/Puma-King-21-IT-Black-White.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676541222',
+      small: 'https://images.stockx.com/images/Puma-King-21-IT-Black-White.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676541222',
+      thumbnail: 'https://images.stockx.com/images/Puma-King-21-IT-Black-White.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676541222'
+    },
+    links: {
+      stockX: 'https://stockx.com/puma-king-21-it-black-white',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Puma King 21 IT Black White',
+    releaseDate: '2023-02-21',
+    releaseYear: '2023',
+    retailPrice: 70,
+    silhouette: 'Puma King 21 IT',
+    sku: '106696-01',
+    story: ''
+  },
+  {
+    id: '072364c0-d1a2-4337-9800-047596223185',
+    brand: 'adidas',
+    colorway: 'Core Black/Core Black/Cloud White',
+    estimatedMarketValue: 168,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/555/289/original/IE6862.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/555/289/original/IE6862.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/555/289/original/IE6862.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/adidas-forum-hi-wings-40-jeremy-scott-black-opal',
+      goat: 'https://goat.com/sneakers/jeremy-scott-x-forum-wings-4-0-black-opal-ie6862',
+      flightClub: 'https://flightclub.com/jeremy-scott-x-forum-wings-4-0-black-opal-ie6862',
+      stadiumGoods: ''
+    },
+    name: 'adidas Forum Hi Wings 4.0 Jeremy Scott Black Opal',
+    releaseDate: '2023-02-22',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Forum',
+    sku: 'IE6862',
+    story: ''
+  },
+  {
+    id: '6c22fe3b-6c46-47a8-9866-e0accd5d56c2',
+    brand: 'adidas',
+    colorway: 'Cloud White/Cloud White/Core Black',
+    estimatedMarketValue: 750,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/555/288/original/IE6861.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/555/288/original/IE6861.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/555/288/original/IE6861.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/adidas-forum-hi-wings-40-jeremy-scott-white-opal',
+      goat: 'https://goat.com/sneakers/jeremy-scott-x-forum-wings-4-0-white-opal-ie6861',
+      flightClub: 'https://flightclub.com/jeremy-scott-x-forum-wings-4-0-white-opal-ie6861',
+      stadiumGoods: ''
+    },
+    name: 'adidas Forum Hi Wings 4.0 Jeremy Scott White Opal',
+    releaseDate: '2023-02-22',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Forum',
+    sku: 'IE6861',
+    story: ''
+  },
+  {
+    id: 'a5ff4e15-eb68-4257-8515-25c876f280e9',
+    brand: 'Nike',
+    colorway: 'Adobe Red/Gum',
+    estimatedMarketValue: 112,
+    gender: 'men',
+    image: {
+      '360': [Array],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/245/349/original/1057473_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/245/349/original/1057473_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/245/349/original/1057473_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-dunk-low-adobe',
+      goat: 'https://goat.com/sneakers/dunk-low-sb-adobe-dv5429-600',
+      flightClub: 'https://flightclub.com/dunk-low-sb-adobe-dv5429-600',
+      stadiumGoods: ''
+    },
+    name: 'Nike SB Dunk Low Adobe',
+    releaseDate: '2023-02-22',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Dunk SB',
+    sku: 'DV5429-600',
+    story: ''
+  },
+  {
+    id: 'e4ef9f02-5b3b-421f-9a16-2d9e5b703599',
+    brand: 'Nike',
+    colorway: 'Ocean Bliss/Ocean Bliss/Black',
+    estimatedMarketValue: 102,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/934/999/original/DQ6453_400.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/934/999/original/DQ6453_400.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/934/999/original/DQ6453_400.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/acg-air-moc-ocean-bliss-dq6453-400',
+      flightClub: 'https://flightclub.com/acg-air-moc-ocean-bliss-dq6453-400',
+      stadiumGoods: ''
+    },
+    name: "ACG Moc 'Ocean Bliss'",
+    releaseDate: '2023-02-22',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Air Moc',
+    sku: 'DQ6453-400',
+    story: ''
+  },
+  {
+    id: '22bf946f-22e1-4b32-821b-737c52e5b8b2',
+    brand: 'Nike',
+    colorway: 'Coconut Milk/Team Red/Summit White',
+    estimatedMarketValue: 220,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/293/951/original/DH1537_102.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/293/951/original/DH1537_102.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/293/951/original/DH1537_102.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/cosmic-unity-2-just-do-it-dh1537-102',
+      flightClub: 'https://flightclub.com/cosmic-unity-2-just-do-it-dh1537-102',
+      stadiumGoods: ''
+    },
+    name: "Cosmic Unity 2 'Sisterhood'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Cosmic Unity',
+    sku: 'DH1537-102',
+    story: ''
+  },
+  {
+    id: '3b782e1f-d2ed-4650-b31a-7e097de11093',
+    brand: 'Puma',
+    colorway: '',
+    estimatedMarketValue: 120,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/841/original/389819_01.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/841/original/389819_01.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/841/original/389819_01.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ybn-cordae-x-rs-x-hi-level-389819-01',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: "YBN Cordae x RS-X 'Hi Level'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: 'RS-X',
+    sku: '389819-01',
+    story: ''
+  },
+  {
+    id: '4c864dc8-3d2e-4ea5-924c-b986a0b09f42',
+    brand: 'Puma',
+    colorway: '',
+    estimatedMarketValue: 90,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/840/original/389818_01.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/840/original/389818_01.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/840/original/389818_01.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ybn-cordae-x-suede-hi-level-389818-01',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: "YBN Cordae x Suede 'Hi Level'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Suede',
+    sku: '389818-01',
+    story: ''
+  },
+  {
+    id: '4ca0364f-ce27-42d4-a84e-8dabcc8d3ed0',
+    brand: 'New Balance',
+    colorway: 'Brown/Grey',
+    estimatedMarketValue: 200,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/668/171/original/M990BR2.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/668/171/original/M990BR2.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/668/171/original/M990BR2.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/teddy-santis-x-990v2-made-in-usa-brown-purple-m990br2',
+      flightClub: 'https://flightclub.com/teddy-santis-x-990v2-made-in-usa-brown-purple-m990br2',
+      stadiumGoods: ''
+    },
+    name: "Teddy Santis x 990v2 Made in USA 'Brown Purple'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 195,
+    silhouette: '990v2',
+    sku: 'M990BR2',
+    story: ''
+  },
+  {
+    id: '7a36e860-0df1-44e4-8a80-dd40e857adab',
+    brand: 'Puma',
+    colorway: '',
+    estimatedMarketValue: 75,
+    gender: 'youth',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/019/726/original/391218_01.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/019/726/original/391218_01.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/019/726/original/391218_01.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ybn-cordae-x-suede-jr-hi-level-391218-01',
+      flightClub: 'https://flightclub.com/ybn-cordae-x-suede-jr-hi-level-391218-01',
+      stadiumGoods: ''
+    },
+    name: "YBN Cordae x Suede Jr 'Hi Level'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 75,
+    silhouette: 'Suede',
+    sku: '391218-01',
+    story: ''
+  },
+  {
+    id: '7f4d464c-abc4-4c8f-a006-84392dd1fb02',
+    brand: 'New Balance',
+    colorway: 'Munsell White/Sepia',
+    estimatedMarketValue: 198,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/019/753/original/BB550LSC.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/019/753/original/BB550LSC.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/019/753/original/BB550LSC.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/550-burnt-orange-bb550lsc',
+      flightClub: 'https://flightclub.com/550-burnt-orange-bb550lsc',
+      stadiumGoods: ''
+    },
+    name: "550 'Burnt Orange'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: '550',
+    sku: 'BB550LSC',
+    story: ''
+  },
+  {
+    id: '827a09c1-9d6b-42c2-b938-eeb45fb4517c',
+    brand: 'Nike',
+    colorway: 'Sail/Team Red/Black/Muslin',
+    estimatedMarketValue: 131,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/008/723/original/1104644_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/008/723/original/1104644_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/008/723/original/1104644_00.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-dunk-low-se-just-do-it-team-red-dv1160-101',
+      flightClub: 'https://flightclub.com/wmns-dunk-low-se-just-do-it-team-red-dv1160-101',
+      stadiumGoods: ''
+    },
+    name: "Wmns Dunk Low SE 'Sisterhood - Team Red'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: 'Dunk',
+    sku: 'DV1160-101',
+    story: ''
+  },
+  {
+    id: 'a4fd8d82-e1e7-4a6d-8e7d-d7d1883bfb4f',
+    brand: 'Nike',
+    colorway: 'Photon Dust/Team Red/Summit White/Muslin',
+    estimatedMarketValue: 85,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/019/795/original/DV7584_001.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/019/795/original/DV7584_001.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/019/795/original/DV7584_001.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-force-1-low-07-se-just-do-it-photon-dust-team-red-w',
+      goat: 'https://goat.com/sneakers/wmns-air-force-1-07-se-sisterhood-team-red-dv7584-001',
+      flightClub: 'https://flightclub.com/wmns-air-force-1-07-se-sisterhood-team-red-dv7584-001',
+      stadiumGoods: ''
+    },
+    name: "Nike Air Force 1 Low '07 SE Just Do It Photon Dust Team Red (W)",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Air Force 1',
+    sku: 'DV7584-001',
+    story: ''
+  },
+  {
+    id: 'e3e97f86-eb47-458a-bd4c-056e563f18e9',
+    brand: 'Reebok',
+    colorway: 'Core Black/Footwear White/Smash Orange S23-R',
+    estimatedMarketValue: 132,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/reebok-nano-x3-core-black-footwear-white',
+      goat: 'https://goat.com/sneakers/nano-x3-black-white-hp6042',
+      flightClub: 'https://flightclub.com/nano-x3-black-white-hp6042',
+      stadiumGoods: ''
+    },
+    name: 'Reebok Nano X3 Core Black Footwear White',
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 140,
+    silhouette: 'Nano X3',
+    sku: 'HP6042',
+    story: ''
+  },
+  {
+    id: 'ea523e03-7009-4053-a9ba-64d87b80195b',
+    brand: 'Jordan',
+    colorway: 'Black/Black',
+    estimatedMarketValue: 300,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/832/566/original/DQ8337_001.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/832/566/original/DQ8337_001.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/832/566/original/DQ8337_001.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/billie-eilish-x-wmns-jordan-hex-mule-black-dq8337-001',
+      flightClub: 'https://flightclub.com/billie-eilish-x-wmns-jordan-hex-mule-black-dq8337-001',
+      stadiumGoods: ''
+    },
+    name: "Billie Eilish x Wmns Jordan Hex Mule 'Black'",
+    releaseDate: '2023-02-23',
+    releaseYear: '2023',
+    retailPrice: 65,
+    silhouette: 'Jordan Hex Mule',
+    sku: 'DQ8337-001',
+    story: ''
+  },
+  {
+    id: '339ff506-9590-4cfe-9587-01011fc5a347',
+    brand: 'Nike',
+    colorway: 'Olive Grey/Oatmeal Iron/Grey Wheat/Grass',
+    estimatedMarketValue: 180,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/036/801/original/DH7546_001.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/036/801/original/DH7546_001.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/036/801/original/DH7546_001.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ispa-mindbody-trash-dh7546-001',
+      flightClub: 'https://flightclub.com/ispa-mindbody-trash-dh7546-001',
+      stadiumGoods: ''
+    },
+    name: "ISPA Mindbody 'Olive Grey'",
+    releaseDate: '2023-02-24',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'ISPA Mindbody',
+    sku: 'DH7546-001',
+    story: ''
+  },
+  {
+    id: '4e1b8789-3ae7-42ea-a801-765e3dc8f548',
+    brand: 'adidas',
+    colorway: 'Focus Olive/Olive Strata/Magic Mauve',
+    estimatedMarketValue: 330,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/894/039/original/IE4686.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/894/039/original/IE4686.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/894/039/original/IE4686.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/adidas-hu-nmd-s1-ryat-pharrell-focus-olive',
+      goat: 'https://goat.com/sneakers/pharrell-x-hu-nmd_s1-ryat-focus-olive-ie4686',
+      flightClub: 'https://flightclub.com/pharrell-x-hu-nmd_s1-ryat-focus-olive-ie4686',
+      stadiumGoods: ''
+    },
+    name: 'adidas HU NMD S1 RYAT Pharrell Focus Olive',
+    releaseDate: '2023-02-24',
+    releaseYear: '2023',
+    retailPrice: 250,
+    silhouette: 'Hu NMD_S1 Ryat',
+    sku: 'IE4686',
+    story: ''
+  },
+  {
+    id: '654c9a0b-0229-45a3-a9e1-489b346530cd',
+    brand: 'Nike',
+    colorway: 'Wolf Grey/Wolf Grey/Gum Light Brown/White',
+    estimatedMarketValue: 85,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/894/009/original/DV5472_001.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/894/009/original/DV5472_001.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/894/009/original/DV5472_001.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-sb-bruin-high-wolf-grey-w',
+      goat: 'https://goat.com/sneakers/bruin-high-sb-wolf-grey-dv5472-001',
+      flightClub: 'https://flightclub.com/bruin-high-sb-wolf-grey-dv5472-001',
+      stadiumGoods: ''
+    },
+    name: 'Nike SB Bruin High Wolf Grey (W)',
+    releaseDate: '2023-02-24',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Bruin',
+    sku: 'DV5472-001',
+    story: ''
+  },
+  {
+    id: '823325b3-9ffc-447d-bb9b-889f81117d2f',
+    brand: 'Nike',
+    colorway: 'Wolf Grey/Wolf Grey/Gum Light Brown/White',
+    estimatedMarketValue: 78,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/894/008/original/DV5467_001.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/894/008/original/DV5467_001.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/894/008/original/DV5467_001.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-sb-blazer-mid-wolf-grey',
+      goat: 'https://goat.com/sneakers/blazer-mid-sb-wolf-grey-dv5467-001',
+      flightClub: 'https://flightclub.com/blazer-mid-sb-wolf-grey-dv5467-001',
+      stadiumGoods: ''
+    },
+    name: 'Nike SB Blazer Mid Wolf Grey',
+    releaseDate: '2023-02-24',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Blazer SB',
+    sku: 'DV5467-001',
+    story: ''
+  },
+  {
+    id: 'e6be4a4b-35c7-4bc8-9639-e23e3b5df08f',
+    brand: 'New Balance',
+    colorway: 'Black/Grey',
+    estimatedMarketValue: 350,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/019/907/original/M990DL3.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/019/907/original/M990DL3.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/019/907/original/M990DL3.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/dtlr-x-990v3-made-in-usa-gr3yscale-m990dl3',
+      flightClub: 'https://flightclub.com/dtlr-x-990v3-made-in-usa-gr3yscale-m990dl3',
+      stadiumGoods: ''
+    },
+    name: "DTLR x 990v3 Made in USA 'GR3YSCALE'",
+    releaseDate: '2023-02-24',
+    releaseYear: '2023',
+    retailPrice: 215,
+    silhouette: '990v3',
+    sku: 'M990DL3',
+    story: ''
+  },
+  {
+    id: 'edbc7358-37df-4379-a5cd-bae1f09949b8',
+    brand: 'Nike',
+    colorway: 'Wolf Grey/White/Wolf Grey/Gum Light Brown/Pure Platinum/Safety Orange',
+    estimatedMarketValue: 145,
+    gender: 'men',
+    image: {
+      '360': [Array],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/154/879/original/1123950_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/154/879/original/1123950_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/154/879/original/1123950_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-sb-dunk-low-pro-iso-orange-label-grey-gum',
+      goat: 'https://goat.com/sneakers/dunk-low-pro-iso-sb-wolf-grey-gum-dv5464-001',
+      flightClub: 'https://flightclub.com/dunk-low-pro-iso-sb-wolf-grey-gum-dv5464-001',
+      stadiumGoods: ''
+    },
+    name: 'Nike SB Dunk Low Pro ISO Orange Label Grey Gum',
+    releaseDate: '2023-02-24',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Dunk SB',
+    sku: 'DV5464-001',
+    story: ''
+  },
+  {
+    id: 'f69c39ff-bb8f-4973-aa71-5f6884b62583',
+    brand: 'adidas',
+    colorway: 'Cloud White/Preloved Blue/Shadow Navy',
+    estimatedMarketValue: 160,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/991/793/original/GZ9449.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/991/793/original/GZ9449.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/991/793/original/GZ9449.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/nora-preloved-blue-gz9449',
+      flightClub: 'https://flightclub.com/nora-preloved-blue-gz9449',
+      stadiumGoods: ''
+    },
+    name: "Nora 'Preloved Blue'",
+    releaseDate: '2023-02-24',
+    releaseYear: '2023',
+    retailPrice: 80,
+    silhouette: 'Nora',
+    sku: 'GZ9449',
+    story: ''
+  },
+  {
+    id: '0b338df6-5807-4bd9-9885-8f2b606935e4',
+    brand: 'Jordan',
+    colorway: 'Tech Grey/Muslin/Black/White',
+    estimatedMarketValue: 203,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/670/168/original/1105174_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/670/168/original/1105174_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/670/168/original/1105174_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-high-og-white-cement',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-high-og-white-cement-dz5485-052',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-high-og-white-cement-dz5485-052',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro High OG White Cement',
+    releaseDate: '2023-02-25',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'DZ5485-052',
+    story: 'The Air Jordan 1 Retro High OG ‘White Cement’ showcases the signature design feature of the Air Jordan 3: namely, Tinker Hatfield’s unique elephant print, composed of irregular lines etched throughout the high-top’s grey leather overlays. They’re contrasted by a white leather base and black leather construction on the high-cut collar and Swoosh. Additional branding elements take the form of a woven Nike Air tongue tag and a Wings logo stamped on the lateral collar flap. Encapsulated Air-sole cushioning enhances the aged off-white midsole, supported underfoot by a grey rubber outsole.'
+  },
+  {
+    id: '28f44706-d92d-4738-a4f3-e1cee6493aa9',
+    brand: 'Jordan',
+    colorway: 'White/Medium Grey/Cool Grey',
+    estimatedMarketValue: 100,
+    gender: 'youth',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/861/original/DV3605_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/861/original/DV3605_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/861/original/DV3605_100.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-ps-cool-grey-dv3605-100',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-ps-cool-grey-dv3605-100',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 6 Retro PS 'Cool Grey'",
+    releaseDate: '2023-02-25',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Air Jordan 6',
+    sku: 'DV3605-100',
+    story: ''
+  },
+  {
+    id: 'b1de98e5-10ae-4019-abe2-67f0852cf931',
+    brand: 'Jordan',
+    colorway: 'White/Medium Grey/Cool Grey',
+    estimatedMarketValue: 101,
+    gender: 'child',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/409/660/original/1108306_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/409/660/original/1108306_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/409/660/original/1108306_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-6-retro-cool-grey-gs-2023',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-gs-cool-grey-384665-100',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-gs-cool-grey-384665-100',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 6 Retro Cool Grey (2023) (GS)',
+    releaseDate: '2023-02-25',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 6',
+    sku: '384665-100',
+    story: ''
+  },
+  {
+    id: 'c6602124-0d81-4c0d-9bef-cbc33dbd0297',
+    brand: 'Jordan',
+    colorway: 'White/Medium Grey/Cool Grey',
+    estimatedMarketValue: 65,
+    gender: 'toddler',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/862/original/DV3606_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/862/original/DV3606_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/862/original/DV3606_100.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-6-retro-cool-grey-td-2023',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-td-cool-grey-dv3606-100',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-td-cool-grey-dv3606-100',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 6 Retro Cool Grey (2023) (TD)',
+    releaseDate: '2023-02-25',
+    releaseYear: '2023',
+    retailPrice: 75,
+    silhouette: 'Air Jordan 6',
+    sku: 'DV3606-100',
+    story: ''
+  },
+  {
+    id: 'df9dc574-f19b-4bd1-831e-8bfa155484fe',
+    brand: 'adidas',
+    colorway: 'Core Black/Core Black/Core Black',
+    estimatedMarketValue: 254,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/4dfwd-triple-black-ig5126',
+      flightClub: 'https://flightclub.com/4dfwd-triple-black-ig5126',
+      stadiumGoods: ''
+    },
+    name: "4DFWD 'Triple Black'",
+    releaseDate: '2023-02-25',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: '4DFWD',
+    sku: 'IG5126',
+    story: ''
+  },
+  {
+    id: 'f1f04fa8-cc18-4566-99d2-cf2d20baf8cf',
+    brand: 'Jordan',
+    colorway: 'White/Medium Grey/Cool Grey',
+    estimatedMarketValue: 167,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/409/675/original/1103091_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/409/675/original/1103091_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/409/675/original/1103091_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-6-retro-cool-grey',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-cool-grey-ct8529-100',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-cool-grey-ct8529-100',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 6 Retro Cool Grey',
+    releaseDate: '2023-02-25',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 6',
+    sku: 'CT8529-100',
+    story: 'The Air Jordan 6 Retro ‘Cool Grey’ brings spare, neutral tones to the classic silhouette that Michael Jordan wore when he captured the first of his six NBA championships. Accentuating the shoe’s dynamic lines is the composition of the upper, which pairs a grey nubuck foundation with leather overlays in a stark white finish. Jumpman branding adorns the lace cover and back heel, the latter captioned with embroidered ‘AIR’ lettering. Lightweight cushioning arrives via a polyurethane midsole, featuring a visible Air-sole unit in the heel and a translucent rubber outsole underfoot.'
+  },
+  {
+    id: '2c3c8080-0893-4190-a8c1-ba84827e4fd2',
+    brand: 'Puma',
+    colorway: 'Black/High Risk Red',
+    estimatedMarketValue: 1696,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/934/892/original/195683_01.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/934/892/original/195683_01.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/934/892/original/195683_01.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/balmain-x-court-black-high-risk-red-195683-01',
+      flightClub: 'https://flightclub.com/balmain-x-court-black-high-risk-red-195683-01',
+      stadiumGoods: ''
+    },
+    name: "Balmain x Court 'Black High Risk Red'",
+    releaseDate: '2023-02-28',
+    releaseYear: '2023',
+    retailPrice: 1000,
+    silhouette: 'Balmain Court',
+    sku: '195683-01',
+    story: ''
+  },
+  {
+    id: '2f439fdd-d5bc-481e-92e7-7199b5c5fd01',
+    brand: 'Nike',
+    colorway: 'Phantom/Black-Phantom',
+    estimatedMarketValue: 220,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/667/974/original/DV3464_002.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/667/974/original/DV3464_002.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/667/974/original/DV3464_002.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-force-1-low-sp-ambush-phantom',
+      goat: 'https://goat.com/sneakers/ambush-x-air-force-1-phantom-dv3464-002',
+      flightClub: 'https://flightclub.com/ambush-x-air-force-1-phantom-dv3464-002',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Force 1 Low SP AMBUSH Phantom',
+    releaseDate: '2023-02-28',
+    releaseYear: '2023',
+    retailPrice: 190,
+    silhouette: 'Air Force 1',
+    sku: 'DV3464-002',
+    story: ''
+  },
+  {
+    id: '5b2469ab-b9cb-452a-90d6-ac8ad0930a89',
+    brand: 'Nike',
+    colorway: 'Faded Spruce/Obsidian/Midnight Navy/Night Maroon',
+    estimatedMarketValue: 160,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/019/814/original/FJ7098_001.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/019/814/original/FJ7098_001.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/019/814/original/FJ7098_001.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-humara-qs-faded-spruce-fj7098-001',
+      flightClub: 'https://flightclub.com/air-humara-qs-faded-spruce-fj7098-001',
+      stadiumGoods: ''
+    },
+    name: "Air Humara QS 'Faded Spruce'",
+    releaseDate: '2023-02-28',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Air Humara',
+    sku: 'FJ7098-001',
+    story: ''
+  },
+  {
+    id: '65dd4aa0-db20-4c11-a949-128bf4985868',
+    brand: 'Nike',
+    colorway: 'Black/Phantom-Black',
+    estimatedMarketValue: 220,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/024/523/original/1048833_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/024/523/original/1048833_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/024/523/original/1048833_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-force-1-low-sp-ambush-black',
+      goat: 'https://goat.com/sneakers/ambush-x-air-force-1-black-dv3464-001',
+      flightClub: 'https://flightclub.com/ambush-x-air-force-1-black-dv3464-001',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Force 1 Low SP AMBUSH Black',
+    releaseDate: '2023-02-28',
+    releaseYear: '2023',
+    retailPrice: 190,
+    silhouette: 'Air Force 1',
+    sku: 'DV3464-001',
+    story: ''
+  },
+  {
+    id: 'b5e75051-3eea-4b07-a6fe-bb11b57edf8e',
+    brand: 'Nike',
+    colorway: 'Midnight Navy/Obsidian/Black/Desert Bronze',
+    estimatedMarketValue: 160,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/019/815/original/FJ7098_300.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/019/815/original/FJ7098_300.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/019/815/original/FJ7098_300.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-humara-qs-midnight-navy-fj7098-300',
+      flightClub: 'https://flightclub.com/air-humara-qs-midnight-navy-fj7098-300',
+      stadiumGoods: ''
+    },
+    name: "Air Humara QS 'Midnight Navy'",
+    releaseDate: '2023-02-28',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Air Humara',
+    sku: 'FJ7098-300',
+    story: ''
+  },
+  {
+    id: 'daa9f023-c433-47e2-a3b0-4efbc404665b',
+    brand: 'adidas',
+    colorway: 'Shadow Navy/Team Dark Green/Team Collegiate Burgundy 2',
+    estimatedMarketValue: 120,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/forum-exhibit-mid-inside-out-dark-green-navy-fz6278',
+      flightClub: 'https://flightclub.com/forum-exhibit-mid-inside-out-dark-green-navy-fz6278',
+      stadiumGoods: ''
+    },
+    name: "Forum Exhibit Mid 'Inside Out - Dark Green Navy'",
+    releaseDate: '2023-02-28',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: 'Forum',
+    sku: 'FZ6278',
+    story: ''
+  },
+  {
+    id: '1d6c49d4-fc77-4577-9144-c9596c087725',
+    brand: 'Nike',
+    colorway: 'White/Bright Crimson/Fuchsia Dream/Baltic Blue/Cosmic Fuchsia/Vivid Orange',
+    estimatedMarketValue: 130,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://images.stockx.com/images/Nike-Air-Max-90-Futura-Lunar-New-Year-W.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1670428723',
+      small: 'https://images.stockx.com/images/Nike-Air-Max-90-Futura-Lunar-New-Year-W.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1670428723',
+      thumbnail: 'https://images.stockx.com/images/Nike-Air-Max-90-Futura-Lunar-New-Year-W.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1670428723'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-max-90-futura-lunar-new-year-w',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Max 90 Futura Lunar New Year (W)',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Nike Air Max 90 Futura',
+    sku: 'FD0821-100',
+    story: ''
+  },
+  {
+    id: '1fb22dcf-6ba9-474e-9628-6f74ff7a5e6c',
+    brand: 'Nike',
+    colorway: 'White/Gum',
+    estimatedMarketValue: 94,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/871/217/original/DQ8031_101.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/871/217/original/DQ8031_101.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/871/217/original/DQ8031_101.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-huarache-craft-white-gum',
+      goat: 'https://goat.com/sneakers/wmns-air-huarache-craft-summit-white-gum-dq8031-101',
+      flightClub: 'https://flightclub.com/wmns-air-huarache-craft-summit-white-gum-dq8031-101',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Huarache Craft White Gum',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Air Huarache Craft',
+    sku: 'DQ8031-101',
+    story: ''
+  },
+  {
+    id: '27851e7a-c1aa-487a-80f7-bddb57dcda0b',
+    brand: 'Jordan',
+    colorway: 'Black/Fire Red/Cement Grey/White',
+    estimatedMarketValue: 127,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/718/179/original/1119635_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/718/179/original/1119635_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/718/179/original/1119635_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-high-zoom-air-cmft-2-black-fire-red-cement',
+      goat: 'https://goat.com/sneakers/air-jordan-1-high-zoom-comfort-cement-fire-red-dv1307-060',
+      flightClub: 'https://flightclub.com/air-jordan-1-high-zoom-comfort-cement-fire-red-dv1307-060',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 High Zoom Air CMFT 2 Black Fire Red Cement',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 1',
+    sku: 'DV1307-060',
+    story: ''
+  },
+  {
+    id: '2e2bc5f7-4537-4f45-b7bc-f180137c59b7',
+    brand: 'Nike',
+    colorway: 'Black/Black-Sesame-Coconut Milk',
+    estimatedMarketValue: 140,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/nike-zoom-vomero-5-black-sesame-w',
+      goat: 'https://goat.com/sneakers/wmns-zoom-vomero-5-black-sesame-fd0533-010',
+      flightClub: 'https://flightclub.com/wmns-zoom-vomero-5-black-sesame-fd0533-010',
+      stadiumGoods: ''
+    },
+    name: 'Nike Zoom Vomero 5 Black Sesame (W)',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Air Zoom Vomero 5',
+    sku: 'FD0533-010',
+    story: ''
+  },
+  {
+    id: '3987bca5-f773-4c57-8125-ba7b95e792c0',
+    brand: 'Puma',
+    colorway: 'Black',
+    estimatedMarketValue: 300,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/foreverrun-nitro-black-white-377757-01',
+      flightClub: 'https://flightclub.com/foreverrun-nitro-black-white-377757-01',
+      stadiumGoods: ''
+    },
+    name: "ForeverRun Nitro 'Black White'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'ForeverRun Nitro',
+    sku: '377757-01',
+    story: ''
+  },
+  {
+    id: '423bea27-4dc1-4f4d-8bc4-a3e5b16855f9',
+    brand: 'Puma',
+    colorway: 'Royal Sapphire/Fizzy Lime',
+    estimatedMarketValue: 150,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/foreverrun-nitro-royal-sapphire-fizzy-lime-377757-02',
+      flightClub: 'https://flightclub.com/foreverrun-nitro-royal-sapphire-fizzy-lime-377757-02',
+      stadiumGoods: ''
+    },
+    name: "ForeverRun Nitro 'Royal Sapphire Fizzy Lime'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'ForeverRun Nitro',
+    sku: '377757-02',
+    story: ''
+  },
+  {
+    id: '447cffd6-0ccd-4da1-9fb9-e27685660829',
+    brand: 'Nike',
+    colorway: 'University Blue/Sail',
+    estimatedMarketValue: 115,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/024/433/original/1084851_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/024/433/original/1084851_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/024/433/original/1084851_00.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-air-force-1-low-clouds-fd0883-400',
+      flightClub: 'https://flightclub.com/wmns-air-force-1-low-clouds-fd0883-400',
+      stadiumGoods: ''
+    },
+    name: "Wmns Air Force 1 '07 SE 'Clouds'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: 'Air Force 1',
+    sku: 'FD0883-400',
+    story: ''
+  },
+  {
+    id: '4f8ddcb4-1220-4e21-bcb3-2048592b5baa',
+    brand: 'Nike',
+    colorway: 'Photon Dust/Chrome/Gridiron/Sail',
+    estimatedMarketValue: 159,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/085/008/904/original/1124739_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/085/008/904/original/1124739_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/085/008/904/original/1124739_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-zoom-vomero-5-photon-dust-metallic-silver-w',
+      goat: 'https://goat.com/sneakers/wmns-air-zoom-vomero-5-photon-dust-metallic-silver-fd0884-025',
+      flightClub: 'https://flightclub.com/wmns-air-zoom-vomero-5-photon-dust-metallic-silver-fd0884-025',
+      stadiumGoods: ''
+    },
+    name: 'Nike Zoom Vomero 5 Photon Dust Metallic Silver (W)',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Air Zoom Vomero 5',
+    sku: 'FD0884-025',
+    story: ''
+  },
+  {
+    id: '5259a3c6-dd3c-4e8f-8319-3cc5736e57fa',
+    sku: 'CD2563-006',
+    brand: 'Nike',
+    name: 'Nike SB Dunk Low Pro Black Gum',
+    colorway: 'Black/White/Black/Gum Light Brown',
+    gender: 'men',
+    silhouette: 'Dunk SB',
+    releaseYear: '2023',
+    releaseDate: '2023-03-01',
+    retailPrice: 110,
+    estimatedMarketValue: 125,
+    story: '',
+    image: {
+      '360': [Array],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/239/456/original/1022686_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/239/456/original/1022686_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/239/456/original/1022686_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-sb-dunk-low-pro-black-gum',
+      goat: 'https://goat.com/sneakers/dunk-low-sb-black-gum-cd2563-006',
+      flightClub: 'https://flightclub.com/dunk-low-sb-black-gum-cd2563-006',
+      stadiumGoods: ''
+    }
+  },
+  {
+    id: '5b9c991a-39cf-4bda-a6b0-676763cfb4df',
+    sku: 'CD2563-101',
+    brand: 'Nike',
+    name: 'Nike SB Dunk Low Pro White Gum',
+    colorway: 'White/Black/White/Gum Light Brown',
+    gender: 'men',
+    silhouette: 'Dunk SB',
+    releaseYear: '2023',
+    releaseDate: '2023-03-01',
+    retailPrice: 110,
+    estimatedMarketValue: 143,
+    story: '',
+    image: {
+      '360': [Array],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/179/994/original/1024165_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/179/994/original/1024165_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/179/994/original/1024165_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-sb-dunk-low-pro-white-gum',
+      goat: 'https://goat.com/sneakers/dunk-low-sb-white-gum-cd2563-101',
+      flightClub: 'https://flightclub.com/dunk-low-sb-white-gum-cd2563-101',
+      stadiumGoods: ''
+    }
+  },
+  {
+    id: '66021b03-8c6c-46ac-97e9-49f33ed82635',
+    brand: 'Nike',
+    colorway: 'Celestine Blue/Sail',
+    estimatedMarketValue: 182,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-dunk-high-se-clouds-fd0882-400',
+      flightClub: 'https://flightclub.com/wmns-dunk-high-se-clouds-fd0882-400',
+      stadiumGoods: ''
+    },
+    name: "Wmns Dunk High SE 'Clouds'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 135,
+    silhouette: 'Dunk',
+    sku: 'FD0882-400',
+    story: ''
+  },
+  {
+    id: '6bae201c-e89b-430a-8c2b-88750c5b6922',
+    brand: 'Nike',
+    colorway: 'Summit White/Light Smoke Gray/Comet Blue/Anthracite',
+    estimatedMarketValue: 71,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/079/947/860/original/DR0286_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/079/947/860/original/DR0286_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/079/947/860/original/DR0286_100.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-huarache-craft-summit-white-comet-blue',
+      goat: 'https://goat.com/sneakers/air-huarache-social-fc-dr0286-100',
+      flightClub: 'https://flightclub.com/air-huarache-social-fc-dr0286-100',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Huarache Craft Summit White Comet Blue',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Air Huarache',
+    sku: 'DR0286-100',
+    story: ''
+  },
+  {
+    id: '72fa440f-3d07-4c72-8c4a-09d99b5b782b',
+    brand: 'Nike',
+    colorway: 'Jade Horizon/Barely Volt/Cargo Khaki/Sequoia',
+    estimatedMarketValue: 184,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/293/957/original/DJ4701_300.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/293/957/original/DJ4701_300.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/293/957/original/DJ4701_300.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-max-scorpion-flyknit-cargo-khaki-volt-dj4701-300',
+      flightClub: 'https://flightclub.com/air-max-scorpion-flyknit-cargo-khaki-volt-dj4701-300',
+      stadiumGoods: ''
+    },
+    name: "Air Max Scorpion Flyknit 'Cargo Khaki Volt'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 250,
+    silhouette: 'Air Max Scorpion',
+    sku: 'DJ4701-300',
+    story: ''
+  },
+  {
+    id: '78cd4a38-1700-4923-a301-73f4787cf3c6',
+    brand: 'Puma',
+    colorway: 'Ultra Orange',
+    estimatedMarketValue: 300,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/foreverrun-nitro-ultra-orange-377757-06',
+      flightClub: 'https://flightclub.com/foreverrun-nitro-ultra-orange-377757-06',
+      stadiumGoods: ''
+    },
+    name: "ForeverRun Nitro 'Ultra Orange'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'ForeverRun Nitro',
+    sku: '377757-06',
+    story: ''
+  },
+  {
+    id: '79d29584-cc9d-4b14-896c-5088ae35fb9c',
+    brand: 'adidas',
+    colorway: 'Wonder Quartz/Grey One/Wonder Quartz',
+    estimatedMarketValue: 110,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-forum-bold-wonder-quartz-hq6953',
+      flightClub: 'https://flightclub.com/wmns-forum-bold-wonder-quartz-hq6953',
+      stadiumGoods: ''
+    },
+    name: "Wmns Forum Bold 'Wonder Quartz'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Forum',
+    sku: 'HQ6953',
+    story: ''
+  },
+  {
+    id: '951a8a35-d065-41da-b2e9-2527ecb46185',
+    brand: 'adidas',
+    colorway: 'Cloud White/Cloud White/Core Black',
+    estimatedMarketValue: 130,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-forum-millencon-white-black-hq6040',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: "Wmns Forum Millencon 'White Black'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Forum',
+    sku: 'HQ6040',
+    story: ''
+  },
+  {
+    id: 'a80daef5-1cc5-4827-98da-b615a71b293b',
+    brand: 'Nike',
+    colorway: 'Football Grey/Mineral Teal/Pearl Pink',
+    estimatedMarketValue: 75,
+    gender: 'child',
+    image: {
+      '360': [Array],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/412/511/original/1099144_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/412/511/original/1099144_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/412/511/original/1099144_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-dunk-low-mineral-teal-gs',
+      goat: 'https://goat.com/sneakers/dunk-low-gs-mineral-teal-fd1232-002',
+      flightClub: 'https://flightclub.com/dunk-low-gs-mineral-teal-fd1232-002',
+      stadiumGoods: ''
+    },
+    name: 'Nike Dunk Low Mineral Teal (GS)',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 85,
+    silhouette: 'Dunk',
+    sku: 'FD1232-002',
+    story: ''
+  },
+  {
+    id: 'c99bc85d-bd11-4238-bdb6-6f385930f1a3',
+    brand: 'adidas',
+    colorway: 'Cloud White/Grey One/Grey One',
+    estimatedMarketValue: 110,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-forum-bold-white-grey-hq6954',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: "Wmns Forum Bold 'White Grey'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Forum',
+    sku: 'HQ6954',
+    story: ''
+  },
+  {
+    id: 'dcac9128-18e5-4937-aa92-eed5cb8854b8',
+    brand: 'Nike',
+    colorway: 'Game Royal/Sail/Grey Fog',
+    estimatedMarketValue: 478,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/080/177/179/original/DQ5130_400.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/080/177/179/original/DQ5130_400.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/080/177/179/original/DQ5130_400.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-sb-dunk-low-pro-fly-streetwear',
+      goat: 'https://goat.com/sneakers/fly-streetwear-x-dunk-low-pro-sb-dq5130-400',
+      flightClub: 'https://flightclub.com/fly-streetwear-x-dunk-low-pro-sb-dq5130-400',
+      stadiumGoods: ''
+    },
+    name: 'Nike SB Dunk Low Pro Fly Streetwear',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: 'Dunk SB',
+    sku: 'DQ5130-400',
+    story: ''
+  },
+  {
+    id: 'e3c1a81b-68a2-4934-9605-92dccf57b6f4',
+    brand: 'Nike',
+    colorway: 'Sandrift/Hemp/Sail',
+    estimatedMarketValue: 141,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/577/268/original/1097851_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/577/268/original/1097851_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/577/268/original/1097851_00.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-dunk-low-se-sandrift-fd0873-126',
+      flightClub: 'https://flightclub.com/wmns-dunk-low-se-sandrift-fd0873-126',
+      stadiumGoods: ''
+    },
+    name: "Wmns Dunk Low SE 'Sandrift'",
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Dunk',
+    sku: 'FD0873-126',
+    story: ''
+  },
+  {
+    id: 'e5cca3b8-e5bf-4c3a-9fad-9782fc80d588',
+    brand: 'Nike',
+    colorway: 'Light Silver/Citron Tint-Ocean Bliss-Pink Oxford-Sanddrift',
+    estimatedMarketValue: 103,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/434/567/original/DQ8031_002.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/434/567/original/DQ8031_002.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/434/567/original/DQ8031_002.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-huarache-craft-ocean-bliss',
+      goat: 'https://goat.com/sneakers/wmns-air-huarache-craft-ocean-bliss-dq8031-002',
+      flightClub: 'https://flightclub.com/wmns-air-huarache-craft-ocean-bliss-dq8031-002',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Huarache Craft Ocean Bliss',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Air Huarache Craft',
+    sku: 'DQ8031-002',
+    story: ''
+  },
+  {
+    id: 'fa172ba7-104c-430b-93ba-fa6430d91327',
+    brand: 'Nike',
+    colorway: 'Multi-Color/Black-Racer Blue',
+    estimatedMarketValue: 95,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://images.stockx.com/images/Nike-Air-Max-Flyknit-Racer-Multi-Color-20.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1674539002',
+      small: 'https://images.stockx.com/images/Nike-Air-Max-Flyknit-Racer-Multi-Color-20.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1674539002',
+      thumbnail: 'https://images.stockx.com/images/Nike-Air-Max-Flyknit-Racer-Multi-Color-20.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1674539002'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-max-flyknit-racer-multi-color-20',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Max Flyknit Racer Multi-Color 2.0',
+    releaseDate: '2023-03-01',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Nike Air Max Flyknit Racer',
+    sku: 'FD2765-900',
+    story: ''
+  },
+  {
+    id: '17e5ee50-dbf2-4ad1-8358-68812eed097a',
+    brand: 'Nike',
+    colorway: 'Summit White/Phantom/Sail/Photon Dust',
+    estimatedMarketValue: 750,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/425/929/original/FB5059_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/425/929/original/FB5059_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/425/929/original/FB5059_100.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-max-1-summit-white-phantom-w',
+      goat: 'https://goat.com/sneakers/wmns-air-max-1-safari-summit-white-fb5059-100',
+      flightClub: 'https://flightclub.com/wmns-air-max-1-safari-summit-white-fb5059-100',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Max 1 Summit White Phantom (W)',
+    releaseDate: '2023-03-03',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Max 1',
+    sku: 'FB5059-100',
+    story: ''
+  },
+  {
+    id: '81c5646b-6a87-412a-b60a-0029f18ccb18',
+    sku: 'DH4121-060',
+    brand: 'Jordan',
+    name: 'Jordan 14 Retro Metallic Silver (W)',
+    colorway: 'Metallic Silver/Fire Red-Wolf Grey-Black',
+    gender: 'women',
+    silhouette: 'Air Jordan 14',
+    releaseYear: '2023',
+    releaseDate: '2023-03-03',
+    retailPrice: 180,
+    estimatedMarketValue: 350,
+    story: 'The Women’s Air Jordan 14 Retro Low ‘Metallic Silver’ brings a high-polish sheen to the signature model that Michael Jordan wore when he clinched his sixth and final NBA championship. Rendered in low-top form, the streamlined silhouette dons a leather upper in a gleaming metallic silver finish. A jeweled Jumpman badge embellishes the lateral side, while a ‘Jordan’ wordmark atop the tongue provides a punch of color in Fire Red. The sneaker rides on a grey Phylon midsole, enhanced with springy Zoom Air cushioning and a carbon fiber shank plate.',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/609/297/original/DH4121_060.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/609/297/original/DH4121_060.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/609/297/original/DH4121_060.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-14-retro-metallic-silver-w',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-14-retro-low-metallic-silver-dh4121-060',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-14-retro-low-metallic-silver-dh4121-060',
+      stadiumGoods: ''
+    }
+  },
+  {
+    id: 'a4d3c7f6-1e55-4870-ba79-5e4ad61afd6f',
+    brand: 'Nike',
+    colorway: 'Metallic Gold/Varsity Red-White-Black',
+    estimatedMarketValue: 120,
+    gender: 'men',
+    image: {
+      '360': [Array],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/275/717/original/1112100_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/275/717/original/1112100_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/275/717/original/1112100_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-max-97-gold-bullet-2023',
+      goat: 'https://goat.com/sneakers/air-max-97-og-metallic-gold-2023-dm0028-700',
+      flightClub: 'https://flightclub.com/air-max-97-og-metallic-gold-2023-dm0028-700',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Max 97 OG Golden Bullet (2023)',
+    releaseDate: '2023-03-03',
+    releaseYear: '2023',
+    retailPrice: 185,
+    silhouette: 'Air Max 97',
+    sku: 'DM0028-700',
+    story: ''
+  },
+  {
+    id: 'b152793a-58b5-434f-a8dd-873700d235b0',
+    brand: 'Nike',
+    colorway: 'Metallic Gold/Varsity Red-White-Black',
+    estimatedMarketValue: 133,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/920/105/original/DQ9131_700.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/920/105/original/DQ9131_700.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/920/105/original/DQ9131_700.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-max-97-og-gold-bullet-w',
+      goat: 'https://goat.com/sneakers/wmns-air-max-97-og-metallic-gold-2023-dq9131-700',
+      flightClub: 'https://flightclub.com/wmns-air-max-97-og-metallic-gold-2023-dq9131-700',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Max 97 OG Golden Bullet (W)',
+    releaseDate: '2023-03-03',
+    releaseYear: '2023',
+    retailPrice: 185,
+    silhouette: 'Air Max 97',
+    sku: 'DQ9131-700',
+    story: ''
+  },
+  {
+    id: '6554bd88-9068-4367-a920-ade566660135',
+    brand: 'Jordan',
+    colorway: 'University Blue/Black/White',
+    estimatedMarketValue: 298,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/754/087/original/1081516_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/754/087/original/1081516_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/754/087/original/1081516_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-5-retro-unc-university-blue',
+      goat: 'https://goat.com/sneakers/air-jordan-5-retro-unc-dv1310-401',
+      flightClub: 'https://flightclub.com/air-jordan-5-retro-unc-dv1310-401',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 5 Retro UNC University Blue',
+    releaseDate: '2023-03-05',
+    releaseYear: '2023',
+    retailPrice: 225,
+    silhouette: 'Air Jordan 5',
+    sku: 'DV1310-401',
+    story: 'The Air Jordan 5 Retro ‘UNC’ showcases a familiar pastel hue inspired by Michael Jordan’s alma mater. The upper is crafted from University Blue nubuck with tonal TPU eyelets, ventilated quarter-panel netting and a woven jock tag at the heel. An embroidered Jumpman decorates the tongue, rendered in a reflective silver finish for added visibility in low-light conditions. Lightweight cushioning comes courtesy of a black polyurethane midsole, accented with speckled shark-tooth detailing and fitted with a visible Air-sole unit in the heel. Underfoot, a translucent herringbone-traction outsole provides optimal grip.'
+  },
+  {
+    id: '0dd942bd-a009-4b08-b002-2f9e8537d062',
+    brand: 'Nike',
+    colorway: 'Hyper Pink/Black/Laser Orange',
+    estimatedMarketValue: 250,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/863/original/DV4129_600.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/863/original/DV4129_600.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/863/original/DV4129_600.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/zoomx-vaporfly-next-3-hyper-pink-dv4129-600',
+      flightClub: 'https://flightclub.com/zoomx-vaporfly-next-3-hyper-pink-dv4129-600',
+      stadiumGoods: ''
+    },
+    name: "ZoomX VaporFly Next% 3 'Hyper Pink'",
+    releaseDate: '2023-03-06',
+    releaseYear: '2023',
+    retailPrice: 250,
+    silhouette: 'ZoomX VaporFly Next% 3',
+    sku: 'DV4129-600',
+    story: ''
+  },
+  {
+    id: '40036157-1f5a-44b7-86c1-209056fbcd74',
+    brand: 'Nike',
+    colorway: 'White/Black/Phantom/Pure Platinum/Sail/Total Orange',
+    estimatedMarketValue: 250,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/865/original/DX7957_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/865/original/DX7957_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/865/original/DX7957_100.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/zoomx-vaporfly-next-3-prototype-dx7957-100',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: "ZoomX VaporFly Next% 3 'Prototype'",
+    releaseDate: '2023-03-06',
+    releaseYear: '2023',
+    retailPrice: 250,
+    silhouette: 'ZoomX VaporFly Next% 3',
+    sku: 'DX7957-100',
+    story: ''
+  },
+  {
+    id: 'a0c79841-e19e-4be2-90bb-8db10c3cd69c',
+    brand: 'Nike',
+    colorway: 'Black/Tiffany Blue',
+    estimatedMarketValue: 815,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/842/229/original/1127101_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/842/229/original/1127101_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/842/229/original/1127101_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-force-1-low-sp-tiffany-and-co',
+      goat: 'https://goat.com/sneakers/tiffany-co-x-air-force-1-low-1837-dz1382-001',
+      flightClub: 'https://flightclub.com/tiffany-co-x-air-force-1-low-1837-dz1382-001',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Force 1 Low SP Tiffany And Co.',
+    releaseDate: '2023-03-07',
+    releaseYear: '2023',
+    retailPrice: 400,
+    silhouette: 'Air Force 1',
+    sku: 'DZ1382-001',
+    story: 'The Tiffany &amp; Co. x Nike Air Force 1 Low ‘1837’ delivers the debut collaboration between the iconic New York-based jeweler and the Swoosh. While the ‘Diamond’ Dunk SB from 2005 paid homage to the luxury emporium by featuring a leather base in Tiffany’s signature hue, this AF1 release makes the brand partnership official. Named after Tiffany’s founding year, the low-top utilizes a black suede upper with a tumbled leather Swoosh in the instantly recognizable shade of robin’s-egg blue. Woven tongue tags display ‘Tiffany’ script, while traditional ‘Nike Air’ branding appears in tonal embroidery on each black leather heel tab. Below that, an engraved Tiffany badge shines in metallic silver. Tiffany unveiled a range of sterling silver accessories to accompany the premium kicks, available separately from the AF1: a shoe horn, a shoe brush, lace dubrae and a whistle chain.'
+  },
+  {
+    id: '6a3c7914-78a6-4f61-8685-48d628f24f1c',
+    brand: 'Jordan',
+    colorway: 'Team Red/University Red-Sail-Muslin',
+    estimatedMarketValue: 138,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://images.stockx.com/images/Air-Jordan-1-Mid-SE-Tiki-Leaf-Team-Red-W.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1673983978',
+      small: 'https://images.stockx.com/images/Air-Jordan-1-Mid-SE-Tiki-Leaf-Team-Red-W.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1673983978',
+      thumbnail: 'https://images.stockx.com/images/Air-Jordan-1-Mid-SE-Tiki-Leaf-Team-Red-W.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1673983978'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-mid-se-tiki-leaf-team-red-w',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Mid SE Tiki Leaf Team Red (W)',
+    releaseDate: '2023-03-08',
+    releaseYear: '2023',
+    retailPrice: 135,
+    silhouette: 'Jordan 1 Mid SE',
+    sku: 'DZ2820-601',
+    story: ''
+  },
+  {
+    id: 'fafa6656-2d32-4312-a2be-6494b016b6ba',
+    brand: 'Jordan',
+    colorway: 'White/Fire Red-Dark Powder Blue-Sail',
+    estimatedMarketValue: 160,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-2-retro-low-unc-to-chicago-w',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-2-retro-low-unc-to-chicago-dx4401-164',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-2-retro-low-unc-to-chicago-dx4401-164',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 2 Retro Low UNC To Chicago (W)',
+    releaseDate: '2023-03-08',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Air Jordan 2',
+    sku: 'DX4401-164',
+    story: ''
+  },
+  {
+    id: '4e23826e-daa4-4048-80ee-f84eec173f0a',
+    brand: 'Nike',
+    colorway: 'Black/White/Black/University Red',
+    estimatedMarketValue: 172,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/577/133/original/1125482_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/577/133/original/1125482_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/577/133/original/1125482_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-lebron-zoom-nxxt-gen-faze-clan-bred',
+      goat: 'https://goat.com/sneakers/faze-clan-x-zoom-lebron-nxxt-gen-bred-dr8784-001',
+      flightClub: 'https://flightclub.com/faze-clan-x-zoom-lebron-nxxt-gen-bred-dr8784-001',
+      stadiumGoods: ''
+    },
+    name: 'Nike Zoom LeBron NXXT Gen FaZe Clan Bred',
+    releaseDate: '2023-03-09',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Zoom LeBron NXXT Gen',
+    sku: 'DR8784-001',
+    story: ''
+  },
+  {
+    id: '70b1ff05-b20d-42d8-b8e8-f3c051732c74',
+    brand: 'Nike',
+    colorway: 'Safety Orange/Citron Tint',
+    estimatedMarketValue: 190,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/555/235/original/DM4096_800.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/555/235/original/DM4096_800.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/555/235/original/DM4096_800.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-deldon-1-safety-orange-dm4096-800',
+      flightClub: 'https://flightclub.com/air-deldon-1-safety-orange-dm4096-800',
+      stadiumGoods: ''
+    },
+    name: "Air Deldon 1 'Safety Orange'",
+    releaseDate: '2023-03-10',
+    releaseYear: '2023',
+    retailPrice: 120,
+    silhouette: 'Air Deldon 1',
+    sku: 'DM4096-800',
+    story: ''
+  },
+  {
+    id: '9a227f76-a5fd-4708-bffe-7098e9bd06e5',
+    brand: 'Jordan',
+    colorway: 'Summit White/Fire Red/Black/Cement Grey',
+    estimatedMarketValue: 370,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/082/913/709/original/1101598_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/082/913/709/original/1101598_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/082/913/709/original/1101598_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-3-retro-white-cement-reimagined',
+      goat: 'https://goat.com/sneakers/air-jordan-3-retro-white-cement-reimagined-dn3707-100',
+      flightClub: 'https://flightclub.com/air-jordan-3-retro-white-cement-reimagined-dn3707-100',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 3 Retro White Cement Reimagined',
+    releaseDate: '2023-03-11',
+    releaseYear: '2023',
+    retailPrice: 210,
+    silhouette: 'Air Jordan 3',
+    sku: 'DN3707-100',
+    story: 'The Air Jordan 3 Retro &#39;White Cement Reimagined&#39; brings back one of the original colorways, celebrating the 35th anniversary of the AJ3. Designed by Tinker Hatfield, the Reimagined iteration is built to the original 1988 specs. Returning true to form, the white leather upper pairs with elephant print overlays on the heel and toe while hits of Varsity Red appear on the lace loops and the Jumpman logo on the tongue. Nike Air is emblazoned on the back heel tab, while a visible Air unit provides lightweight cushioning. A slight hint of yellowing appears on the back heel and midsole, giving the shoe a vintage look.'
+  },
+  {
+    id: 'ffdb056f-2894-4be9-863f-742bc989026a',
+    brand: 'Jordan',
+    colorway: 'Summit White/Fire Red/Black/Cement Grey',
+    estimatedMarketValue: 260,
+    gender: 'child',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/170/717/original/DM0967_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/170/717/original/DM0967_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/170/717/original/DM0967_100.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-3-retro-white-cement-reimagined-gs',
+      goat: 'https://goat.com/sneakers/air-jordan-3-retro-gs-white-cement-reimagined-dm0967-100',
+      flightClub: 'https://flightclub.com/air-jordan-3-retro-gs-white-cement-reimagined-dm0967-100',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 3 Retro White Cement Reimagined (GS)',
+    releaseDate: '2023-03-11',
+    releaseYear: '2023',
+    retailPrice: 0,
+    silhouette: 'Air Jordan 3',
+    sku: 'DM0967-100',
+    story: ''
+  },
+  {
+    id: '7d6e8999-e686-44c9-bee7-ed75d83966b9',
+    brand: 'Under Armour',
+    colorway: 'White/Multi',
+    estimatedMarketValue: 210,
+    gender: 'child',
+    image: {
+      '360': [],
+      original: 'https://images.stockx.com/images/Under-Armour-Curry-Flow-10-Splash-Party-GS.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676475299',
+      small: 'https://images.stockx.com/images/Under-Armour-Curry-Flow-10-Splash-Party-GS.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676475299',
+      thumbnail: 'https://images.stockx.com/images/Under-Armour-Curry-Flow-10-Splash-Party-GS.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676475299'
+    },
+    links: {
+      stockX: 'https://stockx.com/under-armour-curry-flow-10-splash-party-gs',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Under Armour Curry Flow 10 Splash Party (GS)',
+    releaseDate: '2023-03-14',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Under Armour Curry Flow 10',
+    sku: '3026293-100',
+    story: ''
+  },
+  {
+    id: 'cd2599ed-7d20-464b-8f5a-a7136779028b',
+    brand: 'Under Armour',
+    colorway: 'White/Multi',
+    estimatedMarketValue: 287,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://images.stockx.com/images/Under-Armour-Curry-Flow-10-Splash-Party.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676475327',
+      small: 'https://images.stockx.com/images/Under-Armour-Curry-Flow-10-Splash-Party.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676475327',
+      thumbnail: 'https://images.stockx.com/images/Under-Armour-Curry-Flow-10-Splash-Party.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1676475327'
+    },
+    links: {
+      stockX: 'https://stockx.com/under-armour-curry-flow-10-splash-party',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Under Armour Curry Flow 10 Splash Party',
+    releaseDate: '2023-03-14',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Under Armour Curry Flow 10',
+    sku: '3026271-100',
+    story: ''
+  },
+  {
+    id: 'ab3b7913-5a27-4a11-8124-d61cb4e21236',
+    brand: 'Nike',
+    colorway: 'Black/White',
+    estimatedMarketValue: 132,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/080/786/283/original/FD0783_010.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/080/786/283/original/FD0783_010.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/080/786/283/original/FD0783_010.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/nike-air-max-penny-1-tiger-stripes-black-white',
+      goat: 'https://goat.com/sneakers/air-max-penny-1-tiger-stripes-fd0783-010',
+      flightClub: 'https://flightclub.com/air-max-penny-1-tiger-stripes-fd0783-010',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Max Penny 1 Tiger Stripes Black White',
+    releaseDate: '2023-03-16',
+    releaseYear: '2023',
+    retailPrice: 170,
+    silhouette: 'Air Penny 1',
+    sku: 'FD0783-010',
+    story: ''
+  },
+  {
+    id: '9af2f32d-5424-4a3b-943a-45d6a944b866',
+    brand: 'Nike',
+    colorway: 'University Red/University Red/Burgundy Crush/Black/Metallic Gold',
+    estimatedMarketValue: 219,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/130/440/original/DV1193_600.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/130/440/original/DV1193_600.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/130/440/original/DV1193_600.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/liverpool-f-c-x-lebron-20-university-red-dv1193-600',
+      flightClub: 'https://flightclub.com/liverpool-f-c-x-lebron-20-university-red-dv1193-600',
+      stadiumGoods: ''
+    },
+    name: 'Liverpool F.C. x LeBron 20',
+    releaseDate: '2023-03-17',
+    releaseYear: '2023',
+    retailPrice: 210,
+    silhouette: 'LeBron 20',
+    sku: 'DV1193-600',
+    story: ''
+  },
+  {
+    id: 'e0e9b025-f6ca-4aa6-bc8d-13811ff2bfa0',
+    brand: 'Jordan',
+    colorway: 'Vivid Orange/Black/Iced Lilac/True Blue/Sail',
+    estimatedMarketValue: 559,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-high-og-skyline',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-high-og-skyline-dx0054-805',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-high-og-skyline-dx0054-805',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro High OG Skyline',
+    releaseDate: '2023-03-18',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'DX0054-805',
+    story: ''
+  },
+  {
+    id: '523b4ca1-4bc1-4009-a309-ee03d896be12',
+    brand: 'Jordan',
+    colorway: 'Sail/Pine Green/Neutral Grey/White',
+    estimatedMarketValue: 225,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-4-retro-sb-pine-green',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 4 Retro SB Pine Green',
+    releaseDate: '2023-03-20',
+    releaseYear: '2023',
+    retailPrice: 225,
+    silhouette: 'Jordan 4 Retro SB',
+    sku: 'DR5415-103',
+    story: ''
+  },
+  {
+    id: '7c3368d4-66aa-4c9b-b272-c5367de89689',
+    brand: 'Nike',
+    colorway: 'White/White-White',
+    estimatedMarketValue: 140,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/nike-air-force-1-low-billie-eilish-white-w',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Nike Air Force 1 Low Billie Eilish White (W)',
+    releaseDate: '2023-03-23',
+    releaseYear: '2023',
+    retailPrice: 140,
+    silhouette: 'Nike Air Force 1 Low',
+    sku: 'DZ3674-100',
+    story: ''
+  },
+  {
+    id: 'f6bf10bb-bfdc-498c-9fd9-254dc1ddc0eb',
+    sku: 'DV9956-118',
+    brand: 'Jordan',
+    name: 'Jordan 2 Retro Low Craft Melon Tint',
+    colorway: 'Sail/Melon Tint-Light Curry-Cobblestone',
+    gender: 'men',
+    silhouette: 'Air Jordan 2',
+    releaseYear: '2023',
+    releaseDate: '2023-03-24',
+    retailPrice: 150,
+    estimatedMarketValue: 270,
+    story: '',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-2-retro-low-craft-melon-tint',
+      goat: 'https://goat.com/sneakers/air-jordan-2-retro-low-craft-dv9956-118',
+      flightClub: 'https://flightclub.com/air-jordan-2-retro-low-craft-dv9956-118',
+      stadiumGoods: ''
+    }
+  },
+  {
+    id: '22f810ac-6096-4915-a501-d3a0b62f5347',
+    brand: 'Jordan',
+    colorway: 'Black/Sail-Olive-White',
+    estimatedMarketValue: 1567,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-low-og-sp-travis-scott-olive-w',
+      goat: 'https://goat.com/sneakers/travis-scott-x-wmns-air-jordan-1-low-og-olive-dz4137-106',
+      flightClub: 'https://flightclub.com/travis-scott-x-wmns-air-jordan-1-low-og-olive-dz4137-106',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro Low OG SP Travis Scott Olive (W)',
+    releaseDate: '2023-03-25',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 1',
+    sku: 'DZ4137-106',
+    story: 'The Travis Scott x Women’s Air Jordan 1 Low OG ‘Olive’ presents the chart-topping rapper’s first sneaker collaboration in female sizing. The upper combines a black suede base with off-white leather overlays and olive suede Swooshes, featuring a reverse check on the lateral side and a traditional design on the opposite side. The neutral earth tones are punctuated by bold crimson accents, highlighted by woven Nike Air tongue tags and mismatched Jordan and Cactus Jack branding on each heel tab. Anchoring the low-top is a rubber cupsole that pairs vintage off-white sidewalls with an olive green rubber outsole.'
+  },
+  {
+    id: 'cc88ae64-4aca-4fb8-9088-6aa51a1e3bb6',
+    brand: 'Jordan',
+    colorway: 'Sail/University Red/Black/Medium',
+    estimatedMarketValue: 275,
+    gender: 'preschool',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/036/844/original/DZ5909_106.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/036/844/original/DZ5909_106.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/036/844/original/DZ5909_106.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-low-og-sp-travis-scott-olive-ps',
+      goat: 'https://goat.com/sneakers/travis-scott-x-air-jordan-1-low-og-ps-olive-dz5909-106',
+      flightClub: 'https://flightclub.com/travis-scott-x-air-jordan-1-low-og-ps-olive-dz5909-106',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro Low OG SP Travis Scott Olive (PS)',
+    releaseDate: '2023-03-25',
+    releaseYear: '2023',
+    retailPrice: 60,
+    silhouette: 'Air Jordan 1',
+    sku: 'DZ5909-106',
+    story: ''
+  },
+  {
+    id: 'f10d080e-4780-4377-8856-6ac7dd928092',
+    brand: 'Jordan',
+    colorway: 'Sail/University Red/Black/Medium',
+    estimatedMarketValue: 50,
+    gender: 'toddler',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/369/070/original/1049529_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/369/070/original/1049529_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/369/070/original/1049529_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-low-og-sp-travis-scott-olive-td',
+      goat: 'https://goat.com/sneakers/travis-scott-x-air-jordan-1-low-og-td-olive-dz5908-106',
+      flightClub: 'https://flightclub.com/travis-scott-x-air-jordan-1-low-og-td-olive-dz5908-106',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro Low OG SP Travis Scott Olive (TD)',
+    releaseDate: '2023-03-25',
+    releaseYear: '2023',
+    retailPrice: 50,
+    silhouette: 'Air Jordan 1',
+    sku: 'DZ5908-106',
+    story: ''
+  },
+  {
+    id: 'b42e9ffa-018f-4e83-882c-66bba4ef470e',
+    brand: 'Nike',
+    colorway: 'Photon Dust/Reflective Silver/Summit White',
+    estimatedMarketValue: 190,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-max-pulse-photon-dust-dr0453-001',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: "Air Max Pulse 'Photon Dust'",
+    releaseDate: '2023-03-26',
+    releaseYear: '2023',
+    retailPrice: 190,
+    silhouette: 'Air Max Pulse',
+    sku: 'DR0453-001',
+    story: ''
+  },
+  {
+    id: '53bbabe9-d2ca-496e-a8e0-324be27b5fc8',
+    brand: 'Nike',
+    colorway: 'Phantom/Safety Orange-Malachite',
+    estimatedMarketValue: 1227,
+    gender: 'unisex',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/nike-sb-dunk-low-jarritos',
+      goat: 'https://goat.com/sneakers/jarritos-x-dunk-low-sb-fd0860-001',
+      flightClub: 'https://flightclub.com/jarritos-x-dunk-low-sb-fd0860-001',
+      stadiumGoods: ''
+    },
+    name: 'Nike SB Dunk Low Jarritos',
+    releaseDate: '2023-04-01',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Dunk',
+    sku: 'FD0860-001',
+    story: ''
+  },
+  {
+    id: '57112786-afd3-43ef-9d80-1754eca04038',
+    brand: 'Jordan',
+    colorway: 'White/University Blue/Cement Grey',
+    estimatedMarketValue: 150,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-11-retro-low-gs-cement-grey-528896-140',
+      flightClub: 'https://flightclub.com/air-jordan-11-retro-low-gs-cement-grey-528896-140',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 11 Retro Low GS 'Cement Grey'",
+    releaseDate: '2023-04-01',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 11',
+    sku: '528896-140',
+    story: ''
+  },
+  {
+    id: '83ac7069-5aa7-4b0b-b478-27e9e4baadd1',
+    brand: 'Jordan',
+    colorway: 'White/University Blue/Cement Grey',
+    estimatedMarketValue: 350,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-11-retro-low-cement-grey',
+      goat: 'https://goat.com/sneakers/air-jordan-11-retro-low-cement-grey-av2187-140',
+      flightClub: 'https://flightclub.com/air-jordan-11-retro-low-cement-grey-av2187-140',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 11 Retro Low Cement Grey',
+    releaseDate: '2023-04-01',
+    releaseYear: '2023',
+    retailPrice: 190,
+    silhouette: 'Air Jordan 11',
+    sku: 'AV2187-140',
+    story: ''
+  },
+  {
+    id: 'df1835ba-e443-4267-bfa5-5e9b6d345977',
+    brand: 'Jordan',
+    colorway: 'White/University Blue/Cement Grey',
+    estimatedMarketValue: 90,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-11-retro-low-ps-cement-grey-505835-140',
+      flightClub: 'https://flightclub.com/air-jordan-11-retro-low-ps-cement-grey-505835-140',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 11 Retro Low PS 'Cement Grey'",
+    releaseDate: '2023-04-01',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Air Jordan 11',
+    sku: '505835-140',
+    story: ''
+  },
+  {
+    id: 'ee3aca07-7259-4cdf-9bf3-3bb3836c4177',
+    brand: 'Jordan',
+    colorway: 'White/University Blue/Cement Grey',
+    estimatedMarketValue: 70,
+    gender: 'infant',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/893/940/original/505836_140.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/893/940/original/505836_140.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/893/940/original/505836_140.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-11-retro-low-td-cement-grey-505836-140',
+      flightClub: 'https://flightclub.com/air-jordan-11-retro-low-td-cement-grey-505836-140',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 11 Retro Low TD 'Cement Grey'",
+    releaseDate: '2023-04-01',
+    releaseYear: '2023',
+    retailPrice: 70,
+    silhouette: 'Air Jordan 11',
+    sku: '505836-140',
+    story: ''
+  },
+  {
+    id: '1be77826-7e7a-47b1-b07c-bd72546e5b6f',
+    brand: 'Jordan',
+    colorway: 'White/Lucky Green/Varsity Red/Cement Grey/Sail',
+    estimatedMarketValue: 200,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-3-retro-lucky-green-w',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-3-retro-lucky-green-ck9646-136',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-3-retro-lucky-green-ck9646-136',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 3 Retro Lucky Green (W)',
+    releaseDate: '2023-04-06',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 3',
+    sku: 'CK9646-136',
+    story: 'The Women’s Air Jordan 3 Retro ‘Lucky Green’ adds lush accents to the classic silhouette that introduced Tinker Hatfield’s iconic elephant print to the Jordan line. The distinctive pattern appears on Cement Grey overlays at the forefoot and heel, contrasted by a tumbled leather upper in a crisp white finish. Vibrant hits of emerald land on the sneaker’s forefoot eyelets and polyurethane midsole, fitted with visible Air-sole cushioning in the heel. Jumpman branding graces the molded heel tab and tongue, the latter rendered in an unexpected pop of Varsity Red.'
+  },
+  {
+    id: '3f323eb9-c609-419e-b069-44affd10ad2c',
+    brand: 'Jordan',
+    colorway: 'Atmosphere/Pale Vanilla/White',
+    estimatedMarketValue: 150,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-2-retro-low-craft-atmosphere',
+      goat: '',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 2 Retro Low Craft Atmosphere',
+    releaseDate: '2023-04-08',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Jordan 2 Retro Low',
+    sku: 'DX6930-600',
+    story: ''
+  }
+]
+
+[Done] exited with code=0 in 3.502 seconds
+

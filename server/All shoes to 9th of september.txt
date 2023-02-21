@@ -1,0 +1,1058 @@
+[
+  {
+    id: '18726920-a862-412e-a5ad-ef95457959a6',
+    brand: 'Nike',
+    colorway: 'White/Mica Green/Photon Dust/Black',
+    estimatedMarketValue: 160,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-max-1-mica-green-dz4549-100',
+      flightClub: 'https://flightclub.com/air-max-1-mica-green-dz4549-100',
+      stadiumGoods: ''
+    },
+    name: "Air Max 1 'Mica Green'",
+    releaseDate: '2023-04-14',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Air Max 1',
+    sku: 'DZ4549-100',
+    story: ''
+  },
+  {
+    id: '805e056a-faff-4c8d-b800-00193dfb48af',
+    brand: 'Jordan',
+    colorway: 'Black/Lucky Green/White',
+    estimatedMarketValue: 180,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/364/107/original/DZ5485_031.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/364/107/original/DZ5485_031.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/364/107/original/DZ5485_031.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-high-og-lucky-green-dz5485-031',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-high-og-lucky-green-dz5485-031',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 1 Retro High OG 'Lucky Green'",
+    releaseDate: '2023-04-15',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'DZ5485-031',
+    story: 'The Air Jordan 1 Retro High OG ‘Lucky Green’ dresses the iconic silhouette in familiar color blocking that mirrors one-half of the 2009 Air Jordan 1 ‘Defining Moments Pack,’ inspired by Michael Jordan’s 63-point playoff performance against the Boston Celtics in 1986. The high-top sports a smooth leather upper, featuring a white base with contrasting hits of black on the forefoot overlay, Swoosh, and padded collar. Lush green accents land on the heel overlay and ankle flap, marked with a retro Wings logo on the lateral side. The shoe earns its OG designation with a woven Nike tag atop the breathable nylon tongue.'
+  },
+  {
+    id: 'd78c5a1e-811b-4071-84e5-490643e173ab',
+    brand: 'Nike',
+    colorway: 'Deep Royal Blue/Active Pink/Blue Chill',
+    estimatedMarketValue: 130,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/667/964/original/DO9404_400.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/667/964/original/DO9404_400.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/667/964/original/DO9404_400.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/run-the-jewels-x-dunk-low-sb-4-20-do9404-400',
+      flightClub: 'https://flightclub.com/run-the-jewels-x-dunk-low-sb-4-20-do9404-400',
+      stadiumGoods: ''
+    },
+    name: "Run The Jewels x Dunk Low SB '4/20'",
+    releaseDate: '2023-04-20',
+    releaseYear: '2023',
+    retailPrice: 130,
+    silhouette: 'Dunk SB',
+    sku: 'DO9404-400',
+    story: ''
+  },
+  {
+    id: 'e82ff092-dd26-4a6a-affa-fcb402035e3c',
+    brand: 'Nike',
+    colorway: 'Active Pink/Black/Metallic Gold',
+    estimatedMarketValue: 350,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/832/582/original/DX4356_600.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/832/582/original/DX4356_600.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/832/582/original/DX4356_600.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/run-the-jewels-x-dunk-high-sb-active-pink-dx4356-600',
+      flightClub: 'https://flightclub.com/run-the-jewels-x-dunk-high-sb-active-pink-dx4356-600',
+      stadiumGoods: ''
+    },
+    name: "Run The Jewels x Dunk High SB '4/20'",
+    releaseDate: '2023-04-20',
+    releaseYear: '2023',
+    retailPrice: 140,
+    silhouette: 'Dunk SB',
+    sku: 'DX4356-600',
+    story: 'The Run The Jewels x Nike Dunk High SB ‘4/20’ pays tribute to the influential hip-hop duo formed by El-P and Killer Mike. Their dynamic sound is reflected in the shoe’s contrasting colors and textures, highlighted by a black tumbled leather upper with pony-hair overlays in a bold shade of fuchsia. The black signature Swoosh features a sculpted and polished exterior, while lace dubrae shine in metallic gold. Hidden details include a ‘Run The Jewels’ print inscribed on the inside of each collar flap and a stash pocket on the interior tongue. The high-top is mounted on a rubber cupsole that pairs black sidewalls with a fuchsia outsole.'
+  },
+  {
+    id: '13401e83-1c9c-46ee-9f90-78c8e3030cba',
+    brand: 'Jordan',
+    colorway: 'Black/University Red/Flint Grey/White',
+    estimatedMarketValue: 200,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/425/899/original/DJ5982_060.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/425/899/original/DJ5982_060.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/425/899/original/DJ5982_060.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-13-retro-black-flint',
+      goat: 'https://goat.com/sneakers/air-jordan-13-retro-black-flint-dj5982-060',
+      flightClub: 'https://flightclub.com/air-jordan-13-retro-black-flint-dj5982-060',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 13 Retro Black Flint',
+    releaseDate: '2023-04-22',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 13',
+    sku: 'DJ5982-060',
+    story: ''
+  },
+  {
+    id: '1999e3e9-8da8-445e-a7eb-937fedd57e17',
+    brand: 'Jordan',
+    colorway: 'Atmosphere/White/Muslin/Sail',
+    estimatedMarketValue: 180,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/872/138/original/FD2596_600.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/872/138/original/FD2596_600.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/872/138/original/FD2596_600.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-high-og-atmosphere-pink-w',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-1-retro-high-og-washed-pink-fd2596-600',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-1-retro-high-og-washed-pink-fd2596-600',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro High OG Atmosphere Pink (W)',
+    releaseDate: '2023-04-22',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'FD2596-600',
+    story: ''
+  },
+  {
+    id: '11d2932b-f04c-40d7-9299-fa8df39e80f4',
+    brand: 'Nike',
+    colorway: 'Phantom/Action Green/Action Grape/White/Laser Orange/University Blue',
+    estimatedMarketValue: 0,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ja-1-gs-questions-dx2294-001',
+      flightClub: 'https://flightclub.com/ja-1-gs-questions-dx2294-001',
+      stadiumGoods: ''
+    },
+    name: "Ja 1 GS 'Questions'",
+    releaseDate: '2023-04-27',
+    releaseYear: '2023',
+    retailPrice: 0,
+    silhouette: 'Ja 1',
+    sku: 'DX2294-001',
+    story: ''
+  },
+  {
+    id: 'c3fa53b9-b63c-493f-b4ce-d8dff9c42ee3',
+    brand: 'Nike',
+    colorway: 'Phantom/Action Green/Action Grape/White/Laser Orange/University Blue',
+    estimatedMarketValue: 110,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ja-1-questions-dr8785-001',
+      flightClub: 'https://flightclub.com/ja-1-questions-dr8785-001',
+      stadiumGoods: ''
+    },
+    name: "Ja 1 'Questions'",
+    releaseDate: '2023-04-27',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Ja 1',
+    sku: 'DR8785-001',
+    story: ''
+  },
+  {
+    id: '6517c6b1-429c-46b0-9680-c9c405ab7337',
+    sku: 'CT8532-148',
+    brand: 'Jordan',
+    name: 'Jordan 3 Retro Wizards',
+    colorway: 'White/True Blue/Metallic Copper/Cement Grey',
+    gender: 'men',
+    silhouette: 'Air Jordan 3',
+    releaseYear: '2023',
+    releaseDate: '2023-04-29',
+    retailPrice: 210,
+    estimatedMarketValue: 359,
+    story: '',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-3-retro-wizards',
+      goat: 'https://goat.com/sneakers/air-jordan-3-retro-washington-wizards-ct8532-148',
+      flightClub: 'https://flightclub.com/air-jordan-3-retro-washington-wizards-ct8532-148',
+      stadiumGoods: ''
+    }
+  },
+  {
+    id: '8ffcedda-ba50-451f-a4e0-a50910082700',
+    brand: 'Nike',
+    colorway: 'White/White/Black/Metallic Gold/Bright Emerald',
+    estimatedMarketValue: 180,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/zoom-kobe-4-protro-white-gold-emerald-fj9363-100',
+      flightClub: 'https://flightclub.com/zoom-kobe-4-protro-white-gold-emerald-fj9363-100',
+      stadiumGoods: ''
+    },
+    name: "Zoom Kobe 4 Protro 'Gigi'",
+    releaseDate: '2023-05-01',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Zoom Kobe 4',
+    sku: 'FJ9363-100',
+    story: ''
+  },
+  {
+    id: '1918361a-a4c5-432a-97e2-197347ce5d19',
+    brand: 'Jordan',
+    colorway: 'White/Cement Grey/Sail/Black',
+    estimatedMarketValue: 175,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/581/943/original/DR8884_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/581/943/original/DR8884_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/581/943/original/DR8884_100.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-2-retro-cement-grey',
+      goat: 'https://goat.com/sneakers/air-jordan-2-retro-white-cement-dr8884-100',
+      flightClub: 'https://flightclub.com/air-jordan-2-retro-white-cement-dr8884-100',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 2 Retro Cement Grey',
+    releaseDate: '2023-05-06',
+    releaseYear: '2023',
+    retailPrice: 175,
+    silhouette: 'Air Jordan 2',
+    sku: 'DR8884-100',
+    story: ''
+  },
+  {
+    id: 'c1f9835f-0ea2-4b81-96d9-a9e411b6700f',
+    brand: 'Jordan',
+    colorway: 'White/Tour Yellow/Sail',
+    estimatedMarketValue: 190,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/425/884/original/AH7860_107.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/425/884/original/AH7860_107.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/425/884/original/AH7860_107.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-11-retro-low-tour-yellow-snakeskin-w',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-11-low-yellow-snakeskin-ah7860-107',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-11-low-yellow-snakeskin-ah7860-107',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 11 Retro Low Tour Yellow Snakeskin (W)',
+    releaseDate: '2023-05-11',
+    releaseYear: '2023',
+    retailPrice: 190,
+    silhouette: 'Air Jordan 11',
+    sku: 'AH7860-107',
+    story: ''
+  },
+  {
+    id: '094fd7dc-5aca-427f-9398-5adee55939e4',
+    brand: 'Jordan',
+    colorway: 'Black/Tour Yellow',
+    estimatedMarketValue: 85,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-4-retro-ps-thunder-2023-bq7669-017',
+      flightClub: 'https://flightclub.com/air-jordan-4-retro-ps-thunder-2023-bq7669-017',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 4 Retro PS 'Thunder' 2023",
+    releaseDate: '2023-05-13',
+    releaseYear: '2023',
+    retailPrice: 85,
+    silhouette: 'Air Jordan 4',
+    sku: 'BQ7669-017',
+    story: ''
+  },
+  {
+    id: 'e7de9955-ce49-4cbc-a85e-d51af7114fa0',
+    brand: 'Jordan',
+    colorway: 'Black/Tour Yellow',
+    estimatedMarketValue: 150,
+    gender: 'youth',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/845/original/408452_017.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/845/original/408452_017.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/845/original/408452_017.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-4-retro-gs-thunder-2023-408452-017',
+      flightClub: 'https://flightclub.com/air-jordan-4-retro-gs-thunder-2023-408452-017',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 4 Retro GS 'Thunder' 2023",
+    releaseDate: '2023-05-13',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 4',
+    sku: '408452-017',
+    story: ''
+  },
+  {
+    id: 'ed9ed3a9-64f8-442f-8aa1-2de424734c6b',
+    brand: 'Jordan',
+    colorway: 'Black/Tour Yellow',
+    estimatedMarketValue: 210,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/957/857/original/DH6927_017.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/957/857/original/DH6927_017.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/957/857/original/DH6927_017.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-4-retro-thunder-2023-dh6927-017',
+      flightClub: 'https://flightclub.com/air-jordan-4-retro-thunder-2023-dh6927-017',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 4 Retro 'Thunder' 2023",
+    releaseDate: '2023-05-13',
+    releaseYear: '2023',
+    retailPrice: 210,
+    silhouette: 'Air Jordan 4',
+    sku: 'DH6927-017',
+    story: ''
+  },
+  {
+    id: 'ee27f892-f96d-4030-b408-b5a742ed0b86',
+    brand: 'Jordan',
+    colorway: 'Black/Tour Yellow',
+    estimatedMarketValue: 65,
+    gender: 'infant',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-4-retro-td-thunder-2023-bq7670-017',
+      flightClub: 'https://flightclub.com/air-jordan-4-retro-td-thunder-2023-bq7670-017',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 4 Retro TD 'Thunder' 2023",
+    releaseDate: '2023-05-13',
+    releaseYear: '2023',
+    retailPrice: 65,
+    silhouette: 'Air Jordan 4',
+    sku: 'BQ7670-017',
+    story: ''
+  },
+  {
+    id: '23e2aa11-0eaa-4e41-8df5-d466f3613f27',
+    brand: 'Jordan',
+    colorway: 'University Red/Black/White',
+    estimatedMarketValue: 1000,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/189/346/original/DV1748_601.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/189/346/original/DV1748_601.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/189/346/original/DV1748_601.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-high-og-spider-man-across-the-spider-verse',
+      goat: 'https://goat.com/sneakers/marvel-x-air-jordan-1-retro-high-og-spider-man-across-the-spider-verse-dv1748-601',
+      flightClub: 'https://flightclub.com/marvel-x-air-jordan-1-retro-high-og-spider-man-across-the-spider-verse-dv1748-601',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 High OG Spider-Man Across the Spider-Verse',
+    releaseDate: '2023-05-20',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 1',
+    sku: 'DV1748-601',
+    story: ''
+  },
+  {
+    id: '38070e52-df0b-45ae-bf60-fe768de5f6f8',
+    brand: 'Jordan',
+    colorway: 'University Red/Black/White',
+    estimatedMarketValue: 0,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/marvel-x-air-jordan-1-retro-high-og-ps-spider-man-across-the-spider-verse-dv1749-601',
+      flightClub: 'https://flightclub.com/marvel-x-air-jordan-1-retro-high-og-ps-spider-man-across-the-spider-verse-dv1749-601',
+      stadiumGoods: ''
+    },
+    name: "Marvel x Air Jordan 1 Retro High OG PS 'Spider-Man: Across the Spider-Verse'",
+    releaseDate: '2023-05-20',
+    releaseYear: '2023',
+    retailPrice: 0,
+    silhouette: 'Air Jordan 1',
+    sku: 'DV1749-601',
+    story: ''
+  },
+  {
+    id: '90759cec-0004-43fd-a747-39b7a871a5bf',
+    brand: 'Jordan',
+    colorway: 'University Red/Black/White',
+    estimatedMarketValue: 0,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/marvel-x-air-jordan-1-retro-high-og-gs-spider-man-across-the-spider-verse-dv1753-601',
+      flightClub: 'https://flightclub.com/marvel-x-air-jordan-1-retro-high-og-gs-spider-man-across-the-spider-verse-dv1753-601',
+      stadiumGoods: ''
+    },
+    name: "Marvel x Air Jordan 1 Retro High OG GS 'Spider-Man: Across the Spider-Verse'",
+    releaseDate: '2023-05-20',
+    releaseYear: '2023',
+    retailPrice: 0,
+    silhouette: 'Air Jordan 1',
+    sku: 'DV1753-601',
+    story: ''
+  },
+  {
+    id: 'c7f4c3d9-c568-43b1-9136-b2750d85c9a6',
+    brand: 'Jordan',
+    colorway: 'University Red/Black/White',
+    estimatedMarketValue: 0,
+    gender: 'infant',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/marvel-x-air-jordan-1-retro-high-og-td-spider-man-across-the-spider-verse-dv1750-601',
+      flightClub: 'https://flightclub.com/marvel-x-air-jordan-1-retro-high-og-td-spider-man-across-the-spider-verse-dv1750-601',
+      stadiumGoods: ''
+    },
+    name: "Marvel x Air Jordan 1 Retro High OG TD 'Spider-Man: Across the Spider-Verse'",
+    releaseDate: '2023-05-20',
+    releaseYear: '2023',
+    retailPrice: 0,
+    silhouette: 'Air Jordan 1',
+    sku: 'DV1750-601',
+    story: ''
+  },
+  {
+    id: '17a58a03-b786-4431-b613-3b7bb53dd8c2',
+    brand: 'Nike',
+    colorway: 'Game Royal/Black/University Red/Photo Blue/Bright Crimson/Vivid Orange',
+    estimatedMarketValue: 110,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ja-1-mismatch-dr8785-401',
+      flightClub: 'https://flightclub.com/ja-1-mismatch-dr8785-401',
+      stadiumGoods: ''
+    },
+    name: "Ja 1 'Mismatch'",
+    releaseDate: '2023-05-26',
+    releaseYear: '2023',
+    retailPrice: 110,
+    silhouette: 'Ja 1',
+    sku: 'DR8785-401',
+    story: ''
+  },
+  {
+    id: 'bb2e94a9-d844-4a6b-9c13-647728d06f45',
+    brand: 'Nike',
+    colorway: 'Game Royal/Black/University Red/Photo Blue/Bright Crimson/Vivid Orange',
+    estimatedMarketValue: 0,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/ja-1-gs-mismatch-dx2294-401',
+      flightClub: 'https://flightclub.com/ja-1-gs-mismatch-dx2294-401',
+      stadiumGoods: ''
+    },
+    name: "Ja 1 GS 'Mismatch'",
+    releaseDate: '2023-05-26',
+    releaseYear: '2023',
+    retailPrice: 0,
+    silhouette: 'Ja 1',
+    sku: 'DX2294-401',
+    story: ''
+  },
+  {
+    id: 'c8bf7aa9-4bc4-4ae6-b7b4-bfdc3e5ddce2',
+    brand: 'Nike',
+    colorway: 'Coral Stardust/Bright Coral/Oxen Brown',
+    estimatedMarketValue: 160,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-max-1-premium-coral-stardust-fb8915-600',
+      flightClub: 'https://flightclub.com/air-max-1-premium-coral-stardust-fb8915-600',
+      stadiumGoods: ''
+    },
+    name: "Air Max 1 Premium 'Coral Stardust'",
+    releaseDate: '2023-05-26',
+    releaseYear: '2023',
+    retailPrice: 160,
+    silhouette: 'Air Max 1',
+    sku: 'FB8915-600',
+    story: ''
+  },
+  {
+    id: 'fab6f73f-813b-4f59-b028-f734fb614d0a',
+    brand: 'Jordan',
+    colorway: 'Sail/Pale Vanilla-Black',
+    estimatedMarketValue: 180,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/334/020/original/FD8631_100.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/334/020/original/FD8631_100.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/334/020/original/FD8631_100.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-high-og-craft-vibrations-of-naija',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-high-og-vibrations-of-naija-fd8631-100',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-high-og-vibrations-of-naija-fd8631-100',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro High OG Craft Vibrations Of Naija',
+    releaseDate: '2023-05-27',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'FD8631-100',
+    story: ''
+  },
+  {
+    id: 'ab20fe62-c3e3-4b28-b95d-65e2bc6d504c',
+    brand: 'Jordan',
+    colorway: 'Indigo Haze/Fire Red-Metallic Silver-Alabaster-Flint Grey',
+    estimatedMarketValue: 180,
+    gender: 'women',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/466/420/original/FJ4563_500.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/466/420/original/FJ4563_500.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/466/420/original/FJ4563_500.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-5-retro-low-indigo-haze-w',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-5-retro-low-indigo-haze-fj4563-500',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 5 Retro Low Indigo Haze (W)',
+    releaseDate: '2023-06-08',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 5',
+    sku: 'FJ4563-500',
+    story: ''
+  },
+  {
+    id: 'eda60aa2-6227-4871-aef4-f60c54b4bb48',
+    brand: 'Jordan',
+    colorway: 'Black/Fire Red/Light Smoke Grey/Sail',
+    estimatedMarketValue: 349,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/941/046/original/1103104_00.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/941/046/original/1103104_00.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/941/046/original/1103104_00.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-high-og-washed-black',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-high-og-washed-black-dz5485-051',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-high-og-washed-black-dz5485-051',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro High OG Washed Black',
+    releaseDate: '2023-06-10',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'DZ5485-051',
+    story: ''
+  },
+  {
+    id: '97431fa3-459b-4f8c-8c68-21c5cb100d96',
+    brand: 'Jordan',
+    colorway: 'Light Orewood Brown/Safety Orange/Flat Pewter/Sail',
+    estimatedMarketValue: 210,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/318/548/original/FD9222_180.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/318/548/original/FD9222_180.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/318/548/original/FD9222_180.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-5-retro-se-craft-fd9222-180',
+      flightClub: 'https://flightclub.com/air-jordan-5-retro-se-craft-fd9222-180',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 5 Retro SE 'Craft'",
+    releaseDate: '2023-06-17',
+    releaseYear: '2023',
+    retailPrice: 210,
+    silhouette: 'Air Jordan 5',
+    sku: 'FD9222-180',
+    story: ''
+  },
+  {
+    id: '0acf7d6c-be1e-44af-90e0-0c26e466c06e',
+    brand: 'Jordan',
+    colorway: 'Summit White/Varsity Red/Ice Blue/Iced Lilac/Muslin/Light Steel Grey',
+    estimatedMarketValue: 150,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-2-low-look-up-in-the-air-dx4401-146',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-2-low-look-up-in-the-air-dx4401-146',
+      stadiumGoods: ''
+    },
+    name: "Wmns Air Jordan 2 Low 'Look, Up in the Air'",
+    releaseDate: '2023-06-22',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 2',
+    sku: 'DX4401-146',
+    story: ''
+  },
+  {
+    id: '47be69f2-3c42-4df1-a9b4-f88552d9ac40',
+    brand: 'Jordan',
+    colorway: 'White/Crimson/Black',
+    estimatedMarketValue: 200,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/083/466/550/original/CU9307_160.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/083/466/550/original/CU9307_160.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/083/466/550/original/CU9307_160.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-7-retro-white-infrared-cu9307-160',
+      flightClub: 'https://flightclub.com/air-jordan-7-retro-white-infrared-cu9307-160',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 7 Retro 'White Infrared'",
+    releaseDate: '2023-06-23',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 7',
+    sku: 'CU9307-160',
+    story: ''
+  },
+  {
+    id: '90c9b5b2-6bc8-40dd-922c-e093ec434f34',
+    brand: 'Jordan',
+    colorway: 'Black/Muslin/Tech Grey/White/Sail',
+    estimatedMarketValue: 140,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/386/420/original/CZ0790_001.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/386/420/original/CZ0790_001.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/386/420/original/CZ0790_001.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-low-og-black-cement',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-low-og-black-cement-cz0790-001',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-low-og-black-cement-cz0790-001',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro Low OG Black Cement',
+    releaseDate: '2023-06-23',
+    releaseYear: '2023',
+    retailPrice: 140,
+    silhouette: 'Air Jordan 1',
+    sku: 'CZ0790-001',
+    story: ''
+  },
+  {
+    id: '04506a6a-00f5-4f97-b274-3159f581cd4a',
+    brand: 'Jordan',
+    colorway: 'Varsity Red/Black',
+    estimatedMarketValue: 150,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-gs-toro-bravo-384665-600',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-gs-toro-bravo-384665-600',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 6 Retro GS 'Toro Bravo'",
+    releaseDate: '2023-06-24',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 6',
+    sku: '384665-600',
+    story: ''
+  },
+  {
+    id: '4b15488c-986c-4f21-855f-d2b30fdd197d',
+    brand: 'Jordan',
+    colorway: 'Varsity Red/Black',
+    estimatedMarketValue: 90,
+    gender: 'youth',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-ps-toro-bravo-dv3605-600',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-ps-toro-bravo-dv3605-600',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 6 Retro PS 'Toro Bravo'",
+    releaseDate: '2023-06-24',
+    releaseYear: '2023',
+    retailPrice: 90,
+    silhouette: 'Air Jordan 6',
+    sku: 'DV3605-600',
+    story: ''
+  },
+  {
+    id: '85aae727-1716-4af2-852d-5526c1c237cc',
+    brand: 'Jordan',
+    colorway: 'Varsity Red/Black',
+    estimatedMarketValue: 495,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/708/921/original/CT8529_600.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/708/921/original/CT8529_600.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/708/921/original/CT8529_600.png.png'
+    },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-toro-bravo-ct8529-600',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-toro-bravo-ct8529-600',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 6 Retro 'Toro Bravo'",
+    releaseDate: '2023-06-24',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 6',
+    sku: 'CT8529-600',
+    story: ''
+  },
+  {
+    id: 'd01c2233-11f6-4cbb-b820-7d85ccf5842d',
+    brand: 'Jordan',
+    colorway: 'Varsity Red/Black',
+    estimatedMarketValue: 70,
+    gender: 'infant',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-td-toro-bravo-dv3606-600',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-td-toro-bravo-dv3606-600',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 6 Retro TD 'Toro Bravo'",
+    releaseDate: '2023-06-24',
+    releaseYear: '2023',
+    retailPrice: 70,
+    silhouette: 'Air Jordan 6',
+    sku: 'DV3606-600',
+    story: ''
+  },
+  {
+    id: 'f061d519-810a-4045-bbaa-0f74a1b89501',
+    brand: 'Jordan',
+    colorway: 'White/Celestial Gold',
+    estimatedMarketValue: 200,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-6-retro-craft-celestial-gold-dz4132-100',
+      flightClub: 'https://flightclub.com/air-jordan-6-retro-craft-celestial-gold-dz4132-100',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 6 Retro 'Craft - Celestial Gold'",
+    releaseDate: '2023-07-15',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 6',
+    sku: 'DZ4132-100',
+    story: ''
+  },
+  {
+    id: 'ef9df43a-b393-42f3-b65c-1f695e74ff30',
+    brand: 'Jordan',
+    colorway: 'White/University Blue/Cement Grey',
+    estimatedMarketValue: 150,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-2-retro-low-unc-dv9956-104',
+      flightClub: 'https://flightclub.com/air-jordan-2-retro-low-unc-dv9956-104',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 2 Retro Low 'UNC'",
+    releaseDate: '2023-07-22',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 2',
+    sku: 'DV9956-104',
+    story: ''
+  },
+  {
+    id: '435c5bc5-b77e-44f6-bc90-c8f4e1f3186c',
+    brand: 'Jordan',
+    colorway: 'Black/Field Purple/Metallic Gold/Taxi',
+    estimatedMarketValue: 200,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-12-retro-field-purple-ct8013-057',
+      flightClub: '',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 12 Retro 'Field Purple'",
+    releaseDate: '2023-07-29',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 12',
+    sku: 'CT8013-057',
+    story: ''
+  },
+  {
+    id: 'f887bba9-d9fd-4682-881b-713d12cf140d',
+    brand: 'Jordan',
+    colorway: 'Black/Pale Vanilla',
+    estimatedMarketValue: 150,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-2-retro-low-craft-black-vanilla-fj0753-001',
+      flightClub: 'https://flightclub.com/air-jordan-2-retro-low-craft-black-vanilla-fj0753-001',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 2 Retro Low 'Craft - Black Vanilla'",
+    releaseDate: '2023-08-04',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'Air Jordan 2',
+    sku: 'FJ0753-001',
+    story: ''
+  },
+  {
+    id: 'c7c21750-2728-487d-ba19-f5d2ac9708fd',
+    brand: 'Jordan',
+    colorway: 'Summit White/Gym Red/Medium Soft Pink/Muslin',
+    estimatedMarketValue: 175,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-2-retro-soft-pink-fb2327-100',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-2-retro-soft-pink-fb2327-100',
+      stadiumGoods: ''
+    },
+    name: "Wmns Air Jordan 2 Retro 'Soft Pink'",
+    releaseDate: '2023-08-31',
+    releaseYear: '2023',
+    retailPrice: 175,
+    silhouette: 'Air Jordan 2',
+    sku: 'FB2327-100',
+    story: ''
+  },
+  {
+    id: '4f705671-380f-4369-9acd-7fc36aad0f9d',
+    brand: 'Jordan',
+    colorway: 'Black/True Red',
+    estimatedMarketValue: 200,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-8-retro-playoff-2023-305381-062',
+      flightClub: 'https://flightclub.com/air-jordan-8-retro-playoff-2023-305381-062',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 8 Retro 'Playoff' 2023",
+    releaseDate: '2023-09-02',
+    releaseYear: '2023',
+    retailPrice: 200,
+    silhouette: 'Air Jordan 8',
+    sku: '305381-062',
+    story: 'The 2023 edition of the Air Jordan 8 Retro ‘Playoff’ celebrates the 30th anniversary of the shoe that Michael Jordan wore when he captured his third NBA championship. Previously released in 2013, the legacy silhouette carries a black nubuck upper with a unique cross-strap design for a secure, locked-in fit. A crimson Jumpman decorates a tongue patch made with fuzzy chenille, while an embroidered ‘23’ lands on the vamp. A red and black brushstroke graphic adorns synthetic overlays along the lateral and medial sides. The sneaker rests on a matching black foam midsole with glossy sidewalls and encapsulated Air-sole cushioning. A multicolor rubber outsole reveals a golden Jumpman logo under the forefoot.'
+  },
+  {
+    id: '075a0375-7e05-4bdc-b547-de08aae2f73a',
+    brand: 'Jordan',
+    colorway: 'Sail/Black-Atmosphere Grey',
+    estimatedMarketValue: 140,
+    gender: 'men',
+    image: {
+      '360': [],
+      original: 'https://image.goat.com/attachments/product_template_pictures/images/084/386/421/original/CZ0790_101.png.png',
+      small: 'https://image.goat.com/750/attachments/product_template_pictures/images/084/386/421/original/CZ0790_101.png.png',
+      thumbnail: 'https://image.goat.com/375/attachments/product_template_pictures/images/084/386/421/original/CZ0790_101.png.png'
+    },
+    links: {
+      stockX: 'https://stockx.com/air-jordan-1-retro-low-og-ex-sail',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-low-og-atmosphere-grey-cz0790-101',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-low-og-atmosphere-grey-cz0790-101',
+      stadiumGoods: ''
+    },
+    name: 'Jordan 1 Retro Low OG EX Sail',
+    releaseDate: '2023-09-08',
+    releaseYear: '2023',
+    retailPrice: 140,
+    silhouette: 'Air Jordan 1',
+    sku: 'CZ0790-101',
+    story: ''
+  },
+  {
+    id: 'c96e1db9-86d0-4793-ba10-22c869002e5b',
+    brand: 'Jordan',
+    colorway: 'Praline/White/Sail',
+    estimatedMarketValue: 180,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-1-retro-high-og-praline-fn6622-201',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-1-retro-high-og-praline-fn6622-201',
+      stadiumGoods: ''
+    },
+    name: "Wmns Air Jordan 1 Retro High OG 'Praline'",
+    releaseDate: '2023-09-13',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'FN6622-201',
+    story: ''
+  },
+  {
+    id: '5b43490c-469a-4aac-bb85-be25449b7da8',
+    brand: 'Jordan',
+    colorway: 'Black/Metallic Gold/Palomino/Sail',
+    estimatedMarketValue: 180,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-1-retro-high-og-palomino-dz5485-020',
+      flightClub: 'https://flightclub.com/air-jordan-1-retro-high-og-palomino-dz5485-020',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 1 Retro High OG 'Palomino'",
+    releaseDate: '2023-09-16',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 1',
+    sku: 'DZ5485-020',
+    story: ''
+  },
+  {
+    id: 'e8bc6a11-47a9-41e1-bcc3-baa58ca40a11',
+    brand: 'Jordan',
+    colorway: 'Chutney/Black',
+    estimatedMarketValue: 180,
+    gender: 'women',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/wmns-air-jordan-5-retro-low-chutney-da8016-700',
+      flightClub: 'https://flightclub.com/wmns-air-jordan-5-retro-low-chutney-da8016-700',
+      stadiumGoods: ''
+    },
+    name: "Wmns Air Jordan 5 Retro Low 'Chutney'",
+    releaseDate: '2023-09-21',
+    releaseYear: '2023',
+    retailPrice: 180,
+    silhouette: 'Air Jordan 5',
+    sku: 'DA8016-700',
+    story: ''
+  },
+  {
+    id: 'f0a9ce23-da3e-41c6-b837-7f3aca518d91',
+    brand: 'Jordan',
+    colorway: 'Black/Black/White',
+    estimatedMarketValue: 185,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-11-retro-low-ie-black-white-919712-001',
+      flightClub: 'https://flightclub.com/air-jordan-11-retro-low-ie-black-white-919712-001',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 11 Retro Low IE 'Black White'",
+    releaseDate: '2023-09-22',
+    releaseYear: '2023',
+    retailPrice: 185,
+    silhouette: 'Air Jordan 11',
+    sku: '919712-001',
+    story: ''
+  },
+  {
+    id: '63fcf735-8421-4f29-9964-696ba0e6bc28',
+    brand: 'Jordan',
+    colorway: 'True Blue/Topaz Gold/Sail',
+    estimatedMarketValue: 150,
+    gender: 'men',
+    image: { '360': [], original: '', small: '', thumbnail: '' },
+    links: {
+      stockX: '',
+      goat: 'https://goat.com/sneakers/air-jordan-1-ko-high-laney-do5047-407',
+      flightClub: 'https://flightclub.com/air-jordan-1-ko-high-laney-do5047-407',
+      stadiumGoods: ''
+    },
+    name: "Air Jordan 1 KO High 'Laney'",
+    releaseDate: '2023-09-30',
+    releaseYear: '2023',
+    retailPrice: 150,
+    silhouette: 'AJKO',
+    sku: 'DO5047-407',
+    story: ''
+  }
+]

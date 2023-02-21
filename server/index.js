@@ -1,6 +1,7 @@
 
 import puppeteer from 'puppeteer';
 import { WebSocketServer } from 'ws';
+import fs from 'fs';
 import http from 'http';
 import { type } from 'os';
 import express from 'express';
@@ -11,11 +12,11 @@ async function connection_websockets(){
     const obj = new Object;
     const task_wss = new WebSocketServer({port:679 });
     const releases_wss = new WebSocketServer({port: 6969})
-    var task_data ;
+    var task_data;
     var release_data;
     task_wss.on('connection',async (ws)=>{
         console.log('New Websocket connection - Task Creation');
-        task_data = await waitForData(ws);
+        task_data = await waitForData_Json(ws);
         openTrapstar(task_data,ws);
     })
 
@@ -25,18 +26,27 @@ async function connection_websockets(){
     releases_wss.on('connection',async (ws)=>{
         console.log('New Websocket connection - Release Data Request');
         release_data = await waitForData(ws);
-        openTrapstar(task_data,ws);
+        get_releases_data(ws);
+        
     })
 
     releases_wss.on('close',(ws)=>{
         console.log("connection closed - Release Data Request");
     })
-    async function waitForData(ws){
+    async function waitForData_Json(ws){
         return new Promise((resolve, reject) => {
             ws.on('message', function message(data){
                 console.log('data: %s',data);
                 res_data =  JSON.parse(data);
                 resolve(res_data);
+            });
+        });
+    }
+    async function waitForData(ws){
+        return new Promise((resolve, reject) => {
+            ws.on('message', function message(data){
+                console.log('data: %s',data);
+                resolve(data);
             });
         });
     }
@@ -48,7 +58,14 @@ function sleep(ms) {
       setTimeout(resolve, ms);
     });
 }
-
+function get_releases_data(socket){
+    var docutext = fs.readFileSync("./Upcoming releases.txt").toString('utf-8');
+    var text_parsed = JSON.parse(docutext);
+    console.log('Data retrieved');
+    socket.send(JSON.stringify(text_parsed));
+    console.log('Data sent');
+    
+}
 function openTrapstar(task_data,socket){
    var Product = task_data["product"];
    var Size = task_data["size"];
