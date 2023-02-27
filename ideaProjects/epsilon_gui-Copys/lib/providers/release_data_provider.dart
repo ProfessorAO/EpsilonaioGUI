@@ -8,58 +8,56 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-
-class ReleasesData with ChangeNotifier{
+class ReleasesData with ChangeNotifier {
   List<dynamic> recieved_data = [];
-  List<Map<String,String>> releases_data = [];
+  List<Map<String, String>> releases_data = [];
+
   String data = "";
 
-  List<Map<String,String>> get releasesData => releases_data;
+  List<Map<String, String>> get releasesData => releases_data;
 
-    void getData() async{
-        try{
-        IOWebSocketChannel? channel;
-        
-        try{
-          channel = IOWebSocketChannel.connect('ws://localhost:6969');
-          if (channel==null){
-            throw const SocketException("");
-          }
+  Future<List<Map<String, String>>> getData() async {
+    bool is_data = false;
+    Completer<List<Map<String, String>>> completer = Completer();
+    try {
+      IOWebSocketChannel? channel;
 
-        } catch (e){
-          print("Error on Connecting to server$e");
+      try {
+        channel = IOWebSocketChannel.connect('ws://localhost:6969');
+        if (channel == null) {
+          throw const SocketException("");
         }
-        channel?.sink.add("Connnected");
-        channel?.stream.listen((event){
-          print('Data Recieved');
-          recieved_data = JSON.parse(event);
-          //print(recieved_data[0]);
-          //print(data_map);
-          CreateMap(recieved_data);
-          
-        });
-
-      } on SocketException catch (e){
-          print("Error on Connecting to server$e");
-      }on PlatformException catch(e){
-        print('error: ${e.details}');
+      } catch (e) {
+        print("Error on Connecting to server$e");
       }
-  
+      channel?.sink.add("Connnected");
+      channel?.stream.listen((event) {
+        print('Data Recieved');
+        recieved_data = jsonDecode(event);
+        List<Map<String, String>> data = CreateMap(recieved_data);
+        completer.complete(data);
+      });
+    } on SocketException catch (e) {
+      print("Error on Connecting to server$e");
+      completer.completeError(e);
+    } on PlatformException catch (e) {
+      print('error: ${e.details}');
+      completer.completeError(e);
+    }
 
-   }
-   void CreateMap(data){
-    for(int i = 0 ; i <=5 ; i++){
+    return completer.future;
+  }
+
+  List<Map<String, String>> CreateMap(data) {
+    for (int i = 0; i <= 5; i++) {
       var map = <String, String>{
-        'name':data[i]['name'].toString(),
-        'date':data[i]['releaseDate'].toString(),
-        'price':data[i]['retailPrice'].toString(),
-        'img':data[i]['small'].toString(),
+        'name': data[i]['name'].toString(),
+        'date': data[i]['releaseDate'].toString(),
+        'price': data[i]['retailPrice'].toString(),
+        'img': data[i]['image']['small'].toString(),
       };
       releases_data.add(map);
-
     }
-   }
-
-
-
+    return releases_data;
+  }
 }
