@@ -1,14 +1,12 @@
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
-//import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
-import 'package:epsilon_gui/screens/components/TopBar_.dart';
-//import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
+import 'package:epsilon_gui/screens/components/column_general.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:puppeteer/protocol/runtime.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:epsilon_gui/providers/release_data_provider.dart';
+import 'package:epsilon_gui/date_format.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -158,16 +156,14 @@ class _MainScreenState extends State<MainScreen> {
                     return Releases(widgets_: releases);
                   } else {
                     List<Widget> releases = [
-                      Expanded(
-                          child: CircularProgressIndicator(
+                      CircularProgressIndicator(
                         strokeWidth: 2,
-                      ))
+                      )
                     ];
                     return Releases(widgets_: releases);
                   }
                 },
               ),
-
               //sneakerNews(),
               _CalendarState(),
               RecentCheckouts(),
@@ -214,61 +210,37 @@ class RecentCheckouts extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              flex: 5,
-              child: Container(
-                //color: Color.fromRGBO(26, 25, 25, 0.6),
-                //height: MediaQuery.of(context).size.height * 1,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      0, (MediaQuery.of(context).size.height * 0.01), 0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      checkoutTitle(name: "Price"),
-                      checkoutTitle(name: "Shoe Name"),
-                      checkoutTitle(name: "Date/Time"),
-                      checkoutTitle(name: "Store"),
-                      checkoutTitle(name: "Result"),
-                    ],
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.58,
+              child: RawScrollbar(
+                thumbColor: Colors.white,
+                radius: const Radius.circular(16),
+                thickness: 3,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  dragStartBehavior: DragStartBehavior.down,
+                  primary: true,
+                  child: Theme(
+                    data: ThemeData(
+                      primarySwatch: Colors.blue,
+                      unselectedWidgetColor: Colors.white,
+                    ),
+                    child: DataTable(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        columns: const [
+                          DataColumn(label: table_Column(name: " ")),
+                          DataColumn(label: table_Column(name: "Price")),
+                          DataColumn(label: table_Column(name: "Product")),
+                          DataColumn(label: table_Column(name: "Store")),
+                          DataColumn(label: table_Column(name: "Profile")),
+                          DataColumn(label: table_Column(name: "Date/Time")),
+                        ],
+                        rows: []),
                   ),
                 ),
               ),
             ),
-            Expanded(
-              flex: 8,
-              child: checkoutRow(),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 8,
-              child: checkoutRow(),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 8,
-              child: checkoutRow(),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 8,
-              child: checkoutRow(),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 8,
-              child: checkoutRow(),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 8,
-              child: checkoutRow(),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 8,
-              child: checkoutRow(),
-            )
           ],
         ),
       ),
@@ -284,8 +256,13 @@ class checkoutRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width * 0.65,
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15))),
+      child: Text(
+        "Test",
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
@@ -612,16 +589,21 @@ class _releaseDataState extends State<releaseData> {
                   height: 95,
                   errorBuilder: (BuildContext context, Object exception,
                       StackTrace? stackTrace) {
-                    return Icon(
-                      Icons.error,
-                      size: 95,
-                      color: Colors.red,
+                    return SizedBox(
+                      width: 100,
+                      height: 95,
+                      child: IconButton(
+                        icon:
+                            Image.asset('assets/images/Logo-Animation (1).gif'),
+                        onPressed: () {},
+                      ),
                     );
                   },
                 ),
               ),
               Text(
                 widget.list[widget.index]['name']!,
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 10,
@@ -631,7 +613,7 @@ class _releaseDataState extends State<releaseData> {
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
               Text(
-                widget.list[widget.index]['date']!,
+                changeFormat(widget.list[widget.index]['date']!),
                 style: TextStyle(color: Colors.white, fontSize: 10),
               ),
             ],

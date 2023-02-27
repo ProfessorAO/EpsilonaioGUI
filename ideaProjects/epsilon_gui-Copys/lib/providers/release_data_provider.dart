@@ -1,7 +1,4 @@
-import 'package:epsilon_gui/screens/home/main/MainScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:javascript/javascript.dart';
-import 'package:provider/provider.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
