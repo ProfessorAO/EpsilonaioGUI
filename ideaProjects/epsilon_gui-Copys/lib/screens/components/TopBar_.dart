@@ -109,7 +109,7 @@ class TopBar_ extends State<TopBar>
                           indicator: BoxDecoration(
                             color: Color.fromARGB(255, 17, 26, 59),
                           ),
-                          labelColor: Colors.white,
+                          labelColor: Color.fromARGB(255, 15, 237, 120),
                           unselectedLabelColor: Colors.white60,
                           tabs: <Widget>[
                             Tab(

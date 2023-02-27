@@ -158,7 +158,10 @@ class _MainScreenState extends State<MainScreen> {
                     return Releases(widgets_: releases);
                   } else {
                     List<Widget> releases = [
-                      Expanded(child: CircularProgressIndicator())
+                      Expanded(
+                          child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                      ))
                     ];
                     return Releases(widgets_: releases);
                   }
