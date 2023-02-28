@@ -589,15 +589,12 @@ class _releaseDataState extends State<releaseData> {
                   height: 95,
                   errorBuilder: (BuildContext context, Object exception,
                       StackTrace? stackTrace) {
-                    return SizedBox(
-                      width: 100,
+                    return Container(
+                        child: Image.asset(
+                      'assets/images/Logo-Animation (1).gif',
                       height: 95,
-                      child: IconButton(
-                        icon:
-                            Image.asset('assets/images/Logo-Animation (1).gif'),
-                        onPressed: () {},
-                      ),
-                    );
+                      fit: BoxFit.cover,
+                    ));
                   },
                 ),
               ),

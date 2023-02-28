@@ -95,7 +95,10 @@ class Taskinstance with ChangeNotifier {
             Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.play_arrow),
+                  icon: const Icon(
+                    Icons.play_arrow,
+                    color: Colors.green,
+                  ),
                   color: Colors.white,
                   onPressed: () {
                     startTask();
@@ -103,13 +106,16 @@ class Taskinstance with ChangeNotifier {
                   splashRadius: 15,
                 ),
                 IconButton(
-                  icon: const Icon(Icons.pause),
+                  icon: const Icon(Icons.edit),
                   color: Colors.white,
                   onPressed: () {},
                   splashRadius: 15,
                 ),
                 IconButton(
-                  icon: const Icon(Icons.delete),
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  ),
                   color: Colors.white,
                   onPressed: () {
                     deleteTask();
@@ -171,6 +177,15 @@ class Taskinstance with ChangeNotifier {
 
   void stopTask() {}
   void deleteTask() {
+    final snackBar = SnackBar(
+      duration: Duration(seconds: 1),
+      backgroundColor: Colors.green,
+      content: const Text('Task Removed'),
+      action: SnackBarAction(
+        label: '',
+        onPressed: () {},
+      ),
+    );
     tasksList.deleteTask(getSelf());
   }
 

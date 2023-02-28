@@ -75,7 +75,7 @@ class tasksScreen extends State<tasks_screen> {
   Positioned popUpMenu(BuildContext context) {
     return Positioned(
       bottom: MediaQuery.of(context).size.height * 0.01,
-      left: MediaQuery.of(context).size.width * 0.17,
+      left: MediaQuery.of(context).size.width * 0.167,
       child: TextButton(
           onPressed: () {
             String product = "";
@@ -280,8 +280,10 @@ class tasksScreen extends State<tasks_screen> {
                             child: TextButton(
                                 onPressed: () {
                                   final snackBar = SnackBar(
+                                    duration: Duration(seconds: 1),
                                     backgroundColor: Colors.green,
-                                    content: const Text('Task Created'),
+                                    content: Text(
+                                        "${context.read<TasksInputs>().num_of_tasks} Tasks Created"),
                                     action: SnackBarAction(
                                       label: '',
                                       onPressed: () {},
@@ -641,6 +643,7 @@ class tasksScreen extends State<tasks_screen> {
                               child: TextButton(
                                   onPressed: () {
                                     final snackBar = SnackBar(
+                                      duration: Duration(seconds: 1),
                                       backgroundColor: Colors.green,
                                       content: const Text('Task Group Created'),
                                       action: SnackBarAction(
@@ -879,7 +882,7 @@ class startAll_button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: MediaQuery.of(context).size.height * 0.01,
-      left: MediaQuery.of(context).size.width * 0.1,
+      left: MediaQuery.of(context).size.width * 0.095,
       child: TextButton(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
@@ -914,7 +917,7 @@ class remove_all_button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: MediaQuery.of(context).size.height * 0.01,
-      left: MediaQuery.of(context).size.height * 0.03,
+      left: MediaQuery.of(context).size.width * 0.01,
       child: TextButton(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
@@ -925,7 +928,8 @@ class remove_all_button extends StatelessWidget {
           context.read<TasksLists>().removeAllTasks();
           final snackBar = SnackBar(
             backgroundColor: Colors.red,
-            content: const Text('Tasks Removed'),
+            content: Text(
+                '${context.read<TasksInputs>().num_of_tasks} Tasks Removed'),
             action: SnackBarAction(
               label: '',
               onPressed: () {},
@@ -994,7 +998,7 @@ class _taskListsState extends State<taskLists> {
                   DataColumn(label: table_Column(name: "Size")),
                   DataColumn(label: table_Column(name: "Profile")),
                   DataColumn(label: table_Column(name: "Status")),
-                  DataColumn(label: table_Column(name: "Actions")),
+                  DataColumn(label: table_Column(name: " ")),
                 ],
                 rows: context.watch<TasksLists>().tasks_data,
               ),
@@ -1056,9 +1060,7 @@ class _create_buttonState extends State<create_button> {
   Widget build(BuildContext context) {
     return Positioned(
       top: 55,
-      left: ((MediaQuery.of(context).size.width) * 0.3) +
-          (MediaQuery.of(context).size.width * 0.59) -
-          220,
+      left: MediaQuery.of(context).size.width * 0.01,
       child: TextButton(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
