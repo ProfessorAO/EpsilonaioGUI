@@ -48,21 +48,7 @@ class tasksScreen extends State<tasks_screen> {
                       const remove_all_button(),
                       Tasks_Stats(),
                       popUpMenu(context),
-                      Positioned(
-                        left: MediaQuery.of(context).size.width * 0.5,
-                        bottom: MediaQuery.of(context).size.height * 0.001,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.1,
-                          height: MediaQuery.of(context).size.height * 0.05,
-                          child: Text(
-                            "$task_list_number Tasks",
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20),
-                          ),
-                        ),
-                      )
+                      TasksNumber(context, task_list_number)
                     ],
                   ),
                 ),
@@ -70,6 +56,22 @@ class tasksScreen extends State<tasks_screen> {
             ],
           ),
         ));
+  }
+
+  Positioned TasksNumber(BuildContext context, int task_list_number) {
+    return Positioned(
+      left: MediaQuery.of(context).size.width * 0.5,
+      bottom: MediaQuery.of(context).size.height * 0.001,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.1,
+        height: MediaQuery.of(context).size.height * 0.05,
+        child: Text(
+          "$task_list_number Tasks",
+          style: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20),
+        ),
+      ),
+    );
   }
 
   Positioned popUpMenu(BuildContext context) {
@@ -114,12 +116,12 @@ class tasksScreen extends State<tasks_screen> {
                 return Container(
                     key: GlobalKey(),
                     decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                       color: Color.fromARGB(255, 25, 36, 78),
                     ),
-                    alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    height: MediaQuery.of(context).size.width * 0.45,
+                    alignment: Alignment.topLeft,
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.width * 0.5,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(
                           MediaQuery.of(context).size.width * 0.01,
@@ -439,16 +441,9 @@ class tasksScreen extends State<tasks_screen> {
                                 Expanded(
                                     flex: 2,
                                     child: columnInput_Menu(
-                                      Menuitems: const [
-                                        DropdownMenuItem(
-                                          value: "Trapstar",
-                                          child: Text("Trapstar"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Palace-Clothing",
-                                          child: Text("Palace-Clothing"),
-                                        ),
-                                      ],
+                                      Menuitems: context
+                                          .read<TaskOptions>()
+                                          .store_options,
                                       value: dropdownstore,
                                       label: "Store",
                                       onChanged: (String? value) {
@@ -463,28 +458,9 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownsize,
                                       label: "Size",
-                                      Menuitems: const [
-                                        DropdownMenuItem(
-                                          value: "XS",
-                                          child: Text("XS"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "S",
-                                          child: Text("S"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "M",
-                                          child: Text("M"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "L",
-                                          child: Text("L"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "XL",
-                                          child: Text("XL"),
-                                        ),
-                                      ],
+                                      Menuitems: context
+                                          .read<TaskOptions>()
+                                          .size_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownsize = value!;
@@ -498,28 +474,9 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdowncategory,
                                       label: "Clothing Category",
-                                      Menuitems: const [
-                                        DropdownMenuItem(
-                                          value: "Sneakers",
-                                          child: Text("Sneakers"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Jackets",
-                                          child: Text("Jackets"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Bottoms",
-                                          child: Text("Bottoms"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Jumpers",
-                                          child: Text("Jumpers"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Shirts",
-                                          child: Text("T-Shirts"),
-                                        ),
-                                      ],
+                                      Menuitems: context
+                                          .read<TaskOptions>()
+                                          .clothingType_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdowncategory = value!;
@@ -555,20 +512,9 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownregion,
                                       label: "Region",
-                                      Menuitems: const [
-                                        DropdownMenuItem(
-                                          value: "UK",
-                                          child: Text("UK"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "US",
-                                          child: Text("US"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "EU",
-                                          child: Text("EU"),
-                                        ),
-                                      ],
+                                      Menuitems: context
+                                          .read<TaskOptions>()
+                                          .region_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownregion = value!;
@@ -582,12 +528,9 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownprofile,
                                       label: "Profile Group",
-                                      Menuitems: const [
-                                        DropdownMenuItem(
-                                          value: "profile1",
-                                          child: Text("profile1"),
-                                        ),
-                                      ],
+                                      Menuitems: context
+                                          .read<TaskOptions>()
+                                          .profile_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownprofile = value!;
@@ -601,16 +544,9 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownTT,
                                       label: "Task Type",
-                                      Menuitems: const [
-                                        DropdownMenuItem(
-                                          value: "Browser",
-                                          child: Text("Browser"),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Requests",
-                                          child: Text("Requests"),
-                                        ),
-                                      ],
+                                      Menuitems: context
+                                          .read<TaskOptions>()
+                                          .taskType_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownTT = value!;
@@ -624,12 +560,9 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownPG,
                                       label: "Proxy Group",
-                                      Menuitems: const [
-                                        DropdownMenuItem(
-                                          value: "group1",
-                                          child: Text("group1"),
-                                        ),
-                                      ],
+                                      Menuitems: context
+                                          .read<TaskOptions>()
+                                          .proxy_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownPG = value!;
