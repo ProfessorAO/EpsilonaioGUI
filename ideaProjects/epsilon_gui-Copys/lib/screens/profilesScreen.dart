@@ -111,9 +111,24 @@ class Add_Profile_btn extends State<Profile_btn_State> {
             ),
           );
           final ProfileController = TextEditingController();
-          final CardController = TextEditingController();
+          final FnameController = TextEditingController();
+          final LnameController = TextEditingController();
+          final PostcodeController = TextEditingController();
+          final CardNameController = TextEditingController();
+          final CardNumberController = TextEditingController();
+          final phoneController = TextEditingController();
+          final CityController = TextEditingController();
           final AddressController = TextEditingController();
           final CardNoController = TextEditingController();
+          String firstName = "";
+          String lastName = "";
+          String profileName = "";
+          String cardName = "";
+          String cardNumber = "";
+          String address = "";
+          String city = "";
+          String postcode = "";
+          String phone = "";
           showPopupWindow(context,
               gravity: KumiPopupGravity.center,
               //curve: Curves.elasticOut,
@@ -138,13 +153,135 @@ class Add_Profile_btn extends State<Profile_btn_State> {
                 color: Color.fromARGB(255, 25, 36, 78),
               ),
               child: Row(
-                children: [],
+                children: [
+                  Expanded(
+                      child: Column(
+                    children: [
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: ProfileController,
+                        onChanged: (String input) {
+                          profileName = input;
+                        },
+                        label: "Profile Name",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: FnameController,
+                        onChanged: (String input) {
+                          firstName = input;
+                        },
+                        label: "First Name",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: LnameController,
+                        onChanged: (String input) {
+                          lastName = input;
+                        },
+                        label: "Last Name",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: CardNameController,
+                        onChanged: (String input) {
+                          cardName = input;
+                        },
+                        label: "Card Name",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: CardNumberController,
+                        onChanged: (String input) {
+                          cardNumber = input;
+                        },
+                        label: "Card Number",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: AddressController,
+                        onChanged: (String input) {
+                          address = input;
+                        },
+                        label: "Address",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: CityController,
+                        onChanged: (String input) {
+                          city = input;
+                        },
+                        label: "City",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: PostcodeController,
+                        onChanged: (String input) {
+                          postcode = input;
+                        },
+                        label: "Postcode",
+                      )),
+                      Expanded(
+                          child: columInputer_text(
+                        length: 50,
+                        controller: phoneController,
+                        onChanged: (String input) {
+                          postcode = input;
+                        },
+                        label: "Phone Number",
+                      )),
+                    ],
+                  )),
+                  Expanded(
+                      child: TextButton(
+                          onPressed: () {
+                            context
+                                .read<ProfileProvider>()
+                                .createProfileInstance(
+                                    firstName,
+                                    lastName,
+                                    profileName,
+                                    cardName,
+                                    cardNumber,
+                                    address,
+                                    city,
+                                    postcode,
+                                    phone);
+                            context
+                                .read<ProfileProvider>()
+                                .addProfile(Profile_card(
+                                  profile_name: profileName,
+                                  card_name: cardName,
+                                  address: address,
+                                  card_no: cardNumber,
+                                ));
+
+                            setState(() {});
+                          },
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.blue,
+                            textStyle: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          child: Text("Create Profile")))
+                ],
               ),
             );
           });
 
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          context.read<ProfileProvider>().addProfile(Profile_card());
+
           setState(() {});
         },
         child: const Text('Add Profile'),
@@ -187,112 +324,6 @@ class _remove_ProfilesState extends State<remove_Profiles> {
           setState(() {});
         },
         child: const Text('Remove All Profiles'),
-      ),
-    );
-  }
-}
-
-class Profile_card extends StatelessWidget {
-  const Profile_card({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.2,
-      height: MediaQuery.of(context).size.height * 0.2,
-      decoration: BoxDecoration(
-          color: Color.fromARGB(255, 25, 36, 78),
-          border: Border(
-              left: BorderSide(
-            color: Colors.blue,
-            width: 5,
-            style: BorderStyle.solid,
-          ))),
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
-            child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Profile Name",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 13),
-                )),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.062,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text("Card Name",
-                    style: TextStyle(color: Colors.white, fontSize: 12))),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text("Address",
-                    style: TextStyle(color: Colors.white, fontSize: 12))),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 1),
-            child: Row(
-              children: [
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text("\u2022 \u2022 \u2022 \u2022  1234",
-                        style: TextStyle(color: Colors.white, fontSize: 12))),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.1,
-                ),
-                InkWell(
-                  splashColor: Colors.white,
-                  onTap: () {
-                    final snackBar = SnackBar(
-                      backgroundColor: Colors.red,
-                      content: const Text('Profile Removed'),
-                      action: SnackBarAction(
-                        label: '',
-                        onPressed: () {},
-                      ),
-                    );
-                    context.read<ProfileProvider>().removeProfile(this);
-                  },
-                  child: Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                    size: 20,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.edit,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
