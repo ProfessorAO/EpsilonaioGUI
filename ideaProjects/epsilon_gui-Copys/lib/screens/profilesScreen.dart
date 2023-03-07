@@ -5,6 +5,8 @@ import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/gestures.dart';
+import 'package:kumi_popup_window/kumi_popup_window.dart';
+import 'package:epsilon_gui/screens/components/CustomPackages/InputWidgets.dart';
 
 class ProfilesScreen extends StatelessWidget {
   const ProfilesScreen({Key? key}) : super(key: key);
@@ -108,6 +110,38 @@ class Add_Profile_btn extends State<Profile_btn_State> {
               onPressed: () {},
             ),
           );
+          final ProfileController = TextEditingController();
+          final CardController = TextEditingController();
+          final AddressController = TextEditingController();
+          final CardNoController = TextEditingController();
+          showPopupWindow(context,
+              gravity: KumiPopupGravity.center,
+              //curve: Curves.elasticOut,
+              bgColor: const Color.fromARGB(255, 17, 26, 59).withOpacity(0.8),
+              clickOutDismiss: true,
+              clickBackDismiss: true,
+              customAnimation: false,
+              customPop: false,
+              customPage: false,
+              //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
+              //needSafeDisplay: true,
+              underStatusBar: false,
+              underAppBar: true,
+              offsetX: 0,
+              offsetY: 0,
+              duration: Duration(milliseconds: 200), childFun: (pop) {
+            return Container(
+              width: MediaQuery.of(context).size.width * 0.55,
+              height: MediaQuery.of(context).size.width * 0.45,
+              key: GlobalKey(),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 25, 36, 78),
+              ),
+              child: Row(
+                children: [],
+              ),
+            );
+          });
 
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           context.read<ProfileProvider>().addProfile(Profile_card());

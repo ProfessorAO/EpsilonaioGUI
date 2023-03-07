@@ -12,6 +12,7 @@ import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'package:epsilon_gui/providers/task_options_provider.dart';
+import 'package:epsilon_gui/screens/components/CustomPackages/InputWidgets.dart';
 
 typedef StringVoidCallback = void Function(String?);
 typedef StringCallback = void Function(String);
@@ -116,36 +117,35 @@ class tasksScreen extends State<tasks_screen> {
                 return Container(
                     key: GlobalKey(),
                     decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
                       color: Color.fromARGB(255, 25, 36, 78),
                     ),
                     alignment: Alignment.topLeft,
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.55,
+                    height: MediaQuery.of(context).size.width * 0.45,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.01,
+                          MediaQuery.of(context).size.width * 0.001,
                           MediaQuery.of(context).size.height * 0.001,
                           0,
                           0),
                       child: Row(children: [
                         Expanded(
-                          flex: 2,
+                          flex: 10,
                           child: Column(
                             children: [
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columInputer_text(
                                     length: 50,
                                     controller: myController,
                                     onChanged: (String value) {
                                       product = value;
                                     },
-                                    label: "Product",
+                                    label: "Input",
                                   )),
                               const Spacer(),
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columnInput_Menu(
                                     Menuitems:
                                         context.read<TaskOptions>().stores,
@@ -159,10 +159,10 @@ class tasksScreen extends State<tasks_screen> {
                                   )),
                               const Spacer(),
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columnInput_Menu(
                                     value: dropdownsize,
-                                    label: "Size",
+                                    label: "Size(s)",
                                     Menuitems:
                                         context.read<TaskOptions>().sizes,
                                     onChanged: (String? value) {
@@ -174,7 +174,7 @@ class tasksScreen extends State<tasks_screen> {
                               const Spacer(),
                               //CATEGORY
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columnInput_Menu(
                                     value: dropdowncategory,
                                     label: "Clothing Category",
@@ -190,7 +190,7 @@ class tasksScreen extends State<tasks_screen> {
                               //COLOR
                               const Spacer(),
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columInputer_text(
                                     controller: keywordsController,
                                     length: 20,
@@ -204,7 +204,7 @@ class tasksScreen extends State<tasks_screen> {
                               const Spacer(),
                               // TASK NUMBER
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columInputer_text(
                                     controller: numController,
                                     length: 2,
@@ -218,7 +218,7 @@ class tasksScreen extends State<tasks_screen> {
                               const Spacer(),
                               // REGION
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columnInput_Menu(
                                     value: dropdownregion,
                                     label: "Region",
@@ -233,7 +233,7 @@ class tasksScreen extends State<tasks_screen> {
                               const Spacer(),
                               //PROFILE
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columnInput_Menu(
                                     value: dropdownprofile,
                                     label: "Profile",
@@ -248,10 +248,10 @@ class tasksScreen extends State<tasks_screen> {
                               const Spacer(),
                               //TASK TYPE
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columnInput_Menu(
                                     value: dropdownTT,
-                                    label: "Task Type",
+                                    label: "Task Mode",
                                     Menuitems:
                                         context.read<TaskOptions>().taskTypes,
                                     onChanged: (String? value) {
@@ -263,7 +263,7 @@ class tasksScreen extends State<tasks_screen> {
                               const Spacer(),
                               //TASK GROUP
                               Expanded(
-                                  flex: 2,
+                                  flex: 10,
                                   child: columnInput_Menu(
                                     value: dropdownTG,
                                     label: "Proxy Group",
@@ -275,54 +275,69 @@ class tasksScreen extends State<tasks_screen> {
                                       });
                                     },
                                   )),
+                              Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.2,
+                                    child: TextButton(
+                                        onPressed: () {
+                                          final snackBar = SnackBar(
+                                            duration: Duration(seconds: 1),
+                                            backgroundColor: Colors.green,
+                                            content: Text(
+                                                "${context.read<TasksInputs>().num_of_tasks} Tasks Created"),
+                                            action: SnackBarAction(
+                                              label: '',
+                                              onPressed: () {},
+                                            ),
+                                          );
+
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(snackBar);
+                                          context
+                                              .read<TasksInputs>()
+                                              .setproduct(product);
+                                          context
+                                              .read<TasksInputs>()
+                                              .setsize(dropdownsize);
+                                          context
+                                              .read<TasksInputs>()
+                                              .setprofile(dropdownprofile);
+                                          context
+                                              .read<TasksInputs>()
+                                              .setstore(dropdownstore);
+                                          context.read<TasksLists>().addTask(
+                                              context
+                                                  .read<TasksInputs>()
+                                                  .tasks_num,
+                                              context
+                                                  .read<TasksInputs>()
+                                                  .task_store,
+                                              context
+                                                  .read<TasksInputs>()
+                                                  .product,
+                                              context
+                                                  .read<TasksInputs>()
+                                                  .task_profile,
+                                              context
+                                                  .read<TasksInputs>()
+                                                  .task_size,
+                                              context);
+                                        },
+                                        style: TextButton.styleFrom(
+                                          foregroundColor: Colors.white,
+                                          backgroundColor: Colors.blue,
+                                          textStyle: const TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        child: Text("Create Task")),
+                                  ))
                             ],
                           ),
                         ),
-                        Expanded(
-                            child: TextButton(
-                                onPressed: () {
-                                  final snackBar = SnackBar(
-                                    duration: Duration(seconds: 1),
-                                    backgroundColor: Colors.green,
-                                    content: Text(
-                                        "${context.read<TasksInputs>().num_of_tasks} Tasks Created"),
-                                    action: SnackBarAction(
-                                      label: '',
-                                      onPressed: () {},
-                                    ),
-                                  );
-
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                                  context
-                                      .read<TasksInputs>()
-                                      .setproduct(product);
-                                  context
-                                      .read<TasksInputs>()
-                                      .setsize(dropdownsize);
-                                  context
-                                      .read<TasksInputs>()
-                                      .setprofile(dropdownprofile);
-                                  context
-                                      .read<TasksInputs>()
-                                      .setstore(dropdownstore);
-                                  context.read<TasksLists>().addTask(
-                                      context.read<TasksInputs>().tasks_num,
-                                      context.read<TasksInputs>().task_store,
-                                      context.read<TasksInputs>().product,
-                                      context.read<TasksInputs>().task_profile,
-                                      context.read<TasksInputs>().task_size,
-                                      context);
-                                },
-                                style: TextButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  backgroundColor: Colors.blue,
-                                  textStyle: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                child: Text("Save")))
                       ]),
                     ));
               },
@@ -1014,100 +1029,21 @@ class _create_buttonState extends State<create_button> {
   }
 }
 
-class columInputer_text extends StatelessWidget {
-  const columInputer_text({
-    super.key,
-    required this.controller,
-    required this.onChanged,
-    required this.label,
-    required this.length,
-  });
-
-  final TextEditingController controller;
-  final StringCallback onChanged;
-  final String label;
-  final int length;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 25, 36, 78),
-      child: TextField(
-          style: const TextStyle(
-              fontFamily: 'Audiowide', color: Colors.white, fontSize: 16),
-          controller: controller,
-          maxLength: length,
-          onChanged: onChanged,
-          decoration: InputDecoration(
-            counterText: '',
-            label: Text(
-              label,
-              style: TextStyle(color: Colors.white70, fontSize: 15),
-            ),
-            border: InputBorder.none,
-            isDense: true,
-            contentPadding: EdgeInsets.all(8),
-          )),
-    );
-  }
-}
-
-class columnInput_Menu extends StatelessWidget {
-  const columnInput_Menu({
-    super.key,
-    required this.value,
-    required this.onChanged,
-    required this.Menuitems,
-    required this.label,
-  });
-
-  final String value;
-  final StringVoidCallback onChanged;
-  final List<DropdownMenuItem<String>>? Menuitems;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButtonFormField(
-        decoration: InputDecoration(
-          label: Text(
-            label,
-            style: TextStyle(color: Colors.white70, fontSize: 15),
-          ),
-          filled: true,
-          fillColor: Color.fromARGB(255, 25, 36, 78),
-          border: InputBorder.none,
-          isDense: true,
-          contentPadding: EdgeInsets.all(8),
-        ),
-        dropdownColor: const Color.fromRGBO(26, 25, 25, 1),
-        value: value,
-        icon: const Icon(
-          Icons.arrow_drop_down,
-          color: Colors.white,
-        ),
-        style: const TextStyle(
-            fontFamily: 'Audiowide', color: Colors.white, fontSize: 15),
-        items: Menuitems,
-        onChanged: onChanged);
-  }
-}
-
-class taskInputData extends StatelessWidget {
-  const taskInputData({super.key, required this.name});
-  final String name;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(name,
-            style: const TextStyle(
-              fontSize: 15,
-              fontFamily: 'Audiowide',
-              color: Color.fromARGB(255, 15, 237, 120),
-            )),
-      ),
-    );
-  }
-}
+// class taskInputData extends StatelessWidget {
+//   const taskInputData({super.key, required this.name});
+//   final String name;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Align(
+//         alignment: Alignment.center,
+//         child: Text(name,
+//             style: const TextStyle(
+//               fontSize: 15,
+//               fontFamily: 'Audiowide',
+//               color: Color.fromARGB(255, 15, 237, 120),
+//             )),
+//       ),
+//     );
+//   }
+// }

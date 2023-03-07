@@ -32,6 +32,10 @@ class TaskOptions with ChangeNotifier {
       value: "Palace-Clothing",
       child: Text("Palace-Clothing"),
     ),
+    DropdownMenuItem(
+      child: Text("End-Clothing"),
+      value: "End-Clothing",
+    )
   ];
   List<DropdownMenuItem<String>>? region_options = [
     DropdownMenuItem(
