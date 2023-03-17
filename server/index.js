@@ -36,6 +36,7 @@ async function connection_websockets(){
     async function waitForData_Json(ws){
         return new Promise((resolve, reject) => {
             ws.on('message', function message(data){
+                var res_data;
                 console.log('data: %s',data);
                 res_data =  JSON.parse(data);
                 resolve(res_data);

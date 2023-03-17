@@ -279,7 +279,7 @@ class Taskinstance with ChangeNotifier {
               children: [
                 IconButton(
                   icon: const Icon(Icons.play_arrow),
-                  color: Colors.white,
+                  color: Colors.green,
                   onPressed: () {
                     startTask();
                   },
@@ -293,7 +293,7 @@ class Taskinstance with ChangeNotifier {
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete),
-                  color: Colors.white,
+                  color: Colors.red,
                   onPressed: () {
                     deleteTask();
                   },

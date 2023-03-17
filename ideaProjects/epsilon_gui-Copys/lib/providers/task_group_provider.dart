@@ -66,8 +66,9 @@ class TaskGroupList with ChangeNotifier {
             ),
         onPressed: () {
           final snackBar = SnackBar(
+            duration: const Duration(seconds: 1),
             backgroundColor: Colors.green,
-            content: const Text('Task Created'),
+            content: Text('$taskgroup_name Used'),
             action: SnackBarAction(
               label: '',
               onPressed: () {},
@@ -80,6 +81,7 @@ class TaskGroupList with ChangeNotifier {
           context.read<TasksInputs>().setprofile(taskprofile);
           context.read<TasksInputs>().setstore(taskstore);
           context.read<TasksInputs>().setNum_of_tasks(tasknum);
+          context.read<TasksLists>().removeAllTasks();
           context.read<TasksLists>().addTask(
               context.read<TasksInputs>().tasks_num,
               context.read<TasksInputs>().task_store,
@@ -150,12 +152,12 @@ class TaskGroupList with ChangeNotifier {
     ));
     group_list.add(
       Container(
-        child: createTaskGroup(context),
         width: MediaQuery.of(context).size.width * 0.25,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5)),
             border:
                 Border.all(color: Color.fromARGB(255, 25, 36, 78), width: 3)),
+        child: createTaskGroup(context),
       ),
     );
   }

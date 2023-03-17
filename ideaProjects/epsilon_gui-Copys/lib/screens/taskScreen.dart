@@ -46,7 +46,7 @@ class tasksScreen extends State<tasks_screen> {
                       create_taskgroup_btn(context),
                       bottomBar(),
                       const startAll_button(),
-                      const remove_all_button(),
+                      remove_all_button(list_number: task_list_number),
                       Tasks_Stats(),
                       popUpMenu(context),
                       TasksNumber(context, task_list_number)
@@ -858,8 +858,11 @@ class startAll_button extends StatelessWidget {
 
 class remove_all_button extends StatelessWidget {
   const remove_all_button({
+    required this.list_number,
     super.key,
   });
+
+  final int list_number;
 
   @override
   Widget build(BuildContext context) {
@@ -876,8 +879,7 @@ class remove_all_button extends StatelessWidget {
           context.read<TasksLists>().removeAllTasks();
           final snackBar = SnackBar(
             backgroundColor: Colors.red,
-            content: Text(
-                '${context.read<TasksInputs>().num_of_tasks} Tasks Removed'),
+            content: Text('$list_number Tasks Removed'),
             action: SnackBarAction(
               label: '',
               onPressed: () {},

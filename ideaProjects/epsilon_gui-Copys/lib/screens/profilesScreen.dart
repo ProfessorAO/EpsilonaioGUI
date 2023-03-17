@@ -69,10 +69,9 @@ class Profiles_layout extends State<Profiles_layout_state> {
             dragStartBehavior: DragStartBehavior.down,
             primary: true,
             child: Wrap(
-              spacing: MediaQuery.of(context).size.width * 0.03,
-              runSpacing: MediaQuery.of(context).size.width * 0.025,
-              children: context.watch<ProfileProvider>().all_profile_cards,
-            ),
+                spacing: MediaQuery.of(context).size.width * 0.03,
+                runSpacing: MediaQuery.of(context).size.width * 0.025,
+                children: context.watch<ProfileProvider>().all_profile_cards),
           ),
         ),
       ),
@@ -101,15 +100,6 @@ class Add_Profile_btn extends State<Profile_btn_State> {
           padding: const EdgeInsets.all(16.0),
         ),
         onPressed: () {
-          final snackBar = SnackBar(
-            duration: Duration(seconds: 1),
-            backgroundColor: Colors.green,
-            content: const Text('Profile Created'),
-            action: SnackBarAction(
-              label: '',
-              onPressed: () {},
-            ),
-          );
           final ProfileController = TextEditingController();
           final FnameController = TextEditingController();
           final LnameController = TextEditingController();
@@ -152,93 +142,88 @@ class Add_Profile_btn extends State<Profile_btn_State> {
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 25, 36, 78),
               ),
-              child: Row(
+              child: Column(
                 children: [
                   Expanded(
-                      child: Column(
-                    children: [
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: ProfileController,
-                        onChanged: (String input) {
-                          profileName = input;
-                        },
-                        label: "Profile Name",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: FnameController,
-                        onChanged: (String input) {
-                          firstName = input;
-                        },
-                        label: "First Name",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: LnameController,
-                        onChanged: (String input) {
-                          lastName = input;
-                        },
-                        label: "Last Name",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: CardNameController,
-                        onChanged: (String input) {
-                          cardName = input;
-                        },
-                        label: "Card Name",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: CardNumberController,
-                        onChanged: (String input) {
-                          cardNumber = input;
-                        },
-                        label: "Card Number",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: AddressController,
-                        onChanged: (String input) {
-                          address = input;
-                        },
-                        label: "Address",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: CityController,
-                        onChanged: (String input) {
-                          city = input;
-                        },
-                        label: "City",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: PostcodeController,
-                        onChanged: (String input) {
-                          postcode = input;
-                        },
-                        label: "Postcode",
-                      )),
-                      Expanded(
-                          child: columInputer_text(
-                        length: 50,
-                        controller: phoneController,
-                        onChanged: (String input) {
-                          postcode = input;
-                        },
-                        label: "Phone Number",
-                      )),
-                    ],
+                      child: columInputer_text(
+                    length: 50,
+                    controller: ProfileController,
+                    onChanged: (String input) {
+                      profileName = input;
+                    },
+                    label: "Profile Name",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: FnameController,
+                    onChanged: (String input) {
+                      firstName = input;
+                    },
+                    label: "First Name",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: LnameController,
+                    onChanged: (String input) {
+                      lastName = input;
+                    },
+                    label: "Last Name",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: CardNameController,
+                    onChanged: (String input) {
+                      cardName = input;
+                    },
+                    label: "Card Name",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: CardNumberController,
+                    onChanged: (String input) {
+                      cardNumber = input;
+                    },
+                    label: "Card Number",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: AddressController,
+                    onChanged: (String input) {
+                      address = input;
+                    },
+                    label: "Address",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: CityController,
+                    onChanged: (String input) {
+                      city = input;
+                    },
+                    label: "City",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: PostcodeController,
+                    onChanged: (String input) {
+                      postcode = input;
+                    },
+                    label: "Postcode",
+                  )),
+                  Expanded(
+                      child: columInputer_text(
+                    length: 50,
+                    controller: phoneController,
+                    onChanged: (String input) {
+                      phone = input;
+                    },
+                    label: "Phone Number",
                   )),
                   Expanded(
                       child: TextButton(
@@ -254,15 +239,27 @@ class Add_Profile_btn extends State<Profile_btn_State> {
                                     address,
                                     city,
                                     postcode,
-                                    phone);
-                            context
-                                .read<ProfileProvider>()
-                                .addProfile(Profile_card(
-                                  profile_name: profileName,
-                                  card_name: cardName,
-                                  address: address,
-                                  card_no: cardNumber,
-                                ));
+                                    phone,
+                                    Profile_card(
+                                        parent: context.read<ProfileProvider>(),
+                                        profile_name: profileName,
+                                        card_name: cardName,
+                                        address: address,
+                                        card_no: cardNumber));
+
+                            setState(() {});
+
+                            final snackBar = SnackBar(
+                              duration: Duration(seconds: 1),
+                              backgroundColor: Colors.green,
+                              content: const Text('Profile Created'),
+                              action: SnackBarAction(
+                                label: '',
+                                onPressed: () {},
+                              ),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
 
                             setState(() {});
                           },
@@ -279,8 +276,6 @@ class Add_Profile_btn extends State<Profile_btn_State> {
               ),
             );
           });
-
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
           setState(() {});
         },
@@ -344,36 +339,37 @@ class ProfileGroup extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.82,
             child: Column(children: [
               Expanded(
-                  flex: 1,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.blue,
-                        minimumSize: Size(
-                            MediaQuery.of(context).size.width * 0.28,
-                            MediaQuery.of(context).size.height * 0.1)
-                        //padding: const EdgeInsets.all(16.0),
+                flex: 1,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.blue,
+                      minimumSize: Size(
+                          MediaQuery.of(context).size.width * 0.28,
+                          MediaQuery.of(context).size.height * 0.1)
+                      //padding: const EdgeInsets.all(16.0),
+                      ),
+                  onPressed: () {},
+                  child: Row(
+                    children: [
+                      const Spacer(),
+                      const Text(
+                        'New Profile Group',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0,
+                            MediaQuery.of(context).size.height * 0.006, 0, 0),
+                        child: Icon(
+                          Icons.add,
+                          size: MediaQuery.of(context).size.height * 0.027,
                         ),
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        const Spacer(),
-                        const Text(
-                          'New Profile Group',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(0,
-                              MediaQuery.of(context).size.height * 0.001, 0, 0),
-                          child: Icon(
-                            Icons.add,
-                            size: MediaQuery.of(context).size.height * 0.027,
-                          ),
-                        ),
-                        const Spacer(),
-                      ],
-                    ),
-                  )),
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
+                ),
+              ),
               Expanded(
                   flex: 9,
                   child: Container(
@@ -383,7 +379,9 @@ class ProfileGroup extends StatelessWidget {
                           border: Border.all(
                               color: Color.fromARGB(255, 25, 36, 78),
                               width: 3)),
-                      child: RawScrollbar(child: SingleChildScrollView())
+                      child: RawScrollbar(
+                          child:
+                              SingleChildScrollView(child: taskGroupColumn()))
 
                       //width: MediaQuery.of(context).size.width * 0.265,
 

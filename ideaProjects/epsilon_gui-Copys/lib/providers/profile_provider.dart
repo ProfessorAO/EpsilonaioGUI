@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 
 class ProfileProvider with ChangeNotifier {
   List<ProfileInstance> all_profile_instances = [];
-  List<Widget> all_profile_cards = [];
+  List<Profile_card> all_profile_cards = [];
 
-  void addProfile(Widget Profile) {
-    all_profile_cards.add(Profile);
+  void removeProfile(Profile_card profileCard) {
+    all_profile_cards.remove(profileCard);
+    for (ProfileInstance instance in all_profile_instances) {
+      if (instance.profileCard == profileCard) {}
+    }
     notifyListeners();
   }
 
-  void removeProfile(Widget Profile) {
-    all_profile_cards.removeWhere((element) => element == Profile);
+  void addProfile(Profile_card ProfileCard) {
+    all_profile_cards.add(ProfileCard);
     notifyListeners();
   }
 
   void removeAllProfiles() {
     all_profile_cards.clear();
+    all_profile_instances.clear();
     notifyListeners();
   }
 
@@ -28,13 +32,16 @@ class ProfileProvider with ChangeNotifier {
       String address_,
       String city_,
       String postcode_,
-      String phone_) {
-    ProfileInstance profileInstance = ProfileInstance(
-        fname, lname, pname, cname, cnum, address_, city_, postcode_, phone_);
+      String phone_,
+      Profile_card cardWidget) {
+    ProfileInstance profileInstance = ProfileInstance(fname, lname, pname,
+        cname, cnum, address_, city_, postcode_, phone_, cardWidget);
 
     all_profile_instances.add(profileInstance);
     profileInstance
         .setprofileId(all_profile_instances.indexOf(profileInstance));
+    all_profile_cards.add(cardWidget);
+    notifyListeners();
   }
 }
 
@@ -48,6 +55,7 @@ class ProfileInstance {
   String city = "";
   String postcode = "";
   String phone = "";
+  late Profile_card profileCard;
   late int ProfileID;
 
 //GETTERS
@@ -103,8 +111,8 @@ class ProfileInstance {
     ProfileID = newId;
   }
 
-  ProfileInstance(
-      fname, lname, pname, cname, cnum, address_, city_, postcode_, phone_) {
+  ProfileInstance(fname, lname, pname, cname, cnum, address_, city_, postcode_,
+      phone_, cardWidget) {
     first_name = fname;
     last_name = lname;
     profile_name = pname;
@@ -114,122 +122,134 @@ class ProfileInstance {
     city = city_;
     postcode = postcode_;
     phone = phone_;
+    profileCard = cardWidget;
   }
 }
 
 class Profile_card extends StatelessWidget {
-  const Profile_card({
-    super.key,
-    required this.profile_name,
-    required this.card_name,
-    required this.address,
-    required this.card_no,
-  });
+  const Profile_card(
+      {super.key,
+      required this.profile_name,
+      required this.card_name,
+      required this.address,
+      required this.card_no,
+      required this.parent});
   final String profile_name;
   final String card_name;
   final String address;
   final String card_no;
+  final ProfileProvider parent;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.2,
-      height: MediaQuery.of(context).size.height * 0.2,
-      decoration: BoxDecoration(
-          color: Color.fromARGB(255, 25, 36, 78),
-          border: Border(
-              left: BorderSide(
-            color: Colors.blue,
-            width: 5,
-            style: BorderStyle.solid,
-          ))),
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
-            child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  profile_name,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 13),
-                )),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.062,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(card_name,
-                    style: TextStyle(color: Colors.white, fontSize: 12))),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(address,
-                    style: TextStyle(color: Colors.white, fontSize: 12))),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width * 0.01, 0, 0, 1),
-            child: Row(
-              children: [
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                        "\u2022 \u2022 \u2022 \u2022 " +
-                            card_no
-                                .toString()
-                                .substring(card_no.toString().length - 4),
-                        style: TextStyle(color: Colors.white, fontSize: 12))),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0 + .1,
-                ),
-                InkWell(
-                  splashColor: Colors.white,
-                  onTap: () {
-                    final snackBar = SnackBar(
-                      backgroundColor: Colors.red,
-                      content: const Text('Profile Removed'),
-                      action: SnackBarAction(
-                        label: '',
-                        onPressed: () {},
-                      ),
-                    );
-                    ProfileProvider().removeProfile(this);
-                  },
-                  child: Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                    size: 20,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.edit,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-              ],
+    return InkWell(
+      onTap: () {
+        print("Card touched");
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.2,
+        height: MediaQuery.of(context).size.height * 0.2,
+        decoration: BoxDecoration(
+            color: Color.fromARGB(255, 25, 36, 78),
+            border: Border(
+                left: BorderSide(
+              color: Colors.blue,
+              width: 5,
+              style: BorderStyle.solid,
+            ))),
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
-          ),
-        ],
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
+              child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    profile_name,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13),
+                  )),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.062,
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(card_name,
+                      style: TextStyle(color: Colors.white, fontSize: 12))),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(address,
+                      style: TextStyle(color: Colors.white, fontSize: 12))),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                  MediaQuery.of(context).size.width * 0.01, 0, 0, 1),
+              child: Row(
+                children: [
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                          "\u2022 \u2022 \u2022 \u2022 " +
+                              card_no
+                                  .toString()
+                                  .substring(card_no.toString().length - 4),
+                          style: TextStyle(color: Colors.white, fontSize: 12))),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.1,
+                  ),
+                  InkWell(
+                    splashColor: Colors.white,
+                    onTap: () {
+                      print("Delete touched");
+                      final snackBar = SnackBar(
+                        duration: Duration(seconds: 1),
+                        backgroundColor: Colors.red,
+                        content: const Text('Profile Removed'),
+                        action: SnackBarAction(
+                          label: '',
+                          onPressed: () {},
+                        ),
+                      );
+                      parent.removeProfile(this);
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    },
+                    child: Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                      size: 20,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print("Edit touched");
+                    },
+                    child: Icon(
+                      Icons.edit,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

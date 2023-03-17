@@ -23,7 +23,7 @@ class TasksLists with ChangeNotifier {
         tasks_instances.indexWhere((element) => element.taskID == task_.taskID);
     current_tasks_list[index] = task_.taskRow;
     tasks_instances[index] = task_;
-    print(task_.taskID);
+    //print(task_.taskID);
     notifyListeners();
   }
 
