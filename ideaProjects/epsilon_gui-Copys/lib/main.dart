@@ -11,6 +11,7 @@ import 'package:epsilon_gui/providers/profile_provider.dart';
 import 'package:epsilon_gui/providers/release_data_provider.dart';
 import 'package:epsilon_gui/providers/recent_checkouts_provider.dart';
 import 'package:epsilon_gui/providers/task_options_provider.dart';
+import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
@@ -34,6 +35,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => ProfileProvider()),
         ChangeNotifierProvider(create: (_) => ReleasesData()),
         ChangeNotifierProvider(create: (_) => RecentCheckoutProvider()),
+        ChangeNotifierProvider(create: (_) => ProfileGroupProvider()),
         ChangeNotifierProvider(create: (_) => TaskOptions()),
       ],
       child: MyApp(),

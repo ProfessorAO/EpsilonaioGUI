@@ -55,8 +55,9 @@ class ProfileInstance {
   String city = "";
   String postcode = "";
   String phone = "";
+  bool checked = false;
   late Profile_card profileCard;
-  late int ProfileID;
+  int ProfileID = 0;
 
 //GETTERS
   String get firstName => first_name;
