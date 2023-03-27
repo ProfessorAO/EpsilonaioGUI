@@ -1,4 +1,6 @@
+import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfileProvider with ChangeNotifier {
   List<ProfileInstance> all_profile_instances = [];
@@ -33,19 +35,35 @@ class ProfileProvider with ChangeNotifier {
       String city_,
       String postcode_,
       String phone_,
-      Profile_card cardWidget) {
-    ProfileInstance profileInstance = ProfileInstance(fname, lname, pname,
-        cname, cnum, address_, city_, postcode_, phone_, cardWidget);
+      Profile_card cardWidget,
+      ProfileGroupProvider groupProvider) {
+    ProfileInstance profileInstance = ProfileInstance(
+        fname,
+        lname,
+        pname,
+        cname,
+        cnum,
+        address_,
+        city_,
+        postcode_,
+        phone_,
+        cardWidget,
+        groupProvider);
 
     all_profile_instances.add(profileInstance);
     profileInstance
         .setprofileId(all_profile_instances.indexOf(profileInstance));
+
+    profileInstance.setProfileCard(cardWidget);
+    profileInstance.setDataRow();
+
     all_profile_cards.add(cardWidget);
+
     notifyListeners();
   }
 }
 
-class ProfileInstance {
+class ProfileInstance with ChangeNotifier {
   String first_name = "";
   String last_name = "";
   String profile_name = "";
@@ -56,8 +74,16 @@ class ProfileInstance {
   String postcode = "";
   String phone = "";
   bool checked = false;
-  late Profile_card profileCard;
+  Profile_card profileCard = Profile_card(
+      profile_name: "",
+      card_name: "",
+      address: "",
+      card_no: "",
+      parent: ProfileProvider());
   int ProfileID = 0;
+  ProfileGroupProvider GroupProvider = ProfileGroupProvider();
+  //BuildContext build_context;
+  DataRow dataRow = DataRow(cells: []);
 
 //GETTERS
   String get firstName => first_name;
@@ -112,8 +138,132 @@ class ProfileInstance {
     ProfileID = newId;
   }
 
+  void setProfileCard(Profile_card card) {
+    profileCard = card;
+  }
+
+  void setGroupProvider(ProfileGroupProvider GroupProvider_) {
+    GroupProvider = GroupProvider_;
+  }
+
+  // void setContext(BuildContext context_) {
+  //   build_context = context_;
+  // }
+
+  DataRow getDataRow() {
+    return dataRow;
+  }
+
+  void setDataRow() {
+    bool check;
+    dataRow = DataRow(
+        onSelectChanged: ((value) {
+          checked = (value!);
+          redrawDataRow(checked);
+          GroupProvider.refreshData();
+          notifyListeners();
+        }),
+        selected: checked,
+        cells: [
+          DataCell(Text(
+            ProfileID.toString(),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            cardName,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            cardNumber,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            address,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            phone,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+        ]);
+  }
+
+  void redrawDataRow(bool check) {
+    //bool check;
+    dataRow = DataRow(
+        onSelectChanged: ((value) {
+          checked = (value!);
+          redrawDataRow(checked);
+          GroupProvider.refreshData();
+          notifyListeners();
+        }),
+        selected: (check),
+        cells: [
+          DataCell(Text(
+            ProfileID.toString(),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            cardName,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            cardNumber,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            address,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+          DataCell(Text(
+            phone,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
+            ),
+          )),
+        ]);
+  }
+
   ProfileInstance(fname, lname, pname, cname, cnum, address_, city_, postcode_,
-      phone_, cardWidget) {
+      phone_, profilecard, groupProvider) {
     first_name = fname;
     last_name = lname;
     profile_name = pname;
@@ -123,7 +273,8 @@ class ProfileInstance {
     city = city_;
     postcode = postcode_;
     phone = phone_;
-    profileCard = cardWidget;
+    profileCard = profilecard;
+    GroupProvider = groupProvider;
   }
 }
 

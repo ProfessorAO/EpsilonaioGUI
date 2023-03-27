@@ -37,6 +37,25 @@ void main() {
         ChangeNotifierProvider(create: (_) => RecentCheckoutProvider()),
         ChangeNotifierProvider(create: (_) => ProfileGroupProvider()),
         ChangeNotifierProvider(create: (_) => TaskOptions()),
+        ChangeNotifierProvider(
+            create: (_) => ProfileInstance(
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                Profile_card(
+                  profile_name: '',
+                  address: '',
+                  card_name: '',
+                  card_no: '',
+                  parent: ProfileProvider(),
+                ),
+                ProfileGroupProvider()))
       ],
       child: MyApp(),
     ),

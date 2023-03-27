@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:epsilon_gui/providers/profile_provider.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
@@ -7,157 +9,97 @@ import 'package:provider/provider.dart';
 import 'package:ready/ready.dart';
 
 class ProfileGroupProvider with ChangeNotifier {
-  String profileGrouo_name = "";
+  Map<String, List<ProfileInstance>> profileGroups = {};
+  late BuildContext context_;
   List<DataRow> all_profiles_data = [];
+  List<Widget> profileGroupList = [];
 
-  List<DataRow> getProfileTableData(BuildContext context) {
+//GETTERS
+  BuildContext get profileGroupContext => context_;
+  List<DataRow> get allProfilesData => all_profiles_data;
+  List<Widget> get profileGroups_ => profileGroupList;
+
+//SETTERS
+  void setContext(BuildContext newcontext) {
+    context_ = newcontext;
+    notifyListeners();
+  }
+
+//FUNCTIONS
+  void refreshData() {
+    all_profiles_data = getProfileTableData();
+    notifyListeners();
+  }
+
+  List<DataRow> getProfileTableData() {
     List<DataRow> data = [];
     DataRow dataRow_instance;
-    var list = context.read<ProfileProvider>().all_profile_instances;
+    var list = context_.read<ProfileProvider>().all_profile_instances;
     for (ProfileInstance instance in list) {
-      bool check = (!instance.checked);
-      data.add(DataRow(
-          onSelectChanged: ((value) {
-            check = (value!);
-            notifyListeners();
-          }),
-          selected: check,
-          cells: [
-            DataCell(Text(
-              instance.ProfileID.toString(),
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
-                fontSize: 13,
-              ),
-            )),
-            DataCell(Text(
-              instance.cardName,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
-                fontSize: 13,
-              ),
-            )),
-            DataCell(Text(
-              instance.cardNumber,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
-                fontSize: 13,
-              ),
-            )),
-            DataCell(Text(
-              instance.address,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
-                fontSize: 13,
-              ),
-            )),
-            DataCell(Text(
-              instance.phone,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
-                fontSize: 13,
-              ),
-            )),
-          ]));
+      data.add(instance.getDataRow());
     }
+    notifyListeners();
     return data;
   }
 
-//late int profileIds
+  List<ProfileInstance> getSelectedProfiles() {
+    var list = context_.read<ProfileProvider>().all_profile_instances;
+    List<ProfileInstance> selectedProfiles = [];
+    for (ProfileInstance instance in list) {
+      if (instance.checked == true) {
+        selectedProfiles.add(instance);
+      }
+    }
+    return selectedProfiles;
+  }
+
+  void addtoGroupDetails(List<ProfileInstance> list, String name) {
+    profileGroups.addAll({name: list});
+    notifyListeners();
+  }
+
+  Widget createProfileGroup(context, groupName) {
+    List<ProfileInstance> selectedProfiles = getSelectedProfiles();
+    addtoGroupDetails(selectedProfiles, groupName);
+
+    return Container(
+      child: TextButton(
+        style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            minimumSize: Size(
+                double.infinity, MediaQuery.of(context).size.height * 0.08)),
+        onPressed: () {},
+        onLongPress: () {},
+        child: Row(
+          children: [
+            Align(
+              alignment: Alignment.center,
+            ),
+            Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  groupName,
+                  style: const TextStyle(fontSize: 17),
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void addProfileGroup(BuildContext context, String groupName) {
+    profileGroupList.add(SizedBox(
+      height: MediaQuery.of(context).size.height * 0.01,
+    ));
+    profileGroupList.add(
+      Container(
+        width: MediaQuery.of(context).size.width * 0.25,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            border:
+                Border.all(color: Color.fromARGB(255, 25, 36, 78), width: 3)),
+        child: createProfileGroup(context, groupName),
+      ),
+    );
+  }
 }
-
-// Widget createTaskGroup(BuildContext context) {
-//     return Container(
-//       child: TextButton(
-//         style: TextButton.styleFrom(
-//             foregroundColor: Colors.white,
-//             minimumSize:
-//                 Size(double.infinity, MediaQuery.of(context).size.height * 0.08)
-//             //padding: const EdgeInsets.all(16.0),
-
-//             ),
-//         onPressed: () {
-//           final snackBar = SnackBar(
-//             duration: const Duration(seconds: 1),
-//             backgroundColor: Colors.green,
-//             content: Text('$taskgroup_name Used'),
-//             action: SnackBarAction(
-//               label: '',
-//               onPressed: () {},
-//             ),
-//           );
-
-//           ScaffoldMessenger.of(context).showSnackBar(snackBar);
-//           context.read<TasksInputs>().setproduct(taskproduct);
-//           context.read<TasksInputs>().setsize(tasksize);
-//           context.read<TasksInputs>().setprofile(taskprofile);
-//           context.read<TasksInputs>().setstore(taskstore);
-//           context.read<TasksInputs>().setNum_of_tasks(tasknum);
-//           context.read<TasksLists>().removeAllTasks();
-//           context.read<TasksLists>().addTask(
-//               context.read<TasksInputs>().tasks_num,
-//               context.read<TasksInputs>().task_store,
-//               context.read<TasksInputs>().product,
-//               context.read<TasksInputs>().task_profile,
-//               context.read<TasksInputs>().task_size,
-//               context);
-//         },
-//         onLongPress: () {},
-//         child: Row(
-//           children: [
-//             Align(
-//                 alignment: Alignment.center,
-//                 child: Row(
-//                   children: [
-//                     Container(
-//                       width: 25,
-//                       height: 10,
-//                       color: Colors.black,
-//                       child: Text(
-//                         tasknum.toString(),
-//                         style: TextStyle(fontSize: 8),
-//                       ),
-//                     ),
-//                     SizedBox(
-//                       width: 3,
-//                     ),
-//                     Container(
-//                       width: 25,
-//                       height: 10,
-//                       color: Colors.black,
-//                       child: Text(
-//                         checkouts.toString(),
-//                         style: TextStyle(fontSize: 8),
-//                       ),
-//                     ),
-//                     SizedBox(
-//                       width: 3,
-//                     ),
-//                     Container(
-//                       width: 25,
-//                       height: 10,
-//                       color: Colors.black,
-//                       child: Text(
-//                         fails.toString(),
-//                         style: TextStyle(fontSize: 8),
-//                       ),
-//                     ),
-//                   ],
-//                 )),
-//             Spacer(),
-//             Align(
-//                 alignment: Alignment.centerRight,
-//                 child: Text(
-//                   taskgroup_name,
-//                   style: const TextStyle(fontSize: 17),
-//                 )),
-//           ],
-//         ),
-//       ),
-//     );
-//   }

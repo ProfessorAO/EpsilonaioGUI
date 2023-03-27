@@ -29,6 +29,8 @@ class ProfilesScreen extends StatelessWidget {
   }
 
   Container dashboard(BuildContext context) {
+    ProfileGroupProvider profileGroupProvider =
+        context.watch<ProfileGroupProvider>();
     return Container(
       child: Stack(
         children: [
@@ -49,6 +51,7 @@ class Profiles_layout_state extends StatefulWidget {
   const Profiles_layout_state({
     super.key,
   });
+
   @override
   State<Profiles_layout_state> createState() => Profiles_layout();
 }
@@ -233,21 +236,23 @@ class Add_Profile_btn extends State<Profile_btn_State> {
                             context
                                 .read<ProfileProvider>()
                                 .createProfileInstance(
-                                    firstName,
-                                    lastName,
-                                    profileName,
-                                    cardName,
-                                    cardNumber,
-                                    address,
-                                    city,
-                                    postcode,
-                                    phone,
-                                    Profile_card(
-                                        parent: context.read<ProfileProvider>(),
-                                        profile_name: profileName,
-                                        card_name: cardName,
-                                        address: address,
-                                        card_no: cardNumber));
+                                  firstName,
+                                  lastName,
+                                  profileName,
+                                  cardName,
+                                  cardNumber,
+                                  address,
+                                  city,
+                                  postcode,
+                                  phone,
+                                  Profile_card(
+                                      parent: context.read<ProfileProvider>(),
+                                      profile_name: profileName,
+                                      card_name: cardName,
+                                      address: address,
+                                      card_no: cardNumber),
+                                  context.read<ProfileGroupProvider>(),
+                                );
 
                             setState(() {});
 
@@ -326,11 +331,16 @@ class _remove_ProfilesState extends State<remove_Profiles> {
   }
 }
 
-class ProfileGroup extends StatelessWidget {
+class ProfileGroup extends StatefulWidget {
   const ProfileGroup({
     super.key,
   });
 
+  @override
+  State<ProfileGroup> createState() => _ProfileGroupState();
+}
+
+class _ProfileGroupState extends State<ProfileGroup> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -353,6 +363,12 @@ class ProfileGroup extends StatelessWidget {
                       ),
                   onPressed: () {
                     final ProfileGroupNameController = TextEditingController();
+                    //widget.groupProvider.setContext(context);
+                    //widget.groupProvider.setProfilesData();
+                    String profileGroupName = "";
+                    context.read<ProfileGroupProvider>().setContext(context);
+                    context.read<ProfileGroupProvider>().refreshData();
+                    //context.read<ProfileProvider>().getTable();
                     showPopupWindow(
                       context,
                       gravity: KumiPopupGravity.center,
@@ -371,92 +387,113 @@ class ProfileGroup extends StatelessWidget {
                       offsetY: 0,
                       duration: Duration(milliseconds: 200),
                       childFun: (popup) {
-                        return Container(
-                          key: GlobalKey(),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(15)),
-                            color: Color.fromARGB(255, 25, 36, 78),
-                          ),
-                          alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.width * 0.45,
-                          child: Column(
-                            children: [
-                              columInputer_text(
-                                  controller: ProfileGroupNameController,
-                                  onChanged: (String value) {},
-                                  label: "Profile Group Name",
-                                  length: 100),
-                              //Spacer(),
-                              SizedBox(
-                                child: RawScrollbar(
-                                  thumbColor: Colors.white,
-                                  radius: const Radius.circular(16),
-                                  thickness: 3,
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.vertical,
-                                    dragStartBehavior: DragStartBehavior.down,
-                                    primary: true,
-                                    child: Theme(
-                                      data: ThemeData(
-                                        primarySwatch: Colors.blue,
-                                        unselectedWidgetColor: Colors.white,
-                                      ),
-                                      child: DataTable(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(5)),
-                                              border: Border.all(
-                                                  color: Color.fromARGB(
-                                                      255, 25, 36, 78),
-                                                  width: 3)),
-                                          headingRowColor:
-                                              MaterialStateColor.resolveWith(
-                                            (states) {
-                                              return const Color.fromARGB(
-                                                  255, 25, 36, 78);
-                                            },
-                                          ),
-                                          columns: const [
-                                            DataColumn(
-                                              label: table_Column(name: "ID"),
-                                            ),
-                                            DataColumn(
-                                                label: table_Column(
-                                                    name: "Card Name")),
-                                            DataColumn(
-                                                label: table_Column(
-                                                    name: "Card No")),
-                                            DataColumn(
-                                                label: table_Column(
-                                                    name: "Address")),
-                                            DataColumn(
-                                                label: table_Column(
-                                                    name: "Phone")),
-                                          ],
-                                          rows: context
-                                              .read<ProfileGroupProvider>()
-                                              .getProfileTableData(context)),
-                                    ),
-                                  ),
+                        return StatefulBuilder(
+                            key: GlobalKey(),
+                            builder:
+                                (BuildContext context, StateSetter setState) {
+                              setState;
+                              return Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)),
+                                  color: Color.fromARGB(255, 25, 36, 78),
                                 ),
-                              ),
-                              TextButton(
-                                  onPressed: () {},
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    backgroundColor: Colors.blue,
-                                    textStyle: const TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width * 0.5,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.45,
+                                child: Column(
+                                  children: [
+                                    columInputer_text(
+                                        controller: ProfileGroupNameController,
+                                        onChanged: (String value) {
+                                          profileGroupName = value;
+                                        },
+                                        label: "Profile Group Name",
+                                        length: 100),
+                                    //Spacer(),
+                                    SizedBox(
+                                      child: RawScrollbar(
+                                        thumbColor: Colors.white,
+                                        radius: const Radius.circular(16),
+                                        thickness: 3,
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.vertical,
+                                          dragStartBehavior:
+                                              DragStartBehavior.down,
+                                          primary: true,
+                                          child: Theme(
+                                            data: ThemeData(
+                                              primarySwatch: Colors.blue,
+                                              unselectedWidgetColor:
+                                                  Colors.white,
+                                            ),
+                                            child: DataTable(
+                                                clipBehavior:
+                                                    Clip.antiAliasWithSaveLayer,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(5)),
+                                                    border: Border.all(
+                                                        color: Color.fromARGB(
+                                                            255, 25, 36, 78),
+                                                        width: 3)),
+                                                headingRowColor:
+                                                    MaterialStateColor
+                                                        .resolveWith(
+                                                  (states) {
+                                                    return const Color.fromARGB(
+                                                        255, 25, 36, 78);
+                                                  },
+                                                ),
+                                                columns: const [
+                                                  DataColumn(
+                                                    label: table_Column(
+                                                        name: "ID"),
+                                                  ),
+                                                  DataColumn(
+                                                      label: table_Column(
+                                                          name: "Card Name")),
+                                                  DataColumn(
+                                                      label: table_Column(
+                                                          name: "Card No")),
+                                                  DataColumn(
+                                                      label: table_Column(
+                                                          name: "Address")),
+                                                  DataColumn(
+                                                      label: table_Column(
+                                                          name: "Phone")),
+                                                ],
+                                                rows: context
+                                                    .watch<
+                                                        ProfileGroupProvider>()
+                                                    .all_profiles_data),
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  child: Text("Create Profile Group"))
-                            ],
-                          ),
-                        );
+                                    TextButton(
+                                        onPressed: () {
+                                          print("here");
+                                          context
+                                              .read<ProfileGroupProvider>()
+                                              .addProfileGroup(
+                                                  context, profileGroupName);
+                                        },
+                                        style: TextButton.styleFrom(
+                                          foregroundColor: Colors.white,
+                                          backgroundColor: Colors.blue,
+                                          textStyle: const TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        child: Text("Create Profile Group"))
+                                  ],
+                                ),
+                              );
+                            });
                       },
                     );
                   },
@@ -512,6 +549,7 @@ class profileGroupColumn extends StatefulWidget {
 class _profileGroupColumnState extends State<profileGroupColumn> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: []);
+    return Column(
+        children: context.watch<ProfileGroupProvider>().profileGroups_);
   }
 }
