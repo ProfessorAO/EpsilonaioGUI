@@ -9,15 +9,14 @@ import 'package:provider/provider.dart';
 import 'package:ready/ready.dart';
 
 class ProfileGroupProvider with ChangeNotifier {
-  Map<String, List<ProfileInstance>> profileGroups = {};
+  Map<String, List<ProfileInstance>> profileGroups_ins = {};
+  Map<String, Widget> profileGroups_widget = {};
   late BuildContext context_;
   List<DataRow> all_profiles_data = [];
-  List<Widget> profileGroupList = [];
 
 //GETTERS
-  BuildContext get profileGroupContext => context_;
   List<DataRow> get allProfilesData => all_profiles_data;
-  List<Widget> get profileGroups_ => profileGroupList;
+  Map<String, Widget> get profileWidgetList => profileGroups_widget;
 
 //SETTERS
   void setContext(BuildContext newcontext) {
@@ -54,7 +53,14 @@ class ProfileGroupProvider with ChangeNotifier {
   }
 
   void addtoGroupDetails(List<ProfileInstance> list, String name) {
-    profileGroups.addAll({name: list});
+    profileGroups_ins.addAll({name: list});
+    notifyListeners();
+  }
+
+  void deleteGroup(String name, Map<String, List<ProfileInstance>> instancemMap,
+      Map<String, Widget> widgetMap) {
+    instancemMap.removeWhere((key, value) => key == name);
+    widgetMap.removeWhere((key, value) => key == name);
     notifyListeners();
   }
 
@@ -81,6 +87,19 @@ class ProfileGroupProvider with ChangeNotifier {
                   groupName,
                   style: const TextStyle(fontSize: 17),
                 )),
+            Spacer(),
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                  onPressed: () {
+                    deleteGroup(
+                        groupName, profileGroups_ins, profileGroups_widget);
+                  },
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  )),
+            ),
           ],
         ),
       ),
@@ -88,18 +107,23 @@ class ProfileGroupProvider with ChangeNotifier {
   }
 
   void addProfileGroup(BuildContext context, String groupName) {
-    profileGroupList.add(SizedBox(
-      height: MediaQuery.of(context).size.height * 0.01,
-    ));
-    profileGroupList.add(
-      Container(
-        width: MediaQuery.of(context).size.width * 0.25,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            border:
-                Border.all(color: Color.fromARGB(255, 25, 36, 78), width: 3)),
-        child: createProfileGroup(context, groupName),
-      ),
-    );
+    final entry = <String, Widget>{
+      groupName: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.01,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.25,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                border: Border.all(
+                    color: Color.fromARGB(255, 25, 36, 78), width: 3)),
+            child: createProfileGroup(context, groupName),
+          ),
+        ],
+      )
+    };
+    profileGroups_widget.addEntries(entry.entries);
   }
 }

@@ -7,7 +7,6 @@ class TasksLists with ChangeNotifier {
   List<Taskinstance> tasks_instances = [];
   List<DataRow> current_tasks_list = [];
   List<String> all_task_status = [];
-  late BuildContext context_;
   //TasksInputs current_inputs = TasksInputs();
 
 // GETTERS

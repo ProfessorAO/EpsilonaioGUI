@@ -17,14 +17,9 @@ class TaskGroupList with ChangeNotifier {
   int tasknum = 0;
   int checkouts = 0;
   int fails = 0;
-  late BuildContext context;
   List<Widget> group_list = [];
 
   List<Widget> get GroupList => group_list;
-
-  void setContext(BuildContext newcontext) {
-    context = newcontext;
-  }
 
   void setGroupName(String group_name) {
     taskgroup_name = group_name;

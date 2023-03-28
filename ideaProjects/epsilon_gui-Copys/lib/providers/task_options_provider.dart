@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:epsilon_gui/providers/profile_group_provider.dart';
 
 class TaskOptions with ChangeNotifier {
   List<DropdownMenuItem<String>>? size_options = [

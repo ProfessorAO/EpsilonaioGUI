@@ -29,7 +29,6 @@ class tasksScreen extends State<tasks_screen> {
 
   @override
   Widget build(BuildContext context) {
-    context.read<TaskGroupList>().setContext(context);
     int task_list_number = context.watch<TasksLists>().count;
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 17, 26, 59),

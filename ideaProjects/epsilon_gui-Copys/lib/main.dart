@@ -30,13 +30,13 @@ void main() {
         ChangeNotifierProvider(
             create: (_) => Taskinstance(0, "", "", "", "", "")),
         ChangeNotifierProvider(create: (_) => TabbarIndex()),
-        ChangeNotifierProvider(create: (_) => TaskGroupList()),
+        ChangeNotifierProvider(create: (context) => TaskGroupList()),
         ChangeNotifierProvider(create: (_) => StatsProvider()),
         ChangeNotifierProvider(create: (_) => ProfileProvider()),
         ChangeNotifierProvider(create: (_) => ReleasesData()),
         ChangeNotifierProvider(create: (_) => RecentCheckoutProvider()),
-        ChangeNotifierProvider(create: (_) => ProfileGroupProvider()),
-        ChangeNotifierProvider(create: (_) => TaskOptions()),
+        ChangeNotifierProvider(create: (context) => ProfileGroupProvider()),
+        ChangeNotifierProvider(create: (context) => TaskOptions()),
         ChangeNotifierProvider(
             create: (_) => ProfileInstance(
                 "",

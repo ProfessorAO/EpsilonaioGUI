@@ -550,6 +550,10 @@ class _profileGroupColumnState extends State<profileGroupColumn> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: context.watch<ProfileGroupProvider>().profileGroups_);
+        children: context
+            .watch<ProfileGroupProvider>()
+            .profileWidgetList
+            .values
+            .toList());
   }
 }

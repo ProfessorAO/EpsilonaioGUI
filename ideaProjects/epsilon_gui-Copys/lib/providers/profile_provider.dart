@@ -8,9 +8,17 @@ class ProfileProvider with ChangeNotifier {
 
   void removeProfile(Profile_card profileCard) {
     all_profile_cards.remove(profileCard);
+    var removeIns;
     for (ProfileInstance instance in all_profile_instances) {
-      if (instance.profileCard == profileCard) {}
+      if (instance.profileCard == profileCard) {
+        //all_profile_instances.remove(instance);
+        removeIns = instance;
+      }
     }
+    if (removeIns != null) {
+      all_profile_instances.remove(removeIns);
+    }
+
     notifyListeners();
   }
 
