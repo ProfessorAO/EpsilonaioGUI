@@ -981,3 +981,986 @@ windows\runner\utils.h, code is 8, comment is 7, blank is 5.
 windows\runner\win32_window.cpp, code is 183, comment is 16, blank is 47.
 windows\runner\win32_window.h, code is 48, comment is 30, blank is 21.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-03-29 18:55:06
+count workspace : c:\Users\david\EpsilonaioGUI\ideaProjects\epsilon_gui-Copys
+total files : 921
+total code lines : 28906
+total comment lines : 3866
+total blank lines : 4136
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .txt|           1167|            158|            371|    4.0|
+   |            .md|            231|             19|            127|   0.80|
+   |          .yaml|            319|             26|             58|    1.1|
+   |          .html|             37|             16|              5|   0.13|
+   |          .json|            907|              0|              0|    3.1|
+   |               |           1321|            177|            148|    4.6|
+   |         .swift|            120|             41|             32|   0.42|
+   |            .cc|           1671|            227|            371|    5.8|
+   |             .h|           2395|           1533|            925|    8.3|
+   |          .lock|            704|              1|             10|    2.4|
+   |          .dart|           6733|            928|            910|     23|
+   |      .xcconfig|             95|             26|              9|   0.33|
+   |         .cmake|            628|              0|            127|    2.2|
+   |           .cpp|           3798|            301|            767|     13|
+   |      .manifest|             80|              0|              0|   0.28|
+   |            .rc|            256|            128|            112|   0.89|
+   |.xcworkspacedata|             41|              0|              0|   0.14|
+   |  .entitlements|             60|              0|              0|   0.21|
+   |         .plist|            235|              0|              0|   0.81|
+   |            .sh|             21|              4|              0|  0.073|
+   |           .xib|           1029|              0|              0|    3.6|
+   |         .stamp|             13|              0|              0|  0.045|
+   |       .filters|            254|              0|              0|   0.88|
+   |       .vcxproj|           2356|              0|             11|    8.2|
+   |             .m|             15|              0|              6|  0.052|
+   |    .xcsettings|             16|              0|              0|  0.055|
+   |          .list|              5|              0|              0|  0.017|
+   |        .depend|             30|              0|              0|   0.10|
+   |          .rule|              8|              0|              0|  0.028|
+   |   .check_cache|              1|              0|              0| 0.0035|
+   |       .pbxproj|           2448|            126|             61|    8.5|
+   |    .storyboard|             63|              0|              0|   0.22|
+   |           .log|             13|              0|              4|  0.045|
+   |      .xcscheme|            370|              0|              0|    1.3|
+   |        .recipe|            175|              0|              0|   0.61|
+   |           .sln|            425|              0|              0|    1.5|
+   |          .tlog|            214|              0|              0|   0.74|
+   |.lastbuildstate|             22|              0|              0|  0.076|
+   |           .svg|            135|              0|              3|   0.47|
+   |       .podspec|             38|              2|              4|   0.13|
+   |            .mm|            282|             96|             52|   0.98|
+   |    .properties|             10|              1|              0|  0.035|
+   |        .gradle|             80|              5|             16|   0.28|
+   |           .xml|             62|             46|              2|   0.21|
+   |          .java|             20|              5|              5|  0.069|
+   |             .d|              3|              0|              0|  0.010|
+   -------------------------------------------------------------------------
+.dart_tool\dartpad\web_plugin_registrant.dart, code is 1, comment is 5, blank is 2.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\.filecache, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\app.dill, it is a binary file.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\debug_bundle_windows_assets.stamp, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\flutter_assets.d, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\gen_dart_plugin_registrant.stamp, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\gen_localizations.stamp, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\kernel_snapshot.d, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\kernel_snapshot.stamp, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\outputs.json, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\unpack_windows.stamp, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\c3c0bb1cc3ed18544e06582e9ce9b30a\windows_engine_sources.d, code is 1, comment is 0, blank is 0.
+.dart_tool\flutter_build\dart_plugin_registrant.dart, code is 53, comment is 6, blank is 19.
+.dart_tool\package_config.json, code is 518, comment is 0, blank is 0.
+.dart_tool\package_config_subset, code is 341, comment is 170, blank is 0.
+.dart_tool\version, code is 1, comment is 0, blank is 0.
+.flutter-plugins, code is 12, comment is 0, blank is 0.
+.flutter-plugins-dependencies, code is 1, comment is 0, blank is 0.
+.gitignore, code is 40, comment is 0, blank is 7.
+.metadata, code is 40, comment is 0, blank is 5.
+analysis_options.yaml, code is 26, comment is 5, blank is 3.
+android\.gitignore, code is 12, comment is 2, blank is 1.
+android\app\build.gradle, code is 45, comment is 5, blank is 9.
+android\app\src\debug\AndroidManifest.xml, code is 4, comment is 4, blank is 0.
+android\app\src\main\AndroidManifest.xml, code is 28, comment is 6, blank is 0.
+android\app\src\main\java\com\example\epsilon_gui\MainActivity.java, code is 4, comment is 0, blank is 2.
+android\app\src\main\java\io\flutter\plugins\GeneratedPluginRegistrant.java, code is 16, comment is 5, blank is 3.
+android\app\src\main\res\drawable-v21\launch_background.xml, code is 4, comment is 7, blank is 1.
+android\app\src\main\res\drawable\launch_background.xml, code is 4, comment is 7, blank is 1.
+android\app\src\main\res\mipmap-hdpi\ic_launcher.png, it is a binary file.
+android\app\src\main\res\mipmap-mdpi\ic_launcher.png, it is a binary file.
+android\app\src\main\res\mipmap-xhdpi\ic_launcher.png, it is a binary file.
+android\app\src\main\res\mipmap-xxhdpi\ic_launcher.png, it is a binary file.
+android\app\src\main\res\mipmap-xxxhdpi\ic_launcher.png, it is a binary file.
+android\app\src\main\res\values-night\styles.xml, code is 9, comment is 9, blank is 0.
+android\app\src\main\res\values\styles.xml, code is 9, comment is 9, blank is 0.
+android\app\src\profile\AndroidManifest.xml, code is 4, comment is 4, blank is 0.
+android\build.gradle, code is 27, comment is 0, blank is 4.
+android\gradle.properties, code is 3, comment is 0, blank is 0.
+android\gradle\wrapper\gradle-wrapper.properties, code is 6, comment is 1, blank is 0.
+android\local.properties, code is 1, comment is 0, blank is 0.
+android\settings.gradle, code is 8, comment is 0, blank is 3.
+assets\fonts\Audiowide-Regular.ttf, it is a binary file.
+assets\images\account.png, it is a binary file.
+assets\images\bell.png, it is a binary file.
+assets\images\business (1) 512.png, it is a binary file.
+assets\images\card-fail.png, it is a binary file.
+assets\images\checkout (1).png, it is a binary file.
+assets\images\checkout.png, it is a binary file.
+assets\images\Color Favicon-optimized.svg, code is 8, comment is 0, blank is 0.
+assets\images\Color Favicon.svg, code is 1, comment is 0, blank is 0.
+assets\images\credit-card.png, it is a binary file.
+assets\images\credit-cards.png, it is a binary file.
+assets\images\credit_card_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\credit_card_off_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\declined.png, it is a binary file.
+assets\images\discord.png, it is a binary file.
+assets\images\EpsilonAIO Logo_Color Favicon.png, it is a binary file.
+assets\images\EpsilonAIO Logo_Twitter Cover Photo.png, it is a binary file.
+assets\images\EpsilonAIO Logo_White Favicon.png, it is a binary file.
+assets\images\error_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\exit.png, it is a binary file.
+assets\images\gui back--.jpg, it is a binary file.
+assets\images\gui back.jpg, it is a binary file.
+assets\images\home (1).png, it is a binary file.
+assets\images\home green.png, it is a binary file.
+assets\images\home.png, it is a binary file.
+assets\images\home.svg, code is 10, comment is 0, blank is 1.
+assets\images\home_FILL1_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\house-black-silhouette-without-door.png, it is a binary file.
+assets\images\icons8-home-24.png, it is a binary file.
+assets\images\icons8-home-480.png, it is a binary file.
+assets\images\Logo-Animation (1).gif, it is a binary file.
+assets\images\Logo-Animation.gif, it is a binary file.
+assets\images\monetization_on_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\money.png, it is a binary file.
+assets\images\new gui back2.jpg, it is a binary file.
+assets\images\news (1).png, it is a binary file.
+assets\images\Original on Transparent - Without EpsilonAIO.jpg, it is a binary file.
+assets\images\Original on Transparent - Without EpsilonAIO.png, it is a binary file.
+assets\images\Original-on-Transparent-Without-EpsilonAIO.svg, code is 13, comment is 0, blank is 0.
+assets\images\Original.png, it is a binary file.
+assets\images\outline_home_white_48dp.png, it is a binary file.
+assets\images\paid_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\payments_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\proxies.png, it is a binary file.
+assets\images\result-min 1.svg, code is 3, comment is 0, blank is 0.
+assets\images\result-min.svg, code is 1, comment is 0, blank is 0.
+assets\images\result.svg, code is 8, comment is 0, blank is 0.
+assets\images\Settings-icon.png, it is a binary file.
+assets\images\settings.png, it is a binary file.
+assets\images\shoes.png, it is a binary file.
+assets\images\shopping-bag.png, it is a binary file.
+assets\images\shopping_bag_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\shopping_cart.png, it is a binary file.
+assets\images\shopping_cart_checkout_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+assets\images\Splash Screen Animation_Preview.gif, it is a binary file.
+assets\images\Splash Screen Animation_Preview.mp4, it is a binary file.
+assets\images\to-do-list.png, it is a binary file.
+assets\images\Websit Header Logo.svg, code is 1, comment is 0, blank is 0.
+build\.last_build_id, code is 1, comment is 0, blank is 0.
+build\7be727183a56d6e72984434fd7c42424\_composite.stamp, code is 1, comment is 0, blank is 0.
+build\7be727183a56d6e72984434fd7c42424\gen_dart_plugin_registrant.stamp, code is 1, comment is 0, blank is 0.
+build\7be727183a56d6e72984434fd7c42424\gen_localizations.stamp, code is 1, comment is 0, blank is 0.
+build\c075001b96339384a97db4862b8ab8db.cache.dill.track.dill, it is a binary file.
+build\flutter_assets\AssetManifest.bin, it is a binary file.
+build\flutter_assets\AssetManifest.json, code is 1, comment is 0, blank is 0.
+build\flutter_assets\assets\fonts\Audiowide-Regular.ttf, it is a binary file.
+build\flutter_assets\assets\images\account.png, it is a binary file.
+build\flutter_assets\assets\images\bell.png, it is a binary file.
+build\flutter_assets\assets\images\business%20(1)%20512.png, it is a binary file.
+build\flutter_assets\assets\images\card-fail.png, it is a binary file.
+build\flutter_assets\assets\images\checkout%20(1).png, it is a binary file.
+build\flutter_assets\assets\images\checkout.png, it is a binary file.
+build\flutter_assets\assets\images\Color%20Favicon-optimized.svg, code is 8, comment is 0, blank is 0.
+build\flutter_assets\assets\images\Color%20Favicon.svg, code is 1, comment is 0, blank is 0.
+build\flutter_assets\assets\images\credit-card.png, it is a binary file.
+build\flutter_assets\assets\images\credit-cards.png, it is a binary file.
+build\flutter_assets\assets\images\credit_card_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\credit_card_off_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\declined.png, it is a binary file.
+build\flutter_assets\assets\images\discord.png, it is a binary file.
+build\flutter_assets\assets\images\EpsilonAIO%20Logo_Color%20Favicon.png, it is a binary file.
+build\flutter_assets\assets\images\EpsilonAIO%20Logo_Twitter%20Cover%20Photo.png, it is a binary file.
+build\flutter_assets\assets\images\EpsilonAIO%20Logo_White%20Favicon.png, it is a binary file.
+build\flutter_assets\assets\images\error_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\exit.png, it is a binary file.
+build\flutter_assets\assets\images\gui%20back--.jpg, it is a binary file.
+build\flutter_assets\assets\images\gui%20back.jpg, it is a binary file.
+build\flutter_assets\assets\images\home%20(1).png, it is a binary file.
+build\flutter_assets\assets\images\home%20green.png, it is a binary file.
+build\flutter_assets\assets\images\home.png, it is a binary file.
+build\flutter_assets\assets\images\home.svg, code is 10, comment is 0, blank is 1.
+build\flutter_assets\assets\images\home_FILL1_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\house-black-silhouette-without-door.png, it is a binary file.
+build\flutter_assets\assets\images\icons8-home-24.png, it is a binary file.
+build\flutter_assets\assets\images\icons8-home-480.png, it is a binary file.
+build\flutter_assets\assets\images\Logo-Animation%20(1).gif, it is a binary file.
+build\flutter_assets\assets\images\Logo-Animation.gif, it is a binary file.
+build\flutter_assets\assets\images\monetization_on_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\money.png, it is a binary file.
+build\flutter_assets\assets\images\new%20gui%20back2.jpg, it is a binary file.
+build\flutter_assets\assets\images\news%20(1).png, it is a binary file.
+build\flutter_assets\assets\images\Original%20on%20Transparent%20-%20Without%20EpsilonAIO.jpg, it is a binary file.
+build\flutter_assets\assets\images\Original%20on%20Transparent%20-%20Without%20EpsilonAIO.png, it is a binary file.
+build\flutter_assets\assets\images\Original-on-Transparent-Without-EpsilonAIO.svg, code is 13, comment is 0, blank is 0.
+build\flutter_assets\assets\images\Original.png, it is a binary file.
+build\flutter_assets\assets\images\outline_home_white_48dp.png, it is a binary file.
+build\flutter_assets\assets\images\paid_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\payments_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\proxies.png, it is a binary file.
+build\flutter_assets\assets\images\result-min%201.svg, code is 3, comment is 0, blank is 0.
+build\flutter_assets\assets\images\result-min.svg, code is 1, comment is 0, blank is 0.
+build\flutter_assets\assets\images\result.svg, code is 8, comment is 0, blank is 0.
+build\flutter_assets\assets\images\Settings-icon.png, it is a binary file.
+build\flutter_assets\assets\images\settings.png, it is a binary file.
+build\flutter_assets\assets\images\shoes.png, it is a binary file.
+build\flutter_assets\assets\images\shopping-bag.png, it is a binary file.
+build\flutter_assets\assets\images\shopping_bag_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\shopping_cart.png, it is a binary file.
+build\flutter_assets\assets\images\shopping_cart_checkout_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\flutter_assets\assets\images\Splash%20Screen%20Animation_Preview.gif, it is a binary file.
+build\flutter_assets\assets\images\Splash%20Screen%20Animation_Preview.mp4, it is a binary file.
+build\flutter_assets\assets\images\to-do-list.png, it is a binary file.
+build\flutter_assets\assets\images\Websit%20Header%20Logo.svg, code is 1, comment is 0, blank is 0.
+build\flutter_assets\FontManifest.json, code is 1, comment is 0, blank is 0.
+build\flutter_assets\fonts\MaterialIcons-Regular.otf, it is a binary file.
+build\flutter_assets\kernel_blob.bin, it is a binary file.
+build\flutter_assets\NOTICES.Z, it is a binary file.
+build\flutter_assets\packages\cupertino_icons\assets\CupertinoIcons.ttf, it is a binary file.
+build\flutter_assets\shaders\ink_sparkle.frag, it is a binary file.
+build\windows\ALL_BUILD.vcxproj, code is 167, comment is 0, blank is 0.
+build\windows\ALL_BUILD.vcxproj.filters, code is 8, comment is 0, blank is 0.
+build\windows\cmake_install.cmake, code is 254, comment is 0, blank is 29.
+build\windows\CMakeCache.txt, code is 143, comment is 147, blank is 68.
+build\windows\CMakeFiles\2603d8d1549a45bcee934f4dfaba842b\INSTALL_force.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CMakeCXXCompiler.cmake, code is 66, comment is 0, blank is 17.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CMakeDetermineCompilerABI_CXX.bin, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CMakeRCCompiler.cmake, code is 6, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CMakeSystem.cmake, code is 10, comment is 0, blank is 5.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\CMakeCXXCompilerId.cpp, code is 620, comment is 63, blank is 143.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\CompilerIdCXX.exe, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\CompilerIdCXX.vcxproj, code is 60, comment is 0, blank is 11.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CMakeCXXCompilerId.obj, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.exe.recipe, code is 11, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.tlog\CL.command.1.tlog, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.tlog\CL.read.1.tlog, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.tlog\CL.write.1.tlog, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.tlog\link.command.1.tlog, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.tlog\link.read.1.tlog, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\CompilerIdCXX\Debug\CompilerIdCXX.tlog\link.write.1.tlog, it is a binary file.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\VCTargetsPath.txt, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\VCTargetsPath.vcxproj, code is 31, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\x64\Debug\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\x64\Debug\VCTargetsPath.recipe, code is 11, comment is 0, blank is 0.
+build\windows\CMakeFiles\3.24.202208181-MSVC_2\x64\Debug\VCTargetsPath.tlog\VCTargetsPath.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\CMakeFiles\3c901ed4f50c89cc5011c4e6f82a4152\flutter_assemble.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\3c901ed4f50c89cc5011c4e6f82a4152\INSTALL_force.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\425c43811777440bdf20f68b18e98d41\INSTALL_force.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\87bf07d80a265e6c00dfb1a686d1eb03\flutter_windows.dll.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\cmake.check_cache, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\CMakeOutput.log, code is 13, comment is 0, blank is 4.
+build\windows\CMakeFiles\d50a6da681aa64ed5c277010339a5fe2\INSTALL_force.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\e8c85c501a2c66023fadcd2f43896fe5\generate.stamp.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\e8c85c501a2c66023fadcd2f43896fe5\INSTALL_force.rule, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\generate.stamp, code is 1, comment is 0, blank is 0.
+build\windows\CMakeFiles\generate.stamp.depend, code is 21, comment is 0, blank is 0.
+build\windows\CMakeFiles\generate.stamp.list, code is 5, comment is 0, blank is 0.
+build\windows\CMakeFiles\TargetDirectories.txt, code is 16, comment is 0, blank is 0.
+build\windows\epsilon_gui.sln, code is 132, comment is 0, blank is 0.
+build\windows\flutter\cmake_install.cmake, code is 29, comment is 0, blank is 5.
+build\windows\flutter\CMakeFiles\generate.stamp, code is 1, comment is 0, blank is 0.
+build\windows\flutter\CMakeFiles\generate.stamp.depend, code is 3, comment is 0, blank is 0.
+build\windows\flutter\Debug\flutter_wrapper_app.lib, it is a binary file.
+build\windows\flutter\Debug\flutter_wrapper_app.pdb, it is a binary file.
+build\windows\flutter\Debug\flutter_wrapper_plugin.lib, it is a binary file.
+build\windows\flutter\Debug\flutter_wrapper_plugin.pdb, it is a binary file.
+build\windows\flutter\flutter_assemble.vcxproj, code is 232, comment is 0, blank is 0.
+build\windows\flutter\flutter_assemble.vcxproj.filters, code is 20, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\core_implementations.obj, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\CL.command.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\CL.read.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\CL.write.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\CustomBuild.read.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\CustomBuild.write.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\flutter_wrapper_app.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\Lib-link.read.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\Lib-link.write.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_.92DFACF9.tlog\Lib.command.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_engine.obj, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_view_controller.obj, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\flutter_wrapper_app.lib.recipe, code is 14, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.dir\Debug\standard_codec.obj, it is a binary file.
+build\windows\flutter\flutter_wrapper_app.vcxproj, code is 87, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_app.vcxproj.filters, code is 28, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\core_implementations.obj, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\CL.command.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\CL.read.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\CL.write.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\CustomBuild.read.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\CustomBuild.write.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\flutter_wrapper_plugin.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\Lib-link.read.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\Lib-link.write.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_.582025BE.tlog\Lib.command.1.tlog, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\flutter_wrapper_plugin.lib.recipe, code is 14, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\plugin_registrar.obj, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.dir\Debug\standard_codec.obj, it is a binary file.
+build\windows\flutter\flutter_wrapper_plugin.vcxproj, code is 87, comment is 0, blank is 0.
+build\windows\flutter\flutter_wrapper_plugin.vcxproj.filters, code is 25, comment is 0, blank is 0.
+build\windows\flutter\INSTALL.vcxproj, code is 165, comment is 0, blank is 0.
+build\windows\flutter\INSTALL.vcxproj.filters, code is 13, comment is 0, blank is 0.
+build\windows\flutter\x64\Debug\flutter_assemble\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\flutter\x64\Debug\flutter_assemble\flutter_assemble.recipe, code is 14, comment is 0, blank is 0.
+build\windows\flutter\x64\Debug\flutter_assemble\flutter_assemble.tlog\CustomBuild.command.1.tlog, code is 28, comment is 0, blank is 0.
+build\windows\flutter\x64\Debug\flutter_assemble\flutter_assemble.tlog\CustomBuild.read.1.tlog, code is 15, comment is 0, blank is 0.
+build\windows\flutter\x64\Debug\flutter_assemble\flutter_assemble.tlog\CustomBuild.write.1.tlog, code is 17, comment is 0, blank is 0.
+build\windows\flutter\x64\Debug\flutter_assemble\flutter_assemble.tlog\flutter_assemble.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\INSTALL.vcxproj, code is 165, comment is 0, blank is 0.
+build\windows\INSTALL.vcxproj.filters, code is 13, comment is 0, blank is 0.
+build\windows\install_manifest.txt, code is 70, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\ALL_BUILD.vcxproj, code is 151, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\ALL_BUILD.vcxproj.filters, code is 8, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows.sln, code is 84, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\bitsdojo_window_windows_plugin.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\CL.command.1.tlog, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\CL.read.1.tlog, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\CL.write.1.tlog, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\CustomBuild.read.1.tlog, code is 1, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\CustomBuild.write.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\Lib-link.read.1.tlog, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\Lib-link.write.1.tlog, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo.2F16E96A.tlog\Lib.command.1.tlog, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo_window.obj, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo_window_api.obj, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo_window_plugin.obj, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.dir\Debug\bitsdojo_window_windows_plugin.lib.recipe, code is 14, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.vcxproj, code is 87, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\bitsdojo_window_windows_plugin.vcxproj.filters, code is 22, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\cmake_install.cmake, code is 29, comment is 0, blank is 5.
+build\windows\plugins\bitsdojo_window_windows\CMakeFiles\generate.stamp, code is 1, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\CMakeFiles\generate.stamp.depend, code is 2, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\Debug\bitsdojo_window_windows_plugin.lib, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\Debug\bitsdojo_window_windows_plugin.pdb, it is a binary file.
+build\windows\plugins\bitsdojo_window_windows\INSTALL.vcxproj, code is 165, comment is 0, blank is 0.
+build\windows\plugins\bitsdojo_window_windows\INSTALL.vcxproj.filters, code is 13, comment is 0, blank is 0.
+build\windows\plugins\window_size\ALL_BUILD.vcxproj, code is 151, comment is 0, blank is 0.
+build\windows\plugins\window_size\ALL_BUILD.vcxproj.filters, code is 8, comment is 0, blank is 0.
+build\windows\plugins\window_size\cmake_install.cmake, code is 29, comment is 0, blank is 5.
+build\windows\plugins\window_size\CMakeFiles\generate.stamp, code is 1, comment is 0, blank is 0.
+build\windows\plugins\window_size\CMakeFiles\generate.stamp.depend, code is 2, comment is 0, blank is 0.
+build\windows\plugins\window_size\Debug\window_size_plugin.dll, it is a binary file.
+build\windows\plugins\window_size\Debug\window_size_plugin.exp, it is a binary file.
+build\windows\plugins\window_size\Debug\window_size_plugin.lib, it is a binary file.
+build\windows\plugins\window_size\Debug\window_size_plugin.pdb, it is a binary file.
+build\windows\plugins\window_size\INSTALL.vcxproj, code is 165, comment is 0, blank is 0.
+build\windows\plugins\window_size\INSTALL.vcxproj.filters, code is 13, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size.sln, code is 84, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\vc143.pdb, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\CL.command.1.tlog, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\CL.read.1.tlog, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\CL.write.1.tlog, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\CustomBuild.read.1.tlog, code is 1, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\CustomBuild.write.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\link.command.1.tlog, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\link.read.1.tlog, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\link.write.1.tlog, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\link.write.2u.tlog, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_s.74AC3339.tlog\window_size_plugin.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_size_plugin.dll.recipe, code is 17, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_size_plugin.ilk, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.dir\Debug\window_size_plugin.obj, it is a binary file.
+build\windows\plugins\window_size\window_size_plugin.vcxproj, code is 93, comment is 0, blank is 0.
+build\windows\plugins\window_size\window_size_plugin.vcxproj.filters, code is 16, comment is 0, blank is 0.
+build\windows\runner\ALL_BUILD.vcxproj, code is 151, comment is 0, blank is 0.
+build\windows\runner\ALL_BUILD.vcxproj.filters, code is 8, comment is 0, blank is 0.
+build\windows\runner\cmake_install.cmake, code is 29, comment is 0, blank is 5.
+build\windows\runner\CMakeFiles\generate.stamp, code is 1, comment is 0, blank is 0.
+build\windows\runner\CMakeFiles\generate.stamp.depend, code is 2, comment is 0, blank is 0.
+build\windows\runner\Debug\bitsdojo_window_windows_plugin.lib, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\AssetManifest.bin, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\AssetManifest.json, code is 1, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\assets\fonts\Audiowide-Regular.ttf, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\account.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\bell.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\business%20(1)%20512.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\card-fail.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\checkout%20(1).png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\checkout.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Color%20Favicon-optimized.svg, code is 8, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Color%20Favicon.svg, code is 1, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\assets\images\credit-card.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\credit-cards.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\credit_card_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\credit_card_off_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\declined.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\discord.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\EpsilonAIO%20Logo_Color%20Favicon.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\EpsilonAIO%20Logo_Twitter%20Cover%20Photo.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\EpsilonAIO%20Logo_White%20Favicon.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\error_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\exit.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\gui%20back--.jpg, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\gui%20back.jpg, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\home%20(1).png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\home%20green.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\home.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\home.svg, code is 10, comment is 0, blank is 1.
+build\windows\runner\Debug\data\flutter_assets\assets\images\home_FILL1_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\house-black-silhouette-without-door.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\icons8-home-24.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\icons8-home-480.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Logo-Animation%20(1).gif, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Logo-Animation.gif, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\monetization_on_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\money.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\new%20gui%20back2.jpg, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\news%20(1).png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Original%20on%20Transparent%20-%20Without%20EpsilonAIO.jpg, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Original%20on%20Transparent%20-%20Without%20EpsilonAIO.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Original-on-Transparent-Without-EpsilonAIO.svg, code is 13, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Original.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\outline_home_white_48dp.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\paid_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\payments_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\proxies.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\result-min%201.svg, code is 3, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\assets\images\result-min.svg, code is 1, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\assets\images\result.svg, code is 8, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Settings-icon.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\settings.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\shoes.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\shopping-bag.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\shopping_bag_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\shopping_cart.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\shopping_cart_checkout_FILL0_wght400_GRAD0_opsz48.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Splash%20Screen%20Animation_Preview.gif, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Splash%20Screen%20Animation_Preview.mp4, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\to-do-list.png, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\assets\images\Websit%20Header%20Logo.svg, code is 1, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\FontManifest.json, code is 1, comment is 0, blank is 0.
+build\windows\runner\Debug\data\flutter_assets\fonts\MaterialIcons-Regular.otf, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\kernel_blob.bin, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\NOTICES.Z, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\packages\cupertino_icons\assets\CupertinoIcons.ttf, it is a binary file.
+build\windows\runner\Debug\data\flutter_assets\shaders\ink_sparkle.frag, it is a binary file.
+build\windows\runner\Debug\data\icudtl.dat, it is a binary file.
+build\windows\runner\Debug\epsilon_gui.exe, it is a binary file.
+build\windows\runner\Debug\epsilon_gui.exp, it is a binary file.
+build\windows\runner\Debug\epsilon_gui.lib, it is a binary file.
+build\windows\runner\Debug\epsilon_gui.pdb, it is a binary file.
+build\windows\runner\Debug\flutter_windows.dll, it is a binary file.
+build\windows\runner\Debug\window_size_plugin.dll, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.exe.recipe, code is 20, comment is 0, blank is 0.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.ilk, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\CL.command.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\CL.read.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\CL.write.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\CustomBuild.read.1.tlog, code is 1, comment is 0, blank is 0.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\CustomBuild.write.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\epsilon_gui.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\link.command.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\link.read.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\link.write.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\link.write.2u.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\rc.command.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\rc.read.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\epsilon_gui.tlog\rc.write.1.tlog, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\flutter_window.obj, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\generated_plugin_registrant.obj, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\main.obj, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\Runner.res, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\utils.obj, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\vc143.pdb, it is a binary file.
+build\windows\runner\epsilon_gui.dir\Debug\win32_window.obj, it is a binary file.
+build\windows\runner\epsilon_gui.vcxproj, code is 93, comment is 0, blank is 0.
+build\windows\runner\epsilon_gui.vcxproj.filters, code is 33, comment is 0, blank is 0.
+build\windows\runner\INSTALL.vcxproj, code is 165, comment is 0, blank is 0.
+build\windows\runner\INSTALL.vcxproj.filters, code is 13, comment is 0, blank is 0.
+build\windows\runner\runner.sln, code is 125, comment is 0, blank is 0.
+build\windows\x64\Debug\ALL_BUILD\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\x64\Debug\ALL_BUILD\ALL_BUILD.recipe, code is 23, comment is 0, blank is 0.
+build\windows\x64\Debug\ALL_BUILD\ALL_BUILD.tlog\ALL_BUILD.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\x64\Debug\ALL_BUILD\ALL_BUILD.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\x64\Debug\ALL_BUILD\ALL_BUILD.tlog\CustomBuild.read.1.tlog, code is 20, comment is 0, blank is 0.
+build\windows\x64\Debug\ALL_BUILD\ALL_BUILD.tlog\CustomBuild.write.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\x64\Debug\INSTALL\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\x64\Debug\INSTALL\INSTALL.recipe, code is 26, comment is 0, blank is 0.
+build\windows\x64\Debug\INSTALL\INSTALL.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\x64\Debug\INSTALL\INSTALL.tlog\CustomBuild.read.1.tlog, code is 1, comment is 0, blank is 0.
+build\windows\x64\Debug\INSTALL\INSTALL.tlog\CustomBuild.write.1.tlog, code is 2, comment is 0, blank is 0.
+build\windows\x64\Debug\INSTALL\INSTALL.tlog\INSTALL.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\x64\Debug\ZERO_CHECK\_IsIncrementalBuild, code is 1, comment is 0, blank is 0.
+build\windows\x64\Debug\ZERO_CHECK\ZERO_CHECK.recipe, code is 11, comment is 0, blank is 0.
+build\windows\x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\CustomBuild.command.1.tlog, code is 10, comment is 0, blank is 0.
+build\windows\x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\CustomBuild.read.1.tlog, code is 26, comment is 0, blank is 0.
+build\windows\x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\CustomBuild.write.1.tlog, code is 6, comment is 0, blank is 0.
+build\windows\x64\Debug\ZERO_CHECK\ZERO_CHECK.tlog\ZERO_CHECK.lastbuildstate, code is 2, comment is 0, blank is 0.
+build\windows\ZERO_CHECK.vcxproj, code is 141, comment is 0, blank is 0.
+build\windows\ZERO_CHECK.vcxproj.filters, code is 13, comment is 0, blank is 0.
+ios\.gitignore, code is 31, comment is 3, blank is 1.
+ios\Flutter\AppFrameworkInfo.plist, code is 26, comment is 0, blank is 0.
+ios\Flutter\Debug.xcconfig, code is 1, comment is 0, blank is 0.
+ios\Flutter\flutter_export_environment.sh, code is 11, comment is 2, blank is 0.
+ios\Flutter\Generated.xcconfig, code is 13, comment is 1, blank is 0.
+ios\Flutter\Release.xcconfig, code is 1, comment is 0, blank is 0.
+ios\Runner.xcodeproj\project.pbxproj, code is 441, comment is 27, blank is 13.
+ios\Runner.xcodeproj\project.xcworkspace\contents.xcworkspacedata, code is 7, comment is 0, blank is 0.
+ios\Runner.xcodeproj\project.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+ios\Runner.xcodeproj\project.xcworkspace\xcshareddata\WorkspaceSettings.xcsettings, code is 8, comment is 0, blank is 0.
+ios\Runner.xcodeproj\xcshareddata\xcschemes\Runner.xcscheme, code is 87, comment is 0, blank is 0.
+ios\Runner.xcworkspace\contents.xcworkspacedata, code is 7, comment is 0, blank is 0.
+ios\Runner.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+ios\Runner.xcworkspace\xcshareddata\WorkspaceSettings.xcsettings, code is 8, comment is 0, blank is 0.
+ios\Runner\AppDelegate.swift, code is 12, comment is 0, blank is 1.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json, code is 122, comment is 0, blank is 0.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-1024x1024@1x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@1x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@2x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@3x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@1x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@2x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@3x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@1x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@2x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@3x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-60x60@2x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-60x60@3x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-76x76@1x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-76x76@2x.png, it is a binary file.
+ios\Runner\Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5@2x.png, it is a binary file.
+ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json, code is 23, comment is 0, blank is 0.
+ios\Runner\Assets.xcassets\LaunchImage.imageset\LaunchImage.png, it is a binary file.
+ios\Runner\Assets.xcassets\LaunchImage.imageset\LaunchImage@2x.png, it is a binary file.
+ios\Runner\Assets.xcassets\LaunchImage.imageset\LaunchImage@3x.png, it is a binary file.
+ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md, code is 3, comment is 0, blank is 2.
+ios\Runner\Base.lproj\LaunchScreen.storyboard, code is 37, comment is 0, blank is 0.
+ios\Runner\Base.lproj\Main.storyboard, code is 26, comment is 0, blank is 0.
+ios\Runner\GeneratedPluginRegistrant.h, code is 9, comment is 4, blank is 6.
+ios\Runner\GeneratedPluginRegistrant.m, code is 15, comment is 0, blank is 6.
+ios\Runner\Info.plist, code is 49, comment is 0, blank is 0.
+ios\Runner\Runner-Bridging-Header.h, code is 1, comment is 0, blank is 0.
+lib\connection_to_bot\send_to_bot.dart, code is 22, comment is 0, blank is 11.
+lib\constants.dart, code is 0, comment is 7, blank is 0.
+lib\date_format.dart, code is 6, comment is 0, blank is 1.
+lib\main.dart, code is 76, comment is 0, blank is 3.
+lib\providers\console_logger_provider.dart, code is 16, comment is 0, blank is 12.
+lib\providers\profile_group_provider.dart, code is 125, comment is 3, blank is 13.
+lib\providers\profile_provider.dart, code is 378, comment is 8, blank is 31.
+lib\providers\recent_checkouts_provider.dart, code is 56, comment is 0, blank is 3.
+lib\providers\release_data_provider.dart, code is 53, comment is 0, blank is 7.
+lib\providers\stats_provider.dart, code is 13, comment is 0, blank is 5.
+lib\providers\tabbar_index_provider.dart, code is 12, comment is 0, blank is 6.
+lib\providers\task_group_provider.dart, code is 183, comment is 1, blank is 17.
+lib\providers\task_inputs_provider.dart, code is 0, comment is 0, blank is 1.
+lib\providers\task_instance_provider.dart, code is 298, comment is 2, blank is 13.
+lib\providers\task_options_provider.dart, code is 147, comment is 1, blank is 9.
+lib\providers\tasks_list_provider.dart, code is 62, comment is 9, blank is 9.
+lib\responsive.dart, code is 32, comment is 5, blank is 7.
+lib\screens\accountsScreen.dart, code is 37, comment is 0, blank is 5.
+lib\screens\analyticsScreen.dart, code is 37, comment is 0, blank is 10.
+lib\screens\components\background.dart, code is 18, comment is 0, blank is 2.
+lib\screens\components\bottombar.dart, code is 28, comment is 0, blank is 3.
+lib\screens\components\column_general.dart, code is 16, comment is 0, blank is 2.
+lib\screens\components\CustomPackages\InputWidgets.dart, code is 85, comment is 0, blank is 7.
+lib\screens\components\CustomPackages\OnHoverChange.dart, code is 31, comment is 1, blank is 9.
+lib\screens\components\CustomPackages\OnHoverText.dart, code is 32, comment is 1, blank is 8.
+lib\screens\components\epsilonText.dart, code is 19, comment is 0, blank is 2.
+lib\screens\components\TopBar_.dart, code is 295, comment is 2, blank is 11.
+lib\screens\home\dashboard\dashboard_screen.dart, code is 12, comment is 0, blank is 2.
+lib\screens\home\main\MainScreen.dart, code is 585, comment is 8, blank is 27.
+lib\screens\home\main_components\sideMenu.dart, code is 105, comment is 0, blank is 8.
+lib\screens\profilesScreen.dart, code is 524, comment is 12, blank is 23.
+lib\screens\proxiesScreen.dart, code is 233, comment is 5, blank is 24.
+lib\screens\splash_screen.dart, code is 69, comment is 0, blank is 5.
+lib\screens\taskScreen.dart, code is 916, comment is 40, blank is 33.
+linux\.gitignore, code is 1, comment is 0, blank is 0.
+linux\CMakeLists.txt, code is 63, comment is 1, blank is 17.
+linux\flutter\CMakeLists.txt, code is 21, comment is 1, blank is 6.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\CHANGELOG.md, code is 12, comment is 0, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\lib\bitsdojo_window_linux.dart, code is 2, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\lib\src\app_window.dart, code is 17, comment is 0, blank is 6.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\lib\src\bitsdojo_window_linux_real.dart, code is 23, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\lib\src\bitsdojo_window_linux_stub.dart, code is 13, comment is 0, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\lib\src\gtk.dart, code is 58, comment is 0, blank is 21.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\lib\src\native_api.dart, code is 84, comment is 16, blank is 21.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\lib\src\window.dart, code is 266, comment is 15, blank is 57.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\LICENSE, code is 17, comment is 0, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\api.cpp, code is 24, comment is 1, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\api.h, code is 28, comment is 2, blank is 7.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\api_impl.cpp, code is 172, comment is 1, blank is 40.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\api_impl.h, code is 36, comment is 1, blank is 18.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\bitsdojo_window_plugin.cpp, code is 75, comment is 16, blank is 27.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\CMakeLists.txt, code is 16, comment is 0, blank is 11.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\common.h, code is 14, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\debug_helper.cpp, code is 86, comment is 1, blank is 7.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\debug_helper.h, code is 8, comment is 2, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\flutter\generated_plugin_registrant.cc, code is 7, comment is 3, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\flutter\generated_plugin_registrant.h, code is 5, comment is 5, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\flutter\generated_plugins.cmake, code is 13, comment is 0, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\gtk_utils.cpp, code is 121, comment is 1, blank is 11.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\gtk_utils.h, code is 16, comment is 2, blank is 2.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\include\bitsdojo_window_linux\bitsdojo_window_plugin.h, code is 25, comment is 15, blank is 12.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\window_impl.cpp, code is 275, comment is 4, blank is 47.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\window_impl.h, code is 5, comment is 1, blank is 2.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\window_info.cpp, code is 24, comment is 1, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\linux\window_info.h, code is 23, comment is 1, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\pubspec.yaml, code is 22, comment is 2, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\README.md, code is 3, comment is 1, blank is 2.
+linux\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_linux\test\bitsdojo_window_test.dart, code is 14, comment is 0, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\AUTHORS, code is 65, comment is 0, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\CHANGELOG.md, code is 47, comment is 0, blank is 39.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\integration_test\path_provider_test.dart, code is 46, comment is 5, blank is 9.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\lib\main.dart, code is 78, comment is 10, blank is 11.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\linux\CMakeLists.txt, code is 35, comment is 0, blank is 13.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\linux\flutter\CMakeLists.txt, code is 19, comment is 1, blank is 6.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\linux\flutter\generated_plugins.cmake, code is 18, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\linux\main.cc, code is 6, comment is 6, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\linux\my_application.cc, code is 32, comment is 4, blank is 13.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\linux\my_application.h, code is 7, comment is 11, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\pubspec.yaml, code is 15, comment is 1, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\README.md, code is 7, comment is 0, blank is 2.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\example\test_driver\integration_test.dart, code is 2, comment is 3, blank is 2.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\lib\path_provider_linux.dart, code is 1, comment is 3, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\lib\src\get_application_id.dart, code is 2, comment is 6, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\lib\src\get_application_id_real.dart, code is 55, comment is 12, blank is 11.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\lib\src\get_application_id_stub.dart, code is 1, comment is 4, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\lib\src\path_provider_linux.dart, code is 62, comment is 15, blank is 15.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\LICENSE, code is 22, comment is 0, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\pubspec.yaml, code is 24, comment is 2, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\README.md, code is 7, comment is 2, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\test\get_application_id_test.dart, code is 47, comment is 3, blank is 12.
+linux\flutter\ephemeral\.plugin_symlinks\path_provider_linux\test\path_provider_linux_test.dart, code is 51, comment is 4, blank is 9.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\.gitignore, code is 5, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\.metadata, code is 31, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\analysis_options.yaml, code is 1, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\.gitignore, code is 38, comment is 0, blank is 6.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\integration_test\plugin_integration_test.dart, code is 12, comment is 13, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\lib\main.dart, code is 80, comment is 16, blank is 12.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\.gitignore, code is 1, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\CMakeLists.txt, code is 63, comment is 1, blank is 17.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\CMakeLists.txt, code is 21, comment is 1, blank is 6.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\generated_plugin_registrant.cc, code is 7, comment is 4, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\generated_plugin_registrant.h, code is 5, comment is 6, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\generated_plugins.cmake, code is 19, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\main.cc, code is 5, comment is 0, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\my_application.cc, code is 74, comment is 11, blank is 19.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\my_application.h, code is 7, comment is 8, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\.gitignore, code is 6, comment is 0, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Flutter\Flutter-Debug.xcconfig, code is 2, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Flutter\Flutter-Release.xcconfig, code is 2, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Flutter\GeneratedPluginRegistrant.swift, code is 6, comment is 3, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Podfile, code is 34, comment is 0, blank is 9.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Podfile.lock, code is 17, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcodeproj\project.pbxproj, code is 742, comment is 33, blank is 16.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcodeproj\project.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcodeproj\xcshareddata\xcschemes\Runner.xcscheme, code is 98, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcworkspace\contents.xcworkspacedata, code is 10, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\AppDelegate.swift, code is 8, comment is 0, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_1024.png, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_128.png, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_16.png, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_256.png, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_32.png, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_512.png, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_64.png, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json, code is 68, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Base.lproj\MainMenu.xib, code is 343, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\AppInfo.xcconfig, code is 3, comment is 8, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\Debug.xcconfig, code is 2, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\Release.xcconfig, code is 2, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\Warnings.xcconfig, code is 13, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\DebugProfile.entitlements, code is 12, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Info.plist, code is 32, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\MainFlutterWindow.swift, code is 12, comment is 0, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Release.entitlements, code is 8, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\RunnerTests\RunnerTests.swift, code is 6, comment is 3, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\pubspec.yaml, code is 15, comment is 1, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\README.md, code is 10, comment is 3, blank is 6.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\.gitignore, code is 14, comment is 0, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\CMakeLists.txt, code is 55, comment is 0, blank is 10.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\CMakeLists.txt, code is 60, comment is 1, blank is 23.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\generated_plugin_registrant.cc, code is 6, comment is 4, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\generated_plugin_registrant.h, code is 5, comment is 6, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\generated_plugins.cmake, code is 19, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\CMakeLists.txt, code is 27, comment is 0, blank is 13.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\flutter_window.cpp, code is 48, comment is 4, blank is 14.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\flutter_window.h, code is 20, comment is 6, blank is 8.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\main.cpp, code is 30, comment is 4, blank is 9.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\resource.h, code is 9, comment is 6, blank is 1.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\resources\app_icon.ico, it is a binary file.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\runner.exe.manifest, code is 20, comment is 0, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\Runner.rc, code is 64, comment is 32, blank is 28.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\utils.cpp, code is 53, comment is 2, blank is 9.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\utils.h, code is 8, comment is 7, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\win32_window.cpp, code is 210, comment is 25, blank is 54.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\win32_window.h, code is 48, comment is 32, blank is 23.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\platform_window.dart, code is 8, comment is 19, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\screen.dart, code is 7, comment is 20, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\window_size_channel.dart, code is 100, comment is 111, blank is 38.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\window_size_utils.dart, code is 39, comment is 38, blank is 12.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\lib\window_size.dart, code is 3, comment is 13, blank is 0.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\LICENSE, code is 154, comment is 1, blank is 29.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\linux\CMakeLists.txt, code is 14, comment is 0, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\linux\include\window_size\window_size_plugin.h, code is 17, comment is 15, blank is 9.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\linux\window_size_plugin.cc, code is 299, comment is 37, blank is 77.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\macos\Classes\FLEWindowSizePlugin.h, code is 4, comment is 17, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\macos\Classes\FLEWindowSizePlugin.mm, code is 141, comment is 48, blank is 26.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\macos\Classes\WindowSizePlugin.swift, code is 7, comment is 13, blank is 2.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\macos\window_size.podspec, code is 19, comment is 1, blank is 2.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\pubspec.yaml, code is 20, comment is 1, blank is 4.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\README.md, code is 28, comment is 2, blank is 12.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\windows\.gitignore, code is 14, comment is 0, blank is 3.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\windows\CMakeLists.txt, code is 18, comment is 0, blank is 5.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\windows\include\window_size\window_size_plugin.h, code is 17, comment is 16, blank is 7.
+linux\flutter\ephemeral\.plugin_symlinks\window_size\windows\window_size_plugin.cpp, code is 215, comment is 32, blank is 33.
+linux\flutter\generated_plugin_registrant.cc, code is 11, comment is 4, blank is 4.
+linux\flutter\generated_plugin_registrant.h, code is 5, comment is 6, blank is 5.
+linux\flutter\generated_plugins.cmake, code is 20, comment is 0, blank is 5.
+linux\main.cc, code is 5, comment is 0, blank is 1.
+linux\my_application.cc, code is 74, comment is 11, blank is 19.
+linux\my_application.h, code is 7, comment is 8, blank is 4.
+macos\.gitignore, code is 6, comment is 0, blank is 1.
+macos\Flutter\ephemeral\Flutter-Generated.xcconfig, code is 10, comment is 1, blank is 0.
+macos\Flutter\ephemeral\flutter_export_environment.sh, code is 10, comment is 2, blank is 0.
+macos\Flutter\Flutter-Debug.xcconfig, code is 1, comment is 0, blank is 0.
+macos\Flutter\Flutter-Release.xcconfig, code is 1, comment is 0, blank is 0.
+macos\Flutter\GeneratedPluginRegistrant.swift, code is 10, comment is 3, blank is 3.
+macos\Runner.xcodeproj\project.pbxproj, code is 523, comment is 33, blank is 16.
+macos\Runner.xcodeproj\project.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+macos\Runner.xcodeproj\xcshareddata\xcschemes\Runner.xcscheme, code is 87, comment is 0, blank is 0.
+macos\Runner.xcworkspace\contents.xcworkspacedata, code is 7, comment is 0, blank is 0.
+macos\Runner.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+macos\Runner\AppDelegate.swift, code is 8, comment is 0, blank is 1.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_1024.png, it is a binary file.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_128.png, it is a binary file.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_16.png, it is a binary file.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_256.png, it is a binary file.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_32.png, it is a binary file.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_512.png, it is a binary file.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_64.png, it is a binary file.
+macos\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json, code is 68, comment is 0, blank is 0.
+macos\Runner\Base.lproj\MainMenu.xib, code is 343, comment is 0, blank is 0.
+macos\Runner\Configs\AppInfo.xcconfig, code is 3, comment is 8, blank is 3.
+macos\Runner\Configs\Debug.xcconfig, code is 2, comment is 0, blank is 0.
+macos\Runner\Configs\Release.xcconfig, code is 2, comment is 0, blank is 0.
+macos\Runner\Configs\Warnings.xcconfig, code is 13, comment is 0, blank is 0.
+macos\Runner\DebugProfile.entitlements, code is 12, comment is 0, blank is 0.
+macos\Runner\Info.plist, code is 32, comment is 0, blank is 0.
+macos\Runner\MainFlutterWindow.swift, code is 12, comment is 0, blank is 3.
+macos\Runner\Release.entitlements, code is 8, comment is 0, blank is 0.
+pubspec.lock, code is 670, comment is 1, blank is 0.
+pubspec.yaml, code is 98, comment is 7, blank is 18.
+README.md, code is 10, comment is 3, blank is 6.
+test\widget_test.dart, code is 14, comment is 10, blank is 6.
+web\favicon.png, it is a binary file.
+web\icons\Icon-192.png, it is a binary file.
+web\icons\Icon-512.png, it is a binary file.
+web\icons\Icon-maskable-192.png, it is a binary file.
+web\icons\Icon-maskable-512.png, it is a binary file.
+web\index.html, code is 37, comment is 16, blank is 5.
+web\manifest.json, code is 35, comment is 0, blank is 0.
+windows\.gitignore, code is 14, comment is 0, blank is 3.
+windows\CMakeLists.txt, code is 55, comment is 0, blank is 10.
+windows\flutter\CMakeLists.txt, code is 60, comment is 1, blank is 23.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\CHANGELOG.md, code is 16, comment is 0, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\bitsdojo_window_windows.dart, code is 2, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\app_window.dart, code is 22, comment is 0, blank is 6.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\bitsdojo_window_windows_real.dart, code is 26, comment is 0, blank is 6.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\bitsdojo_window_windows_stub.dart, code is 14, comment is 0, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\native_api.dart, code is 54, comment is 7, blank is 15.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\plugin_channel.dart, code is 3, comment is 0, blank is 2.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\win32_plus.dart, code is 9, comment is 1, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\window.dart, code is 245, comment is 5, blank is 48.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\window_interface.dart, code is 4, comment is 0, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\lib\src\window_util.dart, code is 33, comment is 0, blank is 7.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\LICENSE, code is 17, comment is 0, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\pubspec.yaml, code is 23, comment is 2, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\README.md, code is 3, comment is 1, blank is 2.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\test\bitsdojo_window_test.dart, code is 14, comment is 0, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\bitsdojo_window.cpp, code is 555, comment is 3, blank is 58.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\bitsdojo_window.h, code is 22, comment is 0, blank is 8.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\bitsdojo_window_api.cpp, code is 24, comment is 0, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\bitsdojo_window_api.h, code is 24, comment is 0, blank is 7.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\bitsdojo_window_common.h, code is 14, comment is 0, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\bitsdojo_window_plugin.cpp, code is 78, comment is 6, blank is 23.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\CMakeLists.txt, code is 18, comment is 0, blank is 7.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\include\bitsdojo_window_windows\bitsdojo_window_plugin.h, code is 15, comment is 2, blank is 7.
+windows\flutter\ephemeral\.plugin_symlinks\bitsdojo_window_windows\windows\window_util.h, code is 17, comment is 0, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\AUTHORS, code is 65, comment is 0, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\CHANGELOG.md, code is 38, comment is 0, blank is 25.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\integration_test\path_provider_test.dart, code is 43, comment is 5, blank is 9.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\lib\main.dart, code is 74, comment is 6, blank is 13.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\pubspec.yaml, code is 15, comment is 1, blank is 2.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\README.md, code is 2, comment is 0, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\test_driver\integration_test.dart, code is 2, comment is 3, blank is 2.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\CMakeLists.txt, code is 46, comment is 0, blank is 13.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\flutter\CMakeLists.txt, code is 59, comment is 1, blank is 22.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\flutter\generated_plugins.cmake, code is 18, comment is 0, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\CMakeLists.txt, code is 9, comment is 0, blank is 9.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\flutter_window.cpp, code is 48, comment is 7, blank is 13.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\flutter_window.h, code is 23, comment is 11, blank is 10.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\main.cpp, code is 25, comment is 7, blank is 8.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\resource.h, code is 9, comment is 6, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\resources\app_icon.ico, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\run_loop.cpp, code is 53, comment is 8, blank is 9.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\run_loop.h, code is 20, comment is 11, blank is 12.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\runner.exe.manifest, code is 20, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\Runner.rc, code is 64, comment is 32, blank is 28.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\utils.cpp, code is 19, comment is 3, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\utils.h, code is 4, comment is 6, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\win32_window.cpp, code is 174, comment is 19, blank is 48.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\example\windows\runner\win32_window.h, code is 45, comment is 33, blank is 22.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\lib\path_provider_windows.dart, code is 3, comment is 6, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\lib\src\folders.dart, code is 55, comment is 134, blank is 54.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\lib\src\folders_stub.dart, code is 1, comment is 4, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\lib\src\path_provider_windows_real.dart, code is 173, comment is 53, blank is 28.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\lib\src\path_provider_windows_stub.dart, code is 10, comment is 18, blank is 6.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\LICENSE, code is 22, comment is 0, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\pubspec.yaml, code is 24, comment is 2, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\README.md, code is 7, comment is 2, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\path_provider_windows\test\path_provider_windows_test.dart, code is 37, comment is 4, blank is 6.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\.gitignore, code is 5, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\.metadata, code is 31, comment is 0, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\analysis_options.yaml, code is 1, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\.gitignore, code is 38, comment is 0, blank is 6.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\integration_test\plugin_integration_test.dart, code is 12, comment is 13, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\lib\main.dart, code is 80, comment is 16, blank is 12.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\.gitignore, code is 1, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\CMakeLists.txt, code is 63, comment is 1, blank is 17.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\CMakeLists.txt, code is 21, comment is 1, blank is 6.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\generated_plugin_registrant.cc, code is 7, comment is 4, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\generated_plugin_registrant.h, code is 5, comment is 6, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\flutter\generated_plugins.cmake, code is 19, comment is 0, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\main.cc, code is 5, comment is 0, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\my_application.cc, code is 74, comment is 11, blank is 19.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\linux\my_application.h, code is 7, comment is 8, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\.gitignore, code is 6, comment is 0, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Flutter\Flutter-Debug.xcconfig, code is 2, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Flutter\Flutter-Release.xcconfig, code is 2, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Flutter\GeneratedPluginRegistrant.swift, code is 6, comment is 3, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Podfile, code is 34, comment is 0, blank is 9.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Podfile.lock, code is 17, comment is 0, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcodeproj\project.pbxproj, code is 742, comment is 33, blank is 16.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcodeproj\project.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcodeproj\xcshareddata\xcschemes\Runner.xcscheme, code is 98, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcworkspace\contents.xcworkspacedata, code is 10, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner.xcworkspace\xcshareddata\IDEWorkspaceChecks.plist, code is 8, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\AppDelegate.swift, code is 8, comment is 0, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_1024.png, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_128.png, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_16.png, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_256.png, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_32.png, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_512.png, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\app_icon_64.png, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json, code is 68, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Base.lproj\MainMenu.xib, code is 343, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\AppInfo.xcconfig, code is 3, comment is 8, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\Debug.xcconfig, code is 2, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\Release.xcconfig, code is 2, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Configs\Warnings.xcconfig, code is 13, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\DebugProfile.entitlements, code is 12, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Info.plist, code is 32, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\MainFlutterWindow.swift, code is 12, comment is 0, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\Runner\Release.entitlements, code is 8, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\macos\RunnerTests\RunnerTests.swift, code is 6, comment is 3, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\pubspec.yaml, code is 15, comment is 1, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\README.md, code is 10, comment is 3, blank is 6.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\.gitignore, code is 14, comment is 0, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\CMakeLists.txt, code is 55, comment is 0, blank is 10.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\CMakeLists.txt, code is 60, comment is 1, blank is 23.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\generated_plugin_registrant.cc, code is 6, comment is 4, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\generated_plugin_registrant.h, code is 5, comment is 6, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\flutter\generated_plugins.cmake, code is 19, comment is 0, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\CMakeLists.txt, code is 27, comment is 0, blank is 13.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\flutter_window.cpp, code is 48, comment is 4, blank is 14.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\flutter_window.h, code is 20, comment is 6, blank is 8.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\main.cpp, code is 30, comment is 4, blank is 9.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\resource.h, code is 9, comment is 6, blank is 1.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\resources\app_icon.ico, it is a binary file.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\runner.exe.manifest, code is 20, comment is 0, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\Runner.rc, code is 64, comment is 32, blank is 28.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\utils.cpp, code is 53, comment is 2, blank is 9.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\utils.h, code is 8, comment is 7, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\win32_window.cpp, code is 210, comment is 25, blank is 54.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\example\windows\runner\win32_window.h, code is 48, comment is 32, blank is 23.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\platform_window.dart, code is 8, comment is 19, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\screen.dart, code is 7, comment is 20, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\window_size_channel.dart, code is 100, comment is 111, blank is 38.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\lib\src\window_size_utils.dart, code is 39, comment is 38, blank is 12.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\lib\window_size.dart, code is 3, comment is 13, blank is 0.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\LICENSE, code is 154, comment is 1, blank is 29.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\linux\CMakeLists.txt, code is 14, comment is 0, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\linux\include\window_size\window_size_plugin.h, code is 17, comment is 15, blank is 9.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\linux\window_size_plugin.cc, code is 299, comment is 37, blank is 77.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\macos\Classes\FLEWindowSizePlugin.h, code is 4, comment is 17, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\macos\Classes\FLEWindowSizePlugin.mm, code is 141, comment is 48, blank is 26.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\macos\Classes\WindowSizePlugin.swift, code is 7, comment is 13, blank is 2.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\macos\window_size.podspec, code is 19, comment is 1, blank is 2.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\pubspec.yaml, code is 20, comment is 1, blank is 4.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\README.md, code is 28, comment is 2, blank is 12.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\windows\.gitignore, code is 14, comment is 0, blank is 3.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\windows\CMakeLists.txt, code is 18, comment is 0, blank is 5.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\windows\include\window_size\window_size_plugin.h, code is 17, comment is 16, blank is 7.
+windows\flutter\ephemeral\.plugin_symlinks\window_size\windows\window_size_plugin.cpp, code is 215, comment is 32, blank is 33.
+windows\flutter\ephemeral\cpp_client_wrapper\binary_messenger_impl.h, code is 25, comment is 13, blank is 14.
+windows\flutter\ephemeral\cpp_client_wrapper\byte_buffer_streams.h, code is 65, comment is 21, blank is 18.
+windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc, code is 178, comment is 34, blank is 34.
+windows\flutter\ephemeral\cpp_client_wrapper\engine_method_result.cc, code is 1, comment is 8, blank is 2.
+windows\flutter\ephemeral\cpp_client_wrapper\flutter_engine.cc, code is 85, comment is 4, blank is 20.
+windows\flutter\ephemeral\cpp_client_wrapper\flutter_view_controller.cc, code is 33, comment is 4, blank is 7.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\basic_message_channel.h, code is 68, comment is 27, blank is 17.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\binary_messenger.h, code is 22, comment is 22, blank is 10.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\byte_streams.h, code is 45, comment is 23, blank is 19.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\dart_project.h, code is 48, comment is 41, blank is 15.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\encodable_value.h, code is 88, comment is 116, blank is 22.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\engine_method_result.h, code is 51, comment is 21, blank is 17.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\event_channel.h, code is 131, comment is 31, blank is 21.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\event_sink.h, code is 32, comment is 17, blank is 15.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\event_stream_handler.h, code is 41, comment is 21, blank is 14.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\event_stream_handler_functions.h, code is 49, comment is 14, blank is 17.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\flutter_engine.h, code is 38, comment is 55, blank is 26.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\flutter_view.h, code is 19, comment is 10, blank is 11.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\flutter_view_controller.h, code is 31, comment is 25, blank is 16.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\message_codec.h, code is 35, comment is 16, blank is 13.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\method_call.h, code is 22, comment is 11, blank is 12.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\method_channel.h, code is 87, comment is 31, blank is 17.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\method_codec.h, code is 65, comment is 28, blank is 20.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\method_result.h, code is 33, comment is 28, blank is 17.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\method_result_functions.h, code is 52, comment is 14, blank is 15.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\plugin_registrar.h, code is 58, comment is 45, blank is 30.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\plugin_registrar_windows.h, code is 76, comment is 35, blank is 19.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\plugin_registry.h, code is 16, comment is 14, blank is 9.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\standard_codec_serializer.h, code is 28, comment is 34, blank is 16.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\standard_message_codec.h, code is 26, comment is 20, blank is 13.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\standard_method_codec.h, code is 37, comment is 22, blank is 16.
+windows\flutter\ephemeral\cpp_client_wrapper\include\flutter\texture_registrar.h, code is 53, comment is 38, blank is 21.
+windows\flutter\ephemeral\cpp_client_wrapper\plugin_registrar.cc, code is 37, comment is 10, blank is 16.
+windows\flutter\ephemeral\cpp_client_wrapper\readme, code is 7, comment is 0, blank is 2.
+windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc, code is 411, comment is 23, blank is 35.
+windows\flutter\ephemeral\cpp_client_wrapper\texture_registrar_impl.h, code is 21, comment is 13, blank is 12.
+windows\flutter\ephemeral\flutter_export.h, code is 16, comment is 8, blank is 7.
+windows\flutter\ephemeral\flutter_messenger.h, code is 62, comment is 65, blank is 20.
+windows\flutter\ephemeral\flutter_plugin_registrar.h, code is 26, comment is 11, blank is 11.
+windows\flutter\ephemeral\flutter_texture_registrar.h, code is 84, comment is 85, blank is 20.
+windows\flutter\ephemeral\flutter_windows.dll, it is a binary file.
+windows\flutter\ephemeral\flutter_windows.dll.exp, it is a binary file.
+windows\flutter\ephemeral\flutter_windows.dll.lib, it is a binary file.
+windows\flutter\ephemeral\flutter_windows.dll.pdb, it is a binary file.
+windows\flutter\ephemeral\flutter_windows.h, code is 93, comment is 138, blank is 46.
+windows\flutter\ephemeral\generated_config.cmake, code is 11, comment is 0, blank is 13.
+windows\flutter\ephemeral\icudtl.dat, it is a binary file.
+windows\flutter\generated_plugin_registrant.cc, code is 9, comment is 4, blank is 4.
+windows\flutter\generated_plugin_registrant.h, code is 5, comment is 6, blank is 5.
+windows\flutter\generated_plugins.cmake, code is 20, comment is 0, blank is 5.
+windows\runner\CMakeLists.txt, code is 20, comment is 0, blank is 12.
+windows\runner\flutter_window.cpp, code is 45, comment is 4, blank is 12.
+windows\runner\flutter_window.h, code is 20, comment is 6, blank is 8.
+windows\runner\main.cpp, code is 32, comment is 4, blank is 10.
+windows\runner\resource.h, code is 9, comment is 6, blank is 1.
+windows\runner\resources\App-Icon-Dark.ico, it is a binary file.
+windows\runner\runner.exe.manifest, code is 20, comment is 0, blank is 0.
+windows\runner\Runner.rc, code is 64, comment is 32, blank is 28.
+windows\runner\utils.cpp, code is 53, comment is 2, blank is 9.
+windows\runner\utils.h, code is 8, comment is 7, blank is 5.
+windows\runner\win32_window.cpp, code is 183, comment is 16, blank is 47.
+windows\runner\win32_window.h, code is 48, comment is 30, blank is 21.
+===============================================================================

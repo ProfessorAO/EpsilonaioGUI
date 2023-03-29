@@ -23,6 +23,7 @@ class Taskinstance with ChangeNotifier {
   bool isactive = false;
   DataRow taskRow = DataRow(cells: []);
   TasksLists tasksList = TasksLists();
+  UniqueKey key = UniqueKey();
   late BuildContext context;
 
   Taskinstance(id, product, store, profile, size, newcontext) {

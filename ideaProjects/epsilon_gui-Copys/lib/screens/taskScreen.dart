@@ -753,7 +753,9 @@ class taskGroupColumn extends StatefulWidget {
 class taskGroupColumn_state extends State<taskGroupColumn> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: context.watch<TaskGroupList>().group_list);
+    return Column(
+        children:
+            context.watch<TaskGroupList>().taskGroupMap_widget.values.toList());
   }
 }
 

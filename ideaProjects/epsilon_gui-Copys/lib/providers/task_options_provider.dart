@@ -130,7 +130,7 @@ class TaskOptions with ChangeNotifier {
       //Make Unselectable
       print("nothing here");
     } else {
-      profile_list = profileGroupReference.profileGroups_ins.keys.toList();
+      profile_list = profileGroupReference.profileGroups_names.values.toList();
       print("got here");
       profile_options = createDropdownMenu(profile_list);
     }

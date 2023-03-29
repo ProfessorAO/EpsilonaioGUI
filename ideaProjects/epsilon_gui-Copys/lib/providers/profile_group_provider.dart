@@ -9,14 +9,15 @@ import 'package:provider/provider.dart';
 import 'package:ready/ready.dart';
 
 class ProfileGroupProvider with ChangeNotifier {
-  Map<String, List<ProfileInstance>> profileGroups_ins = {};
-  Map<String, Widget> profileGroups_widget = {};
+  Map<UniqueKey, List<ProfileInstance>> profileGroups_ins = {};
+  Map<UniqueKey, Widget> profileGroups_widget = {};
+  Map<UniqueKey, String> profileGroups_names = {};
   late BuildContext context_;
   List<DataRow> all_profiles_data = [];
 
 //GETTERS
   List<DataRow> get allProfilesData => all_profiles_data;
-  Map<String, Widget> get profileWidgetList => profileGroups_widget;
+  Map<UniqueKey, Widget> get profileWidgetList => profileGroups_widget;
 
 //SETTERS
   void setContext(BuildContext newcontext) {
@@ -52,21 +53,22 @@ class ProfileGroupProvider with ChangeNotifier {
     return selectedProfiles;
   }
 
-  void addtoGroupDetails(List<ProfileInstance> list, String name) {
-    profileGroups_ins.addAll({name: list});
+  void addtoGroupDetails(List<ProfileInstance> list, UniqueKey key) {
+    profileGroups_ins.addAll({key: list});
     notifyListeners();
   }
 
-  void deleteGroup(String name, Map<String, List<ProfileInstance>> instancemMap,
-      Map<String, Widget> widgetMap) {
-    instancemMap.removeWhere((key, value) => key == name);
-    widgetMap.removeWhere((key, value) => key == name);
+  void deleteGroup(UniqueKey uniqueKey) {
+    profileGroups_ins.removeWhere((key, value) => key == uniqueKey);
+    profileGroups_widget.removeWhere((key, value) => key == uniqueKey);
+    profileGroups_names.removeWhere((key, value) => key == uniqueKey);
+
     notifyListeners();
   }
 
-  Widget createProfileGroup(context, groupName) {
+  Widget createProfileGroup(context, groupName, key) {
     List<ProfileInstance> selectedProfiles = getSelectedProfiles();
-    addtoGroupDetails(selectedProfiles, groupName);
+    addtoGroupDetails(selectedProfiles, key);
 
     return Container(
       child: TextButton(
@@ -99,8 +101,7 @@ class ProfileGroupProvider with ChangeNotifier {
               alignment: Alignment.centerRight,
               child: IconButton(
                   onPressed: () {
-                    deleteGroup(
-                        groupName, profileGroups_ins, profileGroups_widget);
+                    deleteGroup(key);
                   },
                   icon: const Icon(
                     Icons.delete,
@@ -114,8 +115,10 @@ class ProfileGroupProvider with ChangeNotifier {
   }
 
   void addProfileGroup(BuildContext context, String groupName) {
-    final entry = <String, Widget>{
-      groupName: Column(
+    final key = UniqueKey();
+    final nameEntry = <UniqueKey, String>{key: groupName};
+    final entry = <UniqueKey, Widget>{
+      key: Column(
         children: [
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
@@ -126,11 +129,13 @@ class ProfileGroupProvider with ChangeNotifier {
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 border: Border.all(
                     color: Color.fromARGB(255, 25, 36, 78), width: 3)),
-            child: createProfileGroup(context, groupName),
+            child: createProfileGroup(context, groupName, key),
           ),
         ],
       )
     };
     profileGroups_widget.addEntries(entry.entries);
+    profileGroups_names.addEntries(nameEntry.entries);
+    notifyListeners();
   }
 }

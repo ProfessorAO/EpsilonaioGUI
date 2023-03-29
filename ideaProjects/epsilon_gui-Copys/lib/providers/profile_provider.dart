@@ -82,6 +82,7 @@ class ProfileInstance with ChangeNotifier {
   String postcode = "";
   String phone = "";
   bool checked = false;
+  UniqueKey key = UniqueKey();
   Profile_card profileCard = Profile_card(
       profile_name: "",
       card_name: "",
