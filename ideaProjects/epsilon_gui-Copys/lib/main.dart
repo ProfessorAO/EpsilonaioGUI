@@ -26,7 +26,6 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => TasksLists()),
         ChangeNotifierProvider(create: (_) => ConsoleLogger()),
-        ChangeNotifierProvider(create: (_) => TasksInputs()),
         ChangeNotifierProvider(
             create: (_) => Taskinstance(0, "", "", "", "", "")),
         ChangeNotifierProvider(create: (_) => TabbarIndex()),
@@ -36,7 +35,8 @@ void main() {
         ChangeNotifierProvider(create: (_) => ReleasesData()),
         ChangeNotifierProvider(create: (_) => RecentCheckoutProvider()),
         ChangeNotifierProvider(create: (context) => ProfileGroupProvider()),
-        ChangeNotifierProvider(create: (context) => TaskOptions()),
+        ChangeNotifierProvider(
+            create: (context) => TaskOptions(ProfileGroupProvider())),
         ChangeNotifierProvider(
             create: (_) => ProfileInstance(
                 "",

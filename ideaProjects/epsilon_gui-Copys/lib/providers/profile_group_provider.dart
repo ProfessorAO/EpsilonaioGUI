@@ -89,6 +89,13 @@ class ProfileGroupProvider with ChangeNotifier {
                 )),
             Spacer(),
             Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "${selectedProfiles.length} Profile(s)",
+                  style: const TextStyle(fontSize: 14),
+                )),
+            Spacer(),
+            Align(
               alignment: Alignment.centerRight,
               child: IconButton(
                   onPressed: () {

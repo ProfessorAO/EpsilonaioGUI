@@ -6,15 +6,6 @@ import 'package:provider/provider.dart';
 
 class TaskGroupList with ChangeNotifier {
   String taskgroup_name = "";
-  String taskproduct = "";
-  String taskstore = "";
-  String tasksize = "";
-  String taskcategory = "";
-  List<String> taskkeywords = [];
-  String taskregion = "";
-  String taskprofile = "";
-  String tasktype = "";
-  int tasknum = 0;
   int checkouts = 0;
   int fails = 0;
   List<Widget> group_list = [];
@@ -25,31 +16,14 @@ class TaskGroupList with ChangeNotifier {
     taskgroup_name = group_name;
   }
 
-  void setTaskProduct(String product) {
-    taskproduct = product;
-  }
-
-  void setTaskStore(String store) {
-    taskstore = store;
-  }
-
-  void setTaskSize(String size) {
-    tasksize = size;
-  }
-
-  void setTaskCategory(String category) {}
-  void setTaskKeywords(List<String> keywords) {}
-  void setTaskRegion(String region) {}
-  void setTaskProfile(String profile) {
-    taskprofile = profile;
-  }
-
-  void setTaskType(String taskType) {}
-  void setTaskNum(int user_tasknum) {
-    tasknum = user_tasknum;
-  }
-
-  Widget createTaskGroup(BuildContext context) {
+  Widget createTaskGroup(
+      BuildContext context,
+      int tasknum,
+      String taskstore,
+      String taskproduct,
+      String taskprofile,
+      String taskSize,
+      String groupName) {
     return Container(
       child: TextButton(
         style: TextButton.styleFrom(
@@ -63,7 +37,7 @@ class TaskGroupList with ChangeNotifier {
           final snackBar = SnackBar(
             duration: const Duration(seconds: 1),
             backgroundColor: Colors.green,
-            content: Text('$taskgroup_name Used'),
+            content: Text('$groupName Used'),
             action: SnackBarAction(
               label: '',
               onPressed: () {},
@@ -71,19 +45,9 @@ class TaskGroupList with ChangeNotifier {
           );
 
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          context.read<TasksInputs>().setproduct(taskproduct);
-          context.read<TasksInputs>().setsize(tasksize);
-          context.read<TasksInputs>().setprofile(taskprofile);
-          context.read<TasksInputs>().setstore(taskstore);
-          context.read<TasksInputs>().setNum_of_tasks(tasknum);
           context.read<TasksLists>().removeAllTasks();
           context.read<TasksLists>().addTask(
-              context.read<TasksInputs>().tasks_num,
-              context.read<TasksInputs>().task_store,
-              context.read<TasksInputs>().product,
-              context.read<TasksInputs>().task_profile,
-              context.read<TasksInputs>().task_size,
-              context);
+              tasknum, taskstore, taskproduct, taskprofile, taskSize, context);
         },
         onLongPress: () {},
         child: Row(
@@ -131,8 +95,18 @@ class TaskGroupList with ChangeNotifier {
             Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  taskgroup_name,
+                  groupName,
                   style: const TextStyle(fontSize: 17),
+                )),
+            Spacer(),
+            Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.delete_forever,
+                    color: Colors.red,
+                  ),
                 )),
           ],
         ),
@@ -140,7 +114,14 @@ class TaskGroupList with ChangeNotifier {
     );
   }
 
-  void addToGroupList(context) {
+  void addToGroupList(
+      context,
+      int tasknum,
+      String taskstore,
+      String taskproduct,
+      String taskprofile,
+      String taskSize,
+      String groupName) {
     //group_list.add(Spacer());
     group_list.add(SizedBox(
       height: MediaQuery.of(context).size.height * 0.01,
@@ -152,7 +133,8 @@ class TaskGroupList with ChangeNotifier {
             borderRadius: BorderRadius.all(Radius.circular(5)),
             border:
                 Border.all(color: Color.fromARGB(255, 25, 36, 78), width: 3)),
-        child: createTaskGroup(context),
+        child: createTaskGroup(context, tasknum, taskstore, taskproduct,
+            taskprofile, taskSize, groupName),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
+import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:epsilon_gui/providers/task_group_provider.dart';
@@ -13,6 +14,7 @@ import 'package:kumi_popup_window/kumi_popup_window.dart';
 import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'package:epsilon_gui/providers/task_options_provider.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/InputWidgets.dart';
+import 'package:puppeteer/protocol/web_audio.dart';
 
 typedef StringVoidCallback = void Function(String?);
 typedef StringCallback = void Function(String);
@@ -80,21 +82,21 @@ class tasksScreen extends State<tasks_screen> {
       left: MediaQuery.of(context).size.width * 0.167,
       child: TextButton(
           onPressed: () {
+            TaskOptions taskOptions =
+                TaskOptions(context.read<ProfileGroupProvider>());
             String product = "";
-            String dropdownsize = context.read<TaskOptions>().size_list.first;
-            String dropdowncategory =
-                context.read<TaskOptions>().category_list.first;
-            String dropdownregion =
-                context.read<TaskOptions>().region_list.first;
-            String dropdownprofile =
-                context.read<TaskOptions>().profile_list.first;
-            String dropdownTT = context.read<TaskOptions>().taskType_list.first;
-            String dropdownTG =
-                context.read<TaskOptions>().proxyGroup_list.first;
-            String dropdownstore = context.read<TaskOptions>().store_list.first;
+            int numberOfTasks = 0;
+            String dropdownsize = taskOptions.size_list.first;
+            String dropdowncategory = taskOptions.category_list.first;
+            String dropdownregion = taskOptions.region_list.first;
+            String dropdownprofile = taskOptions.profile_list.first;
+            String dropdownTT = taskOptions.taskType_list.first;
+            String dropdownTG = taskOptions.proxyGroup_list.first;
+            String dropdownstore = taskOptions.store_list.first;
             final myController = TextEditingController();
             final numController = TextEditingController();
             final keywordsController = TextEditingController();
+            taskOptions.setProfileGroups();
             showPopupWindow(
               context,
               gravity: KumiPopupGravity.center,
@@ -146,8 +148,7 @@ class tasksScreen extends State<tasks_screen> {
                               Expanded(
                                   flex: 10,
                                   child: columnInput_Menu(
-                                    Menuitems:
-                                        context.read<TaskOptions>().stores,
+                                    Menuitems: taskOptions.stores,
                                     value: dropdownstore,
                                     label: "Store",
                                     onChanged: (String? value) {
@@ -162,8 +163,7 @@ class tasksScreen extends State<tasks_screen> {
                                   child: columnInput_Menu(
                                     value: dropdownsize,
                                     label: "Size(s)",
-                                    Menuitems:
-                                        context.read<TaskOptions>().sizes,
+                                    Menuitems: taskOptions.sizes,
                                     onChanged: (String? value) {
                                       setState(() {
                                         dropdownsize = value!;
@@ -177,9 +177,7 @@ class tasksScreen extends State<tasks_screen> {
                                   child: columnInput_Menu(
                                     value: dropdowncategory,
                                     label: "Clothing Category",
-                                    Menuitems: context
-                                        .read<TaskOptions>()
-                                        .clothingTypes,
+                                    Menuitems: taskOptions.clothingTypes,
                                     onChanged: (String? value) {
                                       setState(() {
                                         dropdowncategory = value!;
@@ -194,11 +192,7 @@ class tasksScreen extends State<tasks_screen> {
                                     controller: keywordsController,
                                     length: 20,
                                     label: "Color",
-                                    onChanged: (String value) {
-                                      context
-                                          .read<TasksInputs>()
-                                          .setNum_of_tasks(int.parse(value));
-                                    },
+                                    onChanged: (String value) {},
                                   )),
                               const Spacer(),
                               // TASK NUMBER
@@ -209,9 +203,7 @@ class tasksScreen extends State<tasks_screen> {
                                     length: 2,
                                     label: "Number of Tasks",
                                     onChanged: (String value) {
-                                      context
-                                          .read<TasksInputs>()
-                                          .setNum_of_tasks(int.parse(value));
+                                      numberOfTasks = int.parse(value);
                                     },
                                   )),
                               const Spacer(),
@@ -221,8 +213,7 @@ class tasksScreen extends State<tasks_screen> {
                                   child: columnInput_Menu(
                                     value: dropdownregion,
                                     label: "Region",
-                                    Menuitems:
-                                        context.read<TaskOptions>().regions,
+                                    Menuitems: taskOptions.regions,
                                     onChanged: (String? value) {
                                       setState(() {
                                         dropdownregion = value!;
@@ -234,10 +225,9 @@ class tasksScreen extends State<tasks_screen> {
                               Expanded(
                                   flex: 10,
                                   child: columnInput_Menu(
-                                    value: dropdownprofile,
+                                    value: taskOptions.profile_list.first,
                                     label: "Profile",
-                                    Menuitems:
-                                        context.read<TaskOptions>().profiles,
+                                    Menuitems: taskOptions.profiles,
                                     onChanged: (String? value) {
                                       setState(() {
                                         dropdownprofile = value!;
@@ -251,8 +241,7 @@ class tasksScreen extends State<tasks_screen> {
                                   child: columnInput_Menu(
                                     value: dropdownTT,
                                     label: "Task Mode",
-                                    Menuitems:
-                                        context.read<TaskOptions>().taskTypes,
+                                    Menuitems: taskOptions.taskTypes,
                                     onChanged: (String? value) {
                                       setState(() {
                                         dropdownTT = value!;
@@ -266,8 +255,7 @@ class tasksScreen extends State<tasks_screen> {
                                   child: columnInput_Menu(
                                     value: dropdownTG,
                                     label: "Proxy Group",
-                                    Menuitems:
-                                        context.read<TaskOptions>().proxies,
+                                    Menuitems: taskOptions.proxies,
                                     onChanged: (String? value) {
                                       setState(() {
                                         dropdownTG = value!;
@@ -285,7 +273,7 @@ class tasksScreen extends State<tasks_screen> {
                                             duration: Duration(seconds: 1),
                                             backgroundColor: Colors.green,
                                             content: Text(
-                                                "${context.read<TasksInputs>().num_of_tasks} Tasks Created"),
+                                                "${numberOfTasks} Tasks Created"),
                                             action: SnackBarAction(
                                               label: '',
                                               onPressed: () {},
@@ -294,34 +282,12 @@ class tasksScreen extends State<tasks_screen> {
 
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(snackBar);
-                                          context
-                                              .read<TasksInputs>()
-                                              .setproduct(product);
-                                          context
-                                              .read<TasksInputs>()
-                                              .setsize(dropdownsize);
-                                          context
-                                              .read<TasksInputs>()
-                                              .setprofile(dropdownprofile);
-                                          context
-                                              .read<TasksInputs>()
-                                              .setstore(dropdownstore);
                                           context.read<TasksLists>().addTask(
-                                              context
-                                                  .read<TasksInputs>()
-                                                  .tasks_num,
-                                              context
-                                                  .read<TasksInputs>()
-                                                  .task_store,
-                                              context
-                                                  .read<TasksInputs>()
-                                                  .product,
-                                              context
-                                                  .read<TasksInputs>()
-                                                  .task_profile,
-                                              context
-                                                  .read<TasksInputs>()
-                                                  .task_size,
+                                              numberOfTasks,
+                                              dropdownstore,
+                                              product,
+                                              dropdownprofile,
+                                              dropdownsize,
                                               context);
                                         },
                                         style: TextButton.styleFrom(
@@ -373,22 +339,17 @@ class tasksScreen extends State<tasks_screen> {
                   //padding: const EdgeInsets.all(16.0),
                   ),
               onPressed: () {
+                TaskOptions taskOptions =
+                    TaskOptions(context.read<ProfileGroupProvider>());
                 String product = "";
                 String group_name = "";
-                String dropdownsize =
-                    context.read<TaskOptions>().size_list.first;
-                String dropdowncategory =
-                    context.read<TaskOptions>().category_list.first;
-                String dropdownregion =
-                    context.read<TaskOptions>().region_list.first;
-                String dropdownprofile =
-                    context.read<TaskOptions>().profile_list.first;
-                String dropdownTT =
-                    context.read<TaskOptions>().taskType_list.first;
-                String dropdownPG =
-                    context.read<TaskOptions>().proxyGroup_list.first;
-                String dropdownstore =
-                    context.read<TaskOptions>().store_list.first;
+                String dropdownsize = taskOptions.size_list.first;
+                String dropdowncategory = taskOptions.category_list.first;
+                String dropdownregion = taskOptions.region_list.first;
+                String dropdownprofile = taskOptions.profile_list.first;
+                String dropdownTT = taskOptions.taskType_list.first;
+                String dropdownPG = taskOptions.proxyGroup_list.first;
+                String dropdownstore = taskOptions.store_list.first;
                 int taskNumber = 0;
                 final productController = TextEditingController();
                 final taskGroupController = TextEditingController();
@@ -455,9 +416,7 @@ class tasksScreen extends State<tasks_screen> {
                                 Expanded(
                                     flex: 2,
                                     child: columnInput_Menu(
-                                      Menuitems: context
-                                          .read<TaskOptions>()
-                                          .store_options,
+                                      Menuitems: taskOptions.stores,
                                       value: dropdownstore,
                                       label: "Store",
                                       onChanged: (String? value) {
@@ -472,9 +431,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownsize,
                                       label: "Size",
-                                      Menuitems: context
-                                          .read<TaskOptions>()
-                                          .size_options,
+                                      Menuitems: taskOptions.size_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownsize = value!;
@@ -488,9 +445,8 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdowncategory,
                                       label: "Clothing Category",
-                                      Menuitems: context
-                                          .read<TaskOptions>()
-                                          .clothingType_options,
+                                      Menuitems:
+                                          taskOptions.clothingType_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdowncategory = value!;
@@ -526,9 +482,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownregion,
                                       label: "Region",
-                                      Menuitems: context
-                                          .read<TaskOptions>()
-                                          .region_options,
+                                      Menuitems: taskOptions.region_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownregion = value!;
@@ -542,9 +496,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownprofile,
                                       label: "Profile Group",
-                                      Menuitems: context
-                                          .read<TaskOptions>()
-                                          .profile_options,
+                                      Menuitems: taskOptions.profile_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownprofile = value!;
@@ -558,9 +510,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownTT,
                                       label: "Task Type",
-                                      Menuitems: context
-                                          .read<TaskOptions>()
-                                          .taskType_options,
+                                      Menuitems: taskOptions.taskType_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownTT = value!;
@@ -574,9 +524,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownPG,
                                       label: "Proxy Group",
-                                      Menuitems: context
-                                          .read<TaskOptions>()
-                                          .proxy_options,
+                                      Menuitems: taskOptions.proxy_options,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownPG = value!;
@@ -603,25 +551,14 @@ class tasksScreen extends State<tasks_screen> {
                                         .showSnackBar(snackBar);
                                     context
                                         .read<TaskGroupList>()
-                                        .setGroupName(group_name);
-                                    context
-                                        .read<TaskGroupList>()
-                                        .setTaskProduct(product);
-                                    context
-                                        .read<TaskGroupList>()
-                                        .setTaskSize(dropdownsize);
-                                    context
-                                        .read<TaskGroupList>()
-                                        .setTaskProfile(dropdownprofile);
-                                    context
-                                        .read<TaskGroupList>()
-                                        .setTaskStore(dropdownstore);
-                                    context
-                                        .read<TaskGroupList>()
-                                        .setTaskNum(taskNumber);
-                                    context
-                                        .read<TaskGroupList>()
-                                        .addToGroupList(context);
+                                        .addToGroupList(
+                                            context,
+                                            taskNumber,
+                                            dropdownstore,
+                                            product,
+                                            dropdownprofile,
+                                            dropdownsize,
+                                            group_name);
 
                                     setState(() {});
                                   },

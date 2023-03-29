@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
 
 class TaskOptions with ChangeNotifier {
+  ProfileGroupProvider profileGroupReference;
+
+  TaskOptions(this.profileGroupReference) {}
   List<DropdownMenuItem<String>>? size_options = [
     DropdownMenuItem(
       value: "XS",
@@ -54,8 +59,8 @@ class TaskOptions with ChangeNotifier {
   ];
   List<DropdownMenuItem<String>>? profile_options = [
     DropdownMenuItem(
-      value: "profile1",
-      child: Text("profile1"),
+      value: "No Profile Groups",
+      child: Text("No Profile Groups"),
     ),
   ];
   List<DropdownMenuItem<String>>? taskType_options = [
@@ -89,11 +94,15 @@ class TaskOptions with ChangeNotifier {
     ),
     DropdownMenuItem(
       value: "Jumpers",
-      child: Text("Jumpers"),
+      child: Text("Jumpers/Hoodies"),
     ),
     DropdownMenuItem(
       value: "Shirts",
       child: Text("T-Shirts"),
+    ),
+    DropdownMenuItem(
+      value: "Bottoms",
+      child: Text("Bottoms"),
     ),
   ];
 
@@ -103,10 +112,11 @@ class TaskOptions with ChangeNotifier {
     'Jackets',
     'Bottoms',
     'Jumpers',
-    'T-Shirts'
+    'T-Shirts',
+    'Bottoms'
   ];
   List<String> region_list = <String>['UK', 'US', 'EU'];
-  List<String> profile_list = <String>['profile1'];
+  List<String> profile_list = <String>['No Profile Groups'];
   List<String> taskType_list = <String>['Browser', 'Requests'];
   List<String> proxyGroup_list = <String>['group1'];
   List<String> store_list = <String>[
@@ -114,6 +124,28 @@ class TaskOptions with ChangeNotifier {
     'Palace-Clothing',
     'End-Clothing'
   ];
+
+  void setProfileGroups() {
+    if (profileGroupReference.profileGroups_ins.keys.toList().isEmpty) {
+      //Make Unselectable
+      print("nothing here");
+    } else {
+      profile_list = profileGroupReference.profileGroups_ins.keys.toList();
+      print("got here");
+      profile_options = createDropdownMenu(profile_list);
+    }
+  }
+
+  List<DropdownMenuItem<String>>? createDropdownMenu(list) {
+    List<DropdownMenuItem<String>>? dropdown = [];
+    for (String str in list) {
+      dropdown.add(DropdownMenuItem(
+        value: str,
+        child: Text(str),
+      ));
+    }
+    return dropdown;
+  }
 
   List<DropdownMenuItem<String>>? get stores => store_options;
   List<DropdownMenuItem<String>>? get sizes => size_options;
