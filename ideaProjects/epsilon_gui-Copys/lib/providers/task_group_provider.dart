@@ -106,17 +106,17 @@ class TaskGroupList with ChangeNotifier {
                   children: [
                     IconButton(
                       onPressed: () {
-                        final snackBar = SnackBar(
-                          duration: const Duration(seconds: 1),
-                          backgroundColor: Colors.red,
-                          content: Text("$groupName Deleted"),
-                          action: SnackBarAction(
-                            label: '',
-                            onPressed: () {},
-                          ),
-                        );
+                        // final snackBar = SnackBar(
+                        //   duration: const Duration(seconds: 1),
+                        //   backgroundColor: Colors.red,
+                        //   content: Text("$groupName Deleted"),
+                        //   action: SnackBarAction(
+                        //     label: '',
+                        //     onPressed: () {},
+                        //   ),
+                        // );
 
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         deleteAGroup(key);
                       },
                       icon: Icon(

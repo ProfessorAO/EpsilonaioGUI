@@ -101,10 +101,6 @@ class TaskOptions with ChangeNotifier {
       value: "Shirts",
       child: Text("T-Shirts"),
     ),
-    DropdownMenuItem(
-      value: "Bottoms",
-      child: Text("Bottoms"),
-    ),
   ];
 
   List<String> size_list = <String>['XS', 'S', 'M', 'L', 'XL'];
@@ -114,7 +110,6 @@ class TaskOptions with ChangeNotifier {
     'Bottoms',
     'Jumpers',
     'T-Shirts',
-    'Bottoms'
   ];
   List<String> region_list = <String>['UK', 'US', 'EU'];
   List<ProfileGroup> profile_list = [];
