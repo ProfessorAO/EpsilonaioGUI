@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
+import 'package:puppeteer/protocol/profiler.dart';
 
 class TaskOptions with ChangeNotifier {
   ProfileGroupProvider profileGroupReference;
@@ -57,9 +58,9 @@ class TaskOptions with ChangeNotifier {
       child: Text("EU"),
     ),
   ];
-  List<DropdownMenuItem<String>>? profile_options = [
+  List<DropdownMenuItem<ProfileGroup>>? profile_options = [
     DropdownMenuItem(
-      value: "No Profile Groups",
+      value: ProfileGroup(UniqueKey(), "No Profile Groups", [], SizedBox()),
       child: Text("No Profile Groups"),
     ),
   ];
@@ -116,7 +117,7 @@ class TaskOptions with ChangeNotifier {
     'Bottoms'
   ];
   List<String> region_list = <String>['UK', 'US', 'EU'];
-  List<String> profile_list = <String>['No Profile Groups'];
+  List<ProfileGroup> profile_list = [];
   List<String> taskType_list = <String>['Browser', 'Requests'];
   List<String> proxyGroup_list = <String>['group1'];
   List<String> store_list = <String>[
@@ -126,22 +127,29 @@ class TaskOptions with ChangeNotifier {
   ];
 
   void setProfileGroups() {
-    if (profileGroupReference.profileGroups_ins.keys.toList().isEmpty) {
+    if (profileGroupReference.profileGroups.isEmpty) {
+      profile_list.clear();
+      profile_list
+          .add(ProfileGroup(UniqueKey(), 'No Profiles', [], SizedBox()));
+      profile_options = createDropdownMenu(profile_list);
       //Make Unselectable
-      print("nothing here");
     } else {
-      profile_list = profileGroupReference.profileGroups_names.values.toList();
-      print("got here");
+      profile_list.clear();
+      for (var element in profileGroupReference.profileGroups) {
+        profile_list.add(element);
+      }
       profile_options = createDropdownMenu(profile_list);
     }
   }
 
-  List<DropdownMenuItem<String>>? createDropdownMenu(list) {
-    List<DropdownMenuItem<String>>? dropdown = [];
-    for (String str in list) {
+  void getKey() {}
+
+  List<DropdownMenuItem<ProfileGroup>>? createDropdownMenu(list) {
+    List<DropdownMenuItem<ProfileGroup>>? dropdown = [];
+    for (ProfileGroup profileGroup in list) {
       dropdown.add(DropdownMenuItem(
-        value: str,
-        child: Text(str),
+        value: profileGroup,
+        child: Text(profileGroup.name),
       ));
     }
     return dropdown;
@@ -150,7 +158,7 @@ class TaskOptions with ChangeNotifier {
   List<DropdownMenuItem<String>>? get stores => store_options;
   List<DropdownMenuItem<String>>? get sizes => size_options;
   List<DropdownMenuItem<String>>? get regions => region_options;
-  List<DropdownMenuItem<String>>? get profiles => profile_options;
+  List<DropdownMenuItem<ProfileGroup>>? get profiles => profile_options;
   List<DropdownMenuItem<String>>? get taskTypes => taskType_options;
   List<DropdownMenuItem<String>>? get proxies => proxy_options;
   List<DropdownMenuItem<String>>? get clothingTypes => clothingType_options;

@@ -1,5 +1,8 @@
 import 'package:epsilon_gui/providers/task_instance_provider.dart';
+import 'package:epsilon_gui/providers/profile_group_provider.dart';
+import 'package:epsilon_gui/providers/profile_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TasksLists with ChangeNotifier {
 // VARIABLES
@@ -26,6 +29,12 @@ class TasksLists with ChangeNotifier {
     notifyListeners();
   }
 
+  // List<ProfileInstance> getProfileList(BuildContext context) {
+  //   context.read<ProfileGroupProvider>().profileGroups_names.values;
+
+  //   for(String name in )
+  // }
+
   void deleteTask(Taskinstance task_) {
     var index =
         tasks_instances.indexWhere((element) => element.taskID == task_.taskID);
@@ -35,20 +44,50 @@ class TasksLists with ChangeNotifier {
     notifyListeners();
   }
 
+  List<Profile> getTaskProfiles(int taskNumber, ProfileGroup profileGroup) {
+    List<Profile> profileList = [];
+    bool satified = false;
+    if (taskNumber == profileGroup.profiles.length ||
+        taskNumber < profileGroup.profiles.length) {
+      for (var i = 0; i < taskNumber; i++) {
+        profileList.add(profileGroup.profiles[i]);
+      }
+      return profileList;
+    } else {
+      for (var i = 0; i < taskNumber; i++) {
+        profileList
+            .add(profileGroup.profiles[i % profileGroup.profiles.length]);
+      }
+
+      // var i = 0;
+      // while (satified == false) {
+      //   profileList.add(profileGroup.profiles[i]);
+      //   i += 1;
+      //   if (i == taskNumber) {
+      //     satified = true;
+      //   } else if (i == profileGroup.profiles.length - 1) {
+      //     i = 0;
+      //   }
+      // }
+      return profileList;
+    }
+  }
+
 // ADDS TASKS TO THE TABLE
   void addTask(int numOfTasks, String storeData, String productData,
-      String profileData, String sizeData, BuildContext context) {
+      ProfileGroup profileData, String sizeData, BuildContext context) {
+    List<Profile> profile_Li = getTaskProfiles(numOfTasks, profileData);
     for (var i = 0; i < numOfTasks; i++) {
       if (id_list.isEmpty == true) {
         id_list.add(1);
         Taskinstance task = Taskinstance(
-            1, productData, storeData, profileData, sizeData, context);
+            1, productData, storeData, profile_Li[i], sizeData, context);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       } else {
         id_list.add(id_list.last + 1);
         Taskinstance task = Taskinstance(id_list.last, productData, storeData,
-            profileData, sizeData, context);
+            profile_Li[i], sizeData, context);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       }

@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
+import 'package:epsilon_gui/providers/profile_group_provider.dart';
+import 'package:epsilon_gui/providers/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:web_socket_channel/io.dart';
@@ -16,7 +18,7 @@ class Taskinstance with ChangeNotifier {
   String taskcategory = "";
   List<String> taskkeywords = [];
   String taskregion = "";
-  String taskprofile = "";
+  Profile taskprofile;
   String tasktype = "";
   String taskstatus = "Ready";
   bool check = false;
@@ -26,10 +28,9 @@ class Taskinstance with ChangeNotifier {
   UniqueKey key = UniqueKey();
   late BuildContext context;
 
-  Taskinstance(id, product, store, profile, size, newcontext) {
+  Taskinstance(id, product, store, this.taskprofile, size, newcontext) {
     taskID = id;
     taskproduct = product;
-    taskprofile = profile;
     tasksize = size;
     taskstore = store;
     context = newcontext;
@@ -77,7 +78,7 @@ class Taskinstance with ChangeNotifier {
             ),
           )),
           DataCell(Text(
-            taskprofile,
+            taskprofile.profileName,
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.normal,
@@ -260,7 +261,7 @@ class Taskinstance with ChangeNotifier {
             ),
           )),
           DataCell(Text(
-            taskprofile,
+            taskprofile.profileName,
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.normal,

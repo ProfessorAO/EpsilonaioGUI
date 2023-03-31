@@ -84,19 +84,19 @@ class tasksScreen extends State<tasks_screen> {
           onPressed: () {
             TaskOptions taskOptions =
                 TaskOptions(context.read<ProfileGroupProvider>());
+            taskOptions.setProfileGroups();
             String product = "";
             int numberOfTasks = 0;
             String dropdownsize = taskOptions.size_list.first;
             String dropdowncategory = taskOptions.category_list.first;
             String dropdownregion = taskOptions.region_list.first;
-            String dropdownprofile = taskOptions.profile_list.first;
+            ProfileGroup dropdownprofile = taskOptions.profile_list.first;
             String dropdownTT = taskOptions.taskType_list.first;
             String dropdownTG = taskOptions.proxyGroup_list.first;
             String dropdownstore = taskOptions.store_list.first;
             final myController = TextEditingController();
             final numController = TextEditingController();
             final keywordsController = TextEditingController();
-            taskOptions.setProfileGroups();
             showPopupWindow(
               context,
               gravity: KumiPopupGravity.center,
@@ -224,11 +224,11 @@ class tasksScreen extends State<tasks_screen> {
                               //PROFILE
                               Expanded(
                                   flex: 10,
-                                  child: columnInput_Menu(
-                                    value: taskOptions.profile_list.first,
+                                  child: columnInput_Menu_custom(
+                                    value: dropdownprofile,
                                     label: "Profile",
-                                    Menuitems: taskOptions.profiles,
-                                    onChanged: (String? value) {
+                                    Menuitems_custom: taskOptions.profiles,
+                                    onChanged: (ProfileGroup? value) {
                                       setState(() {
                                         dropdownprofile = value!;
                                       });
@@ -341,12 +341,13 @@ class tasksScreen extends State<tasks_screen> {
               onPressed: () {
                 TaskOptions taskOptions =
                     TaskOptions(context.read<ProfileGroupProvider>());
+                taskOptions.setProfileGroups();
                 String product = "";
                 String group_name = "";
                 String dropdownsize = taskOptions.size_list.first;
                 String dropdowncategory = taskOptions.category_list.first;
                 String dropdownregion = taskOptions.region_list.first;
-                String dropdownprofile = taskOptions.profile_list.first;
+                ProfileGroup dropdownprofile = taskOptions.profile_list.first;
                 String dropdownTT = taskOptions.taskType_list.first;
                 String dropdownPG = taskOptions.proxyGroup_list.first;
                 String dropdownstore = taskOptions.store_list.first;
@@ -431,7 +432,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownsize,
                                       label: "Size",
-                                      Menuitems: taskOptions.size_options,
+                                      Menuitems: taskOptions.sizes,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownsize = value!;
@@ -445,8 +446,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdowncategory,
                                       label: "Clothing Category",
-                                      Menuitems:
-                                          taskOptions.clothingType_options,
+                                      Menuitems: taskOptions.clothingTypes,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdowncategory = value!;
@@ -482,7 +482,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownregion,
                                       label: "Region",
-                                      Menuitems: taskOptions.region_options,
+                                      Menuitems: taskOptions.regions,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownregion = value!;
@@ -493,11 +493,11 @@ class tasksScreen extends State<tasks_screen> {
                                 //PROFILE
                                 Expanded(
                                     flex: 2,
-                                    child: columnInput_Menu(
+                                    child: columnInput_Menu_custom(
                                       value: dropdownprofile,
                                       label: "Profile Group",
-                                      Menuitems: taskOptions.profile_options,
-                                      onChanged: (String? value) {
+                                      Menuitems_custom: taskOptions.profiles,
+                                      onChanged: (ProfileGroup? value) {
                                         setState(() {
                                           dropdownprofile = value!;
                                         });
@@ -510,7 +510,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownTT,
                                       label: "Task Type",
-                                      Menuitems: taskOptions.taskType_options,
+                                      Menuitems: taskOptions.taskTypes,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownTT = value!;
@@ -524,7 +524,7 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columnInput_Menu(
                                       value: dropdownPG,
                                       label: "Proxy Group",
-                                      Menuitems: taskOptions.proxy_options,
+                                      Menuitems: taskOptions.proxies,
                                       onChanged: (String? value) {
                                         setState(() {
                                           dropdownPG = value!;
@@ -753,9 +753,7 @@ class taskGroupColumn extends StatefulWidget {
 class taskGroupColumn_state extends State<taskGroupColumn> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children:
-            context.watch<TaskGroupList>().taskGroupMap_widget.values.toList());
+    return Column(children: context.watch<TaskGroupList>().getWidgets());
   }
 }
 

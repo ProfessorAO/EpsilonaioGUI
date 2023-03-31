@@ -27,7 +27,30 @@ void main() {
         ChangeNotifierProvider(create: (_) => TasksLists()),
         ChangeNotifierProvider(create: (_) => ConsoleLogger()),
         ChangeNotifierProvider(
-            create: (_) => Taskinstance(0, "", "", "", "", "")),
+            create: (_) => Taskinstance(
+                0,
+                "",
+                "",
+                Profile(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    Profile_card(
+                      profile_name: '',
+                      address: '',
+                      card_name: '',
+                      card_no: '',
+                      parent: ProfileProvider(),
+                    ),
+                    ProfileGroupProvider()),
+                "",
+                "")),
         ChangeNotifierProvider(create: (_) => TabbarIndex()),
         ChangeNotifierProvider(create: (context) => TaskGroupList()),
         ChangeNotifierProvider(create: (_) => StatsProvider()),
@@ -38,7 +61,7 @@ void main() {
         ChangeNotifierProvider(
             create: (context) => TaskOptions(ProfileGroupProvider())),
         ChangeNotifierProvider(
-            create: (_) => ProfileInstance(
+            create: (_) => Profile(
                 "",
                 "",
                 "",

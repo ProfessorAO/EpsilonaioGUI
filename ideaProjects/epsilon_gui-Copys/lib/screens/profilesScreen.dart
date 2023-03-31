@@ -552,8 +552,6 @@ class _profileGroupColumnState extends State<profileGroupColumn> {
     return Column(
         children: context
             .watch<ProfileGroupProvider>()
-            .profileWidgetList
-            .values
-            .toList());
+            .getWidgets());
   }
 }

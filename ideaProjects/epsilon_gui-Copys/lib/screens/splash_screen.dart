@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter_svg/flutter_svg.dart';
-class SplashScreen extends StatefulWidget{
 
+class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -14,17 +14,13 @@ class SplashScreen extends StatefulWidget{
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-
     super.initState();
-    Timer(Duration(seconds: 8),
-            ()=>Navigator.pushReplacement(context,
-            MaterialPageRoute(builder:
-                (context) =>
-                    MainScreen()
-            )
-        )
-    );
+    Timer(
+        Duration(seconds: 8),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MainScreen())));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,11 +29,12 @@ class _SplashScreenState extends State<SplashScreen> {
         height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-
-            colors: [Color.fromARGB(255, 25, 36, 78),Color.fromARGB(255, 25, 36, 78)]
-          ),
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color.fromARGB(255, 25, 36, 78),
+                Color.fromARGB(255, 25, 36, 78)
+              ]),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,10 +47,12 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 300,
                   child: IconButton(
                     icon: Image.asset('assets/images/Logo-Animation (1).gif'),
-                    onPressed: (){},
+                    onPressed: () {},
                   ),
                 ),
-                Text("Solving everyday solutions with everyday bots",textAlign:TextAlign.center,
+                Text(
+                  "Solving everyday problems with everyday bots",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -62,9 +61,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ],
             ),
-
-            CircularProgressIndicator( 
-              valueColor:  AlwaysStoppedAnimation<Color>(Colors.white),
+            CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
             ),
           ],
         ),

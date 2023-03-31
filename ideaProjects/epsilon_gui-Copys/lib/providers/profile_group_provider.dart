@@ -8,21 +8,28 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ready/ready.dart';
 
+//STOP PEOPLE FROM MAKING PROFILE GROUP NAMES THE SAME
+
 class ProfileGroupProvider with ChangeNotifier {
-  Map<UniqueKey, List<ProfileInstance>> profileGroups_ins = {};
-  Map<UniqueKey, Widget> profileGroups_widget = {};
-  Map<UniqueKey, String> profileGroups_names = {};
+  List<ProfileGroup> profileGroups = [];
   late BuildContext context_;
   List<DataRow> all_profiles_data = [];
 
 //GETTERS
   List<DataRow> get allProfilesData => all_profiles_data;
-  Map<UniqueKey, Widget> get profileWidgetList => profileGroups_widget;
 
 //SETTERS
   void setContext(BuildContext newcontext) {
     context_ = newcontext;
     notifyListeners();
+  }
+
+  List<Widget> getWidgets() {
+    var widgetList = <Widget>[];
+    for (ProfileGroup pg in profileGroups) {
+      widgetList.add(pg.widget);
+    }
+    return widgetList;
   }
 
 //FUNCTIONS
@@ -35,17 +42,17 @@ class ProfileGroupProvider with ChangeNotifier {
     List<DataRow> data = [];
     DataRow dataRow_instance;
     var list = context_.read<ProfileProvider>().all_profile_instances;
-    for (ProfileInstance instance in list) {
+    for (Profile instance in list) {
       data.add(instance.getDataRow());
     }
     notifyListeners();
     return data;
   }
 
-  List<ProfileInstance> getSelectedProfiles() {
+  List<Profile> getSelectedProfiles() {
     var list = context_.read<ProfileProvider>().all_profile_instances;
-    List<ProfileInstance> selectedProfiles = [];
-    for (ProfileInstance instance in list) {
+    List<Profile> selectedProfiles = [];
+    for (Profile instance in list) {
       if (instance.checked == true) {
         selectedProfiles.add(instance);
       }
@@ -53,23 +60,17 @@ class ProfileGroupProvider with ChangeNotifier {
     return selectedProfiles;
   }
 
-  void addtoGroupDetails(List<ProfileInstance> list, UniqueKey key) {
-    profileGroups_ins.addAll({key: list});
-    notifyListeners();
-  }
-
   void deleteGroup(UniqueKey uniqueKey) {
-    profileGroups_ins.removeWhere((key, value) => key == uniqueKey);
-    profileGroups_widget.removeWhere((key, value) => key == uniqueKey);
-    profileGroups_names.removeWhere((key, value) => key == uniqueKey);
+    profileGroups.removeWhere(
+      (element) {
+        return element.uniqueKey == uniqueKey;
+      },
+    );
 
     notifyListeners();
   }
 
-  Widget createProfileGroup(context, groupName, key) {
-    List<ProfileInstance> selectedProfiles = getSelectedProfiles();
-    addtoGroupDetails(selectedProfiles, key);
-
+  Widget createProfileGroup(context, groupName, key, profileLength) {
     return Container(
       child: TextButton(
         style: TextButton.styleFrom(
@@ -93,7 +94,7 @@ class ProfileGroupProvider with ChangeNotifier {
             Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  "${selectedProfiles.length} Profile(s)",
+                  "$profileLength Profile(s)",
                   style: const TextStyle(fontSize: 14),
                 )),
             Spacer(),
@@ -101,6 +102,16 @@ class ProfileGroupProvider with ChangeNotifier {
               alignment: Alignment.centerRight,
               child: IconButton(
                   onPressed: () {
+                    // final snackBar = SnackBar(
+                    //   duration: const Duration(seconds: 1),
+                    //   backgroundColor: Colors.red,
+                    //   content: Text("Deleted"),
+                    //   action: SnackBarAction(
+                    //     label: '',
+                    //     onPressed: () {},
+                    //   ),
+                    // );
+                    // ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     deleteGroup(key);
                   },
                   icon: const Icon(
@@ -116,26 +127,56 @@ class ProfileGroupProvider with ChangeNotifier {
 
   void addProfileGroup(BuildContext context, String groupName) {
     final key = UniqueKey();
-    final nameEntry = <UniqueKey, String>{key: groupName};
-    final entry = <UniqueKey, Widget>{
-      key: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.25,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                border: Border.all(
-                    color: Color.fromARGB(255, 25, 36, 78), width: 3)),
-            child: createProfileGroup(context, groupName, key),
-          ),
-        ],
-      )
-    };
-    profileGroups_widget.addEntries(entry.entries);
-    profileGroups_names.addEntries(nameEntry.entries);
+    List<Profile> selectedProfiles = getSelectedProfiles();
+    var profileLen = selectedProfiles.length;
+    Widget widget = Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.25,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(5)),
+              border:
+                  Border.all(color: Color.fromARGB(255, 25, 36, 78), width: 3)),
+          child: createProfileGroup(context, groupName, key, profileLen),
+        ),
+      ],
+    );
+
+    ProfileGroup newProfileGroup =
+        ProfileGroup(key, groupName, selectedProfiles, widget);
+    profileGroups.add(newProfileGroup);
+    //profileGroups_widget.addEntries(entry.entries);
+    //profileGroups_names.addEntries(nameEntry.entries);
+    final snackBar = SnackBar(
+      duration: const Duration(seconds: 1),
+      backgroundColor: Colors.green,
+      content: Text("$groupName Task Group Created"),
+      action: SnackBarAction(
+        label: '',
+        onPressed: () {},
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
     notifyListeners();
+  }
+}
+
+class ProfileGroup {
+  UniqueKey uniqueKey;
+  List<Profile> profiles;
+  Widget widget;
+  String name;
+
+  ProfileGroup(this.uniqueKey, this.name, this.profiles, this.widget);
+
+  void setName(String newName) {
+    name = newName;
+  }
+
+  void setProfiles(List<Profile> newProfiles) {
+    profiles = newProfiles;
   }
 }

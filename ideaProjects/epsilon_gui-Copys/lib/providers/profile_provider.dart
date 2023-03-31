@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProfileProvider with ChangeNotifier {
-  List<ProfileInstance> all_profile_instances = [];
+  List<Profile> all_profile_instances = [];
   List<Profile_card> all_profile_cards = [];
 
   void removeProfile(Profile_card profileCard) {
     all_profile_cards.remove(profileCard);
     var removeIns;
-    for (ProfileInstance instance in all_profile_instances) {
+    for (Profile instance in all_profile_instances) {
       if (instance.profileCard == profileCard) {
         //all_profile_instances.remove(instance);
         removeIns = instance;
@@ -45,18 +45,8 @@ class ProfileProvider with ChangeNotifier {
       String phone_,
       Profile_card cardWidget,
       ProfileGroupProvider groupProvider) {
-    ProfileInstance profileInstance = ProfileInstance(
-        fname,
-        lname,
-        pname,
-        cname,
-        cnum,
-        address_,
-        city_,
-        postcode_,
-        phone_,
-        cardWidget,
-        groupProvider);
+    Profile profileInstance = Profile(fname, lname, pname, cname, cnum,
+        address_, city_, postcode_, phone_, cardWidget, groupProvider);
 
     all_profile_instances.add(profileInstance);
     profileInstance
@@ -71,7 +61,7 @@ class ProfileProvider with ChangeNotifier {
   }
 }
 
-class ProfileInstance with ChangeNotifier {
+class Profile with ChangeNotifier {
   String first_name = "";
   String last_name = "";
   String profile_name = "";
@@ -271,8 +261,8 @@ class ProfileInstance with ChangeNotifier {
         ]);
   }
 
-  ProfileInstance(fname, lname, pname, cname, cnum, address_, city_, postcode_,
-      phone_, profilecard, groupProvider) {
+  Profile(fname, lname, pname, cname, cnum, address_, city_, postcode_, phone_,
+      profilecard, groupProvider) {
     first_name = fname;
     last_name = lname;
     profile_name = pname;

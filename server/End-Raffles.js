@@ -23,7 +23,7 @@ await page.setDefaultNavigationTimeout(80000);
 
 await page.goto('https://www.google.com');
 await sleep(5000);
-//await page.click('#L2AGLb');
+await page.click('#L2AGLb');
 await page.focus(".gLFyf");
 await page.keyboard.type('launches.endclothing.com', {delay: 100})
 await sleep(1000);
