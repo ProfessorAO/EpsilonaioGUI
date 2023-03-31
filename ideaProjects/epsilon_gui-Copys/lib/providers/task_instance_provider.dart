@@ -140,6 +140,14 @@ class Taskinstance with ChangeNotifier {
       'size': tasksize,
       'website': taskstore,
       'ID': taskID.toString(),
+      'first_name': taskprofile.first_name,
+      'last_name': taskprofile.last_name,
+      'card_name': taskprofile.card_name,
+      'card_number': taskprofile.card_number,
+      'address': taskprofile.address,
+      'city': taskprofile.city,
+      'postcode': taskprofile.postcode,
+      'phone': taskprofile.phone,
     };
     return taskMap;
   }

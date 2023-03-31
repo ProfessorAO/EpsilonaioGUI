@@ -71,10 +71,19 @@ function openTrapstar(task_data,socket){
    var Product = task_data["product"];
    var Size = task_data["size"];
    var ID = task_data['ID'];
+   var first_name = task_data['first_name'];
+   var last_name = task_data['last_name'];
+   var card_name = task_data['card_name'];
+   var card_number = task_data['card_number'];
+   var address = task_data['address'];
+   var city = task_data['city'];
+   var postcode = task_data['postcode'];
+   var phone = task_data['phone'];
+
    var today = new Date();
    var dateString = today.toLocaleString().replace(/[/,:]/g, ' ');
 
-    if (typeof Product === 'string' & typeof Size === 'string') {
+    if (typeof Product === 'string' & typeof Size === 'string',typeof first_name === 'string' & typeof last_name === 'string',typeof card_name === 'string' & typeof card_number === 'string',typeof address === 'string' & typeof city === 'string',typeof postcode === 'string' & typeof phone === 'string') {
         (async () => {
                     try {
                         const browser = await puppeteer.launch({headless: false,ignoreDefaultArgs: ["--enable-automation"],args: ['--start-maximized', 'disable-gpu', '--disable-infobars', '--disable-extensions', '--ignore-certificate-errors','--disable-notifications','--enable-popup-blocking'],});
@@ -118,12 +127,12 @@ function openTrapstar(task_data,socket){
                             const postcode = document.querySelector('#checkout_shipping_address_zip');
                             const p_number = document.querySelector("#checkout_shipping_address_phone");
                          
-                            first_name.value ="david";
-                            last_name.value = "ade-odunlade";
-                            address.value = "42 Oakwood Avenue";
-                            city.value = "London";
-                            p_number.value = "07984667243";
-                            postcode.value = "BR3 6PJ";
+                            first_name.value =first_name;
+                            last_name.value = last_name;
+                            address.value = address;
+                            city.value = city;
+                            p_number.value = phone;
+                            postcode.value = postcode;
     
                         });
                         await page.focus("#checkout_email_or_phone");

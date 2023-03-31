@@ -58,17 +58,6 @@ class TasksLists with ChangeNotifier {
         profileList
             .add(profileGroup.profiles[i % profileGroup.profiles.length]);
       }
-
-      // var i = 0;
-      // while (satified == false) {
-      //   profileList.add(profileGroup.profiles[i]);
-      //   i += 1;
-      //   if (i == taskNumber) {
-      //     satified = true;
-      //   } else if (i == profileGroup.profiles.length - 1) {
-      //     i = 0;
-      //   }
-      // }
       return profileList;
     }
   }
