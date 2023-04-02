@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
+import 'package:epsilon_gui/providers/user_data_provider.dart';
 import 'package:epsilon_gui/providers/profile_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +28,7 @@ class Taskinstance with ChangeNotifier {
   TasksLists tasksList = TasksLists();
   UniqueKey key = UniqueKey();
   late BuildContext context;
+  UserData data = UserData.instance;
 
   Taskinstance(id, product, store, this.taskprofile, size, newcontext) {
     taskID = id;
@@ -209,12 +211,14 @@ class Taskinstance with ChangeNotifier {
       col = Colors.blue;
     } else if (status == 'Completed') {
       col = Colors.green;
-      context.read<StatsProvider>().incrementSuccesses();
+      data.incrementCheckouts();
+      //context.read<UserData>().incrementCheckouts();
     } else if (status == 'Ready') {
       col = Colors.white;
     } else {
       col = Colors.red;
-      context.read<StatsProvider>().incrementFails();
+      data.incrementFailures();
+      //context.read<UserData>().incrementFailures();
     }
     return col;
   }

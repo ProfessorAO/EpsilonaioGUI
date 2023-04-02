@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
+import 'package:epsilon_gui/providers/user_data_provider.dart';
 import 'package:epsilon_gui/providers/task_inputs_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -175,10 +177,11 @@ class TaskGroupList with ChangeNotifier {
         ),
       ],
     );
-    TaskGroup thisTask = TaskGroup(groupName, taskproduct, taskprofile,
+    TaskGroup thisTaskGroup = TaskGroup(groupName, taskproduct, taskprofile,
         taskstore, taskSize, tasknum, groupWidget, key);
 
-    taskGroup_list.add(thisTask);
+    taskGroup_list.add(thisTaskGroup);
+    UserData.instance.saveTaskGroups(taskGroup_list);
     notifyListeners();
   }
 }
@@ -214,5 +217,33 @@ class TaskGroup {
 
   void setGroupName(String newGroupName) {
     groupName = newGroupName;
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'tasknum': tasknum,
+      'store': store,
+      'product': product,
+      'profile': profile.toJson(), // assuming ProfileGroup has toJson method
+      'size': size,
+      'groupName': groupName,
+      'key': key.toString(),
+    };
+  }
+
+  // Add fromJson method
+  factory TaskGroup.fromJson(Map<String, dynamic> json) {
+    return TaskGroup(
+      json['groupName'],
+      json['product'],
+      ProfileGroup.fromJson(
+          json['profile']), // assuming ProfileGroup has fromJson method
+      json['store'],
+      json['size'],
+      json['tasknum'],
+      Container(), // widget will be recreated later
+      UniqueKey.fromString(
+          json['key']), // assuming UniqueKey has fromString method
+    );
   }
 }

@@ -1,12 +1,7 @@
-import 'dart:io';
-
 import 'package:epsilon_gui/providers/profile_provider.dart';
-import 'package:epsilon_gui/screens/components/TopBar_.dart';
-import 'package:epsilon_gui/providers/tasks_list_provider.dart';
-import 'package:epsilon_gui/providers/task_inputs_provider.dart';
+import 'package:epsilon_gui/providers/user_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ready/ready.dart';
 
 //STOP PEOPLE FROM MAKING PROFILE GROUP NAMES THE SAME
 
@@ -160,6 +155,7 @@ class ProfileGroupProvider with ChangeNotifier {
       ),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    UserData.instance.saveProfileGroups(profileGroups);
     notifyListeners();
   }
 }
@@ -178,5 +174,72 @@ class ProfileGroup {
 
   void setProfiles(List<Profile> newProfiles) {
     profiles = newProfiles;
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'uniqueKey': uniqueKey.toString(),
+      'name': name,
+      'profiles': profiles.map((profile) => profile.toJson()).toList(),
+    };
+  }
+
+  static ProfileGroup fromJson(Map<String, dynamic> json) {
+    UniqueKey uniqueKey = UniqueKey.fromString(json['uniqueKey']);
+    String name = json['name'];
+    List<Profile> profiles = (json['profiles'] as List)
+        .map((profileJson) => Profile.fromJson(profileJson))
+        .toList();
+
+    Widget widget = ProfileGroup.createProfileGroupWidget(profiles, name);
+    return ProfileGroup(uniqueKey, name, profiles, widget);
+  }
+
+  static Widget createProfileGroupWidget(BuildContext context,
+      List<Profile> profiles, String groupName, UniqueKey uniqueKey) {
+    int profileLength = profiles.length;
+    return Container(
+      child: TextButton(
+        style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+            minimumSize: Size(
+                double.infinity, MediaQuery.of(context).size.height * 0.08)),
+        onPressed: () {},
+        onLongPress: () {},
+        child: Row(
+          children: [
+            Align(
+              alignment: Alignment.center,
+            ),
+            Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  groupName,
+                  style: const TextStyle(fontSize: 17),
+                )),
+            Spacer(),
+            Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "$profileLength Profile(s)",
+                  style: const TextStyle(fontSize: 14),
+                )),
+            Spacer(),
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                  onPressed: () {
+                    // Replace 'deleteGroup' with the appropriate method in your provider.
+                    context.read<ProfileGroupProvider>().deleteGroup(uniqueKey);
+                  },
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  )),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

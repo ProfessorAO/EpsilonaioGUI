@@ -71,22 +71,22 @@ function openTrapstar(task_data,socket){
    var Product = task_data["product"];
    var Size = task_data["size"];
    var ID = task_data['ID'];
-   var first_name = task_data['first_name'];
-   var last_name = task_data['last_name'];
-   var card_name = task_data['card_name'];
-   var card_number = task_data['card_number'];
-   var address = task_data['address'];
-   var city = task_data['city'];
-   var postcode = task_data['postcode'];
-   var phone = task_data['phone'];
+   var FirstName = task_data['first_name'];
+   var LastName = task_data['last_name'];
+   var CardName = task_data['card_name'];
+   var CardNumber = task_data['card_number'];
+   var Address = task_data['address'];
+   var City = task_data['city'];
+   var Postcode = task_data['postcode'];
+   var Phone = task_data['phone'];
 
    var today = new Date();
    var dateString = today.toLocaleString().replace(/[/,:]/g, ' ');
 
-    if (typeof Product === 'string' & typeof Size === 'string',typeof first_name === 'string' & typeof last_name === 'string',typeof card_name === 'string' & typeof card_number === 'string',typeof address === 'string' & typeof city === 'string',typeof postcode === 'string' & typeof phone === 'string') {
+    if (typeof Product === 'string' && typeof Size === 'string',typeof FirstName === 'string' && typeof LastName === 'string' && typeof CardName === 'string' && typeof CardNumber === 'string' && typeof Address === 'string' && typeof City === 'string' && typeof Postcode === 'string' && typeof Phone === 'string') {
         (async () => {
                     try {
-                        const browser = await puppeteer.launch({headless: false,ignoreDefaultArgs: ["--enable-automation"],args: ['--start-maximized', 'disable-gpu', '--disable-infobars', '--disable-extensions', '--ignore-certificate-errors','--disable-notifications','--enable-popup-blocking'],});
+                        const browser = await puppeteer.launch({headless: true,ignoreDefaultArgs: ["--enable-automation"],args: ['--start-maximized', 'disable-gpu', '--disable-infobars', '--disable-extensions', '--ignore-certificate-errors','--disable-notifications','--enable-popup-blocking'],});
                         const page = await browser.newPage();
                         await page.setDefaultNavigationTimeout(80000); 
                         page.on('popup', async popup=> {
@@ -104,12 +104,12 @@ function openTrapstar(task_data,socket){
                         let size_id = getsizeid(innertxt,Product,Size);
     
                         await page.goto('https://uk.trapstarlondon.com/products/'+handle +'?variant='+size_id );
-                        await sleep(1000);
-                        //await page.waitForSelector('#AddToCart-product-template');
+                        //await sleep(2000);
+                        await page.waitForSelector('#AddToCart-product-template');
                         await page.click('#AddToCart-product-template');
                         console.log("Added to cart");
                         socket.send('Added To Cart');
-                        await sleep(1000);
+                        await sleep(3000);
                         await page.goto('https://uk.trapstarlondon.com/cart');
                         //await Websocket.send("Checking out");
                         await page.waitForSelector('input[value="Check out"]');
@@ -119,7 +119,7 @@ function openTrapstar(task_data,socket){
                         //region
                         await page.select("#checkout_shipping_address_country","United Kingdom");
                         await sleep(2000);
-                        await page.evaluate(() =>{
+                        await page.evaluate((FirstName,LastName,Address,City,Phone,Postcode) =>{
                             const first_name = document.querySelector('#checkout_shipping_address_first_name');
                             const last_name = document.querySelector("#checkout_shipping_address_last_name");
                             const address = document.querySelector("#checkout_shipping_address_address1");
@@ -127,14 +127,14 @@ function openTrapstar(task_data,socket){
                             const postcode = document.querySelector('#checkout_shipping_address_zip');
                             const p_number = document.querySelector("#checkout_shipping_address_phone");
                          
-                            first_name.value =first_name;
-                            last_name.value = last_name;
-                            address.value = address;
-                            city.value = city;
-                            p_number.value = phone;
-                            postcode.value = postcode;
+                            first_name.value =FirstName;
+                            last_name.value = LastName;
+                            address.value = Address;
+                            city.value = City;
+                            p_number.value = Phone;
+                            postcode.value = Postcode;
     
-                        });
+                        },FirstName, LastName, Address, City, Phone, Postcode);
                         await page.focus("#checkout_email_or_phone");
                         await page.keyboard.type("davidodunlade@hotmail.co.uk");
                         await sleep(5000);
@@ -144,7 +144,8 @@ function openTrapstar(task_data,socket){
                         await page.click("#continue_button");
                         console.log("completed");
                         socket.send('Completed');
-                        await page.screenshot({path: 'C:/Users/david/OneDrive/Documents/GitHub/EpsilonaioGUI/server/success_pics/'+ID+' '+dateString+ '.png'});
+                        await sleep(2000);
+                        await page.screenshot({path: 'C:/Users/david/EpsilonaioGUI/server/success_pics/'+ID+' '+dateString+ '.png'});
                         await sleep(5000);
                         await browser.close();
                         

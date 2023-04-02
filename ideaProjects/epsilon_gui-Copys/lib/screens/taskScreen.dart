@@ -15,6 +15,7 @@ import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'package:epsilon_gui/providers/task_options_provider.dart';
 import 'package:epsilon_gui/screens/components/CustomPackages/InputWidgets.dart';
 import 'package:puppeteer/protocol/web_audio.dart';
+import 'package:epsilon_gui/providers/user_data_provider.dart';
 
 typedef StringVoidCallback = void Function(String?);
 typedef StringCallback = void Function(String);
@@ -622,6 +623,7 @@ class Tasks_Stats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserData data = UserData.instance;
     return Positioned(
       left: MediaQuery.of(context).size.width * 0.27,
       bottom: MediaQuery.of(context).size.height * 0.001,
@@ -663,7 +665,7 @@ class Tasks_Stats extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        context.watch<StatsProvider>().successes.toString(),
+                        context.watch<UserData>().checkouts_.toString(),
                         style: TextStyle(
                             color: Colors.green, fontWeight: FontWeight.w600),
                       ),
@@ -718,7 +720,7 @@ class Tasks_Stats extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        context.watch<StatsProvider>().fails.toString(),
+                        context.watch<UserData>().failures_.toString(),
                         style: TextStyle(
                             color: Colors.red, fontWeight: FontWeight.w600),
                       ),
@@ -966,22 +968,3 @@ class _create_buttonState extends State<create_button> {
     );
   }
 }
-
-// class taskInputData extends StatelessWidget {
-//   const taskInputData({super.key, required this.name});
-//   final String name;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: Align(
-//         alignment: Alignment.center,
-//         child: Text(name,
-//             style: const TextStyle(
-//               fontSize: 15,
-//               fontFamily: 'Audiowide',
-//               color: Color.fromARGB(255, 15, 237, 120),
-//             )),
-//       ),
-//     );
-//   }
-// }

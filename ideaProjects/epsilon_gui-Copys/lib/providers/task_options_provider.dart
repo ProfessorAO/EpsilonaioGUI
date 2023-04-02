@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:puppeteer/protocol/profiler.dart';

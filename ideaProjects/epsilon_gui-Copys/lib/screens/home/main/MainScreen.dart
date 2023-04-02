@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:epsilon_gui/providers/release_data_provider.dart';
 import 'package:epsilon_gui/date_format.dart';
+import 'package:epsilon_gui/providers/user_data_provider.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -290,11 +291,13 @@ class Stats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserData data = UserData.instance;
     return Stack(children: [
       StatsWidget(
         top: MediaQuery.of(context).size.height * 0.45,
         right: 10,
         text: "Total Spent",
+        data: context.watch<UserData>().totalSpent_.toString(),
         firstcolor: Color.fromARGB(255, 0, 85, 204),
         secondcolor: const Color.fromRGBO(0, 102, 255, 1.0),
         image: const AssetImage("assets/images/money.png"),
@@ -303,6 +306,7 @@ class Stats extends StatelessWidget {
         top: (MediaQuery.of(context).size.height * 0.585),
         right: 10,
         text: "Checkouts",
+        data: context.watch<UserData>().checkouts_.toString(),
         firstcolor: Color.fromARGB(255, 0, 156, 44),
         secondcolor: const Color.fromRGBO(0, 255, 71, 1.0),
         image: const AssetImage("assets/images/checkout.png"),
@@ -311,6 +315,7 @@ class Stats extends StatelessWidget {
         top: (MediaQuery.of(context).size.height * 0.72),
         right: 10,
         text: "Failures",
+        data: context.watch<UserData>().failures_.toString(),
         firstcolor: Color.fromARGB(255, 199, 3, 3),
         secondcolor: const Color.fromRGBO(255, 0, 0, 1.0),
         image: const AssetImage("assets/images/declined.png"),
@@ -325,6 +330,7 @@ class StatsWidget extends StatelessWidget {
     required this.top,
     required this.right,
     required this.text,
+    required this.data,
     required this.firstcolor,
     required this.secondcolor,
     required this.image,
@@ -332,6 +338,7 @@ class StatsWidget extends StatelessWidget {
   final double top;
   final double right;
   final String text;
+  final String data;
   final Color? firstcolor;
   final Color secondcolor;
   final ImageProvider<Object> image;
@@ -362,14 +369,28 @@ class StatsWidget extends StatelessWidget {
                 final color = isHovered
                     ? Color.fromARGB(255, 15, 237, 120)
                     : Color.fromARGB(250, 255, 255, 255);
-                return Container(
-                  child: Text(
-                    text,
-                    style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 0.015,
-                        color: color,
-                        fontWeight: FontWeight.w600),
-                  ),
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Text(
+                      data,
+                      style: TextStyle(
+                          fontFamily: 'Audiowide',
+                          fontSize: MediaQuery.of(context).size.width * 0.02,
+                          color: color,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    Spacer(),
+                    Text(
+                      text,
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.015,
+                          color: color,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
                 );
               }),
             ),

@@ -12,15 +12,18 @@ import 'package:epsilon_gui/providers/release_data_provider.dart';
 import 'package:epsilon_gui/providers/recent_checkouts_provider.dart';
 import 'package:epsilon_gui/providers/task_options_provider.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
+import 'package:epsilon_gui/providers/user_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 import 'package:flutter/services.dart';
 import 'package:epsilon_gui/screens/splash_screen.dart';
 
-void main() {
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserData.instance.loadData();
   runApp(
     MultiProvider(
       providers: [
@@ -61,24 +64,28 @@ void main() {
         ChangeNotifierProvider(
             create: (context) => TaskOptions(ProfileGroupProvider())),
         ChangeNotifierProvider(
-            create: (_) => Profile(
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                Profile_card(
-                  profile_name: '',
-                  address: '',
-                  card_name: '',
-                  card_no: '',
-                  parent: ProfileProvider(),
-                ),
-                ProfileGroupProvider()))
+          create: (_) => Profile(
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              Profile_card(
+                profile_name: '',
+                address: '',
+                card_name: '',
+                card_no: '',
+                parent: ProfileProvider(),
+              ),
+              ProfileGroupProvider()),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserData.instance,
+        )
       ],
       child: MyApp(),
     ),

@@ -59,6 +59,9 @@ dependencies:
   table_sticky_headers: ^2.0.5
   number_inc_dec: ^0.8.0
   assorted_layout_widgets: ^7.0.0
+  shared_preferences: ^2.1.0
+  flutter_secure_storage: ^8.0.0
+  moor: ^4.6.1+1
 
 dev_dependencies:
   flutter_test:

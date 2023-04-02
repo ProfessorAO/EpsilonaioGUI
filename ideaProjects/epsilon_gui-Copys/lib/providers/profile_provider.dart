@@ -275,6 +275,30 @@ class Profile with ChangeNotifier {
     profileCard = profilecard;
     GroupProvider = groupProvider;
   }
+
+  Profile.fromJson(Map<String, dynamic> json)
+      : first_name = json['first_name'],
+        last_name = json['last_name'],
+        profile_name = json['profile_name'],
+        card_name = json['card_name'],
+        card_number = json['card_number'],
+        address = json['address'],
+        city = json['city'],
+        postcode = json['postcode'],
+        phone = json['phone'];
+
+// Method to convert a Profile object to JSON data
+  Map<String, dynamic> toJson() => {
+        'first_name': first_name,
+        'last_name': last_name,
+        'profile_name': profile_name,
+        'card_name': card_name,
+        'card_number': card_number,
+        'address': address,
+        'city': city,
+        'postcode': postcode,
+        'phone': phone,
+      };
 }
 
 class Profile_card extends StatelessWidget {
