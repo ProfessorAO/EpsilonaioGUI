@@ -530,41 +530,39 @@ class Releases extends StatefulWidget {
 class _ReleasesState extends State<Releases> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Positioned(
-        left: MediaQuery.of(context).size.width * 0.01,
-        bottom: MediaQuery.of(context).size.height * 0.02,
-        child: Container(
-            width: MediaQuery.of(context).size.width * 0.72,
-            height: MediaQuery.of(context).size.height * 0.25,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 17, 26, 59),
-              //borderRadius: BorderRadius.all(Radius.circular(7)),
-              //border: Border.all(color:Color.fromARGB(255, 25, 36, 78),width: 3),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Baseline(
-                      baseline: MediaQuery.of(context).size.height * 0.035,
-                      baselineType: TextBaseline.alphabetic,
-                      child: Text("Releases",
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontFamily: 'Audiowide',
-                            color: Color.fromARGB(188, 255, 255, 255),
-                          )),
-                    ),
+    return Positioned(
+      left: MediaQuery.of(context).size.width * 0.01,
+      bottom: MediaQuery.of(context).size.height * 0.02,
+      child: Container(
+          width: MediaQuery.of(context).size.width * 0.72,
+          height: MediaQuery.of(context).size.height * 0.25,
+          decoration: BoxDecoration(
+            color: Color.fromARGB(255, 17, 26, 59),
+            //borderRadius: BorderRadius.all(Radius.circular(7)),
+            //border: Border.all(color:Color.fromARGB(255, 25, 36, 78),width: 3),
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                    MediaQuery.of(context).size.width * 0.01, 0, 0, 0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Baseline(
+                    baseline: MediaQuery.of(context).size.height * 0.035,
+                    baselineType: TextBaseline.alphabetic,
+                    child: Text("Releases",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontFamily: 'Audiowide',
+                          color: Color.fromARGB(188, 255, 255, 255),
+                        )),
                   ),
                 ),
-                Row(children: widget.widgets_),
-              ],
-            )),
-      ),
+              ),
+              Row(children: widget.widgets_),
+            ],
+          )),
     );
   }
 }
