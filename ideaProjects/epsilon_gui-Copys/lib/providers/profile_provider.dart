@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProfileProvider with ChangeNotifier {
+  static final ProfileProvider _instance = ProfileProvider._internal();
+  ProfileProvider._internal();
   List<Profile> all_profile_instances = [];
   List<Profile_card> all_profile_cards = [];
+
+  static ProfileProvider get instance => _instance;
 
   void removeProfile(Profile_card profileCard) {
     all_profile_cards.remove(profileCard);
@@ -17,13 +21,9 @@ class ProfileProvider with ChangeNotifier {
     }
     if (removeIns != null) {
       all_profile_instances.remove(removeIns);
+      ProfileGroupProvider.instance.removeFromProfileGroups(removeIns);
     }
 
-    notifyListeners();
-  }
-
-  void addProfile(Profile_card ProfileCard) {
-    all_profile_cards.add(ProfileCard);
     notifyListeners();
   }
 
@@ -46,7 +46,7 @@ class ProfileProvider with ChangeNotifier {
       Profile_card cardWidget,
       ProfileGroupProvider groupProvider) {
     Profile profileInstance = Profile(fname, lname, pname, cname, cnum,
-        address_, city_, postcode_, phone_, cardWidget, groupProvider);
+        address_, city_, postcode_, phone_, cardWidget);
 
     all_profile_instances.add(profileInstance);
     profileInstance
@@ -74,13 +74,13 @@ class Profile with ChangeNotifier {
   bool checked = false;
   UniqueKey key = UniqueKey();
   Profile_card profileCard = Profile_card(
-      profile_name: "",
-      card_name: "",
-      address: "",
-      card_no: "",
-      parent: ProfileProvider());
+    profile_name: "",
+    card_name: "",
+    address: "",
+    card_no: "",
+  );
   int ProfileID = 0;
-  ProfileGroupProvider GroupProvider = ProfileGroupProvider();
+  ProfileGroupProvider GroupProvider = ProfileGroupProvider.instance;
   //BuildContext build_context;
   DataRow dataRow = DataRow(cells: []);
 
@@ -139,10 +139,6 @@ class Profile with ChangeNotifier {
 
   void setProfileCard(Profile_card card) {
     profileCard = card;
-  }
-
-  void setGroupProvider(ProfileGroupProvider GroupProvider_) {
-    GroupProvider = GroupProvider_;
   }
 
   // void setContext(BuildContext context_) {
@@ -262,7 +258,7 @@ class Profile with ChangeNotifier {
   }
 
   Profile(fname, lname, pname, cname, cnum, address_, city_, postcode_, phone_,
-      profilecard, groupProvider) {
+      profilecard) {
     first_name = fname;
     last_name = lname;
     profile_name = pname;
@@ -273,32 +269,31 @@ class Profile with ChangeNotifier {
     postcode = postcode_;
     phone = phone_;
     profileCard = profilecard;
-    GroupProvider = groupProvider;
   }
 
-  Profile.fromJson(Map<String, dynamic> json)
-      : first_name = json['first_name'],
-        last_name = json['last_name'],
-        profile_name = json['profile_name'],
-        card_name = json['card_name'],
-        card_number = json['card_number'],
-        address = json['address'],
-        city = json['city'],
-        postcode = json['postcode'],
-        phone = json['phone'];
+//   Profile.fromJson(Map<String, dynamic> json)
+//       : first_name = json['first_name'],
+//         last_name = json['last_name'],
+//         profile_name = json['profile_name'],
+//         card_name = json['card_name'],
+//         card_number = json['card_number'],
+//         address = json['address'],
+//         city = json['city'],
+//         postcode = json['postcode'],
+//         phone = json['phone'];
 
-// Method to convert a Profile object to JSON data
-  Map<String, dynamic> toJson() => {
-        'first_name': first_name,
-        'last_name': last_name,
-        'profile_name': profile_name,
-        'card_name': card_name,
-        'card_number': card_number,
-        'address': address,
-        'city': city,
-        'postcode': postcode,
-        'phone': phone,
-      };
+// // Method to convert a Profile object to JSON data
+//   Map<String, dynamic> toJson() => {
+//         'first_name': first_name,
+//         'last_name': last_name,
+//         'profile_name': profile_name,
+//         'card_name': card_name,
+//         'card_number': card_number,
+//         'address': address,
+//         'city': city,
+//         'postcode': postcode,
+//         'phone': phone,
+//       };
 }
 
 class Profile_card extends StatelessWidget {
@@ -307,13 +302,11 @@ class Profile_card extends StatelessWidget {
       required this.profile_name,
       required this.card_name,
       required this.address,
-      required this.card_no,
-      required this.parent});
+      required this.card_no});
   final String profile_name;
   final String card_name;
   final String address;
   final String card_no;
-  final ProfileProvider parent;
 
   @override
   Widget build(BuildContext context) {
@@ -401,7 +394,7 @@ class Profile_card extends StatelessWidget {
                           onPressed: () {},
                         ),
                       );
-                      parent.removeProfile(this);
+                      context.read<ProfileProvider>().removeProfile(this);
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                     child: Icon(

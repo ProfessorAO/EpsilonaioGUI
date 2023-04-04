@@ -3,7 +3,7 @@ import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:puppeteer/protocol/profiler.dart';
 
 class TaskOptions with ChangeNotifier {
-  ProfileGroupProvider profileGroupReference;
+  ProfileGroupProvider profileGroupReference = ProfileGroupProvider.instance;
 
   TaskOptions(this.profileGroupReference) {}
   List<DropdownMenuItem<String>>? size_options = [
@@ -58,7 +58,7 @@ class TaskOptions with ChangeNotifier {
   ];
   List<DropdownMenuItem<ProfileGroup>>? profile_options = [
     DropdownMenuItem(
-      value: ProfileGroup(UniqueKey(), "No Profile Groups", [], SizedBox()),
+      value: ProfileGroup(UniqueKey(), "No Profile Groups", []),
       child: Text("No Profile Groups"),
     ),
   ];
@@ -122,8 +122,7 @@ class TaskOptions with ChangeNotifier {
   void setProfileGroups() {
     if (profileGroupReference.profileGroups.isEmpty) {
       profile_list.clear();
-      profile_list
-          .add(ProfileGroup(UniqueKey(), 'No Profiles', [], SizedBox()));
+      profile_list.add(ProfileGroup(UniqueKey(), 'No Profiles', []));
       profile_options = createDropdownMenu(profile_list);
       //Make Unselectable
     } else {

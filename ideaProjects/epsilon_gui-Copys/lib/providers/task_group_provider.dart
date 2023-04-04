@@ -4,135 +4,17 @@ import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/providers/user_data_provider.dart';
-import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class TaskGroupList with ChangeNotifier {
-  String taskgroup_name = "";
-  int checkouts = 0;
-  int fails = 0;
+  static final TaskGroupList _instance = TaskGroupList._internal();
+  TaskGroupList._internal();
   List<TaskGroup> taskGroup_list = [];
 
-  void setGroupName(String group_name) {
-    taskgroup_name = group_name;
-  }
-
-  Widget createTaskGroup(
-      BuildContext context,
-      int tasknum,
-      String taskstore,
-      String taskproduct,
-      ProfileGroup taskprofile,
-      String taskSize,
-      String groupName,
-      UniqueKey key) {
-    return Container(
-      child: TextButton(
-        style: TextButton.styleFrom(
-            foregroundColor: Colors.white,
-            minimumSize:
-                Size(double.infinity, MediaQuery.of(context).size.height * 0.08)
-            //padding: const EdgeInsets.all(16.0),
-
-            ),
-        onPressed: () {
-          final snackBar = SnackBar(
-            duration: const Duration(seconds: 1),
-            backgroundColor: Colors.green,
-            content: Text('$groupName Used'),
-            action: SnackBarAction(
-              label: '',
-              onPressed: () {},
-            ),
-          );
-
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          context.read<TasksLists>().removeAllTasks();
-          context.read<TasksLists>().addTask(
-              tasknum, taskstore, taskproduct, taskprofile, taskSize, context);
-        },
-        onLongPress: () {},
-        child: Row(
-          children: [
-            Align(
-                alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Container(
-                      width: 25,
-                      height: 10,
-                      color: Colors.black,
-                      child: Text(
-                        tasknum.toString(),
-                        style: TextStyle(fontSize: 8),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 3,
-                    ),
-                    Container(
-                      width: 25,
-                      height: 10,
-                      color: Colors.black,
-                      child: Text(
-                        checkouts.toString(),
-                        style: TextStyle(fontSize: 8),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 3,
-                    ),
-                    Container(
-                      width: 25,
-                      height: 10,
-                      color: Colors.black,
-                      child: Text(
-                        fails.toString(),
-                        style: TextStyle(fontSize: 8),
-                      ),
-                    ),
-                  ],
-                )),
-            Spacer(),
-            Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  groupName,
-                  style: const TextStyle(fontSize: 17),
-                )),
-            Align(
-                alignment: Alignment.centerRight,
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        // final snackBar = SnackBar(
-                        //   duration: const Duration(seconds: 1),
-                        //   backgroundColor: Colors.red,
-                        //   content: Text("$groupName Deleted"),
-                        //   action: SnackBarAction(
-                        //     label: '',
-                        //     onPressed: () {},
-                        //   ),
-                        // );
-
-                        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        deleteAGroup(key);
-                      },
-                      icon: Icon(
-                        Icons.delete_forever,
-                        color: Colors.red,
-                      ),
-                    )
-                  ],
-                )),
-          ],
-        ),
-      ),
-    );
-  }
+  static TaskGroupList get instance => _instance;
+  List<TaskGroup> get taskGroups => taskGroup_list;
 
   void deleteAGroup(UniqueKey uniqueKey) {
     taskGroup_list.removeWhere(
@@ -161,7 +43,35 @@ class TaskGroupList with ChangeNotifier {
       String groupName) {
     final UniqueKey key = UniqueKey();
 
-    Widget groupWidget = Column(
+    TaskGroup thisTaskGroup = TaskGroup(
+        groupName, taskproduct, taskprofile, taskstore, taskSize, tasknum, key);
+
+    taskGroup_list.add(thisTaskGroup);
+    //UserData.instance.saveTaskGroups(taskGroup_list);
+    notifyListeners();
+  }
+}
+
+class TaskGroupWidget extends StatelessWidget {
+  final String groupName;
+  final int tasknum;
+  final UniqueKey uniqueKey;
+  final String taskstore;
+  final String taskproduct;
+  final ProfileGroup taskprofile;
+  final String tasksize;
+  const TaskGroupWidget(
+      {super.key,
+      required this.groupName,
+      required this.tasknum,
+      required this.uniqueKey,
+      required this.taskstore,
+      required this.taskproduct,
+      required this.taskprofile,
+      required this.tasksize});
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
@@ -172,17 +82,116 @@ class TaskGroupList with ChangeNotifier {
               borderRadius: BorderRadius.all(Radius.circular(5)),
               border:
                   Border.all(color: Color.fromARGB(255, 25, 36, 78), width: 3)),
-          child: createTaskGroup(context, tasknum, taskstore, taskproduct,
-              taskprofile, taskSize, groupName, key),
+          child: Container(
+            child: TextButton(
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  minimumSize: Size(double.infinity,
+                      MediaQuery.of(context).size.height * 0.08)
+                  //padding: const EdgeInsets.all(16.0),
+
+                  ),
+              onPressed: () {
+                final snackBar = SnackBar(
+                  duration: const Duration(seconds: 1),
+                  backgroundColor: Colors.green,
+                  content: Text('$groupName Used'),
+                  action: SnackBarAction(
+                    label: '',
+                    onPressed: () {},
+                  ),
+                );
+
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                context.read<TasksLists>().removeAllTasks();
+                context.read<TasksLists>().addTask(tasknum, taskstore,
+                    taskproduct, taskprofile, tasksize, context);
+              },
+              onLongPress: () {},
+              child: Row(
+                children: [
+                  Align(
+                      alignment: Alignment.center,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 25,
+                            height: 10,
+                            color: Colors.black,
+                            child: Text(
+                              tasknum.toString(),
+                              style: TextStyle(fontSize: 8),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 3,
+                          ),
+                          Container(
+                            width: 25,
+                            height: 10,
+                            color: Colors.black,
+                            child: Text(
+                              0.toString(),
+                              style: TextStyle(fontSize: 8),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 3,
+                          ),
+                          Container(
+                            width: 25,
+                            height: 10,
+                            color: Colors.black,
+                            child: Text(
+                              0.toString(),
+                              style: TextStyle(fontSize: 8),
+                            ),
+                          ),
+                        ],
+                      )),
+                  Spacer(),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        groupName,
+                        style: const TextStyle(fontSize: 17),
+                      )),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              final snackBar = SnackBar(
+                                duration: const Duration(seconds: 1),
+                                backgroundColor: Colors.red,
+                                content: Text("$groupName Deleted"),
+                                action: SnackBarAction(
+                                  label: '',
+                                  onPressed: () {},
+                                ),
+                              );
+
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                              context
+                                  .read<TaskGroupList>()
+                                  .deleteAGroup(uniqueKey);
+                            },
+                            icon: Icon(
+                              Icons.delete_forever,
+                              color: Colors.red,
+                            ),
+                          )
+                        ],
+                      )),
+                ],
+              ),
+            ),
+          ),
         ),
       ],
     );
-    TaskGroup thisTaskGroup = TaskGroup(groupName, taskproduct, taskprofile,
-        taskstore, taskSize, tasknum, groupWidget, key);
-
-    taskGroup_list.add(thisTaskGroup);
-    UserData.instance.saveTaskGroups(taskGroup_list);
-    notifyListeners();
   }
 }
 
@@ -193,11 +202,29 @@ class TaskGroup {
   ProfileGroup profile;
   String size;
   String groupName;
-  Widget widget;
+  TaskGroupWidget widget = TaskGroupWidget(
+      groupName: "",
+      tasknum: 0,
+      uniqueKey: UniqueKey(),
+      taskstore: "",
+      taskproduct: "",
+      taskprofile: ProfileGroup(UniqueKey(), "", []),
+      tasksize: "");
   UniqueKey key;
+  int checkouts = 0;
+  int fails = 0;
 
   TaskGroup(this.groupName, this.product, this.profile, this.store, this.size,
-      this.tasknum, this.widget, this.key);
+      this.tasknum, this.key) {
+    widget = TaskGroupWidget(
+        groupName: groupName,
+        tasknum: tasknum,
+        uniqueKey: key,
+        taskstore: store,
+        taskproduct: product,
+        taskprofile: profile,
+        tasksize: size);
+  }
 
   void setTaskNum(int newtaskNum) {
     tasknum = newtaskNum;
@@ -219,31 +246,31 @@ class TaskGroup {
     groupName = newGroupName;
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'tasknum': tasknum,
-      'store': store,
-      'product': product,
-      'profile': profile.toJson(), // assuming ProfileGroup has toJson method
-      'size': size,
-      'groupName': groupName,
-      'key': key.toString(),
-    };
-  }
+  // Map<String, dynamic> toJson() {
+  //   return {
+  //     'tasknum': tasknum,
+  //     'store': store,
+  //     'product': product,
+  //     'profile': profile.toJson(), // assuming ProfileGroup has toJson method
+  //     'size': size,
+  //     'groupName': groupName,
+  //     'key': key.toString(),
+  //   };
+  // }
 
-  // Add fromJson method
-  factory TaskGroup.fromJson(Map<String, dynamic> json) {
-    return TaskGroup(
-      json['groupName'],
-      json['product'],
-      ProfileGroup.fromJson(
-          json['profile']), // assuming ProfileGroup has fromJson method
-      json['store'],
-      json['size'],
-      json['tasknum'],
-      Container(), // widget will be recreated later
-      UniqueKey.fromString(
-          json['key']), // assuming UniqueKey has fromString method
-    );
-  }
+  // // Add fromJson method
+  // factory TaskGroup.fromJson(Map<String, dynamic> json) {
+  //   return TaskGroup(
+  //     json['groupName'],
+  //     json['product'],
+  //     ProfileGroup.fromJson(
+  //         json['profile']), // assuming ProfileGroup has fromJson method
+  //     json['store'],
+  //     json['size'],
+  //     json['tasknum'],
+  //     Container(), // widget will be recreated later
+  //     UniqueKey.fromString(
+  //         json['key']), // assuming UniqueKey has fromString method
+  //   );
+  // }
 }

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:epsilon_gui/providers/user_data_provider.dart';
@@ -142,6 +141,7 @@ class Taskinstance with ChangeNotifier {
       'size': tasksize,
       'website': taskstore,
       'ID': taskID.toString(),
+      'store': taskstore,
       'first_name': taskprofile.first_name,
       'last_name': taskprofile.last_name,
       'card_name': taskprofile.card_name,

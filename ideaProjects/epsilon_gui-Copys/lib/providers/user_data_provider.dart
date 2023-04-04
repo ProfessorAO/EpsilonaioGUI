@@ -26,8 +26,8 @@ class UserData with ChangeNotifier {
     totalSpent = prefs.getInt('totalSpent') ?? 0;
     checkouts = prefs.getInt('checkouts') ?? 0;
     failures = prefs.getInt('failures') ?? 0;
-    taskGroups = await loadTaskGroups(prefs);
-    profileGroups = await loadProfileGroups(prefs);
+    // taskGroups = await loadTaskGroups(prefs);
+    // profileGroups = await loadProfileGroups(prefs);
   }
 
   // Save data to SharedPreferences
@@ -36,41 +36,6 @@ class UserData with ChangeNotifier {
     await prefs.setInt('totalSpent', totalSpent);
     await prefs.setInt('checkouts', checkouts);
     await prefs.setInt('failures', failures);
-  }
-
-  // Save task groups to SharedPreferences as a JSON list
-  Future<void> saveTaskGroups(List<TaskGroup> taskGroups) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> taskGroupJsonList =
-        taskGroups.map((taskGroup) => json.encode(taskGroup.toJson())).toList();
-    await prefs.setStringList('taskGroups', taskGroupJsonList);
-  }
-
-  // Load task groups from SharedPreferences and deserialize from JSON
-  Future<List<TaskGroup>> loadTaskGroups(SharedPreferences prefs) async {
-    List<String> taskGroupJsonList = prefs.getStringList('taskGroups') ?? [];
-    List<TaskGroup> taskGroups = taskGroupJsonList
-        .map((taskGroupJson) => TaskGroup.fromJson(json.decode(taskGroupJson)))
-        .toList();
-    return taskGroups;
-  }
-
-  Future<void> saveProfileGroups(List<ProfileGroup> profileGroups) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> profileGroupJsonList = profileGroups
-        .map((profileGroup) => json.encode(profileGroup.toJson()))
-        .toList();
-    await prefs.setStringList('profileGroups', profileGroupJsonList);
-  }
-
-  Future<List<ProfileGroup>> loadProfileGroups(SharedPreferences prefs) async {
-    List<String> profileGroupJsonList =
-        prefs.getStringList('profileGroups') ?? [];
-    List<ProfileGroup> profileGroups = profileGroupJsonList
-        .map((profileGroupJson) =>
-            ProfileGroup.fromJson(json.decode(profileGroupJson)))
-        .toList();
-    return profileGroups;
   }
 
   void addToTotalSpent(int valueAdded) {
@@ -91,3 +56,38 @@ class UserData with ChangeNotifier {
     notifyListeners();
   }
 }
+
+  // // Save task groups to SharedPreferences as a JSON list
+  // Future<void> saveTaskGroups(List<TaskGroup> taskGroups) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   List<String> taskGroupJsonList =
+  //       taskGroups.map((taskGroup) => json.encode(taskGroup.toJson())).toList();
+  //   await prefs.setStringList('taskGroups', taskGroupJsonList);
+  // }
+
+  // Load task groups from SharedPreferences and deserialize from JSON
+  // Future<List<TaskGroup>> loadTaskGroups(SharedPreferences prefs) async {
+  //   List<String> taskGroupJsonList = prefs.getStringList('taskGroups') ?? [];
+  //   List<TaskGroup> taskGroups = taskGroupJsonList
+  //       .map((taskGroupJson) => TaskGroup.fromJson(json.decode(taskGroupJson)))
+  //       .toList();
+  //   return taskGroups;
+  // }
+
+  // Future<void> saveProfileGroups(List<ProfileGroup> profileGroups) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   List<String> profileGroupJsonList = profileGroups
+  //       .map((profileGroup) => json.encode(profileGroup.toJson()))
+  //       .toList();
+  //   await prefs.setStringList('profileGroups', profileGroupJsonList);
+  // }
+
+  // Future<List<ProfileGroup>> loadProfileGroups(SharedPreferences prefs) async {
+  //   List<String> profileGroupJsonList =
+  //       prefs.getStringList('profileGroups') ?? [];
+  //   List<ProfileGroup> profileGroups = profileGroupJsonList
+  //       .map((profileGroupJson) =>
+  //           ProfileGroup.fromJson(json.decode(profileGroupJson)))
+  //       .toList();
+  //   return profileGroups;
+  // }

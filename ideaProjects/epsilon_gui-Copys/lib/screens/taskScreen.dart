@@ -1,13 +1,11 @@
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
-import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:epsilon_gui/providers/task_group_provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/screens/components/column_general.dart';
-import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';

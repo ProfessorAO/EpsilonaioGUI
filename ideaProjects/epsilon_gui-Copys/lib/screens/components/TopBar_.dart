@@ -189,10 +189,11 @@ class TopBar_ extends State<TopBar>
 }
 
 class WindowsButtons extends StatelessWidget {
-  String currdate =
-      "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
+  const WindowsButtons({super.key});
   @override
   Widget build(BuildContext context) {
+    String currdate =
+        "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
     return Row(
       children: [
         MinimizeWindowButton(
@@ -212,11 +213,12 @@ class WindowsButtons extends StatelessWidget {
 }
 
 class infoBar extends StatelessWidget {
-  String currdate =
-      "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
+  const infoBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    String currdate =
+        "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

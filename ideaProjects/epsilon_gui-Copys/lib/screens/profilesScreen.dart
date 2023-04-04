@@ -246,7 +246,6 @@ class Add_Profile_btn extends State<Profile_btn_State> {
                                   postcode,
                                   phone,
                                   Profile_card(
-                                      parent: context.read<ProfileProvider>(),
                                       profile_name: profileName,
                                       card_name: cardName,
                                       address: address,
@@ -366,7 +365,6 @@ class _ProfileGroupState extends State<ProfileGroup> {
                     //widget.groupProvider.setContext(context);
                     //widget.groupProvider.setProfilesData();
                     String profileGroupName = "";
-                    context.read<ProfileGroupProvider>().setContext(context);
                     context.read<ProfileGroupProvider>().refreshData();
                     //context.read<ProfileProvider>().getTable();
                     showPopupWindow(
@@ -479,7 +477,7 @@ class _ProfileGroupState extends State<ProfileGroup> {
                                           context
                                               .read<ProfileGroupProvider>()
                                               .addProfileGroup(
-                                                  context, profileGroupName);
+                                                  profileGroupName);
                                         },
                                         style: TextButton.styleFrom(
                                           foregroundColor: Colors.white,
@@ -549,9 +547,6 @@ class profileGroupColumn extends StatefulWidget {
 class _profileGroupColumnState extends State<profileGroupColumn> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children: context
-            .watch<ProfileGroupProvider>()
-            .getWidgets());
+    return Column(children: context.watch<ProfileGroupProvider>().getWidgets());
   }
 }

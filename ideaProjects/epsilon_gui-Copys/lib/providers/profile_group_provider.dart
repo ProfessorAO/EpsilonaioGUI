@@ -6,18 +6,19 @@ import 'package:provider/provider.dart';
 //STOP PEOPLE FROM MAKING PROFILE GROUP NAMES THE SAME
 
 class ProfileGroupProvider with ChangeNotifier {
+  static final ProfileGroupProvider _instance =
+      ProfileGroupProvider._internal();
+  ProfileGroupProvider._internal();
+
   List<ProfileGroup> profileGroups = [];
-  late BuildContext context_;
   List<DataRow> all_profiles_data = [];
+  ProfileProvider profileManager = ProfileProvider.instance;
 
 //GETTERS
+  static ProfileGroupProvider get instance => _instance;
   List<DataRow> get allProfilesData => all_profiles_data;
 
 //SETTERS
-  void setContext(BuildContext newcontext) {
-    context_ = newcontext;
-    notifyListeners();
-  }
 
   List<Widget> getWidgets() {
     var widgetList = <Widget>[];
@@ -33,10 +34,20 @@ class ProfileGroupProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void removeFromProfileGroups(Profile profile) {
+    for (ProfileGroup pg in profileGroups) {
+      if (pg.contains(profile)) {
+        pg.removeProfile(profile);
+        pg.updateWidget();
+      }
+    }
+    notifyListeners();
+  }
+
   List<DataRow> getProfileTableData() {
     List<DataRow> data = [];
     DataRow dataRow_instance;
-    var list = context_.read<ProfileProvider>().all_profile_instances;
+    var list = profileManager.all_profile_instances;
     for (Profile instance in list) {
       data.add(instance.getDataRow());
     }
@@ -45,7 +56,7 @@ class ProfileGroupProvider with ChangeNotifier {
   }
 
   List<Profile> getSelectedProfiles() {
-    var list = context_.read<ProfileProvider>().all_profile_instances;
+    var list = profileManager.all_profile_instances;
     List<Profile> selectedProfiles = [];
     for (Profile instance in list) {
       if (instance.checked == true) {
@@ -65,66 +76,44 @@ class ProfileGroupProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Widget createProfileGroup(context, groupName, key, profileLength) {
-    return Container(
-      child: TextButton(
-        style: TextButton.styleFrom(
-            foregroundColor: Colors.white,
-            minimumSize: Size(
-                double.infinity, MediaQuery.of(context).size.height * 0.08)),
-        onPressed: () {},
-        onLongPress: () {},
-        child: Row(
-          children: [
-            Align(
-              alignment: Alignment.center,
-            ),
-            Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  groupName,
-                  style: const TextStyle(fontSize: 17),
-                )),
-            Spacer(),
-            Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "$profileLength Profile(s)",
-                  style: const TextStyle(fontSize: 14),
-                )),
-            Spacer(),
-            Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                  onPressed: () {
-                    // final snackBar = SnackBar(
-                    //   duration: const Duration(seconds: 1),
-                    //   backgroundColor: Colors.red,
-                    //   content: Text("Deleted"),
-                    //   action: SnackBarAction(
-                    //     label: '',
-                    //     onPressed: () {},
-                    //   ),
-                    // );
-                    // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    deleteGroup(key);
-                  },
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  )),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void addProfileGroup(BuildContext context, String groupName) {
+  void addProfileGroup(String groupName) {
     final key = UniqueKey();
     List<Profile> selectedProfiles = getSelectedProfiles();
-    var profileLen = selectedProfiles.length;
-    Widget widget = Column(
+
+    ProfileGroup newProfileGroup =
+        ProfileGroup(key, groupName, selectedProfiles);
+
+    profileGroups.add(newProfileGroup);
+
+    // final snackBar = SnackBar(
+    //   duration: const Duration(seconds: 1),
+    //   backgroundColor: Colors.green,
+    //   content: Text("$groupName Task Group Created"),
+    //   action: SnackBarAction(
+    //     label: '',
+    //     onPressed: () {},
+    //   ),
+    // );
+    //ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //UserData.instance.saveProfileGroups(profileGroups);
+
+    notifyListeners();
+  }
+}
+
+class ProfileGroupWidget extends StatelessWidget {
+  final String groupName;
+  final int profileLength;
+  final UniqueKey uniqueKey;
+
+  const ProfileGroupWidget(
+      {super.key,
+      required this.groupName,
+      required this.profileLength,
+      required this.uniqueKey});
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
@@ -135,111 +124,107 @@ class ProfileGroupProvider with ChangeNotifier {
               borderRadius: BorderRadius.all(Radius.circular(5)),
               border:
                   Border.all(color: Color.fromARGB(255, 25, 36, 78), width: 3)),
-          child: createProfileGroup(context, groupName, key, profileLen),
+          child: Container(
+            child: TextButton(
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  minimumSize: Size(double.infinity,
+                      MediaQuery.of(context).size.height * 0.08)),
+              onPressed: () {},
+              onLongPress: () {},
+              child: Row(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        groupName,
+                        style: const TextStyle(fontSize: 17),
+                      )),
+                  Spacer(),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        "$profileLength Profile(s)",
+                        style: const TextStyle(fontSize: 14),
+                      )),
+                  Spacer(),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                        onPressed: () {
+                          final snackBar = SnackBar(
+                            duration: const Duration(seconds: 1),
+                            backgroundColor: Colors.red,
+                            content: Text("$groupName Deleted"),
+                            action: SnackBarAction(
+                              label: '',
+                              onPressed: () {},
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          context
+                              .read<ProfileGroupProvider>()
+                              .deleteGroup(uniqueKey);
+                        },
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        )),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ],
     );
-
-    ProfileGroup newProfileGroup =
-        ProfileGroup(key, groupName, selectedProfiles, widget);
-    profileGroups.add(newProfileGroup);
-    //profileGroups_widget.addEntries(entry.entries);
-    //profileGroups_names.addEntries(nameEntry.entries);
-    final snackBar = SnackBar(
-      duration: const Duration(seconds: 1),
-      backgroundColor: Colors.green,
-      content: Text("$groupName Task Group Created"),
-      action: SnackBarAction(
-        label: '',
-        onPressed: () {},
-      ),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    UserData.instance.saveProfileGroups(profileGroups);
-    notifyListeners();
   }
 }
 
 class ProfileGroup {
   UniqueKey uniqueKey;
   List<Profile> profiles;
-  Widget widget;
+  ProfileGroupWidget widget = ProfileGroupWidget(
+      groupName: "", profileLength: 0, uniqueKey: UniqueKey());
   String name;
 
-  ProfileGroup(this.uniqueKey, this.name, this.profiles, this.widget);
+  int get profileLength => profiles.length;
+
+  ProfileGroup(this.uniqueKey, this.name, this.profiles) {
+    widget = ProfileGroupWidget(
+        groupName: name, profileLength: profiles.length, uniqueKey: uniqueKey);
+  }
 
   void setName(String newName) {
     name = newName;
+  }
+
+  void updateWidget() {
+    widget = ProfileGroupWidget(
+        groupName: name, profileLength: profiles.length, uniqueKey: uniqueKey);
   }
 
   void setProfiles(List<Profile> newProfiles) {
     profiles = newProfiles;
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'uniqueKey': uniqueKey.toString(),
-      'name': name,
-      'profiles': profiles.map((profile) => profile.toJson()).toList(),
-    };
+  void removeProfile(Profile profile) {
+    profiles.remove(profile);
   }
 
-  static ProfileGroup fromJson(Map<String, dynamic> json) {
-    UniqueKey uniqueKey = UniqueKey.fromString(json['uniqueKey']);
-    String name = json['name'];
-    List<Profile> profiles = (json['profiles'] as List)
-        .map((profileJson) => Profile.fromJson(profileJson))
-        .toList();
-
-    Widget widget = ProfileGroup.createProfileGroupWidget(profiles, name);
-    return ProfileGroup(uniqueKey, name, profiles, widget);
-  }
-
-  static Widget createProfileGroupWidget(BuildContext context,
-      List<Profile> profiles, String groupName, UniqueKey uniqueKey) {
-    int profileLength = profiles.length;
-    return Container(
-      child: TextButton(
-        style: TextButton.styleFrom(
-            foregroundColor: Colors.white,
-            minimumSize: Size(
-                double.infinity, MediaQuery.of(context).size.height * 0.08)),
-        onPressed: () {},
-        onLongPress: () {},
-        child: Row(
-          children: [
-            Align(
-              alignment: Alignment.center,
-            ),
-            Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  groupName,
-                  style: const TextStyle(fontSize: 17),
-                )),
-            Spacer(),
-            Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  "$profileLength Profile(s)",
-                  style: const TextStyle(fontSize: 14),
-                )),
-            Spacer(),
-            Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                  onPressed: () {
-                    // Replace 'deleteGroup' with the appropriate method in your provider.
-                    context.read<ProfileGroupProvider>().deleteGroup(uniqueKey);
-                  },
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  )),
-            ),
-          ],
-        ),
-      ),
-    );
+  bool contains(Profile profile) {
+    bool check = false;
+    for (Profile profile_ in profiles) {
+      if (profile == profile_) {
+        check = true;
+        return check;
+      } else {
+        check = false;
+      }
+    }
+    return check;
   }
 }

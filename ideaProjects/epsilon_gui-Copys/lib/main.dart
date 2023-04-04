@@ -2,11 +2,9 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
-import 'package:epsilon_gui/providers/task_inputs_provider.dart';
 import 'package:epsilon_gui/providers/task_instance_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/providers/task_group_provider.dart';
-import 'package:epsilon_gui/providers/stats_provider.dart';
 import 'package:epsilon_gui/providers/profile_provider.dart';
 import 'package:epsilon_gui/providers/release_data_provider.dart';
 import 'package:epsilon_gui/providers/recent_checkouts_provider.dart';
@@ -35,53 +33,50 @@ void main() async {
                 "",
                 "",
                 Profile(
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    Profile_card(
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  Profile_card(
                       profile_name: '',
                       address: '',
                       card_name: '',
-                      card_no: '',
-                      parent: ProfileProvider(),
-                    ),
-                    ProfileGroupProvider()),
+                      card_no: ''),
+                ),
                 "",
                 "")),
         ChangeNotifierProvider(create: (_) => TabbarIndex()),
-        ChangeNotifierProvider(create: (context) => TaskGroupList()),
-        ChangeNotifierProvider(create: (_) => StatsProvider()),
-        ChangeNotifierProvider(create: (_) => ProfileProvider()),
+        ChangeNotifierProvider(create: (context) => TaskGroupList.instance),
+        ChangeNotifierProvider(create: (_) => ProfileProvider.instance),
         ChangeNotifierProvider(create: (_) => ReleasesData()),
         ChangeNotifierProvider(create: (_) => RecentCheckoutProvider()),
-        ChangeNotifierProvider(create: (context) => ProfileGroupProvider()),
         ChangeNotifierProvider(
-            create: (context) => TaskOptions(ProfileGroupProvider())),
+            create: (context) => ProfileGroupProvider.instance),
+        ChangeNotifierProvider(
+            create: (context) => TaskOptions(ProfileGroupProvider.instance)),
         ChangeNotifierProvider(
           create: (_) => Profile(
-              "",
-              "",
-              "",
-              "",
-              "",
-              "",
-              "",
-              "",
-              "",
-              Profile_card(
-                profile_name: '',
-                address: '',
-                card_name: '',
-                card_no: '',
-                parent: ProfileProvider(),
-              ),
-              ProfileGroupProvider()),
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            Profile_card(
+              profile_name: '',
+              address: '',
+              card_name: '',
+              card_no: '',
+            ),
+          ),
         ),
         ChangeNotifierProvider(
           create: (context) => UserData.instance,
