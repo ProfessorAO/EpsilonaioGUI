@@ -1,13 +1,11 @@
 
-import puppeteer from 'puppeteer';
+
 import { WebSocketServer } from 'ws';
-import fs from 'fs';
 import http from 'http';
 import { type } from 'os';
-import express from 'express';
 import { Console } from 'console';
-import trapstarBot from './Bots/TrapstarBot';
-import get_releases_data from './Data/releasesData';
+import trapstarBot from './Bots/trapstarBot.js';
+import get_releases_data from './Data/releasesData.js';
 const wrongTypeError = TypeError("Wrong type found, expected ");
 
 
@@ -75,6 +73,8 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     return args.every(arg => typeof arg === 'string');
   }
   
+
+connection_websockets();
 
 
   

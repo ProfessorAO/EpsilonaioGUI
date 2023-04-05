@@ -1,3 +1,4 @@
+import fs from 'fs';
 export default function get_releases_data(socket){
     var docutext = fs.readFileSync("./Upcoming releases.txt").toString('utf-8');
     var text_parsed = JSON.parse(docutext);

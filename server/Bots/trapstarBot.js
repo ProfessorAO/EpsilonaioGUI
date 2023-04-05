@@ -1,4 +1,4 @@
-// trapstarBot.js
+import puppeteer from 'puppeteer';
 export default function trapstarBot(data, socket) {
     var Product = data["product"];
     var Size = data["size"];
@@ -18,7 +18,7 @@ export default function trapstarBot(data, socket) {
      if (check_dataTypes(Product,Size,FirstName,LastName,CardName,CardNumber,Address,City,Postcode,Phone)) {
          (async () => {
                      try {
-                         processCheckout(page,FirstName, LastName, Address, City, Phone, Postcode,socket);
+                         processCheckout(FirstName, LastName, Address, City, Phone, Postcode,socket);
                          await page.screenshot({path: 'C:/Users/david/EpsilonaioGUI/server/success_pics/'+ID+' '+dateString+ '.png'});
                          await sleep(5000);
                          await browser.close();
@@ -49,7 +49,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
       setTimeout(resolve, ms);
     });
 }
-  async function processCheckout(page,FirstName, LastName, Address, City, Phone, Postcode,socket){
+  async function processCheckout(FirstName, LastName, Address, City, Phone, Postcode,socket){
     const browser = await launchBrowser();
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(80000); 
