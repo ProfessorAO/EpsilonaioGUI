@@ -85,6 +85,7 @@ class tasksScreen extends State<tasks_screen> {
                 TaskOptions(context.read<ProfileGroupProvider>());
             taskOptions.setProfileGroups();
             String product = "";
+            String keywords = "";
             int numberOfTasks = 0;
             String dropdownsize = taskOptions.size_list.first;
             String dropdowncategory = taskOptions.category_list.first;
@@ -183,15 +184,17 @@ class tasksScreen extends State<tasks_screen> {
                                       });
                                     },
                                   )),
-                              //COLOR
+                              //Keywords
                               const Spacer(),
                               Expanded(
                                   flex: 10,
                                   child: columInputer_text(
                                     controller: keywordsController,
-                                    length: 20,
-                                    label: "Color",
-                                    onChanged: (String value) {},
+                                    length: 100,
+                                    label: "Keywords",
+                                    onChanged: (String value) {
+                                      keywords = value;
+                                    },
                                   )),
                               const Spacer(),
                               // TASK NUMBER
@@ -281,13 +284,23 @@ class tasksScreen extends State<tasks_screen> {
 
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(snackBar);
+                                          RegExp separatorRegex =
+                                              RegExp(r'([\+-])\s*(\S+)');
+                                          List<String> wordsWithSeparators =
+                                              separatorRegex
+                                                  .allMatches(keywords)
+                                                  .map((m) =>
+                                                      (m.group(1) ?? '') +
+                                                      (m.group(2) ?? ''))
+                                                  .toList();
+
                                           context.read<TasksLists>().addTask(
-                                                numberOfTasks,
-                                                dropdownstore,
-                                                product,
-                                                dropdownprofile,
-                                                dropdownsize,
-                                              );
+                                              numberOfTasks,
+                                              dropdownstore,
+                                              product,
+                                              dropdownprofile,
+                                              dropdownsize,
+                                              wordsWithSeparators);
                                         },
                                         style: TextButton.styleFrom(
                                           foregroundColor: Colors.white,
@@ -343,6 +356,7 @@ class tasksScreen extends State<tasks_screen> {
                 taskOptions.setProfileGroups();
                 String product = "";
                 String group_name = "";
+                String keywords = "";
                 String dropdownsize = taskOptions.size_list.first;
                 String dropdowncategory = taskOptions.category_list.first;
                 String dropdownregion = taskOptions.region_list.first;
@@ -459,8 +473,10 @@ class tasksScreen extends State<tasks_screen> {
                                     child: columInputer_text(
                                       controller: keywordsController,
                                       label: "Keywords",
-                                      length: 20,
-                                      onChanged: (String value) {},
+                                      length: 100,
+                                      onChanged: (String value) {
+                                        keywords = value;
+                                      },
                                     )),
                                 const Spacer(),
                                 // TASK NUMBER
@@ -517,7 +533,7 @@ class tasksScreen extends State<tasks_screen> {
                                       },
                                     )),
                                 const Spacer(),
-                                //TASK GROUP
+                                //Proxy GROUP
                                 Expanded(
                                     flex: 2,
                                     child: columnInput_Menu(
@@ -548,6 +564,8 @@ class tasksScreen extends State<tasks_screen> {
 
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(snackBar);
+                                    List<String> words =
+                                        keywords.split(RegExp(r'[\+-]'));
                                     context
                                         .read<TaskGroupList>()
                                         .addToGroupList(
@@ -557,7 +575,8 @@ class tasksScreen extends State<tasks_screen> {
                                             product,
                                             dropdownprofile,
                                             dropdownsize,
-                                            group_name);
+                                            group_name,
+                                            words);
 
                                     setState(() {});
                                   },
@@ -814,6 +833,7 @@ class remove_all_button extends StatelessWidget {
         onPressed: () {
           context.read<TasksLists>().removeAllTasks();
           final snackBar = SnackBar(
+            duration: Duration(seconds: 1),
             backgroundColor: Colors.red,
             content: Text('$list_number Tasks Removed'),
             action: SnackBarAction(

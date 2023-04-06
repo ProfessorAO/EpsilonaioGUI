@@ -33,6 +33,7 @@ class TasksLists with ChangeNotifier {
         tasks_instances.indexWhere((element) => element.taskID == task_.taskID);
     current_tasks_list.removeAt(index);
     tasks_instances.removeWhere((element) => element.taskID == task_.taskID);
+    id_list.removeAt(index);
     //print(task_.taskID);
     notifyListeners();
   }
@@ -57,19 +58,19 @@ class TasksLists with ChangeNotifier {
 
 // ADDS TASKS TO THE TABLE
   void addTask(int numOfTasks, String storeData, String productData,
-      ProfileGroup profileData, String sizeData) {
+      ProfileGroup profileData, String sizeData, List<String> keywords) {
     List<Profile> profile_Li = getTaskProfiles(numOfTasks, profileData);
     for (var i = 0; i < numOfTasks; i++) {
       if (id_list.isEmpty == true) {
         id_list.add(1);
-        Taskinstance task =
-            Taskinstance(1, productData, storeData, profile_Li[i], sizeData);
+        Taskinstance task = Taskinstance(
+            1, productData, storeData, profile_Li[i], sizeData, keywords);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       } else {
         id_list.add(id_list.last + 1);
-        Taskinstance task = Taskinstance(
-            id_list.last, productData, storeData, profile_Li[i], sizeData);
+        Taskinstance task = Taskinstance(id_list.last, productData, storeData,
+            profile_Li[i], sizeData, keywords);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       }

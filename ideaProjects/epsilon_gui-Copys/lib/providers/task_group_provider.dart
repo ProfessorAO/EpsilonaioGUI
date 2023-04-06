@@ -40,11 +40,12 @@ class TaskGroupList with ChangeNotifier {
       String taskproduct,
       ProfileGroup taskprofile,
       String taskSize,
-      String groupName) {
+      String groupName,
+      List<String> taskkeywords) {
     final UniqueKey key = UniqueKey();
 
-    TaskGroup thisTaskGroup = TaskGroup(
-        groupName, taskproduct, taskprofile, taskstore, taskSize, tasknum, key);
+    TaskGroup thisTaskGroup = TaskGroup(groupName, taskproduct, taskprofile,
+        taskstore, taskSize, tasknum, key, taskkeywords);
 
     taskGroup_list.add(thisTaskGroup);
     //UserData.instance.saveTaskGroups(taskGroup_list);
@@ -60,6 +61,7 @@ class TaskGroupWidget extends StatelessWidget {
   final String taskproduct;
   final ProfileGroup taskprofile;
   final String tasksize;
+  final List<String> keywords;
   const TaskGroupWidget(
       {super.key,
       required this.groupName,
@@ -68,6 +70,7 @@ class TaskGroupWidget extends StatelessWidget {
       required this.taskstore,
       required this.taskproduct,
       required this.taskprofile,
+      required this.keywords,
       required this.tasksize});
   @override
   Widget build(BuildContext context) {
@@ -104,8 +107,8 @@ class TaskGroupWidget extends StatelessWidget {
 
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 context.read<TasksLists>().removeAllTasks();
-                context.read<TasksLists>().addTask(
-                    tasknum, taskstore, taskproduct, taskprofile, tasksize);
+                context.read<TasksLists>().addTask(tasknum, taskstore,
+                    taskproduct, taskprofile, tasksize, keywords);
               },
               onLongPress: () {},
               child: Row(
@@ -202,28 +205,33 @@ class TaskGroup {
   ProfileGroup profile;
   String size;
   String groupName;
+  List<String> taskkeywords;
   TaskGroupWidget widget = TaskGroupWidget(
-      groupName: "",
-      tasknum: 0,
-      uniqueKey: UniqueKey(),
-      taskstore: "",
-      taskproduct: "",
-      taskprofile: ProfileGroup(UniqueKey(), "", []),
-      tasksize: "");
+    groupName: "",
+    tasknum: 0,
+    uniqueKey: UniqueKey(),
+    taskstore: "",
+    taskproduct: "",
+    taskprofile: ProfileGroup(UniqueKey(), "", []),
+    tasksize: "",
+    keywords: [],
+  );
   UniqueKey key;
   int checkouts = 0;
   int fails = 0;
 
   TaskGroup(this.groupName, this.product, this.profile, this.store, this.size,
-      this.tasknum, this.key) {
+      this.tasknum, this.key, this.taskkeywords) {
     widget = TaskGroupWidget(
-        groupName: groupName,
-        tasknum: tasknum,
-        uniqueKey: key,
-        taskstore: store,
-        taskproduct: product,
-        taskprofile: profile,
-        tasksize: size);
+      groupName: groupName,
+      tasknum: tasknum,
+      uniqueKey: key,
+      taskstore: store,
+      taskproduct: product,
+      taskprofile: profile,
+      tasksize: size,
+      keywords: [],
+    );
   }
 
   void setTaskNum(int newtaskNum) {

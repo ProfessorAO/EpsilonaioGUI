@@ -32,11 +32,8 @@ class Taskinstance with ChangeNotifier {
   UserData data = UserData.instance;
   RecentCheckoutProvider recent_checkouts = RecentCheckoutProvider.instance;
 
-  Taskinstance(id, product, store, this.taskprofile, size) {
-    taskID = id;
-    taskproduct = product;
-    tasksize = size;
-    taskstore = store;
+  Taskinstance(this.taskID, this.taskproduct, this.taskstore, this.taskprofile,
+      this.tasksize, this.taskkeywords) {
     check = false;
     taskRow = DataRow(
         onLongPress: () {},

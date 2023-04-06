@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 import EvasionsPlugin from'puppeteer-extra-plugin-stealth';
+import natural from 'natural';
 import { Console } from 'console';
 import { sign } from 'crypto';
 import { get } from 'http';
@@ -19,6 +20,7 @@ export default function trapstarBot(data, socket) {
     var City = data['city'];
     var Postcode = data['postcode'];
     var Phone = data['phone'];
+    var keywords = data['keywords'];
 
     
     var today = new Date();
@@ -80,8 +82,8 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await page.setDefaultNavigationTimeout(80000); 
     await page.goto('https://uk.trapstarlondon.com/products.json?limit=1000');
     var innerText = await getInnerTxt(page);
-    var handle = await gethandle(innerText,data.product)
-    var size_id = await getsizeid(innerText,data.product,data.size);
+    var handle = await gethandle(innerText,data.product,data.keywords)
+    var size_id = await getsizeid(innerText,data.product,data.size,data.keywords);
     await page.goto('https://uk.trapstarlondon.com/products/'+handle +'?variant='+size_id );
    //await sleep(2000);
     await page.waitForSelector('#AddToCart-product-template');
@@ -169,32 +171,73 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     });
   }
 
-async function gethandle(jsondata, product) {
-    const data = jsondata["products"];
-    const searchTerm = product.toLowerCase();
+ 
+
   
-    const foundProduct = data.find(item => item["title"].toLowerCase().includes(searchTerm));
+  
+  import natural from 'natural';
+
+  const jaroWinklerDistance = natural.JaroWinklerDistance;
+  const tokenizer = new natural.WordTokenizer();
+  
+  function getPositiveAndNegativeKeywords(keywords) {
+    const positiveKeywords = keywords.filter((kw) => kw.startsWith('+')).map((kw) => kw.slice(1));
+    const negativeKeywords = keywords.filter((kw) => kw.startsWith('-')).map((kw) => kw.slice(1));
+    return { positiveKeywords, negativeKeywords };
+  }
+  
+  function isMatch(itemTitle, searchTerm, positiveKeywords, negativeKeywords) {
+    const similarity = jaroWinklerDistance(searchTerm, itemTitle);
+    if (similarity <= 0.7) {
+      return false;
+    }
+  
+    const itemKeywords = tokenizer.tokenize(itemTitle);
+    return positiveKeywords.every((pkw) => itemKeywords.includes(pkw.toLowerCase())) &&
+      negativeKeywords.every((nkw) => !itemKeywords.includes(nkw.toLowerCase()));
+  }
+  
+  async function getBestMatch(jsondata, searchTerm, keywords) {
+    const data = jsondata['products'];
+    const { positiveKeywords, negativeKeywords } = getPositiveAndNegativeKeywords(keywords);
+  
+    let bestMatch = null;
+    for (const item of data) {
+      const itemTitle = item['title'].toLowerCase();
+      if (isMatch(itemTitle, searchTerm, positiveKeywords, negativeKeywords)) {
+        bestMatch = item;
+        break;
+      }
+    }
+  
+    return bestMatch;
+  }
+  
+  
+  async function gethandle(jsondata, product, keywords) {
+    const searchTerm = product.toLowerCase();
+    const foundProduct = await getBestMatch(jsondata, searchTerm, keywords);
   
     if (foundProduct) {
-      return foundProduct["handle"];
+      return foundProduct['handle'];
     } else {
-      console.log("failed");
-      throw { name: "NoProductFoundError", message: "The product has not been found" };
+      console.log('failed');
+      throw { name: 'NoProductFoundError', message: 'The product has not been found' };
     }
   }
-  async function getprice(jsondata, product) {
-    const data = jsondata["products"];
-    const searchTerm = product.toLowerCase();
   
-    const foundProduct = data.find(item => item["title"].toLowerCase().includes(searchTerm));
+  async function getprice(jsondata, product, keywords) {
+    const searchTerm = product.toLowerCase();
+    const foundProduct = await getBestMatch(jsondata, searchTerm, keywords);
   
     if (foundProduct) {
-      return foundProduct["price"];
+      return foundProduct['price'];
     } else {
-      console.log("failed");
-      throw { name: "NoProductFoundError", message: "The product has not been found" };
+      console.log('failed');
+      throw { name: 'NoProductFoundError', message: 'The product has not been found' };
     }
   }
+  
   
   async function getsizeid(jsondata, product, size) {
     const data = jsondata["products"];
