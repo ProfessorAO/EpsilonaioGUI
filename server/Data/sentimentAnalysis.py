@@ -1,11 +1,3 @@
-import tweepy
-import asyncio
-from textblob import TextBlob
-from transformers import pipeline
-import tweepy.errors 
-
-
-
 # consumer_key = "7ecCYc3Pe42NupwRCar96kYX0"
 # consumer_secret = "VM1nTSeEawDzfOOcJiFRxsEYHM2G7BXm7WAAA1X9cjlo3n0PPA"
 # access_token = "1572650676873748481-XY5P9DX2DqSr2WLFdszLFCnCUauRJH"
@@ -31,12 +23,28 @@ import tweepy.errors
 #     loop = asyncio.get_event_loop()
 #     return loop.run_until_complete(get_tweets_async(topic, count))
 
+
+
+
+import tweepy
+import asyncio
+from textblob import TextBlob
+from transformers import pipeline
+import tweepy.errors
+
+
+def preprocess_tweet(tweet):
+    tweet = tweet.replace('+', ' positive ')
+    tweet = tweet.replace('-', ' negative ')
+    return tweet
+
 async def sentiment_analysis_async(tweets):
     results = []
     sentiment_classifier = pipeline("sentiment-analysis")
     for tweet in tweets:
+        preprocessed_tweet = preprocess_tweet(tweet)
         try:
-            sentiment = sentiment_classifier(tweet)[0]
+            sentiment = sentiment_classifier(preprocessed_tweet)[0]
             sentiment_type = sentiment["label"]
             results.append((tweet, sentiment_type))
             await asyncio.sleep(0)
@@ -57,19 +65,19 @@ def get_tweets():
     except FileNotFoundError:
         print(f"Error: {filename} not found.")
 
-
 def main():
-    #topic = input("Enter a topic to analyze: ")
     tweets = get_tweets()
-    sentiment_results = sentiment_analysis(tweets)
-    
+    preprocessed_tweets = [preprocess_tweet(tweet) for tweet in tweets]
+    sentiment_results = sentiment_analysis(preprocessed_tweets)
+
     negative_tweets = [tweet for tweet, sentiment in sentiment_results if sentiment == "NEGATIVE"]
-    positive_tweets =  [tweet for tweet, sentiment in sentiment_results if sentiment == "POSITIVE"]
+    positive_tweets = [tweet for tweet, sentiment in sentiment_results if sentiment == "POSITIVE"]
     positive_count = sum(1 for _, sentiment in sentiment_results if sentiment == "POSITIVE")
     negative_count = sum(1 for _, sentiment in sentiment_results if sentiment == "NEGATIVE")
-    
+
     print(f"Positive tweets: {positive_count}")
     print(f"Negative tweets: {negative_count}")
     for tweet in negative_tweets:
         print(tweet)
+
 main()

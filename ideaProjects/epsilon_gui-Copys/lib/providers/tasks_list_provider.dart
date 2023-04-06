@@ -10,7 +10,6 @@ class TasksLists with ChangeNotifier {
   List<Taskinstance> tasks_instances = [];
   List<DataRow> current_tasks_list = [];
   List<String> all_task_status = [];
-  //TasksInputs current_inputs = TasksInputs();
 
 // GETTERS
   int get count => current_tasks_list.length;
@@ -28,12 +27,6 @@ class TasksLists with ChangeNotifier {
     //print(task_.taskID);
     notifyListeners();
   }
-
-  // List<ProfileInstance> getProfileList(BuildContext context) {
-  //   context.read<ProfileGroupProvider>().profileGroups_names.values;
-
-  //   for(String name in )
-  // }
 
   void deleteTask(Taskinstance task_) {
     var index =
@@ -64,19 +57,19 @@ class TasksLists with ChangeNotifier {
 
 // ADDS TASKS TO THE TABLE
   void addTask(int numOfTasks, String storeData, String productData,
-      ProfileGroup profileData, String sizeData, BuildContext context) {
+      ProfileGroup profileData, String sizeData) {
     List<Profile> profile_Li = getTaskProfiles(numOfTasks, profileData);
     for (var i = 0; i < numOfTasks; i++) {
       if (id_list.isEmpty == true) {
         id_list.add(1);
-        Taskinstance task = Taskinstance(
-            1, productData, storeData, profile_Li[i], sizeData, context);
+        Taskinstance task =
+            Taskinstance(1, productData, storeData, profile_Li[i], sizeData);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       } else {
         id_list.add(id_list.last + 1);
-        Taskinstance task = Taskinstance(id_list.last, productData, storeData,
-            profile_Li[i], sizeData, context);
+        Taskinstance task = Taskinstance(
+            id_list.last, productData, storeData, profile_Li[i], sizeData);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       }

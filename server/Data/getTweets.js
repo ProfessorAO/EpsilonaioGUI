@@ -1,13 +1,12 @@
 import puppeteer from 'puppeteer';
-import fs from 'fs/promises'; 
+import fs from 'fs/promises';
 
 async function saveTweetsToFile(tweets, filename) {
   const data = tweets.join('\n');
   await fs.writeFile(filename, data, 'utf8');
 }
 
-
-async function getTweets(query, tweetCount ) {
+async function getTweets(query, tweetCount) {
   const base_url = 'https://twitter.com/search?q=';
   const query_url = `${base_url}${query}&src=typed_query&f=live`;
 
@@ -27,7 +26,6 @@ async function getTweets(query, tweetCount ) {
         return articles.map((article) => {
           const tweetContent = article.querySelector('div[lang]');
           if (tweetContent && tweetContent.getAttribute('lang') === 'en') {
-            
             return tweetContent.textContent;
           }
           return null;
@@ -47,13 +45,19 @@ async function getTweets(query, tweetCount ) {
   return tweets;
 }
 
+function createSearchQuery(topic, hashtags) {
+  const encodedTopic = encodeURIComponent(topic);
+  const encodedHashtags = hashtags.map((hashtag) => encodeURIComponent(hashtag)).join(' OR ');
+  const query = `${encodedTopic} OR ${encodedHashtags}`;
+  return query;
+}
 
-  
-  const searchQuery = 'Air Jordan 3 Lucky Green';
-  getTweets(searchQuery, 1000).then((fetchedTweets) => {
-    fetchedTweets.forEach((tweet) =>saveTweetsToFile(fetchedTweets, 'tweets.txt').catch((err) => {
-      console.error(`Failed to save tweets to file: ${err.message}`);
-    }) );
-    
+(async () => {
+  const topic = 'Air Jordan 3 Lucky Green';
+  const hashtags = ['%23sneakerhead', '%23sneakernews', '%23kicks','%23opinons'];
+  const searchQuery = createSearchQuery(topic, hashtags);
+  const fetchedTweets = await getTweets(searchQuery, 100);
+  await saveTweetsToFile(fetchedTweets, 'tweets.txt').catch((err) => {
+    console.error(`Failed to save tweets to file: ${err.message}`);
   });
-  
+})();

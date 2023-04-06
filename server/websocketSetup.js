@@ -3,8 +3,7 @@
 import { WebSocketServer } from 'ws';
 import http from 'http';
 import { type } from 'os';
-import { Console } from 'console';
-import trapstarBot from './Bots/trapstarBot.js';
+import trapstarBot from './Bots/trapstar.js';
 import get_releases_data from './Data/releasesData.js';
 const wrongTypeError = TypeError("Wrong type found, expected ");
 

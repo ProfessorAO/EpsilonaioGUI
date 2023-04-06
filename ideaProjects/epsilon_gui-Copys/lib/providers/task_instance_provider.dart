@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:epsilon_gui/providers/recent_checkouts_provider.dart';
 import 'package:epsilon_gui/providers/tasks_list_provider.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:epsilon_gui/providers/user_data_provider.dart';
@@ -25,16 +26,17 @@ class Taskinstance with ChangeNotifier {
   bool isactive = false;
   DataRow taskRow = DataRow(cells: []);
   TasksLists tasksList = TasksLists();
-  UniqueKey key = UniqueKey();
-  late BuildContext context;
-  UserData data = UserData.instance;
+  int completed_int = 0;
+  int failed_int = 0;
 
-  Taskinstance(id, product, store, this.taskprofile, size, newcontext) {
+  UserData data = UserData.instance;
+  RecentCheckoutProvider recent_checkouts = RecentCheckoutProvider.instance;
+
+  Taskinstance(id, product, store, this.taskprofile, size) {
     taskID = id;
     taskproduct = product;
     tasksize = size;
     taskstore = store;
-    context = newcontext;
     check = false;
     taskRow = DataRow(
         onLongPress: () {},
@@ -211,14 +213,21 @@ class Taskinstance with ChangeNotifier {
       col = Colors.blue;
     } else if (status == 'Completed') {
       col = Colors.green;
-      data.incrementCheckouts();
-      //context.read<UserData>().incrementCheckouts();
+      if (completed_int == 0) {
+        data.incrementCheckouts();
+        recent_checkouts.createRecentCheckoutRow('0', taskproduct, taskstore,
+            taskprofile.profileName, DateTime.now().toString());
+        completed_int += 1;
+        notifyListeners();
+      }
     } else if (status == 'Ready') {
       col = Colors.white;
     } else {
       col = Colors.red;
-      data.incrementFailures();
-      //context.read<UserData>().incrementFailures();
+      if (failed_int == 0) {
+        data.incrementFailures();
+        failed_int += 1;
+      }
     }
     return col;
   }

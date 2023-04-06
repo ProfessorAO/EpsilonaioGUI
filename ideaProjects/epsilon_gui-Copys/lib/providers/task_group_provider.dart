@@ -104,8 +104,8 @@ class TaskGroupWidget extends StatelessWidget {
 
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 context.read<TasksLists>().removeAllTasks();
-                context.read<TasksLists>().addTask(tasknum, taskstore,
-                    taskproduct, taskprofile, tasksize, context);
+                context.read<TasksLists>().addTask(
+                    tasknum, taskstore, taskproduct, taskprofile, tasksize);
               },
               onLongPress: () {},
               child: Row(

@@ -1,4 +1,7 @@
 import puppeteer from 'puppeteer';
+import { Console } from 'console';
+import { sign } from 'crypto';
+import { get } from 'http';
 export default function trapstarBot(data, socket) {
     var Product = data["product"];
     var Size = data["size"];
@@ -18,7 +21,9 @@ export default function trapstarBot(data, socket) {
      if (check_dataTypes(Product,Size,FirstName,LastName,CardName,CardNumber,Address,City,Postcode,Phone)) {
          (async () => {
                      try {
-                         processCheckout(FirstName, LastName, Address, City, Phone, Postcode,socket);
+                        const browser = await launchBrowser();
+                        const page = await browser.newPage();
+                         await processCheckout(FirstName, LastName, Address, City, Phone, Postcode,socket,data,page);
                          await page.screenshot({path: 'C:/Users/david/EpsilonaioGUI/server/success_pics/'+ID+' '+dateString+ '.png'});
                          await sleep(5000);
                          await browser.close();
@@ -49,11 +54,26 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
       setTimeout(resolve, ms);
     });
 }
-  async function processCheckout(FirstName, LastName, Address, City, Phone, Postcode,socket){
-    const browser = await launchBrowser();
-    const page = await browser.newPage();
+  async function processCheckout(FirstName, LastName, Address, City, Phone, Postcode,socket,data,page){
+    
+    
     await page.setDefaultNavigationTimeout(80000); 
-    navigateToCheckout(page,socket);
+    await page.goto('https://uk.trapstarlondon.com/products.json?limit=1000');
+    var innerText = await getInnerTxt(page);
+    var handle = await gethandle(innerText,data.product)
+    var size_id = await getsizeid(innerText,data.product,data.size);
+    await page.goto('https://uk.trapstarlondon.com/products/'+handle +'?variant='+size_id );
+   //await sleep(2000);
+    await page.waitForSelector('#AddToCart-product-template');
+    await page.click('#AddToCart-product-template');
+    console.log("Added to cart");
+    socket.send('Added To Cart');
+    await sleep(10000);
+    await page.goto('https://uk.trapstarlondon.com/cart');
+    //await Websocket.send("Checking out");
+    await page.waitForSelector('input[value="Check out"]');
+    await page.click('input[value="Check out"]');
+    await sleep(2000);
     await sleep(2000);
     await fillCheckoutForm(page, FirstName, LastName, Address, City, Phone, Postcode);
     await sleep(5000);
@@ -64,25 +84,13 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     console.log("completed");
     socket.send('Completed');
     await sleep(2000);
-  }
-  async function navigateToCheckout(page,socket){
-    await page.goto('https://uk.trapstarlondon.com/products/'+handle +'?variant='+size_id );
-   //await sleep(2000);
-    await page.waitForSelector('#AddToCart-product-template');
-    await page.click('#AddToCart-product-template');
-    console.log("Added to cart");
-    socket.send('Added To Cart');
-    await sleep(3000);
-    await page.goto('https://uk.trapstarlondon.com/cart');
-    //await Websocket.send("Checking out");
-    await page.waitForSelector('input[value="Check out"]');
-    await page.click('input[value="Check out"]');
-    await sleep(2000);
-    await page.waitForSelector('#checkout_shipping_address_first_name');
-    await page.select("#checkout_shipping_address_country","United Kingdom");
+ 
+    
   }
 
   async function fillCheckoutForm(page, FirstName, LastName, Address, City, Phone, Postcode) {
+    await page.waitForSelector('#checkout_shipping_address_first_name');
+    await page.select("#checkout_shipping_address_country","United Kingdom");
     await page.evaluate(
       (FirstName, LastName, Address, City, Phone, Postcode) => {
         const first_name = document.querySelector("#checkout_shipping_address_first_name");
@@ -111,7 +119,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
   }
   async function launchBrowser() {
     return await puppeteer.launch({
-      headless: true,
+      headless: false,
       ignoreDefaultArgs: ["--enable-automation"],
       args: [
         "--start-maximized",
@@ -125,8 +133,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     });
   }
 
-  
-function gethandle(jsondata, product) {
+async function gethandle(jsondata, product) {
     const data = jsondata["products"];
     const searchTerm = product.toLowerCase();
   
@@ -139,7 +146,7 @@ function gethandle(jsondata, product) {
       throw { name: "NoProductFoundError", message: "The product has not been found" };
     }
   }
-  function getsizeid(jsondata, product, size) {
+  async function getsizeid(jsondata, product, size) {
     const data = jsondata["products"];
     const searchTerm = product.toLowerCase();
   

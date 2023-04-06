@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:epsilon_gui/providers/release_data_provider.dart';
+import 'package:epsilon_gui/providers/recent_checkouts_provider.dart';
 import 'package:epsilon_gui/date_format.dart';
 import 'package:epsilon_gui/providers/user_data_provider.dart';
 
@@ -223,11 +224,11 @@ class RecentCheckouts extends StatelessWidget {
                   dragStartBehavior: DragStartBehavior.down,
                   primary: true,
                   child: Theme(
-                    data: ThemeData(
-                      primarySwatch: Colors.blue,
-                      unselectedWidgetColor: Colors.white,
-                    ),
-                    child: DataTable(
+                      data: ThemeData(
+                        primarySwatch: Colors.blue,
+                        unselectedWidgetColor: Colors.white,
+                      ),
+                      child: DataTable(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         columns: const [
                           DataColumn(label: table_Column(name: " ")),
@@ -237,8 +238,10 @@ class RecentCheckouts extends StatelessWidget {
                           DataColumn(label: table_Column(name: "Profile")),
                           DataColumn(label: table_Column(name: "Date/Time")),
                         ],
-                        rows: []),
-                  ),
+                        rows: context
+                            .watch<RecentCheckoutProvider>()
+                            .checkoutList,
+                      )),
                 ),
               ),
             ),

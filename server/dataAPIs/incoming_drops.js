@@ -1,20 +1,31 @@
 import axios from "axios";
 
-const options = {
-  method: 'GET',
-  url: 'https://the-sneaker-database.p.rapidapi.com/sneakers',
-  params: {limit: '100', releaseDate: 'gt:2023-04-08', sort: 'releaseDate:asc'},
-  headers: {
-    'X-RapidAPI-Key': '6f3e91ea75msh7fe7a628ac745d6p1fdf6fjsn22fd7b9b9ac4',
-    'X-RapidAPI-Host': 'the-sneaker-database.p.rapidapi.com'
-  }
-};
+export default async function request_data() {
+  let date = get_current_date();
+  const options = {
+    method: 'GET',
+    url: 'https://the-sneaker-database.p.rapidapi.com/sneakers',
+    params: { limit: '100', releaseDate: 'gt:' + date, sort: 'releaseDate:asc' },
+    headers: {
+      'X-RapidAPI-Key': '6f3e91ea75msh7fe7a628ac745d6p1fdf6fjsn22fd7b9b9ac4',
+      'X-RapidAPI-Host': 'the-sneaker-database.p.rapidapi.com'
+    }
+  };
 
-axios.request(options).then(function (response) {
-    //for (let index = 0; index < 9; index++) {
-        console.log(response.data.results);
-    //}
-	
-}).catch(function (error) {
-	console.error(error);
-});
+  return axios.request(options)
+    .then(function (response) {
+      console.log("SAVED");
+      return response.data.results;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
+
+function get_current_date() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
