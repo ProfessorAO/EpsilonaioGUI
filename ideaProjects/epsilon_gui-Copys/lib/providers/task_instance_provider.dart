@@ -215,9 +215,11 @@ class Taskinstance with ChangeNotifier {
       col = Colors.green;
       if (completed_int == 0) {
         data.incrementCheckouts();
-        recent_checkouts.createRecentCheckoutRow('0', taskproduct, taskstore,
-            taskprofile.profileName, DateTime.now().toString());
         completed_int += 1;
+        notifyListeners();
+      } else {
+        recent_checkouts.createRecentCheckoutRow(status, taskproduct, taskstore,
+            taskprofile.profileName, DateTime.now().toString());
         notifyListeners();
       }
     } else if (status == 'Ready') {

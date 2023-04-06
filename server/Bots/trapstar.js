@@ -1,8 +1,12 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-extra';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import EvasionsPlugin from'puppeteer-extra-plugin-stealth';
 import { Console } from 'console';
 import { sign } from 'crypto';
 import { get } from 'http';
 export default function trapstarBot(data, socket) {
+    puppeteer.use(StealthPlugin());
+    puppeteer.use(EvasionsPlugin());  
     var Product = data["product"];
     var Size = data["size"];
     var ID = data['ID'];
@@ -15,6 +19,8 @@ export default function trapstarBot(data, socket) {
     var City = data['city'];
     var Postcode = data['postcode'];
     var Phone = data['phone'];
+
+    
     var today = new Date();
     var dateString = today.toLocaleString().replace(/[/,:]/g, ' ');
  
@@ -23,9 +29,15 @@ export default function trapstarBot(data, socket) {
                      try {
                         const browser = await launchBrowser();
                         const page = await browser.newPage();
+                        const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36';
+                        await page.setUserAgent(userAgent);
+
                          await processCheckout(FirstName, LastName, Address, City, Phone, Postcode,socket,data,page);
                          await page.screenshot({path: 'C:/Users/david/EpsilonaioGUI/server/success_pics/'+ID+' '+dateString+ '.png'});
                          await sleep(5000);
+                        // var innerText = await getInnerTxt(page);
+                         var price = await getprice(innerText,Product);
+                         socket.send(price.toLocaleString);
                          await browser.close();
                          
                      } catch (error) {
@@ -44,6 +56,14 @@ export default function trapstarBot(data, socket) {
       return JSON.parse(document.querySelector("body").textContent);
     });
   }
+  function mapToObject(map) {
+    const obj = {};
+    for (let [key, value] of map) {
+      obj[key] = value;
+    }
+    return obj;
+  }
+  
 
 function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumber, Address, City, Postcode, Phone) {
     const args = [Product, Size, FirstName, LastName, CardName, CardNumber, Address, City, Postcode, Phone];
@@ -66,19 +86,26 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
    //await sleep(2000);
     await page.waitForSelector('#AddToCart-product-template');
     await page.click('#AddToCart-product-template');
+    await sleep(5000);
     console.log("Added to cart");
     socket.send('Added To Cart');
-    await sleep(10000);
-    await page.goto('https://uk.trapstarlondon.com/cart');
+    await sleep(5000);
+    //await page.goto('https://uk.trapstarlondon.com/cart');
     //await Websocket.send("Checking out");
+    console.log('In Cart');
+    //await sleep(5000);
+    await closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
+
     await page.waitForSelector('input[value="Check out"]');
     await page.click('input[value="Check out"]');
     await sleep(2000);
-    await sleep(2000);
+    await closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     await fillCheckoutForm(page, FirstName, LastName, Address, City, Phone, Postcode);
     await sleep(5000);
     console.log("Checking out");
     socket.send('Checking out');
+    await sleep(5000);
+    await closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     await page.waitForSelector("#continue_button");
     await page.click("#continue_button");
     console.log("completed");
@@ -87,6 +114,14 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
  
     
   }
+  async function closePopupIfExists(page, selector) {
+    if (await page.$(selector)) {
+      console.log('popup');
+      await sleep(2000);
+      await page.keyboard.press('Escape');
+    }
+  }
+  
 
   async function fillCheckoutForm(page, FirstName, LastName, Address, City, Phone, Postcode) {
     await page.waitForSelector('#checkout_shipping_address_first_name');
@@ -115,6 +150,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
       Postcode
     );
     await page.focus("#checkout_email_or_phone");
+    await sleep(2000);
     await page.keyboard.type("davidodunlade@hotmail.co.uk");
   }
   async function launchBrowser() {
@@ -146,6 +182,20 @@ async function gethandle(jsondata, product) {
       throw { name: "NoProductFoundError", message: "The product has not been found" };
     }
   }
+  async function getprice(jsondata, product) {
+    const data = jsondata["products"];
+    const searchTerm = product.toLowerCase();
+  
+    const foundProduct = data.find(item => item["title"].toLowerCase().includes(searchTerm));
+  
+    if (foundProduct) {
+      return foundProduct["price"];
+    } else {
+      console.log("failed");
+      throw { name: "NoProductFoundError", message: "The product has not been found" };
+    }
+  }
+  
   async function getsizeid(jsondata, product, size) {
     const data = jsondata["products"];
     const searchTerm = product.toLowerCase();
