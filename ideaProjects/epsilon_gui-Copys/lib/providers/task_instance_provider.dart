@@ -137,8 +137,8 @@ class Taskinstance with ChangeNotifier {
   final _statusController = StreamController<String>();
 
   Stream<String> get statusStream => _statusController.stream;
-  Map<String, String> createTaskMap() {
-    var taskMap = <String, String>{
+  Map<String, dynamic> createTaskMap() {
+    var taskMap = <String, dynamic>{
       'product': taskproduct,
       'size': tasksize,
       'website': taskstore,
@@ -152,6 +152,7 @@ class Taskinstance with ChangeNotifier {
       'city': taskprofile.city,
       'postcode': taskprofile.postcode,
       'phone': taskprofile.phone,
+      'keywords': taskkeywords,
     };
     return taskMap;
   }

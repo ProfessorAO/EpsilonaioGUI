@@ -1,10 +1,12 @@
 
 
 import { WebSocketServer } from 'ws';
+import { Worker } from 'worker_threads';
 import http from 'http';
 import { type } from 'os';
-import trapstarBot from './Bots/trapstar.js';
+import trapstarBot from './Bots/Trapstar/trapstar.js';
 import get_releases_data from './Data/releasesData.js';
+import runTrapstarBotInNewThread from './threadmanager.js';
 const wrongTypeError = TypeError("Wrong type found, expected ");
 
 
@@ -17,7 +19,7 @@ async function connection_websockets() {
       const website = task_data.store;
       switch(website){
         case 'Trapstar':
-          trapstarBot(task_data, ws);
+          runTrapstarBotInNewThread(task_data, ws);
           break;
         default:
           console.log('Website not supported');

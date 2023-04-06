@@ -452,13 +452,13 @@ class tasksScreen extends State<tasks_screen> {
                                         });
                                       },
                                     )),
-                                //COLOR
+                                //Keywords
                                 const Spacer(),
                                 Expanded(
                                     flex: 2,
                                     child: columInputer_text(
                                       controller: keywordsController,
-                                      label: "Color",
+                                      label: "Keywords",
                                       length: 20,
                                       onChanged: (String value) {},
                                     )),
