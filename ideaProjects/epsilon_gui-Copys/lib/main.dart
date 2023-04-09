@@ -1,4 +1,5 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:epsilon_gui/providers/analytics_provider.dart';
 
 import 'package:epsilon_gui/providers/console_logger_provider.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
@@ -80,7 +81,8 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => UserData.instance,
-        )
+        ),
+        ChangeNotifierProvider(create: (context) => Analytics.instance)
       ],
       child: MyApp(),
     ),

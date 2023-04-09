@@ -46,7 +46,7 @@ class RecentCheckoutRow {
         color: Color.fromARGB(255, 15, 237, 120),
       )),
       DataCell(Text(
-        price,
+        '£$price',
         style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.normal,

@@ -300,7 +300,7 @@ class Stats extends StatelessWidget {
         top: MediaQuery.of(context).size.height * 0.45,
         right: 10,
         text: "Total Spent",
-        data: context.watch<UserData>().totalSpent_.toString(),
+        data: '£${context.watch<UserData>().spentDouble}',
         firstcolor: Color.fromARGB(255, 0, 85, 204),
         secondcolor: const Color.fromRGBO(0, 102, 255, 1.0),
         image: const AssetImage("assets/images/money.png"),

@@ -49,6 +49,9 @@ class NewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final productController = TextEditingController();
+    final keywordsController = TextEditingController();
+    final numContoller = TextEditingController();
     return Positioned(
       top: MediaQuery.of(context).size.height * 0.1,
       left: MediaQuery.of(context).size.width * 0.02,
@@ -88,6 +91,7 @@ class NewWidget extends StatelessWidget {
                 child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.4,
                     child: TextField(
+                      controller: productController,
                       style: const TextStyle(
                           fontFamily: 'Audiowide',
                           color: Colors.white,
@@ -119,6 +123,7 @@ class NewWidget extends StatelessWidget {
                     child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.4,
                         child: TextField(
+                          controller: keywordsController,
                           style: const TextStyle(
                               fontFamily: 'Audiowide',
                               color: Colors.white,
@@ -165,6 +170,7 @@ class NewWidget extends StatelessWidget {
                 child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.4,
                     child: TextField(
+                      controller: numContoller,
                       style: const TextStyle(
                           fontFamily: 'Audiowide',
                           color: Colors.white,

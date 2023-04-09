@@ -13,16 +13,19 @@ class UserData with ChangeNotifier {
   int totalSpent = 0;
   int checkouts = 0;
   int failures = 0;
+  double totalSpentDouble = 0.0;
   List<ProfileGroup> profileGroups = [];
   List<TaskGroup> taskGroups = [];
 
   int get totalSpent_ => totalSpent;
+  double get spentDouble => totalSpentDouble;
   int get checkouts_ => checkouts;
   int get failures_ => failures;
 
   // Load data from SharedPreferences
   Future<void> loadData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    totalSpentDouble = prefs.getDouble('totalSpentDouble') ?? 0;
     totalSpent = prefs.getInt('totalSpent') ?? 0;
     checkouts = prefs.getInt('checkouts') ?? 0;
     failures = prefs.getInt('failures') ?? 0;
@@ -34,12 +37,13 @@ class UserData with ChangeNotifier {
   Future<void> _saveData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('totalSpent', totalSpent);
+    await prefs.setDouble('totalSpentDouble', totalSpentDouble);
     await prefs.setInt('checkouts', checkouts);
     await prefs.setInt('failures', failures);
   }
 
-  void addToTotalSpent(int valueAdded) {
-    totalSpent += valueAdded;
+  void addToTotalSpent(double valueAdded) {
+    totalSpentDouble += valueAdded;
     _saveData();
     notifyListeners();
   }

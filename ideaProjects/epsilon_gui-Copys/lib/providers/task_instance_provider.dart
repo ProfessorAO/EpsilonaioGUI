@@ -20,6 +20,7 @@ class Taskinstance with ChangeNotifier {
   List<String> taskkeywords = [];
   String taskregion = "";
   Profile taskprofile;
+  String taskPrice = '';
   String tasktype = "";
   String taskstatus = "Ready";
   bool check = false;
@@ -178,7 +179,12 @@ class Taskinstance with ChangeNotifier {
       isactive = true;
       channel?.stream.listen((event) {
         print(event);
-        updateTask(event);
+
+        if (checkIfInt(event)) {
+          taskPrice = event;
+        } else {
+          updateTask(event);
+        }
       });
     } on SocketException catch (e) {
       print("Error on Connecting to server$e");
@@ -203,7 +209,7 @@ class Taskinstance with ChangeNotifier {
 
   Color getColor(status) {
     Color col;
-    if (status == 'Entering Site') {
+    if (status == 'Ready') {
       col = Colors.blue;
     } else if (status == 'Added To Cart') {
       col = Colors.blue;
@@ -211,15 +217,12 @@ class Taskinstance with ChangeNotifier {
       col = Colors.blue;
     } else if (status == 'Completed') {
       col = Colors.green;
-      if (completed_int == 0) {
-        data.incrementCheckouts();
-        completed_int += 1;
-        notifyListeners();
-      } else {
-        recent_checkouts.createRecentCheckoutRow(status, taskproduct, taskstore,
-            taskprofile.profileName, DateTime.now().toString());
-        notifyListeners();
-      }
+      data.incrementCheckouts();
+      data.addToTotalSpent(double.parse(taskPrice));
+      completed_int += 1;
+      recent_checkouts.createRecentCheckoutRow(taskPrice, taskproduct,
+          taskstore, taskprofile.profileName, DateTime.now().toString());
+      notifyListeners();
     } else if (status == 'Ready') {
       col = Colors.white;
     } else {
@@ -230,6 +233,15 @@ class Taskinstance with ChangeNotifier {
       }
     }
     return col;
+  }
+
+  bool checkIfInt(str) {
+    num? number = num.tryParse(str);
+    if (number != null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   void updateTask(newstatus) {
