@@ -45,6 +45,8 @@ async function handleTaskCreation(ws, task_data) {
     case 'Trapstar':
       runTrapstarBotInNewThread(task_data, ws);
       break;
+    case 'End-Clothing':
+      break;
     default:
       console.log('Website not supported');
   }
