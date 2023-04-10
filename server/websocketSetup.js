@@ -1,5 +1,3 @@
-
-
 import { WebSocketServer } from 'ws';
 import { Worker } from 'worker_threads';
 import http from 'http';
@@ -7,114 +5,56 @@ import { type } from 'os';
 import trapstarBot from './Bots/Trapstar/trapstar.js';
 import get_releases_data from './Data/releasesData.js';
 import runTrapstarBotInNewThread from './threadmanager.js';
+import { SemanticAnalysis } from './Data/SemanticAnalysisData.js';
 const wrongTypeError = TypeError("Wrong type found, expected ");
 
-
 async function connection_websockets() {
-    const task_wss = new WebSocketServer({ port: 679 });
-    const releases_wss = new WebSocketServer({ port: 6969 });
-  
-    setupWebSocketServer(task_wss, 'Task Creation', async (ws) => {
-      const task_data = await waitForDataJson(ws);
-      const website = task_data.store;
-      switch(website){
-        case 'Trapstar':
-          runTrapstarBotInNewThread(task_data, ws);
+  const wss = new WebSocketServer({ port: 679 });
+
+  wss.on('connection', async (ws) => {
+    console.log('New WebSocket connection');
+
+    ws.on('message', async (data) => {
+      console.log('data: %s', data);
+      const requestData = JSON.parse(data);
+
+      switch (requestData.eventType) {
+        case 'Task Creation':
+          await handleTaskCreation(ws, requestData);
+          break;
+        case 'Release Data Request':
+          await handleReleaseDataRequest(ws);
+          break;
+        case 'Semantic Analysis Request':
+          await handlesSemanticAnalysisRequest(ws,requestData);
           break;
         default:
-          console.log('Website not supported');
+          console.log('Unsupported event type');
       }
-      
     });
-  
-    setupWebSocketServer(releases_wss, 'Release Data Request', async (ws) => {
-      const release_data = await waitForData(ws);
-      get_releases_data(ws);
-    });
-  
-    function setupWebSocketServer(wss, eventType, onConnection) {
-      wss.on('connection', async (ws) => {
-        console.log(`New Websocket connection - ${eventType}`);
-        await onConnection(ws);
-      });
-  
-      wss.on('close', () => {
-        console.log(`Connection closed - ${eventType}`);
-      });
-    }
-  
-    async function waitForDataJson(ws) {
-      return new Promise((resolve, reject) => {
-        ws.on('message', function message(data) {
-          console.log('data: %s', data);
-          const res_data = JSON.parse(data);
-          resolve(res_data);
-        });
-      });
-    }
-  
-    async function waitForData(ws) {
-      return new Promise((resolve, reject) => {
-        ws.on('message', function message(data) {
-          console.log('data: %s', data);
-          resolve(data);
-        });
-      });
-    }
-  }
-  
-function sleep(ms) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
+  });
+
+  wss.on('close', () => {
+    console.log('Connection closed');
+  });
 }
 
-function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumber, Address, City, Postcode, Phone) {
-    const args = [Product, Size, FirstName, LastName, CardName, CardNumber, Address, City, Postcode, Phone];
-    return args.every(arg => typeof arg === 'string');
+async function handleTaskCreation(ws, task_data) {
+  const website = task_data.store;
+  switch (website) {
+    case 'Trapstar':
+      runTrapstarBotInNewThread(task_data, ws);
+      break;
+    default:
+      console.log('Website not supported');
   }
-  
+}
+
+async function handleReleaseDataRequest(ws) {
+  get_releases_data(ws);
+}
+async function handlesSemanticAnalysisRequest(ws, data){
+  SemanticAnalysis(data.product,data.keywords,data.sentimentNumber,ws);
+}
 
 connection_websockets();
-
-
-  
-
-// function gethandle(jsondata,product){
-//     let data = jsondata["products"];
-//     let found = false;
-//     for (let i = 0; i<data.length; i++) {
-//         if (data[i]["title"].toLowerCase().includes(product.toLowerCase())){
-//             return data[i]["handle"];
-//         }else{
-//             found = false;
-//         }
-//     }
-//     if (found== false){
-//         console.log("failed");
-//         throw {name : "NoProductFoundError", message : "The product has not been found"};
-//     }
-//     //console.log(json_str);
-// }
-// function getsizeid(jsondata,product,size){
-//     let data = jsondata["products"];
-//     for (let i = 0; i<data.length; i++) {
-//         if (data[i]["title"].toLowerCase().includes(product.toLowerCase())){
-//             let y = data[i]["variants"].length;
-//             for (let x =0;x<y;x++){
-//                 if (data[i]["variants"][x].option1== size){
-//                     return (data[i]["variants"][x].id);
-//                 }
-//             }
-//         }
-//     }
-// }
-
-
-
-
-
-
-
-
-

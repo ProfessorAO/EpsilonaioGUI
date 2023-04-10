@@ -52,12 +52,12 @@ function createSearchQuery(topic, hashtags) {
   return query;
 }
 
-(async () => {
-  const topic = 'Air Jordan 3 Lucky Green';
-  const hashtags = ['%23sneakerhead', '%23sneakernews', '%23kicks','%23opinons'];
+
+
+export async function fetchAndSaveTweets(topic, hashtags, tweetCount, filename) {
   const searchQuery = createSearchQuery(topic, hashtags);
-  const fetchedTweets = await getTweets(searchQuery, 100);
-  await saveTweetsToFile(fetchedTweets, 'tweets.txt').catch((err) => {
+  const fetchedTweets = await getTweets(searchQuery, tweetCount);
+  await saveTweetsToFile(fetchedTweets, filename).catch((err) => {
     console.error(`Failed to save tweets to file: ${err.message}`);
   });
-})();
+}

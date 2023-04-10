@@ -137,6 +137,7 @@ class Taskinstance with ChangeNotifier {
   Stream<String> get statusStream => _statusController.stream;
   Map<String, dynamic> createTaskMap() {
     var taskMap = <String, dynamic>{
+      'eventType': 'Task Creation',
       'product': taskproduct,
       'size': tasksize,
       'website': taskstore,

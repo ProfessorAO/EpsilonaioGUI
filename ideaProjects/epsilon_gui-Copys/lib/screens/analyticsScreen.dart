@@ -1,12 +1,9 @@
-import 'package:epsilon_gui/screens/home/main_components/sideMenu.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
-import 'package:epsilon_gui/screens/components/background.dart';
 import 'package:epsilon_gui/screens/components/epsilonText.dart';
 import 'package:flutter/material.dart';
-import 'package:epsilon_gui/screens/components/TopBar_.dart';
 import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'package:provider/provider.dart';
-
+import 'package:epsilon_gui/providers/analytics_provider.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
 
 class AnalyticsScreen extends StatelessWidget {
@@ -52,6 +49,10 @@ class NewWidget extends StatelessWidget {
     final productController = TextEditingController();
     final keywordsController = TextEditingController();
     final numContoller = TextEditingController();
+    String product = '';
+    String keywords = '';
+    int sentimentNumber = 0;
+
     return Positioned(
       top: MediaQuery.of(context).size.height * 0.1,
       left: MediaQuery.of(context).size.width * 0.02,
@@ -92,6 +93,9 @@ class NewWidget extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.4,
                     child: TextField(
                       controller: productController,
+                      onChanged: (value) {
+                        product = value;
+                      },
                       style: const TextStyle(
                           fontFamily: 'Audiowide',
                           color: Colors.white,
@@ -123,6 +127,9 @@ class NewWidget extends StatelessWidget {
                     child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.4,
                         child: TextField(
+                          onChanged: (value) {
+                            keywords = value;
+                          },
                           controller: keywordsController,
                           style: const TextStyle(
                               fontFamily: 'Audiowide',
@@ -135,7 +142,7 @@ class NewWidget extends StatelessWidget {
                                       color: Color.fromARGB(255, 25, 36, 78))),
                               counterText: '',
                               label: Text(
-                                'Keywords - seperate them by + or - and a space',
+                                'Keywords - seperate them by a space',
                                 style: TextStyle(
                                     color: Colors.white54, fontSize: 16),
                               )),
@@ -146,7 +153,11 @@ class NewWidget extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.05,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    var words = keywords.split(" ");
+                    context.read<Analytics>().getSematicAnalysisResult(
+                        product, words, sentimentNumber);
+                  },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: Colors.blue,
@@ -171,6 +182,9 @@ class NewWidget extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.4,
                     child: TextField(
                       controller: numContoller,
+                      onChanged: (value) {
+                        sentimentNumber = int.parse(value);
+                      },
                       style: const TextStyle(
                           fontFamily: 'Audiowide',
                           color: Colors.white,

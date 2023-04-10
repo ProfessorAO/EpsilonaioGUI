@@ -20,14 +20,15 @@ class ReleasesData with ChangeNotifier {
       IOWebSocketChannel? channel;
 
       try {
-        channel = IOWebSocketChannel.connect('ws://localhost:6969');
+        channel = IOWebSocketChannel.connect('ws://localhost:679');
         if (channel == null) {
           throw const SocketException("");
         }
       } catch (e) {
         print("Error on Connecting to server$e");
       }
-      channel?.sink.add("Connnected");
+      var map = jsonEncode(dataSentMap());
+      channel?.sink.add(map);
       channel?.stream.listen((event) {
         print('Data Recieved');
         recieved_data = jsonDecode(event);
@@ -56,5 +57,13 @@ class ReleasesData with ChangeNotifier {
       releases_data.add(map);
     }
     return releases_data;
+  }
+
+  Map<String, dynamic> dataSentMap() {
+    var dataMap = <String, dynamic>{
+      'eventType': 'Release Data Request',
+      'comment': 'Connected'
+    };
+    return dataMap;
   }
 }
