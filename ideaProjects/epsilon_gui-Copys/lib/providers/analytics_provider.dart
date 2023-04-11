@@ -9,12 +9,33 @@ import 'dart:io';
 class Analytics with ChangeNotifier {
   static final Analytics _instance = Analytics._internal();
   Analytics._internal();
+  Map<String, dynamic> recieved_data = {};
+  String product = '';
+  List<String> keywords = [];
+  int sentimentNumber = 0;
 
   static Analytics get instance => _instance;
 
-  void getSematicAnalysisResult(
-      String product, List<String> keywords, int sentimentNumber) async {
-    Completer<List<Map<String, String>>> completer = Completer();
+  void setProduct(String newProduct) {
+    product = newProduct;
+  }
+
+  void setKeywords(List<String> newKeywords) {
+    keywords = newKeywords;
+  }
+
+  void setSentimentNumber(int newSentimentNumber) {
+    sentimentNumber = newSentimentNumber;
+  }
+
+  void setParams(String product, List<String> keywords, int sentimentNumber) {
+    setProduct(product);
+    setKeywords(keywords);
+    setSentimentNumber(sentimentNumber);
+  }
+
+  Future<Map<String, dynamic>> getSematicAnalysisResult() async {
+    Completer<Map<String, dynamic>> completer = Completer();
     try {
       IOWebSocketChannel? channel;
 
@@ -29,8 +50,8 @@ class Analytics with ChangeNotifier {
       var map = jsonEncode(dataSentMap(product, keywords, sentimentNumber));
       channel?.sink.add(map);
       channel?.stream.listen((event) {
-        print(event);
-        var recieved_data = jsonDecode(event);
+        recieved_data = jsonDecode(event);
+        completer.complete(recieved_data);
       });
     } on SocketException catch (e) {
       print("Error on Connecting to server$e");
@@ -39,6 +60,7 @@ class Analytics with ChangeNotifier {
       print('error: ${e.details}');
       completer.completeError(e);
     }
+    return completer.future;
   }
 
   Map<String, dynamic> dataSentMap(

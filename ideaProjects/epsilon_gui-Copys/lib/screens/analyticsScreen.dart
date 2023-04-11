@@ -5,10 +5,11 @@ import 'package:epsilon_gui/screens/components/bottombar.dart';
 import 'package:provider/provider.dart';
 import 'package:epsilon_gui/providers/analytics_provider.dart';
 import 'package:kumi_popup_window/kumi_popup_window.dart';
+import 'dart:convert';
 
 class AnalyticsScreen extends StatelessWidget {
-  const AnalyticsScreen({Key? key}) : super(key: key);
-
+  AnalyticsScreen({Key? key}) : super(key: key);
+  final ValueNotifier<bool> startAnalysisNotifier = ValueNotifier<bool>(false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +32,10 @@ class AnalyticsScreen extends StatelessWidget {
           EpsilonText(),
           bottomBar(),
           context.watch<TabbarIndex>().this_TopBar,
-          NewWidget(),
-          Widget_one()
+          NewWidget(
+            startAnalysisNotifier: startAnalysisNotifier,
+          ),
+          Widget_one(startAnalysisNotifier: startAnalysisNotifier)
         ],
       ),
     );
@@ -42,13 +45,15 @@ class AnalyticsScreen extends StatelessWidget {
 class NewWidget extends StatelessWidget {
   const NewWidget({
     super.key,
+    required this.startAnalysisNotifier,
   });
-
+  final ValueNotifier<bool> startAnalysisNotifier;
   @override
   Widget build(BuildContext context) {
     final productController = TextEditingController();
     final keywordsController = TextEditingController();
     final numContoller = TextEditingController();
+
     String product = '';
     String keywords = '';
     int sentimentNumber = 0;
@@ -155,8 +160,10 @@ class NewWidget extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     var words = keywords.split(" ");
-                    context.read<Analytics>().getSematicAnalysisResult(
-                        product, words, sentimentNumber);
+                    context
+                        .read<Analytics>()
+                        .setParams(product, words, sentimentNumber);
+                    startAnalysisNotifier.value = true;
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -255,10 +262,8 @@ class NewWidget extends StatelessWidget {
 }
 
 class Widget_one extends StatelessWidget {
-  const Widget_one({
-    super.key,
-  });
-
+  const Widget_one({super.key, required this.startAnalysisNotifier});
+  final ValueNotifier<bool> startAnalysisNotifier;
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -288,6 +293,76 @@ class Widget_one extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            ValueListenableBuilder<bool>(
+              valueListenable: startAnalysisNotifier,
+              builder: (context, startAnalysis, child) {
+                return startAnalysis
+                    ? FutureBuilder(
+                        future: context
+                            .read<Analytics>()
+                            .getSematicAnalysisResult(),
+                        builder: ((context,
+                            AsyncSnapshot<Map<String, dynamic>> snapshot) {
+                          if (snapshot.hasData) {
+                            Map<String, dynamic> data = snapshot.data!;
+                            return SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Text("Positive Tweets",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 25)),
+                                  Text(data['positive_tweets'].toString(),
+                                      style: TextStyle(color: Colors.white)),
+                                  Text("Negative Tweets",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 25)),
+                                  Text(data['negative_tweets'].toString(),
+                                      style: TextStyle(color: Colors.white)),
+                                  Text("Top 15 keywords",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 25)),
+                                  Text(
+                                      data['top_keywords']
+                                          .entries
+                                          .map((entry) =>
+                                              '${entry.key}: ${entry.value}')
+                                          .join('\n'),
+                                      style: TextStyle(
+                                          color: Colors
+                                              .white) // Convert the List<dynamic> to a comma-separated string
+                                      ),
+                                ],
+                              ),
+                            );
+                          } else if (snapshot.hasError) {
+                            return Text(
+                                "Error when connecting to server Try Again");
+                          } else {
+                            return Column(
+                              children: [
+                                Container(
+                                    child: Image.asset(
+                                  'assets/images/Logo-Animation (1).gif',
+                                  height: 400,
+                                  fit: BoxFit.cover,
+                                )),
+                                Text(
+                                  'This may take a while...',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                )
+                              ],
+                            );
+                          }
+                        }))
+                    : Container(
+                        child: Text(
+                          "Give the AI something to analyse",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      );
+              },
             )
           ],
         ),

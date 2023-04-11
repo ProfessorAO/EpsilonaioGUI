@@ -14,6 +14,7 @@ export async function SemanticAnalysis(topic, hashtags, tweetCount, socket) {
       console.error(`Python script stderr: ${stderr}`);
     }
     console.log(`Python script output: ${stdout}`);
-    socket.send(stdout);
+    let resultMap = JSON.parse(stdout);
+    socket.send(JSON.stringify(resultMap));
   });
 }

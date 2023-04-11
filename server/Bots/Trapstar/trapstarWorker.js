@@ -9,4 +9,6 @@ const ws = {
       parentPort.postMessage({ type: 'ws', data });
     },
   };
+
 trapstarBot(task_data, ws);
+
