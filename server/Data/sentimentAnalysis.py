@@ -19,7 +19,7 @@ def preprocess_text(text):
     text = re.sub(r'[^A-Za-z\s]', '', text)
     return text
 
-async def sentiment_analysis_async(tweets):
+async def analyze_sentiment_async(tweets):
     results = []
     model_name = "distilbert-base-uncased-finetuned-sst-2-english"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -37,9 +37,9 @@ async def sentiment_analysis_async(tweets):
             print(f"Error: {e}")
     return results
 
-def sentiment_analysis(tweets):
+def analyze_sentiment(tweets):
     loop = asyncio.get_event_loop()
-    return loop.run_until_complete(sentiment_analysis_async(tweets))
+    return loop.run_until_complete(analyze_sentiment_async(tweets))
 
 def get_tweets():
     filename = 'tweets.txt'
@@ -59,14 +59,14 @@ def extract_keywords(tweets, top_n=15):
         words.extend(re.findall(r'\w+', cleaned_tweet.lower()))
 
     # Filter out stop words and single-letter words
-    filtered_words = [word for word in words if word not in stop_words and len(word) > 1]
+    filtered_words = [word for word in words if word not in stop_words and len(word) > 1 and word not in ["tweets", "positive", "negative", "keywords"]]
 
     word_counts = Counter(filtered_words)
     return word_counts.most_common(top_n)
 
 def main():
     tweets = get_tweets()
-    sentiment_results = sentiment_analysis(tweets)
+    sentiment_results = analyze_sentiment(tweets)
 
     negative_tweets = [tweet for tweet, sentiment in sentiment_results if sentiment == "NEGATIVE"]
     positive_tweets = [tweet for tweet, sentiment in sentiment_results if sentiment == "POSITIVE"]
