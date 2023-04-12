@@ -39,8 +39,8 @@ export default function trapstarBot(data, socket) {
                          await processCheckout(socket,data,page);
                          await page.screenshot({path: 'C:/Users/david/EpsilonaioGUI/server/success_pics/'+ID+' '+dateString+ '.png'});
                          await botPack.sleep(5000);
-                        
-                         
+                         socket.send('Completed');
+                         browser.close(); 
                      } catch (error) {
                          console.error("Failed");
                          socket.send('Failed');
@@ -93,7 +93,6 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await page.waitForSelector("#continue_button");
     await page.click("#continue_button");
     console.log("completed");
-    socket.send('Completed');
     await botPack.sleep(2000);
  
     

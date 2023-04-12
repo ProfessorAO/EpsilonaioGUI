@@ -39,7 +39,10 @@ const natural = require('natural');
     const similarity = natural.JaroWinklerDistance(searchTerm, itemTitle,{});
     if (similarity <= 0.8) {
       return false;
+    }else{
+      return true;
     }
+      
   
     const itemKeywords = tokenize(itemTitle.toLowerCase());
     return positiveKeywords.every((pkw) => itemKeywords.includes(pkw.toLowerCase())) &&
@@ -73,9 +76,9 @@ const natural = require('natural');
       const foundVariant = foundProduct["variants"].find(variant => variant.option1 === size);
   
       if (foundVariant) {
-        const sizeId = foundVariant.id;
+        //const sizeId = foundVariant.id;
         const price = foundVariant.price;
-        return { handle, sizeId, price};
+        return { handle, price};
       } else {
         console.log("Size not found");
         throw { name: 'SizeNotFoundError', message: 'The size has not been found' };

@@ -1,5 +1,5 @@
 import { Worker } from 'worker_threads';
-export default function runTrapstarBotInNewThread(task_data, ws) {
+export function runTrapstarBotInNewThread(task_data, ws) {
     const worker = new Worker('./Bots/Trapstar/trapstarWorker.js', {
       workerData: { task_data }
     });
@@ -21,7 +21,7 @@ export default function runTrapstarBotInNewThread(task_data, ws) {
       }
     });
   }
-  export default function runPalaceBotInNewThread(task_data, ws) {
+  export function runPalaceBotInNewThread(task_data, ws) {
     const worker = new Worker('./Bots/Palace/palaceWorker.js', {
       workerData: { task_data }
     });

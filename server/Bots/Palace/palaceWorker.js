@@ -1,7 +1,7 @@
 
 import { Worker } from 'worker_threads';
 import { parentPort, workerData } from 'worker_threads';
-import trapstarBot from './trapstar.js';
+import PalaceBot from './palace.js';
 
 const { task_data } = workerData;
 const ws = {
@@ -10,5 +10,5 @@ const ws = {
     },
   };
 
-trapstarBot(task_data, ws);
+PalaceBot(task_data, ws);
 

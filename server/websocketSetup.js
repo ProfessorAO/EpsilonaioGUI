@@ -2,9 +2,8 @@ import { WebSocketServer } from 'ws';
 import { Worker } from 'worker_threads';
 import http from 'http';
 import { type } from 'os';
-import trapstarBot from './Bots/Trapstar/trapstar.js';
 import get_releases_data from './Data/releasesData.js';
-import runTrapstarBotInNewThread from './threadmanager.js';
+import * as threadManager from './threadmanager.js';
 import { SemanticAnalysis } from './Data/SemanticAnalysisData.js';
 const wrongTypeError = TypeError("Wrong type found, expected ");
 
@@ -43,9 +42,12 @@ async function handleTaskCreation(ws, task_data) {
   const website = task_data.store;
   switch (website) {
     case 'Trapstar':
-      runTrapstarBotInNewThread(task_data, ws);
+      threadManager.runTrapstarBotInNewThread(task_data, ws);
       break;
     case 'End-Clothing':
+      break;
+    case 'Palace-Clothing':
+      threadManager.runPalaceBotInNewThread(task_data,ws);
       break;
     default:
       console.log('Website not supported');

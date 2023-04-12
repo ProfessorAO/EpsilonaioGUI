@@ -8,7 +8,7 @@ const natural = require('natural');
 
   
 export async function initBrowser(){
-    const browser = await puppeteer.launch({ headless: true,
+    const browser = await puppeteer.launch({ headless: false,
       ignoreDefaultArgs: ["--enable-automation"],
       args: [
         '--no-sandbox',
