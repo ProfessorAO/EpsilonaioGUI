@@ -33,7 +33,7 @@ export default function trapstarBot(data, socket) {
      if (check_dataTypes(Product,Size,FirstName,LastName,CardName,CardNumber,Address,City,Postcode,Phone)) {
          (async () => {
                      try {
-                         const browser = await webPack.initBrowser();
+                         const browser = await webPack.initBrowser_Tor();
                          const page = await webPack.newPage(browser);
                          socket.send('Ready');
                          await processCheckout(socket,data,page);
@@ -45,6 +45,7 @@ export default function trapstarBot(data, socket) {
                          console.error("Failed");
                          socket.send('Failed');
                          console.log(error.message); 
+                         browser.close();
                      }    
          })();
      }else{
@@ -73,13 +74,11 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await page.waitForSelector('#AddToCart-product-template');
     await page.click('#AddToCart-product-template');
     await botPack.sleep(5000);
-    console.log("Added to cart");
     socket.send('Added To Cart');
-    await botPack.sleep(5000);
     console.log('In Cart');
     await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     //await page.waitForNavigation();
-    await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
+    //await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     await page.waitForSelector('input[value="Check out"]');
     //await botPack.sleep(5000);
     await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');

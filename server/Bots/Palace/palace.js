@@ -34,7 +34,7 @@ export default function PalaceBot(data, socket) {
      if (check_dataTypes(Product,Size,FirstName,LastName,CardName,CardNumber,Address,City,Postcode,Phone)) {
          (async () => {
                      try {
-                         const browser = await webPack.initBrowser();
+                         const browser = await webPack.initBrowser_Tor();
                          const page = await webPack.newPage(browser);
                          socket.send('Ready');
                          await processCheckout(socket,data,page);
@@ -68,6 +68,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await page.setDefaultNavigationTimeout(80000); 
     let query = createQuery(data.product);
     await page.goto('https://shop.palaceskateboards.com/search?q='+ query);
+    //await page.waitForNavigation();
     let url = await getPageURL(data,socket,page);
     await page.goto(url,{ waitUntil: 'networkidle2' });
     await botPack.sleep(2000);

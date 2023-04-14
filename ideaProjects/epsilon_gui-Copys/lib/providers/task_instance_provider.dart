@@ -29,6 +29,7 @@ class Taskinstance with ChangeNotifier {
   TasksLists tasksList = TasksLists();
   int completed_int = 0;
   int failed_int = 0;
+  bool tor = false;
 
   UserData data = UserData.instance;
   RecentCheckoutProvider recent_checkouts = RecentCheckoutProvider.instance;
@@ -152,6 +153,7 @@ class Taskinstance with ChangeNotifier {
       'postcode': taskprofile.postcode,
       'phone': taskprofile.phone,
       'keywords': taskkeywords,
+      'tor_used': tor,
     };
     return taskMap;
   }

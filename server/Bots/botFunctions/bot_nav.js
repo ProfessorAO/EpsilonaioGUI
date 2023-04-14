@@ -26,10 +26,24 @@ import * as tf from '@tensorflow/tfjs-node';
   }
   
   export async function closePopupIfExists(page, selector) {
-    if (await page.$(selector)) {
+    if (await page.$(selector)){
       console.log('popup');
       await sleep(2000);
       await page.keyboard.press('Escape');
+
+    }else if(await page.$(".recommendation-modal__container")){
+      console.log('pop up');
+      await page.waitForSelector('.recommendation-modal__container', { visible: true });
+      await page.evaluate(() => {
+        const container = document.querySelector('.recommendation-modal__button');
+        if (container) {
+          container.click();
+        }
+      });
+      console.log('clicked');
+      await sleep(2000);
+      
+      
     }else{
       console.log('pop up not in DOM');
     }
@@ -109,7 +123,7 @@ import * as tf from '@tensorflow/tfjs-node';
   
 // This function takes a list of products, a search term, keywords, and an optional minimum confidence score (default 0.8),
 // and returns the best matching product based on semantic similarity and matching keywords.
-export async function getBestMatch_USE(productsList, searchTerm, keywords, minConfidence = 0.8) {
+export async function getBestMatch_USE(productsList, searchTerm, keywords, minConfidence = 0.4) {
   // Load the Universal Sentence Encoder (USE) model
   const useModel = await loadUSEModel();
   
@@ -150,7 +164,7 @@ export async function getBestMatch_USE(productsList, searchTerm, keywords, minCo
   }
 }
 
- export async function getBestMatch_USE_Pjson(jsondata, searchTerm, keywords, minConfidence = 0.8) {
+ export async function getBestMatch_USE_Pjson(jsondata, searchTerm, keywords, minConfidence = 0.65) {
     const useModel = await loadUSEModel();
     const data = jsondata['products'];
     const { positiveKeywords, negativeKeywords } = getPositiveAndNegativeKeywords(keywords);
