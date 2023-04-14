@@ -168,7 +168,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
   }
   async function getPageURL(data, socket, page) {
     try {
-      const { positiveKeywords, negativeKeywords } = botPack.getPositiveAndNegativeKeywords(data.keywords);
+      
   
       const productElements = await page.evaluate(() => {
         const searchresults = document.querySelector("#searchresults");
@@ -180,12 +180,14 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
         }
         return products;
       });
-  
-      for (const product of productElements) {
-        if (botPack.isMatch(product.title, data.product, positiveKeywords, negativeKeywords)) {
-          return product.url;
-        }
+      const foundProduct = await botPack.getBestMatch_USE(productElements, data.product, data.keywords);
+      if(foundProduct){
+        return foundProduct.url;
       }
+      else{
+        return null;
+      }
+      
     } catch (error) {
       console.log("Failed");
       socket.send("Failed");

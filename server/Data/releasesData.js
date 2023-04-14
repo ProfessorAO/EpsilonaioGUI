@@ -2,7 +2,7 @@ import fs from 'fs';
 import request_data from '../dataAPIs/incoming_drops.js';
 
 // Set the time interval for how often the function can be called (in milliseconds)
-const CALL_INTERVAL = 604800000; // 1 week in milliseconds
+const CALL_INTERVAL = 86400000; // 1 day in milliseconds
 
 // Define a variable to store the timestamp of the last function call
 let lastCallTimestamp = 0;

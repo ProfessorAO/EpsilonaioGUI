@@ -24,10 +24,10 @@ class TopBar_ extends State<TopBar>
   late TabController _tabController;
   Map<int, Widget> page_map = {
     0: MainScreen(),
-    1: ProxiesScreen(),
-    2: tasks_screen(),
-    3: ProfilesScreen(),
-    4: AnalyticsScreen()
+    //1: ProxiesScreen(),
+    1: tasks_screen(),
+    2: ProfilesScreen(),
+    3: AnalyticsScreen()
   };
 
   @override
@@ -38,7 +38,7 @@ class TopBar_ extends State<TopBar>
     super.initState();
     _tabController = TabController(
         vsync: this,
-        length: 5,
+        length: 4,
         initialIndex: context.read<TabbarIndex>().current_index);
   }
 
@@ -81,7 +81,7 @@ class TopBar_ extends State<TopBar>
                   ),
                 ),
                 Expanded(
-                  flex: 5,
+                  flex: 4,
                   child: Scaffold(
                     backgroundColor: Color.fromARGB(255, 25, 36, 78),
                     appBar: AppBar(
@@ -122,16 +122,16 @@ class TopBar_ extends State<TopBar>
                                 ],
                               ),
                             ),
-                            Tab(
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text('Proxies'),
-                                  Text(" "),
-                                  Icon(Icons.computer),
-                                ],
-                              ),
-                            ),
+                            // Tab(
+                            //   child: Row(
+                            //     mainAxisSize: MainAxisSize.min,
+                            //     children: [
+                            //       Text('Proxies'),
+                            //       Text(" "),
+                            //       Icon(Icons.computer),
+                            //     ],
+                            //   ),
+                            // ),
                             Tab(
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,

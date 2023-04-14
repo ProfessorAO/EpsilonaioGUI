@@ -78,8 +78,11 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await botPack.sleep(5000);
     console.log('In Cart');
     await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
-
+    //await page.waitForNavigation();
+    await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     await page.waitForSelector('input[value="Check out"]');
+    //await botPack.sleep(5000);
+    await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     await page.click('input[value="Check out"]');
     await page.waitForNavigation();
     await botPack.sleep(1000);
@@ -87,6 +90,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await fillCheckoutForm(page, data);
     await botPack.sleep(5000);
     console.log("Checking out");
+    await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     socket.send('Checking out');
     await botPack.sleep(5000);
     await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
@@ -124,6 +128,8 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await botPack.sleep(2000);
     await page.keyboard.type("davidodunlade@hotmail.co.uk");
   }
+
+  
 
   
   
