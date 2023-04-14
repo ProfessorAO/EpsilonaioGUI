@@ -57,20 +57,26 @@ class TasksLists with ChangeNotifier {
   }
 
 // ADDS TASKS TO THE TABLE
-  void addTask(int numOfTasks, String storeData, String productData,
-      ProfileGroup profileData, String sizeData, List<String> keywords) {
+  void addTask(
+      int numOfTasks,
+      String storeData,
+      String productData,
+      ProfileGroup profileData,
+      String sizeData,
+      List<String> keywords,
+      bool tor) {
     List<Profile> profile_Li = getTaskProfiles(numOfTasks, profileData);
     for (var i = 0; i < numOfTasks; i++) {
       if (id_list.isEmpty == true) {
         id_list.add(1);
         Taskinstance task = Taskinstance(
-            1, productData, storeData, profile_Li[i], sizeData, keywords);
+            1, productData, storeData, profile_Li[i], sizeData, keywords, tor);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       } else {
         id_list.add(id_list.last + 1);
         Taskinstance task = Taskinstance(id_list.last, productData, storeData,
-            profile_Li[i], sizeData, keywords);
+            profile_Li[i], sizeData, keywords, tor);
         tasks_instances.add(task);
         current_tasks_list.add(task.taskRow);
       }

@@ -293,6 +293,12 @@ class tasksScreen extends State<tasks_screen> {
                                                       (m.group(1) ?? '') +
                                                       (m.group(2) ?? ''))
                                                   .toList();
+                                          bool tor;
+                                          if (dropdownTT == "Browser") {
+                                            tor = false;
+                                          } else {
+                                            tor = true;
+                                          }
 
                                           context.read<TasksLists>().addTask(
                                               numberOfTasks,
@@ -300,7 +306,8 @@ class tasksScreen extends State<tasks_screen> {
                                               product,
                                               dropdownprofile,
                                               dropdownsize,
-                                              wordsWithSeparators);
+                                              wordsWithSeparators,
+                                              tor);
                                         },
                                         style: TextButton.styleFrom(
                                           foregroundColor: Colors.white,
@@ -566,6 +573,12 @@ class tasksScreen extends State<tasks_screen> {
                                         .showSnackBar(snackBar);
                                     List<String> words =
                                         keywords.split(RegExp(r'[\+-]'));
+                                    bool tor;
+                                    if (dropdownTT == "Browser") {
+                                      tor = false;
+                                    } else {
+                                      tor = true;
+                                    }
                                     context
                                         .read<TaskGroupList>()
                                         .addToGroupList(
@@ -576,7 +589,8 @@ class tasksScreen extends State<tasks_screen> {
                                             dropdownprofile,
                                             dropdownsize,
                                             group_name,
-                                            words);
+                                            words,
+                                            dropdownTT);
 
                                     setState(() {});
                                   },

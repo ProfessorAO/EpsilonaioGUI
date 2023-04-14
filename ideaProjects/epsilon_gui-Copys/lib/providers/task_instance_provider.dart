@@ -35,7 +35,7 @@ class Taskinstance with ChangeNotifier {
   RecentCheckoutProvider recent_checkouts = RecentCheckoutProvider.instance;
 
   Taskinstance(this.taskID, this.taskproduct, this.taskstore, this.taskprofile,
-      this.tasksize, this.taskkeywords) {
+      this.tasksize, this.taskkeywords, this.tor) {
     check = false;
     taskRow = DataRow(
         onLongPress: () {},

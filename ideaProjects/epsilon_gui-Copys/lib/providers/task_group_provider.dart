@@ -41,11 +41,12 @@ class TaskGroupList with ChangeNotifier {
       ProfileGroup taskprofile,
       String taskSize,
       String groupName,
-      List<String> taskkeywords) {
+      List<String> taskkeywords,
+      String taskOption) {
     final UniqueKey key = UniqueKey();
 
     TaskGroup thisTaskGroup = TaskGroup(groupName, taskproduct, taskprofile,
-        taskstore, taskSize, tasknum, key, taskkeywords);
+        taskstore, taskSize, tasknum, key, taskkeywords, taskOption);
 
     taskGroup_list.add(thisTaskGroup);
     //UserData.instance.saveTaskGroups(taskGroup_list);
@@ -62,6 +63,7 @@ class TaskGroupWidget extends StatelessWidget {
   final ProfileGroup taskprofile;
   final String tasksize;
   final List<String> keywords;
+  final String taskOption;
   const TaskGroupWidget(
       {super.key,
       required this.groupName,
@@ -71,7 +73,8 @@ class TaskGroupWidget extends StatelessWidget {
       required this.taskproduct,
       required this.taskprofile,
       required this.keywords,
-      required this.tasksize});
+      required this.tasksize,
+      required this.taskOption});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -104,11 +107,16 @@ class TaskGroupWidget extends StatelessWidget {
                     onPressed: () {},
                   ),
                 );
-
+                bool tor;
+                if (taskOption == "Browser") {
+                  tor = false;
+                } else {
+                  tor = true;
+                }
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 context.read<TasksLists>().removeAllTasks();
                 context.read<TasksLists>().addTask(tasknum, taskstore,
-                    taskproduct, taskprofile, tasksize, keywords);
+                    taskproduct, taskprofile, tasksize, keywords, tor);
               },
               onLongPress: () {},
               child: Row(
@@ -215,13 +223,15 @@ class TaskGroup {
     taskprofile: ProfileGroup(UniqueKey(), "", []),
     tasksize: "",
     keywords: [],
+    taskOption: "",
   );
   UniqueKey key;
   int checkouts = 0;
   int fails = 0;
+  String option = "";
 
   TaskGroup(this.groupName, this.product, this.profile, this.store, this.size,
-      this.tasknum, this.key, this.taskkeywords) {
+      this.tasknum, this.key, this.taskkeywords, this.option) {
     widget = TaskGroupWidget(
       groupName: groupName,
       tasknum: tasknum,
@@ -231,6 +241,7 @@ class TaskGroup {
       taskprofile: profile,
       tasksize: size,
       keywords: [],
+      taskOption: option,
     );
   }
 

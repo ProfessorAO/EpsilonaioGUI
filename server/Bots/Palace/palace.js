@@ -34,7 +34,9 @@ export default function PalaceBot(data, socket) {
      if (check_dataTypes(Product,Size,FirstName,LastName,CardName,CardNumber,Address,City,Postcode,Phone)) {
          (async () => {
                      try {
-                         const browser = await webPack.initBrowser_Tor();
+                        if(data.tor_used == true){const browser = await webPack.initBrowser_Tor();
+                        }else{const browser = await webPack.initBrowser();}
+                         
                          const page = await webPack.newPage(browser);
                          socket.send('Ready');
                          await processCheckout(socket,data,page);

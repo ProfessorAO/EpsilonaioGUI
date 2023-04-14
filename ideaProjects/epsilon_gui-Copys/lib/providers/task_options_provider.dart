@@ -68,8 +68,8 @@ class TaskOptions with ChangeNotifier {
       child: Text("Browser"),
     ),
     DropdownMenuItem(
-      value: "Requests",
-      child: Text("Requests"),
+      value: "Tor",
+      child: Text("Tor"),
     ),
   ];
   List<DropdownMenuItem<String>>? proxy_options = [
