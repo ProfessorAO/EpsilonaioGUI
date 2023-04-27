@@ -7,6 +7,7 @@ const require = createRequire(import.meta.url);
 const natural = require('natural');
 import * as botPack from '../botFunctions/bot_nav.js';
 import * as webPack from '../botFunctions/bot_web.js';
+import path from 'path';
 
 
 export default function trapstarBot(data, socket) {
@@ -33,7 +34,9 @@ export default function trapstarBot(data, socket) {
      if (check_dataTypes(Product,Size,FirstName,LastName,CardName,CardNumber,Address,City,Postcode,Phone)) {
          (async () => {
                      try {
-                         const browser = await webPack.initBrowser_Tor();
+                      let browser;
+                      if(data.tor_used == true){browser = await webPack.initBrowser_Tor();
+                      }else{browser = await webPack.initBrowser();}
                          const page = await webPack.newPage(browser);
                          socket.send('Ready');
                          await processCheckout(socket,data,page);
@@ -61,7 +64,8 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
 
   async function processCheckout(socket,data,page){
     await page.setDefaultNavigationTimeout(80000); 
-    await page.goto('https://uk.trapstarlondon.com/products.json?limit=1000');
+   
+    //await page.goto(`file://${path.resolve('C:/Users/david/uk.trapstarlondon.com/index.html')}`);
     var innerText = await botPack.getInnerTxt(page);
     const result = await botPack.getProductDetails (innerText,data.product,data.size,data.keywords);
     var handle = result.handle;
@@ -70,6 +74,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     socket.send(price);
 
     await page.goto('https://uk.trapstarlondon.com/products/'+handle +'?variant='+size_id );
+    //await page.goto(`file://${path.resolve('C:/Users/david/uk.trapstarlondon.com/products/chain-script-hoodie-black-green.html?variant=39995971993675')}`);
    //await sleep(2000);
     await page.waitForSelector('#AddToCart-product-template');
     await page.click('#AddToCart-product-template');
@@ -125,7 +130,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     );
     await page.focus("#checkout_email_or_phone");
     await botPack.sleep(2000);
-    await page.keyboard.type("davidodunlade@hotmail.co.uk");
+    await page.keyboard.type("davidodunlade@hotmail.co.uk",{delay: 10});
   }
 
   

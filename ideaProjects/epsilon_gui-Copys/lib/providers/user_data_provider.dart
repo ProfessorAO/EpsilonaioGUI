@@ -24,20 +24,15 @@ class UserData with ChangeNotifier {
 
   // Load data from SharedPreferences
   Future<void> loadData() async {
-    //await SharedPreferences.getInstance().then((prefs) => prefs.clear());
     SharedPreferences prefs = await SharedPreferences.getInstance();
     totalSpentDouble = prefs.getDouble('totalSpentDouble') ?? 0;
-    //totalSpent = prefs.getInt('totalSpent') ?? 0;
     checkouts = prefs.getInt('checkouts') ?? 0;
     failures = prefs.getInt('failures') ?? 0;
-    // taskGroups = await loadTaskGroups(prefs);
-    // profileGroups = await loadProfileGroups(prefs);
   }
 
   // Save data to SharedPreferences
   Future<void> _saveData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    //await prefs.setInt('totalSpent', totalSpent);
     await prefs.setDouble('totalSpentDouble', totalSpentDouble);
     await prefs.setInt('checkouts', checkouts);
     await prefs.setInt('failures', failures);

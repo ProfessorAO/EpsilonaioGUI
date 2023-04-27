@@ -18,6 +18,7 @@ async function getTweets(query, tweetCount) {
 
   while (tweets.length < tweetCount) {
     console.log(tweets.length.toString());
+    
     await page.waitForTimeout(2000); // Allow the page to load
 
     const tweetNodes = await page.$$eval(
@@ -26,12 +27,14 @@ async function getTweets(query, tweetCount) {
         return articles.map((article) => {
           const tweetContent = article.querySelector('div[lang]');
           if (tweetContent && tweetContent.getAttribute('lang') === 'en') {
+            
             return tweetContent.textContent;
           }
           return null;
         });
       }
     );
+    
 
     tweets = tweets.concat(tweetNodes.filter((tweet) => tweet !== null));
     if (tweets.length >= tweetCount) {
