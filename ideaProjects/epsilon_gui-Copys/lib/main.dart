@@ -12,6 +12,7 @@ import 'package:epsilon_gui/providers/recent_checkouts_provider.dart';
 import 'package:epsilon_gui/providers/task_options_provider.dart';
 import 'package:epsilon_gui/providers/profile_group_provider.dart';
 import 'package:epsilon_gui/providers/user_data_provider.dart';
+import 'package:epsilon_gui/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
@@ -101,7 +102,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Epsilon AIO',
       theme: ThemeData(primaryColor: Colors.grey, primarySwatch: Colors.grey),
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }

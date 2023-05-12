@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:epsilon_gui/providers/tabbar_index_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:epsilon_gui/screens/components/CustomPackages/OnHoverChange.dart';
 
 class TopBar extends StatefulWidget {
   const TopBar({super.key});
@@ -24,10 +25,10 @@ class TopBar_ extends State<TopBar>
   late TabController _tabController;
   Map<int, Widget> page_map = {
     0: MainScreen(),
-    //1: ProxiesScreen(),
-    1: tasks_screen(),
-    2: ProfilesScreen(),
-    3: AnalyticsScreen()
+    1: ProxiesScreen(),
+    2: tasks_screen(),
+    3: ProfilesScreen(),
+    4: AnalyticsScreen()
   };
 
   @override
@@ -38,7 +39,7 @@ class TopBar_ extends State<TopBar>
     super.initState();
     _tabController = TabController(
         vsync: this,
-        length: 4,
+        length: 5,
         initialIndex: context.read<TabbarIndex>().current_index);
   }
 
@@ -81,7 +82,7 @@ class TopBar_ extends State<TopBar>
                   ),
                 ),
                 Expanded(
-                  flex: 4,
+                  flex: 5,
                   child: Scaffold(
                     backgroundColor: Color.fromARGB(255, 25, 36, 78),
                     appBar: AppBar(
@@ -122,16 +123,16 @@ class TopBar_ extends State<TopBar>
                                 ],
                               ),
                             ),
-                            // Tab(
-                            //   child: Row(
-                            //     mainAxisSize: MainAxisSize.min,
-                            //     children: [
-                            //       Text('Proxies'),
-                            //       Text(" "),
-                            //       Icon(Icons.computer),
-                            //     ],
-                            //   ),
-                            // ),
+                            Tab(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text('Proxies'),
+                                  Text(" "),
+                                  Icon(Icons.computer),
+                                ],
+                              ),
+                            ),
                             Tab(
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -253,19 +254,33 @@ class infoBar extends StatelessWidget {
         OnHoverText(
           child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: Icon(
-                Icons.notifications_active,
-                color: Colors.white,
-                size: 28,
+              child: OnHoverChange(
+                builder: ((isHovered) {
+                  final color = isHovered
+                      ? Color.fromARGB(255, 15, 237, 120)
+                      : Color.fromARGB(250, 255, 255, 255);
+                  return Icon(
+                    Icons.notifications_active,
+                    color: color,
+                    size: 28,
+                  );
+                }),
               )),
         ),
         OnHoverText(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: Icon(
-              Icons.settings,
-              color: Colors.white,
-              size: 28,
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: OnHoverChange(
+              builder: (isHovered) {
+                final color = isHovered
+                    ? Color.fromARGB(255, 15, 237, 120)
+                    : Color.fromARGB(250, 255, 255, 255);
+                return Icon(
+                  Icons.settings,
+                  color: color,
+                  size: 28,
+                );
+              },
             ),
           ),
         ),

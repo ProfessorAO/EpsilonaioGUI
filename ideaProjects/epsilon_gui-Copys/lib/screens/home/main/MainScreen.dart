@@ -431,16 +431,16 @@ class Calendar extends State<_CalendarState> {
               weekendStyle: TextStyle(color: Colors.white)),
           calendarStyle: CalendarStyle(
             selectedDecoration: BoxDecoration(
-              color: Color.fromARGB(188, 255, 255, 255),
+              color: Color.fromARGB(60, 255, 255, 255),
               shape: BoxShape.circle,
               border: Border.all(
-                  width: 5.0, color: Color.fromARGB(188, 255, 255, 255)),
+                  width: 5.0, color: Color.fromARGB(0, 255, 255, 255)),
             ),
             todayDecoration: BoxDecoration(
-              color: Color.fromARGB(188, 255, 255, 255),
+              color: Color.fromARGB(224, 25, 58, 176),
               shape: BoxShape.circle,
               border: Border.all(
-                  width: 5.0, color: Color.fromARGB(188, 255, 255, 255)),
+                  width: 5.0, color: Color.fromARGB(0, 255, 255, 255)),
             ),
             defaultTextStyle: TextStyle(fontSize: 14, color: Colors.white),
             weekendTextStyle: TextStyle(fontSize: 14, color: Colors.white),
