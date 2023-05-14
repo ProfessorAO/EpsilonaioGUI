@@ -48,8 +48,10 @@ class ReleasesData with ChangeNotifier {
 
   List<Map<String, String>> CreateMap(data) {
     for (int i = 0; i <= 5; i++) {
+      String name = data[i]['name'].toString();
+      String cappedName = name.length <= 40 ? name : name.substring(0, 40);
       var map = <String, String>{
-        'name': data[i]['name'].toString(),
+        'name': cappedName,
         'date': data[i]['releaseDate'].toString(),
         'price': data[i]['retailPrice'].toString(),
         'img': data[i]['image']['small'].toString(),
