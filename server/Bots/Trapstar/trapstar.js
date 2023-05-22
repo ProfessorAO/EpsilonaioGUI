@@ -25,6 +25,12 @@ export default function trapstarBot(data, socket) {
     var Postcode = data['postcode'];
     var Phone = data['phone'];
     var keywords = data['keywords'];
+    var card_number = data['card_number'];
+    var card_name = data['card_name'];
+    data['exp'] =  String(1212);
+    data['security_code'] = String(1234);
+
+
 
   
     
@@ -66,6 +72,7 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await page.setDefaultNavigationTimeout(80000); 
    
     //await page.goto(`file://${path.resolve('C:/Users/david/uk.trapstarlondon.com/index.html')}`);
+    await page.goto("https://uk.trapstarlondon.com/products.json?100000000");
     var innerText = await botPack.getInnerTxt(page);
     const result = await botPack.getProductDetails (innerText,data.product,data.size,data.keywords);
     var handle = result.handle;
@@ -100,6 +107,10 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await botPack.closePopupIfExists(page, '#omnisend-form-5f4906684c7fa469cfd02c58-close-icon');
     await page.waitForSelector("#continue_button");
     await page.click("#continue_button");
+    await page.waitForSelector("#continue_button");
+    await page.click("#continue_button");
+    await botPack.sleep(5000);
+    await fillCardForm(page,data);
     console.log("completed");
     await botPack.sleep(2000);
  
@@ -132,6 +143,43 @@ function check_dataTypes(Product, Size, FirstName, LastName, CardName, CardNumbe
     await botPack.sleep(2000);
     await page.keyboard.type("davidodunlade@hotmail.co.uk",{delay: 10});
   }
+
+  async function fillCardForm(page, data) {
+    await botPack.sleep(3000);
+  
+    // Switch to the iframe for the card number
+    var cardNumberFrame = await page.frames().find(f => f.name().includes('card-fields-number'));
+    if (!cardNumberFrame) {
+        throw new Error("Card number frame not found");
+    }
+    await botPack.sleep(2000);
+    await cardNumberFrame.type('input[name="number"]', data.card_number, {delay: 10});
+  
+    // Switch to the iframe for the card name
+    let cardNameFrame = await page.frames().find(f => f.name().includes('card-fields-name'));
+    if (!cardNameFrame) {
+        throw new Error("Card name frame not found");
+    }
+    await botPack.sleep(2000);
+    await cardNameFrame.type('input[name="name"]', data.card_name, {delay: 10});
+  
+    // Switch to the iframe for the expiry date
+    let cardExpiryFrame = await page.frames().find(f => f.name().includes('card-fields-expiry'));
+    if (!cardExpiryFrame) {
+        throw new Error("Card expiry frame not found");
+    }
+    await botPack.sleep(2000);
+    await cardExpiryFrame.type('input[name="expiry"]', data.exp, {delay: 10});
+  
+    // Switch to the iframe for the security code
+    let cardSecurityFrame = await page.frames().find(f => f.name().includes('card-fields-verification_value'));
+    if (!cardSecurityFrame) {
+        throw new Error("Card security frame not found");
+    }
+    await botPack.sleep(2000);
+    await cardSecurityFrame.type('input[name="verification_value"]', data.security_code, {delay: 10});
+  }
+  
 
   
 
