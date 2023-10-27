@@ -362,23 +362,17 @@ class _ProfileGroupState extends State<ProfileGroup> {
                       ),
                   onPressed: () {
                     final ProfileGroupNameController = TextEditingController();
-                    //widget.groupProvider.setContext(context);
-                    //widget.groupProvider.setProfilesData();
                     String profileGroupName = "";
                     context.read<ProfileGroupProvider>().refreshData();
-                    //context.read<ProfileProvider>().getTable();
                     showPopupWindow(
                       context,
                       gravity: KumiPopupGravity.center,
-                      //curve: Curves.elasticOut,
                       bgColor: Color.fromARGB(255, 17, 26, 59).withOpacity(0.8),
                       clickOutDismiss: true,
                       clickBackDismiss: true,
                       customAnimation: false,
                       customPop: false,
                       customPage: false,
-                      //targetRenderBox: (btnKey.currentContext.findRenderObject() as RenderBox),
-                      //needSafeDisplay: true,
                       underStatusBar: false,
                       underAppBar: true,
                       offsetX: 0,

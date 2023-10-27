@@ -23,6 +23,7 @@ class Taskinstance with ChangeNotifier {
   String taskPrice = '';
   String tasktype = "";
   String taskstatus = "Ready";
+  String taskProxy = "";
   bool check = false;
   bool isactive = false;
   DataRow taskRow = DataRow(cells: []);
