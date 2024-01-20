@@ -8,18 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:window_size/window_size.dart';
 
-
-
 void main() {
   runApp(
-  MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (_)=> TasksLists()),
-      ChangeNotifierProvider(create: (_)=> ConsoleLogger()),
-      ChangeNotifierProvider(create: (_)=> TasksInputs()),
-      ChangeNotifierProvider(create: (_)=> Taskinstance(0,"","","","")),
-  ],
-    child:MyApp() ,
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => TasksLists()),
+        ChangeNotifierProvider(create: (_) => ConsoleLogger()),
+        ChangeNotifierProvider(create: (_) => TasksInputs()),
+        ChangeNotifierProvider(create: (_) => Taskinstance(0, "", "", "", "")),
+      ],
+      child: MyApp(),
     ),
   );
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,17 +26,14 @@ void main() {
   setWindowMinSize(const Size(1600, 830));
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
-  Widget build (BuildContext context) {
+  Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Epsilon AIO',
-      theme:ThemeData(
-        primaryColor: Colors.grey,
-        primarySwatch: Colors.grey
-      ),
-    home: MainScreen(),
+      theme: ThemeData(primaryColor: Colors.grey, primarySwatch: Colors.grey),
+      home: MainScreen(),
     );
   }
 }
